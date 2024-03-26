@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Transactions;
-using UnityEditor;
 using UnityEngine;
 
 public class EnemyM : MonoBehaviour
 {
     
     [SerializeField] float speed;
-    [SerializeField] float stoppingDistance;
+    [SerializeField] float distanceToPlayer;
     private Transform player;
 
     void Start ()
@@ -20,17 +19,17 @@ public class EnemyM : MonoBehaviour
     {
         float distance = Vector3.Distance(transform.position, player.position);
 
-        if (distance > stoppingDistance + 1)
+        if (distance > distanceToPlayer + 1)
         {
-            // Move towards the player
+            // Deketin titik range attack
             Vector3 direction = player.position - transform.position;
             direction.y = 0f;
             direction.Normalize();
             transform.Translate(direction * speed * Time.deltaTime);
         }
-        else if (distance < stoppingDistance - 1)
+        else if (distance < distanceToPlayer - 1)
         {
-            // Move towards the player
+            // Jauhin titik range attack
             Vector3 direction = transform.position - player.position;
             direction.y = 0f;
             direction.Normalize();
