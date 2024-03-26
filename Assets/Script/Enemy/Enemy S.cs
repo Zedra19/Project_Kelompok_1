@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterMovementTowardObject : MonoBehaviour
+public class EnemyS : MonoBehaviour
 {
     public float Speed = 5.0f;
     public float Gravity = 9.81f;

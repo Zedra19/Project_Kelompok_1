@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class EnemyDetection : MonoBehaviour
+public class EnemyL : MonoBehaviour
 {
     public float DetectionRange = 0f;
     public float AttackRange = 0f;
@@ -66,7 +66,7 @@ public class EnemyDetection : MonoBehaviour
     void AttackPlayer()
     {
         Debug.Log("Damage");
-        
+
         // Beri knockback pada pemain
         Vector3 knockbackdirection = (_playerTransform.position - transform.position).normalized;
         _playerTransform.GetComponent<Rigidbody>().AddForce(knockbackdirection * KnockbackForce, ForceMode.Impulse);
