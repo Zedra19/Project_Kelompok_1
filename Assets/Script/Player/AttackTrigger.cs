@@ -5,11 +5,13 @@ using UnityEngine;
 public class AttackTrigger : MonoBehaviour
 {
     Combo comboScript;
+    KillCount killCountScript;
     PlayerAttack playerAttackScript;
     // Start is called before the first frame update
     void Start()
     {
         comboScript = FindObjectOfType<Combo>();
+        killCountScript = FindAnyObjectByType<KillCount>();
         playerAttackScript = FindObjectOfType<PlayerAttack>();
     }
 
@@ -24,6 +26,8 @@ public class AttackTrigger : MonoBehaviour
         if (collision.gameObject.tag == "Enemy" && playerAttackScript.isAttacking)
         {
             comboScript.comboCount++;
+            Destroy(collision.gameObject);
+            killCountScript.killCount++;
             Destroy(collision.gameObject);
         }
     }
