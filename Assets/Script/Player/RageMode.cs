@@ -25,6 +25,7 @@ public class RageMode : MonoBehaviour
             // Rage mode Start
             timer += Time.deltaTime;
             GetComponent<Renderer>().material.color = RageColor;
+            comboScript.comboCount = ComboRageTrigger;
             if(timer >= RageTime)
             {
                 // Rage mode ends

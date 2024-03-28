@@ -65,8 +65,6 @@ public class EnemyL : MonoBehaviour
     // Fungsi untuk menyerang pemain
     void AttackPlayer()
     {
-        Debug.Log("Damage");
-
         // Beri knockback pada pemain
         Vector3 knockbackdirection = (_playerTransform.position - transform.position).normalized;
         _playerTransform.GetComponent<Rigidbody>().AddForce(knockbackdirection * KnockbackForce, ForceMode.Impulse);

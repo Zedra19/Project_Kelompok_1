@@ -7,12 +7,12 @@ public class PlayerAttack : MonoBehaviour
     private PlayerInput _playerInput;
     private Coroutine _attackRoutine = null; //use to run attack with duration
     [SerializeField] private Animator _animator;
-    private float _attackDuration = 1f;
+    [SerializeField] float _attackDuration;
+    public bool isAttacking = false;
 
     private void Awake()
     {
         _playerInput = new PlayerInput();
-
         _playerInput.CharacterControls.Attack.performed += OnAttack;
     }
 
@@ -38,7 +38,12 @@ public class PlayerAttack : MonoBehaviour
     private IEnumerator AttackRoutine()
     {
         _animator.SetTrigger("Attack");
+        isAttacking = true;
         yield return new WaitForSeconds(_attackDuration);
         _attackRoutine = null;
+        if(_attackRoutine == null)
+        {
+            isAttacking = false;
+        }
     }
 }

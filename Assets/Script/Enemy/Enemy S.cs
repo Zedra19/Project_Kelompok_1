@@ -38,7 +38,7 @@ public class EnemyS : MonoBehaviour
     {
         if (hit.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Collided with Player!");
+            
         }
     }
 }
