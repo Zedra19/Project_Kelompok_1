@@ -7,7 +7,7 @@ public class RageMode : MonoBehaviour
     Combo comboScript;
     [SerializeField] float RageTime;
     public int ComboRageTrigger;
-    float timer = 0f;
+    float rageTimer = 0f;
     Color baseColor;
     Color RageColor = Color.red; //ganti warna rage mode sesuai keinginan
     
@@ -23,13 +23,13 @@ public class RageMode : MonoBehaviour
         if(comboScript.comboCount >= ComboRageTrigger)
         {
             // Rage mode Start
-            timer += Time.deltaTime;
+            rageTimer += Time.deltaTime;
             GetComponent<Renderer>().material.color = RageColor;
             comboScript.comboCount = ComboRageTrigger;
-            if(timer >= RageTime)
+            if(rageTimer >= RageTime)
             {
                 // Rage mode ends
-                timer = 0;
+                rageTimer = 0;
                 comboScript.comboCount = 0;
                 GetComponent<Renderer>().material.color = baseColor;
             }
