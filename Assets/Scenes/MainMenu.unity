@@ -434,7 +434,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 632651529}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 632651531}
+        m_TargetAssemblyTypeName: ManageScene, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &632651529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -637,7 +649,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 999469803}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 999469805}
+        m_TargetAssemblyTypeName: ManageScene, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &999469803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1140,6 +1164,7 @@ GameObject:
   - component: {fileID: 1269823700}
   - component: {fileID: 1269823699}
   - component: {fileID: 1269823698}
+  - component: {fileID: 1269823701}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -1210,7 +1235,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1269823699}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1269823701}
+        m_TargetAssemblyTypeName: QuitGame, Assembly-CSharp
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1269823699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1249,6 +1286,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1269823696}
   m_CullTransparentMesh: 1
+--- !u!114 &1269823701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269823696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03972bec7d06a5946a44637f74bce2b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1284851994
 GameObject:
   m_ObjectHideFlags: 0
@@ -1332,7 +1381,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1284851997}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1284851999}
+        m_TargetAssemblyTypeName: ManageScene, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1284851997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1996,7 +2057,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2041984670}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2041984668}
+        m_TargetAssemblyTypeName: ManageScene, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2041984670
 MonoBehaviour:
   m_ObjectHideFlags: 0
