@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private PlayerInput _playerInput;
     private Rigidbody _rigidbody;
+    private Stamina _stamina;
 
     [SerializeField] private Transform _visualObject; // Reference to the object representing the player visually
     [SerializeField] private Transform _pointer; // Reference to object to face
@@ -42,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
-
+        _stamina = GetComponent<Stamina>();
         _playerInput = new PlayerInput();
 
         _playerInput.CharacterControls.Move.started += OnMovementInput;
@@ -57,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDodgeInput(InputAction.CallbackContext context)
     {
-        if (!_isDodging || _isAllowedToDodge)
+        if ((!_isDodging || _isAllowedToDodge) && _stamina.CurrentStamina >= 1)
         {
             StartCoroutine(Dodge());
         }

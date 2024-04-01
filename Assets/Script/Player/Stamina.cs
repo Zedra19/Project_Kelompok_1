@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class Stamina : MonoBehaviour
 {
     private Coroutine recharge;
-    
-    public bool Dodge = false;
      
     public Collider characterCollider;
 
@@ -15,19 +13,17 @@ public class Stamina : MonoBehaviour
     public Image StaminaBar;
     public float CurrentStamina, MaxStamina;
     public float DodgeCost;
-    // Start is called before the first frame update
+   
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+ 
     void Update()
     {
         if (Input.GetKeyDown("space") && CurrentStamina >= 1)
         {
-            //Dodge = true;
-            //characterCollider.enabled = false;
             CurrentStamina -= DodgeCost;
             if(CurrentStamina < 0) CurrentStamina= 0;
             StaminaBar.fillAmount = CurrentStamina / MaxStamina;
@@ -35,11 +31,6 @@ public class Stamina : MonoBehaviour
             if(recharge != null) StopCoroutine(recharge);
             recharge = StartCoroutine(RechargeStamina());
         }
-        //else if (Input.GetKeyUp("space"))
-        //{
-        //    Dodge = false;
-        //    characterCollider.enabled = true;
-       // }
     }
 
     private IEnumerator RechargeStamina()
