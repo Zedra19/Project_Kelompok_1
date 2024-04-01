@@ -9,6 +9,10 @@ public class EnemyM : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float distanceToPlayer;
     private Transform player;
+    private float timer = 0f;
+    [SerializeField] float timeIntervalToMove;
+    bool enableToMove = true;
+    bool timerIsRunning = false;
 
     void Start ()
     {
@@ -17,9 +21,14 @@ public class EnemyM : MonoBehaviour
 
     void Update()
     {
+        moving();
+        timerCount();
+    }
+
+    void moving(){
         float distance = Vector3.Distance(transform.position, player.position);
 
-        if (distance > distanceToPlayer + 1)
+        if (distance > distanceToPlayer + 1 && enableToMove)
         {
             // Deketin titik range attack
             Vector3 direction = player.position - transform.position;
@@ -27,13 +36,31 @@ public class EnemyM : MonoBehaviour
             direction.Normalize();
             transform.Translate(direction * speed * Time.deltaTime);
         }
-        else if (distance < distanceToPlayer - 1)
+        else if (distance < distanceToPlayer - 1 && enableToMove)
         {
             // Jauhin titik range attack
             Vector3 direction = transform.position - player.position;
             direction.y = 0f;
             direction.Normalize();
             transform.Translate(direction * speed * Time.deltaTime);
+        }
+        else if(distance <= distanceToPlayer + 1 && distance >= distanceToPlayer - 1)
+        {
+            timerIsRunning = true;
+        }
+    }
+
+    void timerCount(){
+        if(timerIsRunning)
+        {
+            timer += Time.deltaTime;
+            enableToMove = false;
+            if(timer >= timeIntervalToMove)
+            {
+                timer = 0f;
+                enableToMove = true;
+                timerIsRunning = false;
+            }
         }
     }
 }
