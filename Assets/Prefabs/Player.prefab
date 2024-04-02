@@ -119,9 +119,10 @@ GameObject:
   - component: {fileID: 7954853474437553505}
   - component: {fileID: 8738463365973125529}
   - component: {fileID: 2227090429203875152}
+  - component: {fileID: 1932354144875450342}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,8 +180,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _visualObject: {fileID: 3629241678653555879}
   _pointer: {fileID: 0}
-  _speed: 1
-  _maxSpeed: 4
+  _speed: 4
+  _maxSpeed: 8
   _runMultiplier: 2
   _maxRunSpeed: 8
   _dodgeForce: 7
@@ -199,7 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 7407663455955540342}
-  _attackDuration: 0
+  _attackDuration: 1
   isAttacking: 0
 --- !u!54 &8738463365973125529
 Rigidbody:
@@ -242,7 +243,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
-  healthIcons: []
+  healthIcons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &1932354144875450342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426776051577652440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a1a1c39b9febc048b9d0208dc452946, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterCollider: {fileID: 3622914405019392800}
+  ChargeRate: 1
+  StaminaBar: {fileID: 0}
+  CurrentStamina: 3
+  MaxStamina: 3
+  DodgeCost: 1
 --- !u!1 &2708647156640216258
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,6 +278,8 @@ GameObject:
   - component: {fileID: 3470448058955406481}
   - component: {fileID: 8448878917880127134}
   - component: {fileID: 7407663455955540342}
+  - component: {fileID: 656220095265870665}
+  - component: {fileID: 3379487751950900858}
   m_Layer: 0
   m_Name: Keris
   m_TagString: Untagged
@@ -370,6 +394,45 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!54 &656220095265870665
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2708647156640216258}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!114 &3379487751950900858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2708647156640216258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3efbdc2e627c16e4ab9421c9dbc26721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5746210616379089503
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,6 +445,7 @@ GameObject:
   - component: {fileID: 4509473740507597742}
   - component: {fileID: 6172834128543317185}
   - component: {fileID: 5315381745224880164}
+  - component: {fileID: 2113172303638860251}
   m_Layer: 0
   m_Name: PlayerVisual
   m_TagString: Untagged
@@ -479,3 +543,17 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2113172303638860251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5746210616379089503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe243425541c2f438a7d0bfa6a04bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RageTime: 5
+  ComboRageTrigger: 8

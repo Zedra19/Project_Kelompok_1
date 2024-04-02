@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy S
+  - Enemy M
+  - Enemy L
+  - Boss
   layers:
   - Default
   - TransparentFX

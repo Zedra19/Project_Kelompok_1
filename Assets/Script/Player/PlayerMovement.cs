@@ -29,9 +29,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 _currentMovement;
     private Vector3 _currentRunMovement;
     private Vector3 _lastPosition;
-    private int _lastFacingAnimationState = 0;
     private bool _isRunPressed;
-    private float _distanceToPointer;
     private bool _isMovementPressed;
     private float _rotationFactorPerFrame = 15f;
 
