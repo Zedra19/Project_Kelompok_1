@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 _currentMovement;
     private Vector3 _currentRunMovement;
     private Vector3 _lastPosition;
+    private int _lastFacingAnimationState = 0;
     private bool _isRunPressed;
     private float _distanceToPointer;
     private bool _isMovementPressed;
@@ -278,7 +279,7 @@ public class PlayerMovement : MonoBehaviour
                     Debug.Log("Jalan Maju CODE 16");
                 }
                 */
-                AnimateByDirection(1, 2, 3, 0);
+                AnimateByDirection(2, 1, 3, 0);
             }
         }
 
@@ -308,6 +309,7 @@ public class PlayerMovement : MonoBehaviour
                                 }
                                 */
                 AnimateByDirection(3, 0, 2, 1);
+
             }
             if (distanceInXAxis < distanceInZAxis)
             {
@@ -333,7 +335,7 @@ public class PlayerMovement : MonoBehaviour
                             }
                             */
 
-                AnimateByDirection(1, 2, 3, 0);
+                AnimateByDirection(2, 1, 0, 3);
             }
         }
 
@@ -391,6 +393,13 @@ public class PlayerMovement : MonoBehaviour
 
 
         _lastPosition = transform.position;
+        /*  _lastFacingAnimationState = _facingAnimatorState;
+          if (_lastFacingAnimationState == _facingAnimatorState)
+          {
+              return;
+          }
+          */
+
         // Set the animator variable:
         _animator.SetInteger("MovementDirection", _facingAnimatorState);
 
