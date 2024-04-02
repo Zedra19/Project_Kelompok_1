@@ -18,12 +18,12 @@ public class AttackTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Enemy" && playerAttackScript.isAttacking)
+        if (collision.gameObject.tag == "Enemy" && playerAttackScript.IsAttacking)
         {
             comboScript.comboCount++;
             Destroy(collision.gameObject);

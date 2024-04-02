@@ -6,12 +6,14 @@ public class PlayerAttack : MonoBehaviour
 {
     private PlayerInput _playerInput;
     private Coroutine _attackRoutine = null; //use to run attack with duration
+    private PlayerMovement _playerMovement;
     [SerializeField] private Animator _animator;
     [SerializeField] float _attackDuration;
-    public bool isAttacking = false;
+    public bool IsAttacking { get; private set; } = false;
 
     private void Awake()
     {
+        _playerMovement = GetComponent<PlayerMovement>();
         _playerInput = new PlayerInput();
         _playerInput.CharacterControls.Attack.performed += OnAttack;
     }
@@ -28,8 +30,8 @@ public class PlayerAttack : MonoBehaviour
 
     private void OnAttack(InputAction.CallbackContext context)
     {
-        //only attack if currently not attacking
-        if (_attackRoutine == null)
+        //only attack if currently not attacking and not dodging
+        if (_attackRoutine == null && !_playerMovement.IsDodging)
         {
             _attackRoutine = StartCoroutine(AttackRoutine());
         }
@@ -38,12 +40,9 @@ public class PlayerAttack : MonoBehaviour
     private IEnumerator AttackRoutine()
     {
         _animator.SetTrigger("Attack");
-        isAttacking = true;
+        IsAttacking = true;
         yield return new WaitForSeconds(_attackDuration);
         _attackRoutine = null;
-        if(_attackRoutine == null)
-        {
-            isAttacking = false;
-        }
+        IsAttacking = false;
     }
 }
