@@ -10,7 +10,7 @@ public class RageMode : MonoBehaviour
     float rageTimer = 0f;
     Color baseColor;
     Color RageColor = Color.red; //ganti warna rage mode sesuai keinginan
-    
+
 
     void Start()
     {
@@ -20,13 +20,14 @@ public class RageMode : MonoBehaviour
 
     void Update()
     {
-        if(comboScript.comboCount >= ComboRageTrigger)
+        if (comboScript.comboCount >= ComboRageTrigger)
         {
+            Debug.Log("Rage Mode On");
             // Rage mode Start
             rageTimer += Time.deltaTime;
             GetComponent<Renderer>().material.color = RageColor;
             comboScript.comboCount = ComboRageTrigger;
-            if(rageTimer >= RageTime)
+            if (rageTimer >= RageTime)
             {
                 // Rage mode ends
                 rageTimer = 0;
