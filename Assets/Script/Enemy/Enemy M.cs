@@ -14,15 +14,28 @@ public class EnemyM : MonoBehaviour
     bool enableToMove = true;
     bool timerIsRunning = false;
 
+    public float Speed = 3.0f;
+    private CharacterController _characterController;
+    private Animator _animator; // Animator component
+
     void Start ()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        _characterController = GetComponent<CharacterController>();
+        _animator = GetComponent<Animator>(); // Get the Animator component
     }
 
     void Update()
     {
+        RotateToPlayer();
         moving();
-        timerCount();
+        attacking();
+    }
+
+    void RotateToPlayer(){
+        Vector3 direction = player.position - transform.position;
+        direction.y = 0f;
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 5f * Time.deltaTime);
     }
 
     void moving(){
@@ -32,35 +45,44 @@ public class EnemyM : MonoBehaviour
         {
             // Deketin titik range attack
             Vector3 direction = player.position - transform.position;
-            direction.y = 0f;
             direction.Normalize();
-            transform.Translate(direction * speed * Time.deltaTime);
+            direction.y = 0f;
+            Vector3 movement = direction * Speed * Time.deltaTime;
+            _characterController.Move(movement);
+            _animator.SetBool("Moving", true);
         }
         else if (distance < distanceToPlayer - 1 && enableToMove)
         {
             // Jauhin titik range attack
             Vector3 direction = transform.position - player.position;
-            direction.y = 0f;
             direction.Normalize();
-            transform.Translate(direction * speed * Time.deltaTime);
+            direction.y = 0f;
+            Vector3 movement = direction * Speed * Time.deltaTime;
+            _characterController.Move(movement);
+            _animator.SetBool("Moving",true);
         }
         else if(distance <= distanceToPlayer + 1 && distance >= distanceToPlayer - 1)
         {
+            _animator.SetBool("Moving",false);
             timerIsRunning = true;
         }
     }
 
-    void timerCount(){
+    void attacking(){
         if(timerIsRunning)
         {
             timer += Time.deltaTime;
             enableToMove = false;
+            _animator.SetBool("AttackZone", true);
             if(timer >= timeIntervalToMove)
             {
                 timer = 0f;
                 enableToMove = true;
                 timerIsRunning = false;
+                _animator.SetBool("AttackZone", false);
             }
         }
     }
+
+    
 }
