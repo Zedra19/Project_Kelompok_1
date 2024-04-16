@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sSwarmerPrefab: {fileID: 9104420330852864316, guid: 2cfe252dfb72ed3478c3ba7657b28a16, type: 3}
-  _mSwarmerPrefab: {fileID: 1572481246328462831, guid: 99b02ce6bd0f70e42a8f77c97759f775, type: 3}
+  _mSwarmerPrefab: {fileID: 2799417565140236970, guid: 5cf41924b330f2c46a98d16ecc2fb7cd, type: 3}
   _lSwarmerPrefab: {fileID: 763990388291138446, guid: f6e52706680ea5e4aa9324169cc68fe5, type: 3}
   _bossPrefab: {fileID: 0}
   totalEnemyCount: 100
@@ -2005,6 +2005,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3193893094767221009}
   m_CullTransparentMesh: 1
+--- !u!1001 &5348743571062767956
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2799417565140236970, guid: 5cf41924b330f2c46a98d16ecc2fb7cd, type: 3}
+      propertyPath: m_Name
+      value: Enemy M
+      objectReference: {fileID: 0}
+    - target: {fileID: 3283783685385248784, guid: 5cf41924b330f2c46a98d16ecc2fb7cd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22.609497
+      objectReference: {fileID: 0}
+    - target: {fileID: 3283783685385248784, guid: 5cf41924b330f2c46a98d16ecc2fb7cd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.049999952
+      objectReference: {fileID: 0}
+    - target: {fileID: 3283783685385248784, guid: 5cf41924b330f2c46a98d16ecc2fb7cd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 17.687271
+      objectReference: {fileID: 0}
+    - target: {fileID: 3283783685385248784, guid: 5cf41924b330f2c46a98d16ecc2fb7cd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3283783685385248784, guid: 5cf41924b330f2c46a98d16ecc2fb7cd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3283783685385248784, guid: 5cf41924b330f2c46a98d16ecc2fb7cd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3283783685385248784, guid: 5cf41924b330f2c46a98d16ecc2fb7cd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3283783685385248784, guid: 5cf41924b330f2c46a98d16ecc2fb7cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3283783685385248784, guid: 5cf41924b330f2c46a98d16ecc2fb7cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3283783685385248784, guid: 5cf41924b330f2c46a98d16ecc2fb7cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5cf41924b330f2c46a98d16ecc2fb7cd, type: 3}
 --- !u!222 &6737114687018696128
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2109,3 +2166,4 @@ SceneRoots:
   - {fileID: 1558843505}
   - {fileID: 1312777879}
   - {fileID: 111365475}
+  - {fileID: 5348743571062767956}
