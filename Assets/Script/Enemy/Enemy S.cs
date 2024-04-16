@@ -21,17 +21,9 @@ public class EnemyS : MonoBehaviour
         if (player != null)
         {
             Vector3 direction = player.transform.position - transform.position;
-            direction.y = 0f; // Ignore vertical difference
-
-            if (direction.magnitude > 0.1f)
-            {
-                // Calculate the rotation needed to look at the player
-                Quaternion targetRotation = Quaternion.LookRotation(direction);
-                // Smoothly rotate towards the target rotation
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
-            }
-
             direction.Normalize();
+
+            direction.y = 0f;
 
             Vector3 movement = direction * Speed * Time.deltaTime;
 

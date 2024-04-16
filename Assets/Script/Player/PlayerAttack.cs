@@ -1,18 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 using UnityEngine.InputSystem;
 public class PlayerAttack : MonoBehaviour
 {
-    public bool IsAttacking { get; private set; } = false;
-    [SerializeField] private Animator _animator;
-    [SerializeField] float _attackDuration;
     private PlayerInput _playerInput;
     private Coroutine _attackRoutine = null; //use to run attack with duration
     private PlayerMovement _playerMovement;
-
-    public static event Action<bool> OnAttackDamaging;
+    [SerializeField] private Animator _animator;
+    [SerializeField] float _attackDuration;
+    public bool IsAttacking { get; private set; } = false;
 
     private void Awake()
     {
@@ -44,10 +41,8 @@ public class PlayerAttack : MonoBehaviour
     {
         _animator.SetTrigger("Attack");
         IsAttacking = true;
-        OnAttackDamaging?.Invoke(true);
         yield return new WaitForSeconds(_attackDuration);
         _attackRoutine = null;
-        OnAttackDamaging?.Invoke(false);
         IsAttacking = false;
     }
 }
