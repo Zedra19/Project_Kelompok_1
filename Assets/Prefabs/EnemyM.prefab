@@ -103,7 +103,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 20
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!95 &199548886768782343
 Animator:
@@ -141,7 +141,6 @@ MonoBehaviour:
   speed: 3
   distanceToPlayer: 10
   timeIntervalToMove: 3
-  Speed: 3
 --- !u!143 &2109550955578547057
 CharacterController:
   m_ObjectHideFlags: 0
@@ -161,10 +160,10 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 2
+  m_Height: 1.7
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.98, z: 0}
+  m_Center: {x: 0, y: 0.85, z: 0}

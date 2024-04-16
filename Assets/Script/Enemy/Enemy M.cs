@@ -5,16 +5,14 @@ using UnityEngine;
 
 public class EnemyM : MonoBehaviour
 {
-    
-    [SerializeField] float speed;
-    [SerializeField] float distanceToPlayer;
+    [SerializeField] float speed = 3f;
+    [SerializeField] float distanceToPlayer = 10f;
     private Transform player;
     private float timer = 0f;
-    [SerializeField] float timeIntervalToMove;
+    [SerializeField] float timeIntervalToMove = 3f;
     bool enableToMove = true;
     bool timerIsRunning = false;
 
-    public float Speed = 3.0f;
     private CharacterController _characterController;
     private Animator _animator; // Animator component
 
@@ -47,7 +45,7 @@ public class EnemyM : MonoBehaviour
             Vector3 direction = player.position - transform.position;
             direction.Normalize();
             direction.y = 0f;
-            Vector3 movement = direction * Speed * Time.deltaTime;
+            Vector3 movement = direction * speed * Time.deltaTime;
             _characterController.Move(movement);
             _animator.SetBool("Moving", true);
         }
@@ -57,7 +55,7 @@ public class EnemyM : MonoBehaviour
             Vector3 direction = transform.position - player.position;
             direction.Normalize();
             direction.y = 0f;
-            Vector3 movement = direction * Speed * Time.deltaTime;
+            Vector3 movement = direction * speed * Time.deltaTime;
             _characterController.Move(movement);
             _animator.SetBool("Moving",true);
         }
