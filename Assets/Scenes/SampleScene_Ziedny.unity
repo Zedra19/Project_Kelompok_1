@@ -306,7 +306,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &371689842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sSwarmerPrefab: {fileID: 9104420330852864316, guid: 2cfe252dfb72ed3478c3ba7657b28a16, type: 3}
-  _mSwarmerPrefab: {fileID: 983296329924772159, guid: 48835a4bc99837746bdba3ed9cae7c31, type: 3}
+  _mSwarmerPrefab: {fileID: 1572481246328462831, guid: 99b02ce6bd0f70e42a8f77c97759f775, type: 3}
   _lSwarmerPrefab: {fileID: 763990388291138446, guid: f6e52706680ea5e4aa9324169cc68fe5, type: 3}
   _bossPrefab: {fileID: 0}
   totalEnemyCount: 100
@@ -1518,11 +1518,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681260394}
   m_CullTransparentMesh: 1
---- !u!4 &1738976231 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2650728302462540884, guid: 03344f7216355a7438205641bab655fb, type: 3}
-  m_PrefabInstance: {fileID: 1187871662}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1969798747
 GameObject:
   m_ObjectHideFlags: 0
@@ -1778,7 +1773,7 @@ PrefabInstance:
     - target: {fileID: 3808349405739192136, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
       propertyPath: _visualObject
       value: 
-      objectReference: {fileID: 1738976231}
+      objectReference: {fileID: 341655520}
     - target: {fileID: 4681214313848904982, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
