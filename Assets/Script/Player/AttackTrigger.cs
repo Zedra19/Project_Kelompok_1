@@ -4,17 +4,30 @@ using UnityEngine;
 
 public class AttackTrigger : MonoBehaviour
 {
-    Combo comboScript;
-    KillCount killCountScript;
-    PlayerAttack playerAttackScript;
-    Score scoreScript;
+    [SerializeField] private float waitToDamaging = 0.5f;
+    private Combo comboScript;
+    private KillCount killCountScript;
+    private Score scoreScript;
+    private bool isAttacking = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
         comboScript = FindObjectOfType<Combo>();
         killCountScript = FindAnyObjectByType<KillCount>();
-        playerAttackScript = FindObjectOfType<PlayerAttack>();
         scoreScript = FindObjectOfType<Score>();
+    }
+
+    private void OnEnable()
+    {
+        PlayerAttack.OnAttackDamaging += OnAttack;
+
+    }
+
+    private void OnDisable()
+    {
+        PlayerAttack.OnAttackDamaging -= OnAttack;
     }
 
     // Update is called once per frame
@@ -23,75 +36,93 @@ public class AttackTrigger : MonoBehaviour
 
     }
 
-    private void OnTriggerStay(Collider other)
+    void OnAttack(bool start)
     {
-        if (other.gameObject.CompareTag("Enemy S") && playerAttackScript.IsAttacking)
+        if (start)
         {
-            Debug.Log("Hit Enemy S");
-            scoreScript.currentScore += scoreScript.EnemyS;
-            comboScript.comboCount++;
-            killCountScript.killCount++;
-            Destroy(other.gameObject);
+            StartCoroutine(HitAtTheTime());
         }
-        else if (other.gameObject.CompareTag("Enemy M") && playerAttackScript.IsAttacking)
+        else
         {
-            Debug.Log("Hit Enemy M");
-            scoreScript.currentScore += scoreScript.EnemyM;
-            comboScript.comboCount++;
-            killCountScript.killCount++;
-            Destroy(other.gameObject);
-        }
-        else if (other.gameObject.CompareTag("Enemy L") && playerAttackScript.IsAttacking)
-        {
-            Debug.Log("Hit Enemy L");
-            scoreScript.currentScore += scoreScript.EnemyL;
-            comboScript.comboCount++;
-            killCountScript.killCount++;
-            Destroy(other.gameObject);
-        }
-        else if (other.gameObject.CompareTag("Boss") && playerAttackScript.IsAttacking)
-        {
-            Debug.Log("Hit Boss");
-            scoreScript.currentScore += scoreScript.Boss;
-            comboScript.comboCount++;
-            killCountScript.killCount++;
-            Destroy(other.gameObject);
+            isAttacking = false;
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    IEnumerator HitAtTheTime()
     {
-        if (collision.gameObject.CompareTag("Enemy S") && playerAttackScript.IsAttacking)
-        {
-            Debug.Log("Hit Enemy S");
-            scoreScript.currentScore += scoreScript.EnemyS;
-            comboScript.comboCount++;
-            killCountScript.killCount++;
-            Destroy(collision.gameObject);
-        }
-        else if (collision.gameObject.CompareTag("Enemy M") && playerAttackScript.IsAttacking)
-        {
-            Debug.Log("Hit Enemy M");
-            scoreScript.currentScore += scoreScript.EnemyM;
-            comboScript.comboCount++;
-            killCountScript.killCount++;
-            Destroy(collision.gameObject);
-        }
-        else if (collision.gameObject.CompareTag("Enemy L") && playerAttackScript.IsAttacking)
-        {
-            Debug.Log("Hit Enemy L");
-            scoreScript.currentScore += scoreScript.EnemyL;
-            comboScript.comboCount++;
-            killCountScript.killCount++;
-            Destroy(collision.gameObject);
-        }
-        else if (collision.gameObject.CompareTag("Boss") && playerAttackScript.IsAttacking)
-        {
-            Debug.Log("Hit Boss");
-            scoreScript.currentScore += scoreScript.Boss;
-            comboScript.comboCount++;
-            killCountScript.killCount++;
-            Destroy(collision.gameObject);
-        }
+        yield return new WaitForSeconds(waitToDamaging);
+        isAttacking = true;
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (isAttacking)
+        {
+            if (other.gameObject.CompareTag("Enemy S"))
+            {
+                Debug.Log("Hit Enemy S");
+                DestroyEnemy(scoreScript.EnemyS, other.gameObject);
+            }
+            else if (other.gameObject.CompareTag("Enemy M"))
+            {
+                Debug.Log("Hit Enemy M");
+                DestroyEnemy(scoreScript.EnemyM, other.gameObject);
+            }
+            else if (other.gameObject.CompareTag("Enemy L"))
+            {
+                Debug.Log("Hit Enemy L");
+                DestroyEnemy(scoreScript.EnemyL, other.gameObject);
+            }
+            else if (other.gameObject.CompareTag("Boss"))
+            {
+                Debug.Log("Hit Boss");
+                DestroyEnemy(scoreScript.Boss, other.gameObject);
+            }
+        }
+
+    }
+
+    void DestroyEnemy(int score, GameObject other)
+    {
+        scoreScript.currentScore += score;
+        comboScript.comboCount++;
+        killCountScript.killCount++;
+        Destroy(other);
+    }
+
+    // void OnCollisionEnter(Collision collision)
+    // {
+    //     if (collision.gameObject.CompareTag("Enemy S") && playerAttackScript.IsAttacking)
+    //     {
+    //         Debug.Log("Hit Enemy S");
+    //         scoreScript.currentScore += scoreScript.EnemyS;
+    //         comboScript.comboCount++;
+    //         killCountScript.killCount++;
+    //         Destroy(collision.gameObject);
+    //     }
+    //     else if (collision.gameObject.CompareTag("Enemy M") && playerAttackScript.IsAttacking)
+    //     {
+    //         Debug.Log("Hit Enemy M");
+    //         scoreScript.currentScore += scoreScript.EnemyM;
+    //         comboScript.comboCount++;
+    //         killCountScript.killCount++;
+    //         Destroy(collision.gameObject);
+    //     }
+    //     else if (collision.gameObject.CompareTag("Enemy L") && playerAttackScript.IsAttacking)
+    //     {
+    //         Debug.Log("Hit Enemy L");
+    //         scoreScript.currentScore += scoreScript.EnemyL;
+    //         comboScript.comboCount++;
+    //         killCountScript.killCount++;
+    //         Destroy(collision.gameObject);
+    //     }
+    //     else if (collision.gameObject.CompareTag("Boss") && playerAttackScript.IsAttacking)
+    //     {
+    //         Debug.Log("Hit Boss");
+    //         scoreScript.currentScore += scoreScript.Boss;
+    //         comboScript.comboCount++;
+    //         killCountScript.killCount++;
+    //         Destroy(collision.gameObject);
+    //     }
+    // }
 }
