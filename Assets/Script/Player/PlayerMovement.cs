@@ -6,10 +6,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
-    private PlayerInput _playerInput;
-    private Rigidbody _rigidbody;
-    private Stamina _stamina;
-    private PlayerAttack _playerAttack;
+    public bool IsDodging { get; private set; } = false;
 
     [SerializeField] private Animator _animator;
     [SerializeField] private Transform _visualObject; // Reference to the object representing the player visually
@@ -22,13 +19,18 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _dodgeForce = 7f;
     [SerializeField] private float _maxDodgeSpeed = 20f;
     [SerializeField] private float _dodgeDuration = 1f;
-    public bool IsDodging { get; private set; } = false;
-    private bool _isAllowedToDodge = true;
-    private int _facingAnimatorState = 0;
+
+    private PlayerInput _playerInput;
+    private Rigidbody _rigidbody;
+    private Stamina _stamina;
+    private PlayerAttack _playerAttack;
     private Vector2 _currentMovementInput;
     private Vector3 _currentMovement;
     private Vector3 _currentRunMovement;
     private Vector3 _lastPosition;
+
+    private bool _isAllowedToDodge = true;
+    private int _facingAnimatorState = 0;
     private bool _isRunPressed;
     private bool _isMovementPressed;
     private float _rotationFactorPerFrame = 15f;
@@ -90,6 +92,10 @@ public class PlayerMovement : MonoBehaviour
 
         _currentMovement = transform.forward * _currentMovementInput.y + transform.right * _currentMovementInput.x;
         _currentRunMovement = _currentMovement * _runMultiplier;
+
+
+        Debug.Log("Current Movement: " + _currentMovement);
+        Debug.Log($"Velocity{_rigidbody.velocity}");
     }
 
     private void OnRunInput(InputAction.CallbackContext context)
@@ -135,11 +141,21 @@ public class PlayerMovement : MonoBehaviour
         {
             _rigidbody.AddForce(_currentRunMovement, ForceMode.VelocityChange);
             _rigidbody.maxLinearVelocity = _maxRunSpeed;
+            //so its not faster when moving in two axis
+            if ((_currentMovement.x > 2 || _currentMovement.x < -2) && (_currentMovement.z > 2 || _currentMovement.z < -2))
+            {
+                _rigidbody.maxLinearVelocity = _maxRunSpeed / 2;
+            }
         }
         else
         {
             _rigidbody.AddForce(_currentMovement, ForceMode.VelocityChange);
             _rigidbody.maxLinearVelocity = _maxSpeed;
+            //so its not faster when moving in two axis
+            if ((_currentMovement.x > 2 || _currentMovement.x < -2) && (_currentMovement.z > 2 || _currentMovement.z < -2))
+            {
+                _rigidbody.maxLinearVelocity = _maxSpeed / 2;
+            }
         }
         HandleMovementAnimation();
         if ((_rigidbody.velocity.x < 1 && _rigidbody.velocity.x > -1) || (_rigidbody.velocity.z > -1 && _rigidbody.velocity.z < 1))
@@ -179,49 +195,13 @@ public class PlayerMovement : MonoBehaviour
             {
                 Debug.Log("Posisi Player di Atas Kanan Atas Pointer");
                 // position of player is on Right of the pointer
-                /*
-                if (transform.position.x > _lastPosition.x && transform.position.x != _lastPosition.x)
-                {
-                    Debug.Log("Jalan Mundur CODE 1");
-                }
-                if (transform.position.x < _lastPosition.x && transform.position.x != _lastPosition.x)
-                {
-                    Debug.Log("Jalan Maju CODE 2");
-                }
-                if (transform.position.z > _lastPosition.z && transform.position.z != _lastPosition.z)
-                {
-                    Debug.Log("Jalan Kanan CODE 3");
-                }
-                if (transform.position.z < _lastPosition.z && transform.position.z != _lastPosition.z)
-                {
-                    Debug.Log("Jalan Kiri CODE 4");
-                }
-                */
                 AnimateByDirection(3, 0, 2, 1);
-
             }
             if (distanceInXAxis < distanceInZAxis)
             {
-                /*
+
                 Debug.Log("Posisi Player di Atas Pointer");
                 // position of player is on Top of the pointer
-                if (transform.position.z < _lastPosition.z && transform.position.z != _lastPosition.z)
-                {
-                    Debug.Log("Jalan Maju CODE 5");
-                }
-                if (transform.position.z > _lastPosition.z && transform.position.z != _lastPosition.z)
-                {
-                    Debug.Log("Jalan Mundur CODE 6");
-                }
-                if (transform.position.x > _lastPosition.x && transform.position.x != _lastPosition.x)
-                {
-                    Debug.Log("Jalan Kiri CODE 7");
-                }
-                if (transform.position.x < _lastPosition.x && transform.position.x != _lastPosition.x)
-                {
-                    Debug.Log("Jalan Kanan CODE 8");
-                }
-                */
                 AnimateByDirection(1, 2, 3, 0);
             }
         }
@@ -232,25 +212,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 Debug.Log("Posisi Player di Atas kiri Bawah Pointer");
                 // position of player is on Left of the pointer
-
-                /*
-                if (transform.position.z < _lastPosition.z && transform.position.z != _lastPosition.z)
-                {
-                    Debug.Log("Jalan Kiri CODE 9");
-                }
-                if (transform.position.z > _lastPosition.z && transform.position.z != _lastPosition.z)
-                {
-                    Debug.Log("Jalan Kanan CODE 10");
-                }
-                if (transform.position.x > _lastPosition.x && transform.position.x != _lastPosition.x)
-                {
-                    Debug.Log("Jalan Maju CODE 11");
-                }
-                if (transform.position.x < _lastPosition.x && transform.position.x != _lastPosition.x)
-                {
-                    Debug.Log("Jalan Mundur CODE 12");
-                }
-                */
                 AnimateByDirection(0, 3, 2, 1);
             }
             if (distanceInXAxis < distanceInZAxis)
@@ -259,24 +220,6 @@ public class PlayerMovement : MonoBehaviour
                 Debug.Log("Posisi Player di Atas kiri Atas Pointer");
                 // position of player is on Top of the pointer
 
-                /*
-                if (transform.position.x > _lastPosition.x && transform.position.x != _lastPosition.x)
-                {
-                    Debug.Log("Jalan Kiri CODE 13");
-                }
-                if (transform.position.x < _lastPosition.x && transform.position.x != _lastPosition.x)
-                {
-                    Debug.Log("Jalan Kanan CODE 14");
-                }
-                if (transform.position.z > _lastPosition.z && transform.position.z != _lastPosition.z)
-                {
-                    Debug.Log("Jalan Mundur CODE 15");
-                }
-                if (transform.position.z < _lastPosition.z && transform.position.z != _lastPosition.z)
-                {
-                    Debug.Log("Jalan Maju CODE 16");
-                }
-                */
                 AnimateByDirection(2, 1, 3, 0);
             }
         }
@@ -288,24 +231,6 @@ public class PlayerMovement : MonoBehaviour
 
                 // position of player is on Right of the pointer
                 Debug.Log("Posisi Player di Bawah Kanan Atas Pointer");
-                /*
-                                if (transform.position.z < _lastPosition.z && transform.position.z != _lastPosition.z)
-                                {
-                                    Debug.Log("Jalan Kiri CODE 17");
-                                }
-                                if (transform.position.z > _lastPosition.z && transform.position.z != _lastPosition.z)
-                                {
-                                    Debug.Log("Jalan Kanan CODE 18");
-                                }
-                                if (transform.position.x > _lastPosition.x && transform.position.x != _lastPosition.x)
-                                {
-                                    Debug.Log("Jalan Mundur CODE 19");
-                                }
-                                if (transform.position.x < _lastPosition.x && transform.position.x != _lastPosition.x)
-                                {
-                                    Debug.Log("Jalan Maju CODE 20");
-                                }
-                                */
                 AnimateByDirection(3, 0, 2, 1);
 
             }
@@ -313,26 +238,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 // position of player is on Bottom of the pointer
                 Debug.Log("Posisi Player di Bawah Kanan Bawah Pointer");
-
-                /*
-                            if (transform.position.x > _lastPosition.x && transform.position.x != _lastPosition.x)
-                            {
-                                Debug.Log("Jalan kanan CODE 21");
-                            }
-                            if (transform.position.x < _lastPosition.x && transform.position.x != _lastPosition.x)
-                            {
-                                Debug.Log("Jalan kiri CODE 22");
-                            }
-                            if (transform.position.z > _lastPosition.z && transform.position.z != _lastPosition.z)
-                            {
-                                Debug.Log("Jalan Mundur CODE 23");
-                            }
-                            if (transform.position.z < _lastPosition.z && transform.position.z != _lastPosition.z)
-                            {
-                                Debug.Log("Jalan Maju CODE 24");
-                            }
-                            */
-
                 AnimateByDirection(2, 1, 0, 3);
             }
         }
@@ -343,48 +248,12 @@ public class PlayerMovement : MonoBehaviour
             {
                 // position of player is on Left of the pointer
                 Debug.Log("Posisi Player di Bawah Kiri Atas Pointer");
-                /*
-                if (transform.position.z < _lastPosition.z && transform.position.z != _lastPosition.z)
-                {
-                    Debug.Log("Jalan Kiri CODE 25");
-                }
-                if (transform.position.z > _lastPosition.z && transform.position.z != _lastPosition.z)
-                {
-                    Debug.Log("Jalan Kanan CODE 26");
-                }
-                if (transform.position.x > _lastPosition.x && transform.position.x != _lastPosition.x)
-                {
-                    Debug.Log("Jalan Maju CODE 27");
-                }
-                if (transform.position.x < _lastPosition.x && transform.position.x != _lastPosition.x)
-                {
-                    Debug.Log("Jalan Mundur CODE 28");
-                }
-                */
                 AnimateByDirection(0, 3, 2, 1);
             }
             if (distanceInXAxis < distanceInZAxis)
             {
                 // position of player is on Bottom of the pointer
                 Debug.Log("Posisi Player di Bawah Kiri Bawah Pointer");
-                /*
-                if (transform.position.z < _lastPosition.z && transform.position.z != _lastPosition.z)
-                {
-                    Debug.Log("Jalan mundur CODE 29");
-                }
-                if (transform.position.z > _lastPosition.z && transform.position.z != _lastPosition.z)
-                {
-                    Debug.Log("Jalan maju CODE 30");
-                }
-                if (transform.position.x > _lastPosition.x && transform.position.x != _lastPosition.x)
-                {
-                    Debug.Log("Jalan kanan CODE 31");
-                }
-                if (transform.position.x < _lastPosition.x && transform.position.x != _lastPosition.x)
-                {
-                    Debug.Log("Jalan kiri CODE 32");
-                }
-                */
                 AnimateByDirection(1, 2, 0, 3);
             }
         }
