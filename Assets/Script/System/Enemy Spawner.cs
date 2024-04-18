@@ -15,25 +15,13 @@ public class EnemySpawner : MonoBehaviour
 
     public int totalEnemyCount;
     public float spawnInterval;
-    
-    private Instruction _instruction;
-
 
     private void Start()
     {
-        _instruction = GameObject.Find("Instruction").GetComponent<Instruction>();
-        CheckInstruction();
+        StartCoroutine(SpawnEnemies());
     }
 
-    public void CheckInstruction()
-    {
-        if(_instruction.statsInstructionCompleted)
-        {
-            StartCoroutine(SpawnEnemies());
-        }
-    }
-
-    private IEnumerator SpawnEnemies()
+    public IEnumerator SpawnEnemies()
     {
         while (totalEnemyCount > 0)
         {

@@ -3,7 +3,16 @@ guid: db89c5f0ab292c94fa42fcceaf87b2f3
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - MovementPop: {fileID: 919132149155446097, guid: 93bd4cf4ce61adc4880840a5c874bd9a, type: 3}
+  - DodgePop: {instanceID: 0}
+  - AttPop: {instanceID: 0}
+  - Health: {instanceID: 0}
+  - HealthPop: {instanceID: 0}
+  - Stamina: {instanceID: 0}
+  - StaminaPop: {instanceID: 0}
+  - Stats: {instanceID: 0}
+  - StatsPop: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

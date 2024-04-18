@@ -1,9 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Instruction : MonoBehaviour
 {
+    public delegate void InstructionCompleted();
+    public static event InstructionCompleted OnInstructionCompleted;
+
     public GameObject MovementPop;
     public GameObject DodgePop;
     public GameObject AttPop;
@@ -13,6 +14,8 @@ public class Instruction : MonoBehaviour
     public GameObject StaminaPop;
     public GameObject Stats;
     public GameObject StatsPop;
+
+    public EnemySpawner enemySpawner;
 
     private bool wPressed = false;
     private bool aPressed = false;
@@ -30,9 +33,9 @@ public class Instruction : MonoBehaviour
     private bool attInstructionCompleted = false;
     private bool healthInstructionCompleted = false;
     private bool staminaInstructionCompleted = false;
-    public bool statsInstructionCompleted = false;
+    private bool statsInstructionCompleted = false;
 
-    void Update()
+    private void Update()
     {
         if (!movementInstructionCompleted)
             MovementInstruction();
@@ -78,18 +81,18 @@ public class Instruction : MonoBehaviour
         }
     }
 
-    void DodgeInstruction()
+    private void DodgeInstruction()
     {
         if (wPressed && aPressed && sPressed && dPressed && Input.GetKeyDown(KeyCode.Space))
         {
             DodgePop.SetActive(false);
-            dodgePopDisplayed = true; 
+            dodgePopDisplayed = true;
             AttPop.SetActive(true);
             dodgeInstructionCompleted = true;
         }
     }
 
-    void AttInstruction()
+    private void AttInstruction()
     {
         if (wPressed && aPressed && sPressed && dPressed && !mouseMoved && Input.GetAxis("Mouse X") != 0 && Input.GetAxis("Mouse Y") != 0)
         {
@@ -104,7 +107,7 @@ public class Instruction : MonoBehaviour
         if (wPressed && aPressed && sPressed && dPressed && mouseMoved && leftMouseClicked)
         {
             AttPop.SetActive(false);
-            if (!healthPopDisplayed) 
+            if (!healthPopDisplayed)
             {
                 Health.SetActive(true);
                 HealthPop.SetActive(true);
@@ -126,7 +129,8 @@ public class Instruction : MonoBehaviour
         }
     }
 
-    void StaminaInstruction()
+
+    private void StaminaInstruction()
     {
         if (staminaPopDisplayed && Input.GetKeyDown(KeyCode.Return) && !statsPopDisplayed)
         {
@@ -138,12 +142,18 @@ public class Instruction : MonoBehaviour
         }
     }
 
-    void StatsInstruction()
+    private void StatsInstruction()
     {
         if (statsPopDisplayed && Input.GetKeyDown(KeyCode.Return))
         {
             StatsPop.SetActive(false);
             statsInstructionCompleted = true;
+            OnInstructionCompleted?.Invoke();
+
+            if (enemySpawner != null)
+            {
+                enemySpawner.enabled = true;
+            }
         }
     }
 }
