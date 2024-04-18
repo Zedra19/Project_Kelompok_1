@@ -30,7 +30,7 @@ public class Instruction : MonoBehaviour
     private bool attInstructionCompleted = false;
     private bool healthInstructionCompleted = false;
     private bool staminaInstructionCompleted = false;
-    private bool statsInstructionCompleted = false;
+    public bool statsInstructionCompleted = false;
 
     void Update()
     {
@@ -70,7 +70,7 @@ public class Instruction : MonoBehaviour
         if (wPressed && aPressed && sPressed && dPressed)
         {
             MovementPop.SetActive(false);
-            if (!dodgePopDisplayed) // Hanya munculkan "Dodge" pop-up jika belum ditampilkan sebelumnya
+            if (!dodgePopDisplayed) 
             {
                 DodgePop.SetActive(true);
                 movementInstructionCompleted = true;
@@ -83,7 +83,7 @@ public class Instruction : MonoBehaviour
         if (wPressed && aPressed && sPressed && dPressed && Input.GetKeyDown(KeyCode.Space))
         {
             DodgePop.SetActive(false);
-            dodgePopDisplayed = true; // Tandai bahwa "Dodge" pop-up sudah ditampilkan
+            dodgePopDisplayed = true; 
             AttPop.SetActive(true);
             dodgeInstructionCompleted = true;
         }
@@ -104,7 +104,7 @@ public class Instruction : MonoBehaviour
         if (wPressed && aPressed && sPressed && dPressed && mouseMoved && leftMouseClicked)
         {
             AttPop.SetActive(false);
-            if (!healthPopDisplayed) // Hanya munculkan pop-up kesehatan jika belum ditampilkan sebelumnya
+            if (!healthPopDisplayed) 
             {
                 Health.SetActive(true);
                 HealthPop.SetActive(true);
