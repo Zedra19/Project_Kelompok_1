@@ -1507,7 +1507,7 @@ GameObject:
   - component: {fileID: 318711284}
   - component: {fileID: 318711283}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1568,61 +1568,61 @@ MonoBehaviour:
     Adinda Mutiara
     Yasmin
 
-    Ziedny Mubarok
+    Ziedny Bisma Mubarok
 
 
     Resta Rahmadani Zulkarnain
 
-    Cindi Novitasari
+    Cindi
+    Novitasari
 
 
-    Cornelia
-    Rahmawati
+    Cornelia Rahmawati
 
 
 
     Resta Rahmadani Zulkarnain
 
-    Wahyu Pratama
+    Wahyu
+    Pratama
 
 
-    Maulana
-    Ihsan
+    Maulana Ihsan
 
     Zolla Humicha Rizqiando
 
 
+    Berliandika Ariel
+    Nugroho
+
+
     Berliandika Ariel Nugroho
-
-
-    Berliandika
-    Ariel Nugroho
 
     Resta Rahmadani Zulkarnain
 
-    Cindi Novitasari
+    Cindi
+    Novitasari
 
-    Adinda
-    Mutiara Yasmin
+    Adinda Mutiara Yasmin
 
 
     Cindi Novitasari
 
     Maulana Ihsan
 
-    Cornelia Rahmawati
+    Cornelia
+    Rahmawati
 
-    Adinda
-    Mutiara Yasmin
+    Adinda Mutiara Yasmin
 
 
     Adinda Mutiara Yasmin
 
-    Maulana Ihsan
+    Maulana
+    Ihsan
 
 
-    Cornelia
-    Rahmawati
+    Cornelia Rahmawati
 
 
     Nendra Atvirya Irsyadhi
@@ -1630,36 +1630,36 @@ MonoBehaviour:
 
     M Farhan Soedjana
 
-    Lufi Ilham
-    Zahul Haq
+    Lufi
+    Ilham Zahul Haq
 
     Wahyu Pratama
 
-    Ziedny Mubarok
+    Ziedny Bisma Mubarok
 
 
-    Zolla Humicha Rizqiando
-
-    Nendra
-    Atvirya Irsyadhi
-
-    Lufi Ilham Zahul Haq
-
-
-    Ziedny Mubarok
-
-    Wahyu Pratama
-
-
-    Ziedny
-    Mubarok
-
-    Lufi Ilham Zahul Haq
+    Zolla Humicha
+    Rizqiando
 
     Nendra Atvirya Irsyadhi
 
-    M Farhan
-    Soedjana
+    Lufi Ilham Zahul Haq
+
+
+    Ziedny
+    Bisma Mubarok
+
+    Wahyu Pratama
+
+
+    Ziedny Bisma Mubarok
+
+    Lufi Ilham Zahul
+    Haq
+
+    Nendra Atvirya Irsyadhi
+
+    M Farhan Soedjana
 
     Zolla Humicha Rizqiando
 
@@ -2285,7 +2285,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Historical
+  m_text: Back Story
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
@@ -2697,29 +2697,28 @@ MonoBehaviour:
     Kertanegara mengirim sebagian besar pasukannya ke tanah Sumatera untuk memperluas
     kekuatan militer dalam ekspedisi "Pamalayu".
 
-    
 
-    Akibatnya, pertahanan
-    di pusat kerajaan menjadi melemah dan dimanfaatkan oleh Arya Wiraraja dengan
-    menghasut Jayakatwang untuk melakukan pemberontakan. Karena sifat buruk Kertanegara,
-    banyak orang yang membencinya.
 
-    
+    Akibatnya, pertahanan di
+    pusat kerajaan menjadi melemah dan dimanfaatkan oleh Arya Wiraraja dengan menghasut
+    Jayakatwang untuk melakukan pemberontakan. Karena sifat buruk Kertanegara, banyak
+    orang yang membencinya.
 
-    (1292) Jayakatwang membagi pasukannya
-    menjadi 2 bagian. Yang pertama bertugas untuk menarik perhatian pasukan yang
-    ada di istana Singosari. Pasukan kedua memiliki tugas untuk melakukan kudeta
-    di istana ketika pertahanan istana sudah benar-benar kosong karena harus melawan
-    pasukan pertama.
+
+
+    (1292) Jayakatwang membagi pasukannya menjadi
+    2 bagian. Yang pertama bertugas untuk menarik perhatian pasukan yang ada di istana
+    Singosari. Pasukan kedua memiliki tugas untuk melakukan kudeta di istana ketika
+    pertahanan istana sudah benar-benar kosong karena harus melawan pasukan pertama.
 
 
     "Narrative"
 
-    Candra Kumara termakan siasat Jayakatwang
-    untuk mengejar pasukan pertama dan meninggalkan pertahanan istana dalam keadaan
-    kosong. Ketika hendak kembali ke istana, ia sadar semua sudah terlambat. Candra
-    Kumara terpisah dengan kawan-kawannya dalam keadaan terkepung oleh pasukan pemberontak.
-    Candra Kumara harus bertahan sendirian.'
+    Candra
+    Kumara termakan siasat Jayakatwang untuk mengejar pasukan pertama dan meninggalkan
+    pertahanan istana dalam keadaan kosong. Ketika hendak kembali ke istana, ia sadar
+    semua sudah terlambat. Candra Kumara terpisah dengan kawan-kawannya dalam keadaan
+    terkepung oleh pasukan pemberontak. Candra Kumara harus bertahan sendirian.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6516,9 +6515,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Historical
-
-'
+  m_text: Back Story
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
