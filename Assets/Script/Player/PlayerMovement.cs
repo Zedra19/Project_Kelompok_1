@@ -74,7 +74,10 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator Dodge()
     {
         _animator.SetTrigger("Dodge");
+        Debug.Log("Dodge");
+        _rigidbody.velocity = Vector3.zero; //make previous velocity to 0 so doesnt make dodge feel too fast/ too slow
         IsDodging = true;
+        _animator.SetBool("Move", false);
         // Get the dodge direction based on visual object's rotation
         Vector3 dodgeDirection = _visualObject.forward * -1f; // Push back
         // Apply a strong force in the dodge direction
@@ -137,6 +140,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleMovement()
     {
+        Debug.Log("Handle Movement ");
         if (_isRunPressed)
         {
             _rigidbody.AddForce(_currentRunMovement, ForceMode.VelocityChange);

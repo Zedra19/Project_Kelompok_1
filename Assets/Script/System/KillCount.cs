@@ -21,10 +21,13 @@ public class KillCount : MonoBehaviour
     void Update()
     {
         KillCountText.text = "Kill Count : " + killCount;
+        //activate boss health here
+        /*
         if (killCount >= killCountForBossSpawn)
         {
             bossHealthSlider.gameObject.SetActive(true);
             bossName.gameObject.SetActive(true);
         }
+        */
     }
 }

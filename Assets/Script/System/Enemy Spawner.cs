@@ -42,11 +42,14 @@ public class EnemySpawner : MonoBehaviour
 
             totalEnemyCount--;
 
+            //activate boss health here
+            /*
             if (totalEnemyCount == 0)
             {
                 Debug.Log("All enemies spawned");
                 Instantiate(_bossPrefab, GetRandomPosition(), Quaternion.identity);
             }
+            */
         }
     }
 
