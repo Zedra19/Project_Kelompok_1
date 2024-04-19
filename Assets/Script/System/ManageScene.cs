@@ -3,9 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class ManageScene : MonoBehaviour
 {
-    public string sceneName;
-
-    public void ChangeScene()
+    public void ChangeScene(string sceneName)
     {
         if (!string.IsNullOrEmpty(sceneName))
         {
