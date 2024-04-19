@@ -46,7 +46,7 @@ public class Health : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy S") || collision.gameObject.CompareTag("Enemy M") || collision.gameObject.CompareTag("Enemy L") || collision.gameObject.CompareTag("Boss"))
+        if (collision.gameObject.CompareTag("Enemy S") || collision.gameObject.CompareTag("Spear") || collision.gameObject.CompareTag("Enemy L") || collision.gameObject.CompareTag("Boss"))
         {
             TakeDamage(1);
         }
@@ -54,7 +54,7 @@ public class Health : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy S") || collision.gameObject.CompareTag("Enemy M") || collision.gameObject.CompareTag("Enemy L") || collision.gameObject.CompareTag("Boss"))
+        if (collision.gameObject.CompareTag("Enemy S") || collision.gameObject.CompareTag("Spear") || collision.gameObject.CompareTag("Enemy L") || collision.gameObject.CompareTag("Boss"))
         {
             hasTakenDamage = false;
         }

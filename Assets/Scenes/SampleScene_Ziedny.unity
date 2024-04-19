@@ -714,6 +714,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2145235173}
     m_Modifications:
+    - target: {fileID: 2068554100739371628, guid: 03344f7216355a7438205641bab655fb, type: 3}
+      propertyPath: m_Name
+      value: Keris
+      objectReference: {fileID: 0}
     - target: {fileID: 3795158872354817897, guid: 03344f7216355a7438205641bab655fb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1472,7 +1476,7 @@ GameObject:
   - component: {fileID: 1633723288}
   m_Layer: 6
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1718,6 +1722,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969798747}
   m_CullTransparentMesh: 1
+--- !u!1 &2005921301
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2005921302}
+  m_Layer: 0
+  m_Name: EnemyClone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2005921302
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005921301}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.59740335, y: 0.8918098, z: 5.169186}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2092678761
 GameObject:
   m_ObjectHideFlags: 0
@@ -2108,3 +2143,4 @@ SceneRoots:
   - {fileID: 1558843505}
   - {fileID: 1312777879}
   - {fileID: 111365475}
+  - {fileID: 2005921302}

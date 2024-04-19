@@ -8,6 +8,8 @@ TagManager:
   - Enemy M
   - Enemy L
   - Boss
+  - Spear
+  - Ground
   layers:
   - Default
   - TransparentFX
