@@ -1,28 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SoundSetting : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Slider MusicSlider, SFXSlider;
+
     void Start()
     {
+        //AudioManager.Instance.MusicVolume(0.2f);
         AudioManager.Instance.PlayMusic("BGM Lobby");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void UISFX()
     {
         AudioManager.Instance.PlaySFX("UI");
     }
-
-    public Slider MusicSlider, SFXSlider;
 
     public void ToggleMusic()
     {
@@ -34,13 +26,18 @@ public class SoundSetting : MonoBehaviour
         AudioManager.Instance.ToggleSFX();
     }
 
-    public void MusicVolume(float volume)
+    public void MusicVolume()
     {
         AudioManager.Instance.MusicVolume(MusicSlider.value);
     }
 
-    public void SFXVolume(float volume)
+    public void SFXVolume()
     {
         AudioManager.Instance.SFXVolume(SFXSlider.value);
+    }
+
+    public void StopBGMLobby()
+    {
+        AudioManager.Instance.StopMusic("BGM Lobby");
     }
 }
