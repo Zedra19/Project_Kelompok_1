@@ -11,8 +11,12 @@ public class PatternPatih : MonoBehaviour
 
     public float CastDuration = 3f; 
   
+    public bool Charging = false;
     public bool CanMove = true;
     private Health _playerHealth;
+
+    public GameObject hitboxPrefab; // Prefab untuk visualisasi hitbox area serangan
+    private GameObject hitboxInstance; // Instance dari hitbox area serangan
 
     void Start()
     {
@@ -44,24 +48,43 @@ public class PatternPatih : MonoBehaviour
             }
             if (distanceToPlayer <= triggerRange && CanMove)
             {
+                Charging = true;
                 CastDuration -= Time.deltaTime;
-                while (CastDuration < 3)
-                    if (CastDuration <= 0f)
-                    {
-                        Attack();
-                    }
+                if (CastDuration <= 0f)
+                {
+                    Attack();
+                    Charging = false;
+                }
             }
         }
     }
 
     public void Attack()
     {
-        // Tentukan area serangan
-        Vector3 boxCenter = transform.position + transform.forward * 3.5f; // Mengasumsikan panjang trisula adalah 7, jadi setengahnya adalah 3.5
-        Vector3 boxSize = new Vector3(1f, 1f, 7f); // Lebar 1 dan Tinggi 1 (dapat disesuaikan), Panjang 7
+        Vector3 attackDirection = player.position - transform.position;
+        attackDirection.y = 0f;
+        attackDirection.Normalize();
 
-        // Dapatkan semua collider dalam area kotak
-        Collider[] colliders = Physics.OverlapBox(boxCenter, boxSize / 2);
+        // Tentukan titik awal hitbox di bagian depan musuh (wajah musuh)
+        Vector3 startPoint = transform.position + transform.forward * 1f; // Misalnya, jarak hitbox dimulai dari 1 unit di depan musuh
+
+        // Tentukan titik akhir hitbox yang berjarak 7 unit dari startPoint ke arah pemain
+        Vector3 endPoint = startPoint + attackDirection * 7f;
+
+        // Hitung rotasi hitbox agar menghadap ke arah pemain
+        Quaternion hitboxRotation = Quaternion.LookRotation(attackDirection);
+
+        // Buat instance dari hitbox area serangan
+        hitboxInstance = Instantiate(hitboxPrefab, startPoint, hitboxRotation);
+
+        // Tentukan panjang hitbox berdasarkan jarak antara startPoint dan endPoint
+        float hitboxLength = Vector3.Distance(startPoint, endPoint);
+
+        // Atur skala hitbox agar sesuai dengan panjang yang dihitung
+        hitboxInstance.transform.localScale = new Vector3(1f, 1f, hitboxLength);
+
+        // Dapatkan semua collider dalam area hitbox
+        Collider[] colliders = Physics.OverlapBox(hitboxInstance.transform.position, hitboxInstance.transform.localScale / 2, hitboxRotation);
 
         // Iterasi melalui setiap collider yang didapat
         foreach (Collider collider in colliders)
@@ -90,6 +113,13 @@ public class PatternPatih : MonoBehaviour
     IEnumerator EnableMovementAfterCast()
     {
         yield return new WaitForSeconds(CastDuration);
+
+        // Hapus instance hitbox
+        if (hitboxInstance != null)
+        {
+            Destroy(hitboxInstance);
+        }
+
         CanMove = true;
     }   
 }
