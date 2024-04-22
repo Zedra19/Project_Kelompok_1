@@ -1387,7 +1387,10 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4069116268454857189, guid: c16004ec82e67f344b400e1ec53dc7a4, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 960369766097069289, guid: c16004ec82e67f344b400e1ec53dc7a4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1873538416}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7687802548597274917, guid: c16004ec82e67f344b400e1ec53dc7a4, type: 3}
       insertIndex: -1
@@ -8214,7 +8217,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -8276,12 +8279,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1873538412}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.86, y: -0.74, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.52, y: -1.74, z: 5.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2002793499}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1874185260
 PrefabInstance:
@@ -8541,8 +8544,14 @@ MonoBehaviour:
   damage: 1
   HP: 5
   CastDuration: 3
+  Charging: 0
   CanMove: 1
   hitboxPrefab: {fileID: 1873538412}
+--- !u!4 &2002793499 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 960369766097069289, guid: c16004ec82e67f344b400e1ec53dc7a4, type: 3}
+  m_PrefabInstance: {fileID: 255063795}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2032932931
 GameObject:
   m_ObjectHideFlags: 0
@@ -9076,4 +9085,3 @@ SceneRoots:
   - {fileID: 675088400}
   - {fileID: 586531761}
   - {fileID: 255063795}
-  - {fileID: 1873538416}
