@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class EnemyL : MonoBehaviour
 {
+    public int maxHealth = 0; 
+    public int currentHealth; 
     public float DetectionRange = 0f;
     public float AttackRange = 0f;
     public float ChaseSpeed = 0f;
@@ -18,6 +20,7 @@ public class EnemyL : MonoBehaviour
     void Start()
     {
         _animator = GetComponent<Animator>();
+        currentHealth = maxHealth;
     }
 
     void Update()
@@ -93,5 +96,23 @@ public class EnemyL : MonoBehaviour
         yield return new WaitForSeconds(CooldownDuration);
         _isOnCooldown = false;
         _isAttacking = false; // Setelah cooldown selesai, atur kembali ke false
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if (currentHealth > 0)
+        {
+            currentHealth -= damage;
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
+        }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
+        Debug.Log("Enemy L is Dead!");
     }
 }

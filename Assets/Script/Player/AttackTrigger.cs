@@ -43,11 +43,19 @@ public class AttackTrigger : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Enemy L") && playerAttackScript.IsAttacking)
         {
-            Debug.Log("Hit Enemy L");
-            scoreScript.currentScore += scoreScript.EnemyL;
-            comboScript.comboCount++;
-            killCountScript.killCount++;
-            Destroy(other.gameObject);
+            EnemyL enemyL = other.gameObject.GetComponent<EnemyL>();
+            if (enemyL != null)
+            {
+                Debug.Log("Hit Enemy L");
+                comboScript.comboCount++;
+                enemyL.TakeDamage(1);
+                if (enemyL.currentHealth <= 0)
+                {
+                    killCountScript.killCount++;
+                    scoreScript.currentScore += scoreScript.EnemyL;
+                    Destroy(other.gameObject);
+                }
+            }
         }
         else if (other.gameObject.CompareTag("Boss") && playerAttackScript.IsAttacking)
         {
@@ -79,11 +87,19 @@ public class AttackTrigger : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Enemy L") && playerAttackScript.IsAttacking)
         {
-            Debug.Log("Hit Enemy L");
-            scoreScript.currentScore += scoreScript.EnemyL;
-            comboScript.comboCount++;
-            killCountScript.killCount++;
-            Destroy(collision.gameObject);
+            EnemyL enemyL = collision.gameObject.GetComponent<EnemyL>();
+            if (enemyL != null)
+            {
+                Debug.Log("Hit Enemy L");
+                comboScript.comboCount++;
+                enemyL.TakeDamage(1);
+                if (enemyL.currentHealth <= 0)
+                {
+                    killCountScript.killCount++;
+                    scoreScript.currentScore += scoreScript.EnemyL;
+                    Destroy(collision.gameObject);
+                }
+            }
         }
         else if (collision.gameObject.CompareTag("Boss") && playerAttackScript.IsAttacking)
         {

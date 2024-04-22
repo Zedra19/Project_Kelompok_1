@@ -201,8 +201,8 @@ GameObject:
   - component: {fileID: 1738409761700920870}
   - component: {fileID: 1975321629809716206}
   - component: {fileID: 7304624799306125070}
-  - component: {fileID: 8763520766112806962}
   - component: {fileID: 6759147269300937620}
+  - component: {fileID: 8763520766112806962}
   m_Layer: 0
   m_Name: EnemyL
   m_TagString: Enemy L
@@ -275,24 +275,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &8763520766112806962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763990388291138446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd01eed22e8c87242b2bbc45fa2d7bf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DetectionRange: 20
-  AttackRange: 1
-  ChaseSpeed: 5
-  KnockbackForce: 100
-  CooldownDuration: 2
-  PlayerTag: Player
 --- !u!65 &6759147269300937620
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -314,6 +296,26 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89511186, y: 2.057637, z: 0.68755287}
   m_Center: {x: 0.052443985, y: 0.98210037, z: -0.017229967}
+--- !u!114 &8763520766112806962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763990388291138446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd01eed22e8c87242b2bbc45fa2d7bf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 40
+  currentHealth: 0
+  DetectionRange: 20
+  AttackRange: 1
+  ChaseSpeed: 5
+  KnockbackForce: 100
+  CooldownDuration: 2
+  PlayerTag: Player
 --- !u!1 &876444387547071532
 GameObject:
   m_ObjectHideFlags: 0
