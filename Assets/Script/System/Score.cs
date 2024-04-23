@@ -18,12 +18,25 @@ public class Score : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentScore = StaticScore.currentScore;
     }
 
     // Update is called once per frame
     void Update()
     {
         scoreText.text = "Score: " + currentScore;
+    }
+
+    public void BuyUpgrade(int price)
+    {
+        if (currentScore >= price)
+        {
+            currentScore -= price;
+            StaticScore.currentScore = currentScore;
+        }
+        else
+        {
+            Debug.Log("Not enough score!");
+        }
     }
 }

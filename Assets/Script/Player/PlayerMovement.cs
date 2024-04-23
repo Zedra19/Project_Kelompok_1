@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _speed = 4f;
     [SerializeField] private float _maxSpeedMultiplier = 2;
     [SerializeField] private float _runMultiplier = 2f;
-    [SerializeField] private float _dodgeForce = 12f;
+    [SerializeField] private float _dodgeForce = 8f;
     [SerializeField] private float _dodgeMaxForceMultiplier = 4f;
     [SerializeField] private float _dodgeDuration = 1f;
     [SerializeField] private float _maxSpeed;
@@ -70,6 +70,9 @@ public class PlayerMovement : MonoBehaviour
         _playerInput = new PlayerInput();
         _playerAttack = GetComponent<PlayerAttack>();
         _lastPosition = transform.position;
+
+
+
         _maxSpeed = _speed * _maxSpeedMultiplier;
         _maxRunSpeed = _maxSpeed * _runMultiplier;
         _maxDodgeForce = _dodgeForce * _dodgeMaxForceMultiplier;

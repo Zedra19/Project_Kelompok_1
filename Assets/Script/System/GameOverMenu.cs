@@ -48,6 +48,7 @@ public class GameOverMenu : MonoBehaviour
     {
         // Tampilkan layar game over
         GameOverScreen.SetActive(true);
+        StaticScore.currentScore = ScoreScript.currentScore;
         Time.timeScale = 0;
 
         gameOver = true;
@@ -56,6 +57,7 @@ public class GameOverMenu : MonoBehaviour
     public void Revive()
     {
         Time.timeScale = 1;
+        StaticScore.currentScore = ScoreScript.currentScore - RevivePrice;
     }
 
     private void UpdateReviveButtonInteractibility()
