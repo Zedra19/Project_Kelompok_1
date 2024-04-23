@@ -12,13 +12,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform _visualObject; // Reference to the object representing the player visually
     [SerializeField] private Transform _pointer; // Reference to object to face
 
-    [SerializeField] private float _speed = 1f;
-    [SerializeField] private float _maxSpeed = 4f;
+    [SerializeField] private float _speed = 4f;
+    [SerializeField] private float _maxSpeedMultiplier = 2;
     [SerializeField] private float _runMultiplier = 2f;
-    [SerializeField] private float _maxRunSpeed = 8f;
-    [SerializeField] private float _dodgeForce = 7f;
-    [SerializeField] private float _maxDodgeSpeed = 20f;
+    [SerializeField] private float _dodgeForce = 12f;
+    [SerializeField] private float _dodgeMaxForceMultiplier = 4f;
     [SerializeField] private float _dodgeDuration = 1f;
+    [SerializeField] private float _maxSpeed;
+    [SerializeField] private float _maxRunSpeed;
+    [SerializeField] private float _maxDodgeForce;
 
     private PlayerInput _playerInput;
     private Rigidbody _rigidbody;
@@ -38,10 +40,26 @@ public class PlayerMovement : MonoBehaviour
     private void OnEnable()
     {
         _playerInput.CharacterControls.Enable();
+        _playerInput.CharacterControls.Move.started += OnMovementInput;
+        _playerInput.CharacterControls.Move.canceled += OnMovementInput;
+        _playerInput.CharacterControls.Move.performed += OnMovementInput;
+
+        _playerInput.CharacterControls.Run.started += OnRunInput;
+        _playerInput.CharacterControls.Run.canceled += OnRunInput;
+
+        _playerInput.CharacterControls.Dodge.performed += OnDodgeInput;
     }
 
     private void OnDisable()
     {
+        _playerInput.CharacterControls.Move.started -= OnMovementInput;
+        _playerInput.CharacterControls.Move.canceled -= OnMovementInput;
+        _playerInput.CharacterControls.Move.performed -= OnMovementInput;
+
+        _playerInput.CharacterControls.Run.started -= OnRunInput;
+        _playerInput.CharacterControls.Run.canceled -= OnRunInput;
+
+        _playerInput.CharacterControls.Dodge.performed -= OnDodgeInput;
         _playerInput.CharacterControls.Disable();
     }
 
@@ -52,16 +70,11 @@ public class PlayerMovement : MonoBehaviour
         _playerInput = new PlayerInput();
         _playerAttack = GetComponent<PlayerAttack>();
         _lastPosition = transform.position;
-
-        _playerInput.CharacterControls.Move.started += OnMovementInput;
-        _playerInput.CharacterControls.Move.canceled += OnMovementInput;
-        _playerInput.CharacterControls.Move.performed += OnMovementInput;
-
-        _playerInput.CharacterControls.Run.started += OnRunInput;
-        _playerInput.CharacterControls.Run.canceled += OnRunInput;
-
-        _playerInput.CharacterControls.Dodge.performed += OnDodgeInput;
+        _maxSpeed = _speed * _maxSpeedMultiplier;
+        _maxRunSpeed = _maxSpeed * _runMultiplier;
+        _maxDodgeForce = _dodgeForce * _dodgeMaxForceMultiplier;
     }
+
 
     private void OnDodgeInput(InputAction.CallbackContext context)
     {
@@ -119,7 +132,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (IsDodging)
         {
-            _rigidbody.maxLinearVelocity = _maxDodgeSpeed;
+            _rigidbody.maxLinearVelocity = _maxDodgeForce;
             return;
         }
         HandleMovement();
@@ -276,8 +289,6 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-
-
     private float GetPositiveDistance(float value1, float value2)
     {
         // Calculate the absolute difference between the values
@@ -304,5 +315,23 @@ public class PlayerMovement : MonoBehaviour
         {
             _facingAnimatorState = animationCode4;
         }
+    }
+
+    public void SetSpeed(float speed)
+    {
+        _speed = speed;
+        _maxSpeed = _speed * _maxSpeedMultiplier;
+    }
+
+    public void SetRunMultiplier(float runMultiplier)
+    {
+        _runMultiplier = runMultiplier;
+        _maxRunSpeed = _runMultiplier * _maxSpeedMultiplier;
+    }
+
+    public void SetDodge(float dodgeForce)
+    {
+        _dodgeForce = dodgeForce;
+        _maxDodgeForce = _dodgeForce * _dodgeMaxForceMultiplier;
     }
 }
