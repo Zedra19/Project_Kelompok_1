@@ -1,17 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Transactions;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyM : MonoBehaviour
 {
-    public float Speed = 3f;
-    [SerializeField] float distanceToPlayer = 10f;
-    [SerializeField] float timeIntervalToMove = 3f;
+    public float distanceToPlayer = 10f;
+    public float timeIntervalToMove = 3f;
     public float Gravity = 9.81f;
     bool enableToMove = true;
     bool timerIsRunning = false;
-    private CharacterController _characterController;
     public Animator _animator; // Animator component
     public GameObject Spear;
     [SerializeField] float spearForce = 10f;
@@ -20,13 +18,15 @@ public class EnemyM : MonoBehaviour
     float moveTimer = 0f;
     float timerBetweenAttack = 0f;
     float timerAttack = 0f;
-    SpearEnemyM spearEnemyMScript;
+
+    private NavMeshAgent navAgent;
+    private GameObject player;
 
     void Start()
     {
-        _characterController = GetComponent<CharacterController>();
+        navAgent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>(); // Get the Animator component
-        spearEnemyMScript = Spear.GetComponent<SpearEnemyM>();
+        player = GameObject.FindWithTag("Player");
     }
 
     void Update()
@@ -36,47 +36,49 @@ public class EnemyM : MonoBehaviour
         attacking();
     }
 
-    void moveToAttackRange(){
-        GameObject player = GameObject.FindWithTag("Player");
-        if (player != null)
+    void moveToAttackRange()
+{
+    if (player != null)
+    {
+        float distance = Vector3.Distance(transform.position, player.transform.position);
+        if (!timerIsRunning) // Jika tidak sedang dalam fase serangan
         {
-            float distance = Vector3.Distance(transform.position, player.transform.position);
-            if (distance > distanceToPlayer + 1 && enableToMove){
+            if (distance > distanceToPlayer + 1 && enableToMove)
+            {
                 // Deketin titik range attack
-                Vector3 direction = player.transform.position - transform.position;
-                direction.Normalize();
-                direction.y = 0f;
-                Vector3 movement = direction * Speed * Time.deltaTime;
-                movement.y -= Gravity * Time.deltaTime;
-                _characterController.Move(movement);
-                _animator.SetBool("Moving", true);
+                _animator.SetBool("Moving", true); // Mengaktifkan animasi lari
+                navAgent.SetDestination(player.transform.position);
             }
-            else if (distance < distanceToPlayer - 1 && enableToMove){
+            else if (distance < distanceToPlayer - 1 && enableToMove)
+            {
                 // Jauhin Player
-                Vector3 direction = transform.position - player.transform.position;
-                direction.Normalize();
-                direction.y = 0f;
-                Vector3 movement = direction * Speed * Time.deltaTime;
-                movement.y -= Gravity * Time.deltaTime;
-                _characterController.Move(movement);
-                _animator.SetBool("Moving", true);
-            }else if(distance <= distanceToPlayer + 1 && distance >= distanceToPlayer - 1){
-                _animator.SetBool("Moving",false);
+                _animator.SetBool("Moving", true); // Mengaktifkan animasi lari
+                navAgent.SetDestination(transform.position - player.transform.position);
+            }
+            else if (distance <= distanceToPlayer + 1 && distance >= distanceToPlayer - 1)
+            {
+                _animator.SetBool("Moving", false); // Menonaktifkan animasi lari
+                navAgent.ResetPath(); // Menghentikan NavMeshAgent
                 timerIsRunning = true;
             }
         }
     }
+}
 
-    void attacking(){
-        if(timerIsRunning)
+
+    void attacking()
+    {
+        if (timerIsRunning)
         {
             moveTimer += Time.deltaTime;
             enableToMove = false;
             timerBetweenAttack += Time.deltaTime;
-            if(timerBetweenAttack >= timeBetweenAttack){
+            if (timerBetweenAttack >= timeBetweenAttack)
+            {
                 _animator.SetBool("AttackZone", true);
                 timerAttack += Time.deltaTime;
-                if(timerAttack >= timeIntervalAnimation){
+                if (timerAttack >= timeIntervalAnimation)
+                {
                     var spearClone = Instantiate(Spear, transform.position + transform.forward, transform.rotation);
                     GameObject player = GameObject.FindWithTag("Player");
                     Vector3 playerPosition = player.transform.position - transform.position;
@@ -85,17 +87,10 @@ public class EnemyM : MonoBehaviour
                     spearClone.GetComponent<Rigidbody>().AddForce(playerPosition.normalized * spearForce, ForceMode.Impulse);
                     timerBetweenAttack = 0f;
                     timerAttack = 0f;
-                    // RaycastHit hit;
-                    // if(Physics.Raycast(transform.position, playerPosition, out hit)){
-                    //     spearClone.transform.position = hit.point;
-                    //     spearClone.GetComponent<Rigidbody>().AddForce(playerPosition.normalized * spearForce, ForceMode.Impulse);
-                    //     spearClone.GetComponentInChildren<SpearEnemyM>().isAClone = true;
-                    //     timerAttack = 0f;
-                    // }
                 }
             }
-            
-            if(moveTimer >= timeIntervalToMove)
+
+            if (moveTimer >= timeIntervalToMove)
             {
                 moveTimer = 0f;
                 enableToMove = true;
@@ -105,11 +100,14 @@ public class EnemyM : MonoBehaviour
         }
     }
 
-    void RotateToPlayer(){
-        GameObject player = GameObject.FindWithTag("Player");
-        Vector3 playerPosition = player.transform.position - transform.position;
-        playerPosition.y = 0f;
-        Quaternion targetRotation = Quaternion.LookRotation(playerPosition);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
+    void RotateToPlayer()
+    {
+        if (player != null)
+        {
+            Vector3 playerPosition = player.transform.position - transform.position;
+            playerPosition.y = 0f;
+            Quaternion targetRotation = Quaternion.LookRotation(playerPosition);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
+        }
     }
 }

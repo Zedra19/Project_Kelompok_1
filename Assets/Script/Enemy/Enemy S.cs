@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyS : MonoBehaviour
 {
-    public float Speed = 5.0f;
     public float Gravity = 9.81f;
-    private CharacterController _characterController;
-    private Animator _animator; // Animator component
+    private Animator _animator;
+    private NavMeshAgent _navMeshAgent; // NavMeshAgent component
 
     void Start()
     {
-        _characterController = GetComponent<CharacterController>();
-        _animator = GetComponent<Animator>(); // Get the Animator component
+        _animator = GetComponent<Animator>();
+        _navMeshAgent = GetComponent<NavMeshAgent>(); // Get the NavMeshAgent component
+        _navMeshAgent.stoppingDistance = 1.0f; // Set stopping distance
     }
 
     void Update()
@@ -20,33 +21,16 @@ public class EnemyS : MonoBehaviour
         GameObject player = GameObject.FindWithTag("Player");
         if (player != null)
         {
-            Vector3 direction = player.transform.position - transform.position;
-            direction.y = 0f; // Ignore vertical difference
+            _navMeshAgent.SetDestination(player.transform.position);
 
-            if (direction.magnitude > 0.1f)
+            // Set animator parameters based on NavMeshAgent velocity
+            if (_navMeshAgent.velocity.magnitude > 0.1f)
             {
-                // Calculate the rotation needed to look at the player
-                Quaternion targetRotation = Quaternion.LookRotation(direction);
-                // Smoothly rotate towards the target rotation
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
-            }
-
-            direction.Normalize();
-
-            Vector3 movement = direction * Speed * Time.deltaTime;
-
-            movement.y -= Gravity * Time.deltaTime;
-
-            _characterController.Move(movement);
-
-            // Set animator parameters based on movement
-            if (movement.magnitude > 0)
-            {
-                _animator.SetBool("IsMoving", true); // Set IsMoving parameter to true
+                _animator.SetBool("IsMoving", true);
             }
             else
             {
-                _animator.SetBool("IsMoving", false); // Set IsMoving parameter to false
+                _animator.SetBool("IsMoving", false);
             }
         }
         else
@@ -59,7 +43,18 @@ public class EnemyS : MonoBehaviour
     {
         if (hit.gameObject.CompareTag("Player"))
         {
-            // You can add code here for when the enemy collides with the player
+            // Handle collision with player
+        }
+    }
+    
+    // Additional code for handling rotation
+    void LateUpdate()
+    {
+        if (_navMeshAgent.velocity.magnitude > 0.1f)
+        {
+            // Rotate towards the direction of movement
+            Quaternion targetRotation = Quaternion.LookRotation(_navMeshAgent.velocity.normalized);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * _navMeshAgent.angularSpeed);
         }
     }
 }

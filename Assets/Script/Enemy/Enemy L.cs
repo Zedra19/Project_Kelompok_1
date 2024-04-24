@@ -1,11 +1,11 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyL : MonoBehaviour
 {
     public float DetectionRange = 0f;
     public float AttackRange = 0f;
-    public float ChaseSpeed = 0f;
     public float KnockbackForce = 0f;
     public float CooldownDuration = 0f;
     public string PlayerTag = "Player";
@@ -14,10 +14,13 @@ public class EnemyL : MonoBehaviour
     private bool _isOnCooldown = false;
     private bool _isAttacking = false;
     private Animator _animator;
+    private NavMeshAgent _navMeshAgent;
 
     void Start()
     {
         _animator = GetComponent<Animator>();
+        _navMeshAgent = GetComponent<NavMeshAgent>();
+        _navMeshAgent.stoppingDistance = AttackRange;
     }
 
     void Update()
@@ -53,28 +56,16 @@ public class EnemyL : MonoBehaviour
                 }
             }
         }
-
-        // Mengatur rotasi objek agar selalu menghadap ke arah gerakan
-        if (_playerTransform != null)
-        {
-            Vector3 lookDirection = _playerTransform.position - transform.position;
-            lookDirection.y = 0;
-            transform.rotation = Quaternion.LookRotation(lookDirection);
-        }
     }
 
     void ChasePlayer()
     {
-        Vector3 moveDirection = (_playerTransform.position - transform.position).normalized;
-        transform.position += moveDirection * ChaseSpeed * Time.deltaTime;
-
-        // Memainkan animasi berjalan
-        _animator.SetFloat("Speed", ChaseSpeed);
+        _navMeshAgent.SetDestination(_playerTransform.position);
+        _animator.SetFloat("Speed", _navMeshAgent.velocity.magnitude);
     }
 
     void AttackPlayer()
     {
-        // Memainkan animasi serangan
         _animator.SetTrigger("Attack");
         _isAttacking = true;
     }
@@ -84,6 +75,14 @@ public class EnemyL : MonoBehaviour
     {
         Vector3 knockbackDirection = (_playerTransform.position - transform.position).normalized;
         _playerTransform.GetComponent<Rigidbody>().AddForce(knockbackDirection * KnockbackForce, ForceMode.Impulse);
+
+        // Panggil metode TakeDamage pada script Health objek Player
+        Health playerHealth = _playerTransform.GetComponent<Health>();
+        if (playerHealth != null)
+        {
+            playerHealth.TakeDamage(1);
+        }
+
         StartCoroutine(StartCooldown());
     }
 
