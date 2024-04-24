@@ -84,7 +84,7 @@ public class Health : MonoBehaviour
             }
 
         }
-        else if (collision.gameObject.CompareTag("Boss"))
+        else if (collision.gameObject.CompareTag("BossAttack"))
         {
             TakeDamage(1);
         }

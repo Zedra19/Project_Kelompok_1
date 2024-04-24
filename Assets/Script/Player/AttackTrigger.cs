@@ -9,6 +9,7 @@ public class AttackTrigger : MonoBehaviour
     KillCount killCountScript;
     PlayerAttack playerAttackScript;
     Score scoreScript;
+    PatternPatih _Patih;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,7 @@ public class AttackTrigger : MonoBehaviour
         killCountScript = FindAnyObjectByType<KillCount>();
         playerAttackScript = FindObjectOfType<PlayerAttack>();
         scoreScript = FindObjectOfType<Score>();
+        _Patih = GetComponent<PatternPatih>();
     }
 
     // Update is called once per frame
@@ -69,13 +71,17 @@ public class AttackTrigger : MonoBehaviour
                 }
             }
         }
-        else if (other.gameObject.CompareTag("Boss") && playerAttackScript.IsAttacking)
+        else if (other.gameObject.CompareTag("Boss") && playerAttackScript.IsAttacking && _Patih.IsStunned)
         {
             Debug.Log("Hit Boss");
-            scoreScript.currentScore += scoreScript.Boss;
             comboScript.comboCount++;
-            killCountScript.killCount++;
-            Destroy(other.gameObject);
+            _Patih.HP -= 1;
+            if (_Patih.HP <= 0)
+            {
+                killCountScript.killCount++;
+                scoreScript.currentScore += scoreScript.Boss;
+                Destroy(other.gameObject);
+            }
         }
     }
 }

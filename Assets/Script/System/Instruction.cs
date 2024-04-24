@@ -5,6 +5,7 @@ public class Instruction : MonoBehaviour
     public delegate void InstructionCompleted();
     public static event InstructionCompleted OnInstructionCompleted;
 
+    public GameObject TutorialPanel;
     public GameObject MovementPop;
     public GameObject DodgePop;
     public GameObject AttPop;
@@ -37,6 +38,7 @@ public class Instruction : MonoBehaviour
 
     private void Update()
     {
+        SkipInstruction();
         if (!movementInstructionCompleted)
             MovementInstruction();
         else if (!dodgeInstructionCompleted)
@@ -150,6 +152,21 @@ public class Instruction : MonoBehaviour
             statsInstructionCompleted = true;
             OnInstructionCompleted?.Invoke();
 
+            if (enemySpawner != null)
+            {
+                enemySpawner.enabled = true;
+            }
+        }
+    }
+
+    private void SkipInstruction()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            TutorialPanel.SetActive(false);
+            Health.SetActive(true);
+            Stats.SetActive(true);
+            Stamina.SetActive(true);
             if (enemySpawner != null)
             {
                 enemySpawner.enabled = true;

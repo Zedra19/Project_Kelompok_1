@@ -20,11 +20,13 @@ public class PatternPatih : MonoBehaviour
     public Material normalMaterial;
     public Material stunMaterial;
 
+    private UnityEngine.AI.NavMeshAgent _navAgent;
     private Health _playerHealth;
     private GameObject hitboxInstance; 
     void Start()
     {
         _playerHealth = GetComponent<Health>();
+        _navAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 
     void Update()
@@ -44,6 +46,7 @@ public class PatternPatih : MonoBehaviour
             float distanceToPlayer = Vector3.Distance(transform.position, player.position);
             if (distanceToPlayer > triggerRange && CanMove && !IsStunned)
             {
+                //_navAgent.SetDestination(player.position - transform.position);
                 Vector3 direction = player.position - transform.position;
                 direction.y = 0f;
                 direction.Normalize();
@@ -93,30 +96,29 @@ public class PatternPatih : MonoBehaviour
             hitboxRenderer.material.color = Color.red;
         }
 
-        CastDuration = 3f;
         CanMove = false;
-        
+
+        StartCoroutine(StunEnemy());
         StartCoroutine(EnableMovementAfterCast());
     }
 
     IEnumerator EnableMovementAfterCast()
     {
-        yield return new WaitForSeconds(CastDuration);
-
-        if (hitboxInstance != null)
-        {
-            Destroy(hitboxInstance);
-        }
-
-        yield return new WaitForSeconds(0.5f);
-        StartCoroutine(StunEnemy());
-
+        CastDuration = 3f;
+        yield return new WaitForSeconds(2f);
         CanMove = true;
     }
  
 
     IEnumerator StunEnemy()
     {
+        yield return new WaitForSeconds(0.5f);
+
+        if (hitboxInstance != null)
+        {
+            Destroy(hitboxInstance);
+        }
+
         IsStunned = true;
 
         Renderer enemyRenderer = GetComponent<Renderer>();
@@ -145,6 +147,5 @@ public class PatternPatih : MonoBehaviour
 
         IsStunned = false;
         CanMove = true;
-}
-
+    }
 }
