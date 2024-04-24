@@ -11,6 +11,7 @@ TagManager:
   - Spear
   - Ground
   - Dialog Trigger
+  - BossAttack
   layers:
   - Default
   - TransparentFX

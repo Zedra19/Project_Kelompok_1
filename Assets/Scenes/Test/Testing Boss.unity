@@ -689,7 +689,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7687802548597274917, guid: c16004ec82e67f344b400e1ec53dc7a4, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Boss
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4069116268454857189, guid: c16004ec82e67f344b400e1ec53dc7a4, type: 3}
@@ -2968,7 +2968,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 593208762}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c79c82b075df6448a199d7c5d8b732b, type: 3}
   m_Name: 
@@ -7104,7 +7104,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1405776441
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7147,7 +7147,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1425248628
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8706,7 +8706,7 @@ GameObject:
   - component: {fileID: 1873538413}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: BossAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9008,7 +9008,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1918496808
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9383,7 +9383,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1977986110
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10113,6 +10113,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1873538416}
+  - {fileID: 871431735}
   - {fileID: 255063795}
   - {fileID: 810772703}
   - {fileID: 1338466967}
@@ -10122,4 +10123,3 @@ SceneRoots:
   - {fileID: 501317712}
   - {fileID: 531059693}
   - {fileID: 1681270407}
-  - {fileID: 871431735}
