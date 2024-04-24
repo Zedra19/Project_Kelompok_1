@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Score : MonoBehaviour
@@ -25,18 +26,5 @@ public class Score : MonoBehaviour
     void Update()
     {
         scoreText.text = "Score: " + currentScore;
-    }
-
-    public void BuyUpgrade(int price)
-    {
-        if (currentScore >= price)
-        {
-            currentScore -= price;
-            StaticScore.currentScore = currentScore;
-        }
-        else
-        {
-            Debug.Log("Not enough score!");
-        }
     }
 }

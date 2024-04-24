@@ -18,34 +18,34 @@ public class PlayerStat : MonoBehaviour
         UpdatePlayerDamagerStat(StaticStat.PlayerDamagerStat);
     }
 
-    public virtual void UpgradePlayerHealth(int newHealth)
+    public virtual void UpgradePlayerHealth(int addedHealth)
     {
-        StaticStat.PlayerHealth = newHealth;
-        UpdatePlayerHealth(newHealth);
+        StaticStat.PlayerHealth += addedHealth;
+        UpdatePlayerHealth(StaticStat.PlayerHealth);
     }
 
-    public virtual void UpgradePlayerSpeed(float newSpeed)
+    public virtual void UpgradePlayerSpeed(float addedSpeed)
     {
-        StaticStat.PlayerSpeed = newSpeed;
-        UpdatePlayerSpeed(newSpeed);
+        StaticStat.PlayerSpeed += addedSpeed;
+        UpdatePlayerSpeed(StaticStat.PlayerSpeed);
     }
 
-    public virtual void UpgradePlayerRunMultiplier(float newRunMultiplier)
+    public virtual void UpgradePlayerRunMultiplier(float addedRunMultiplier)
     {
-        StaticStat.PlayerRunMultiplier = newRunMultiplier;
-        UpdatePlayerRunMultiplier(newRunMultiplier);
+        StaticStat.PlayerRunMultiplier += addedRunMultiplier;
+        UpdatePlayerRunMultiplier(StaticStat.PlayerRunMultiplier);
     }
 
-    public virtual void UpgradePlayerDodge(float newDodge)
+    public virtual void UpgradePlayerDodge(float addedDodge)
     {
-        StaticStat.PlayerDodge = newDodge;
-        UpdatePlayerDodge(newDodge);
+        StaticStat.PlayerDodge += addedDodge;
+        UpdatePlayerDodge(StaticStat.PlayerDodge);
     }
 
     public virtual void UpgradePlayerDamagerStat(int newDamageStat)
     {
-        StaticStat.PlayerDamagerStat = newDamageStat;
-        UpdatePlayerDamagerStat(newDamageStat);
+        StaticStat.PlayerDamagerStat += newDamageStat;
+        UpdatePlayerDamagerStat(StaticStat.PlayerDamagerStat);
     }
 
     public virtual void UpdatePlayerHealth(int newHealth)
