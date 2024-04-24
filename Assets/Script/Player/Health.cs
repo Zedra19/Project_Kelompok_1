@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
     public int currentHealth;
 
     public Image[] healthIcons;
+    public PlayerAttack playerAttackScipt;
 
     private bool hasTakenDamage = false;
 
@@ -19,28 +20,28 @@ public class Health : MonoBehaviour
     }
 
     public void TakeDamage(int damage)
-{
-    if (!hasTakenDamage)
     {
-        currentHealth -= damage;
-        UpdateHealthUI();
-        hasTakenDamage = true;
-
-        if (currentHealth <= 0)
+        if (!hasTakenDamage)
         {
-            Debug.Log("Player is Dead!");
+            currentHealth -= damage;
+            UpdateHealthUI();
+            hasTakenDamage = true;
+
+            if (currentHealth <= 0)
+            {
+                Debug.Log("Player is Dead!");
+            }
         }
+
+        // Tambahkan baris berikut untuk mereset hasTakenDamage setelah jangka waktu tertentu
+        StartCoroutine(ResetDamageFlag());
     }
 
-    // Tambahkan baris berikut untuk mereset hasTakenDamage setelah jangka waktu tertentu
-    StartCoroutine(ResetDamageFlag());
-}
-
-IEnumerator ResetDamageFlag()
-{
-    yield return new WaitForSeconds(0.5f); // Ubah waktu sesuai kebutuhan
-    hasTakenDamage = false;
-}
+    IEnumerator ResetDamageFlag()
+    {
+        yield return new WaitForSeconds(0.5f); // Ubah waktu sesuai kebutuhan
+        hasTakenDamage = false;
+    }
 
     private void UpdateHealthUI()
     {
@@ -71,7 +72,19 @@ IEnumerator ResetDamageFlag()
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag("Enemy S") || collision.gameObject.CompareTag("Boss"))
+        if (collision.gameObject.CompareTag("Enemy S"))
+        {
+            if (playerAttackScipt.IsAttacking)
+            {
+                TakeDamage(0);
+            }
+            else
+            {
+                TakeDamage(1);
+            }
+
+        }
+        else if (collision.gameObject.CompareTag("Boss"))
         {
             TakeDamage(1);
         }
