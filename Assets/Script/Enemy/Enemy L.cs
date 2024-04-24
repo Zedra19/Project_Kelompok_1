@@ -9,12 +9,29 @@ public class EnemyL : MonoBehaviour
     public float KnockbackForce = 0f;
     public float CooldownDuration = 0f;
     public string PlayerTag = "Player";
+    public int CurrentHealth = 50;
+    public bool IsGettingHitInThisHit = false;
 
     private Transform _playerTransform;
     private bool _isOnCooldown = false;
     private bool _isAttacking = false;
     private Animator _animator;
     private NavMeshAgent _navMeshAgent;
+
+    private void OnEnable()
+    {
+        PlayerAttack.OnAttackDone += AllowAttack;
+    }
+
+    private void OnDisable()
+    {
+        PlayerAttack.OnAttackDone -= AllowAttack;
+    }
+
+    private void AllowAttack()
+    {
+        IsGettingHitInThisHit = false;
+    }
 
     void Start()
     {
@@ -92,5 +109,23 @@ public class EnemyL : MonoBehaviour
         yield return new WaitForSeconds(CooldownDuration);
         _isOnCooldown = false;
         _isAttacking = false; // Setelah cooldown selesai, atur kembali ke false
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if (CurrentHealth > 0)
+        {
+            CurrentHealth -= damage;
+            if (CurrentHealth <= 0)
+            {
+                Die();
+            }
+        }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
+        Debug.Log("Enemy L is Dead!");
     }
 }

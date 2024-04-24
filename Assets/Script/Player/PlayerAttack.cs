@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerAttack : MonoBehaviour
@@ -10,6 +11,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] float _attackDuration;
     public bool IsAttacking { get; private set; } = false;
+    public static event Action OnAttackDone;
 
     private void Awake()
     {
@@ -44,5 +46,6 @@ public class PlayerAttack : MonoBehaviour
         yield return new WaitForSeconds(_attackDuration);
         _attackRoutine = null;
         IsAttacking = false;
+        OnAttackDone?.Invoke(); //invoke event to notify other script that attack is done, making enemy L hitable in another attack
     }
 }
