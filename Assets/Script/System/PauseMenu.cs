@@ -32,6 +32,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Home()
     {
+        StaticScore.currentScore = 0;
         Time.timeScale = 1;
     }
 
@@ -44,6 +45,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Restart()
     {
+        StaticScore.currentScore = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
     }

@@ -16,7 +16,6 @@ public class GameOverMenu : MonoBehaviour
 
     private void Start()
     {
-
         UpdateRevivePriceText();
 
         if (HealthScript == null)
@@ -57,6 +56,7 @@ public class GameOverMenu : MonoBehaviour
     public void Revive()
     {
         Time.timeScale = 1;
+        StaticScore.currentScore = 0;
         StaticScore.currentScore = ScoreScript.currentScore - RevivePrice;
     }
 
