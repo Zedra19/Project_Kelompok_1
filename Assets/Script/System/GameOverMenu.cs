@@ -47,6 +47,7 @@ public class GameOverMenu : MonoBehaviour
     {
         // Tampilkan layar game over
         GameOverScreen.SetActive(true);
+        PlayerPrefs.SetInt("CurrentScore", ScoreScript.currentScore);
         StaticScore.currentScore = ScoreScript.currentScore;
         Time.timeScale = 0;
 

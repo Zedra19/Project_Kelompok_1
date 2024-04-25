@@ -104,7 +104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c17f6d83864324c99bfc5e906358b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 3
   distanceToPlayer: 10
   timeIntervalToMove: 3
   Gravity: 9.81
@@ -293,6 +292,14 @@ PrefabInstance:
     - target: {fileID: 7522023517946731889, guid: 102e190bc8058334d8f921332535b322, type: 3}
       propertyPath: m_TagString
       value: Spear
+      objectReference: {fileID: 0}
+    - target: {fileID: 8875972930460577529, guid: 102e190bc8058334d8f921332535b322, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8875972930460577529, guid: 102e190bc8058334d8f921332535b322, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
