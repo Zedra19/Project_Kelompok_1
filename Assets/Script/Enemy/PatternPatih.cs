@@ -1,28 +1,46 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.AI;
 
 public class PatternPatih : MonoBehaviour
 {
-    public Transform player; 
+    public Transform player;
     public int damage, HP;
-    
+
     public float moveSpeed = 3f;
     public float attackRange = 7f;
     public float triggerRange = 4f;
-    public float CastDuration = 3f; 
-    public float StunDuration = 3f; 
+    public float CastDuration = 3f;
+    public float StunDuration = 3f;
 
     public bool Charging = false;
     public bool CanMove = true;
-    public bool IsStunned = false; 
-    
-    public GameObject hitboxPrefab; 
+    public bool IsStunned = false;
+
+    public GameObject hitboxPrefab;
     public Material normalMaterial;
     public Material stunMaterial;
 
-    private UnityEngine.AI.NavMeshAgent _navAgent;
+    private NavMeshAgent _navAgent;
     private Health _playerHealth;
-    private GameObject hitboxInstance; 
+    private GameObject hitboxInstance;
+    public bool IsGettingHitInThisHit = false;
+
+    private void OnEnable()
+    {
+        PlayerAttack.OnAttackDone += AllowAttack;
+    }
+
+    private void OnDisable()
+    {
+        PlayerAttack.OnAttackDone -= AllowAttack;
+    }
+
+    private void AllowAttack()
+    {
+        IsGettingHitInThisHit = false;
+    }
+
     void Start()
     {
         _playerHealth = GetComponent<Health>();
@@ -108,7 +126,7 @@ public class PatternPatih : MonoBehaviour
         yield return new WaitForSeconds(2f);
         CanMove = true;
     }
- 
+
 
     IEnumerator StunEnemy()
     {
@@ -134,11 +152,11 @@ public class PatternPatih : MonoBehaviour
 
         while (StunDuration > 0f)
         {
-            yield return new WaitForSeconds(Time.deltaTime); 
+            yield return new WaitForSeconds(Time.deltaTime);
             StunDuration -= Time.deltaTime;
         }
 
-        StunDuration = 3f; 
+        StunDuration = 3f;
 
         if (enemyRenderer != null && normalMaterial != null)
         {
