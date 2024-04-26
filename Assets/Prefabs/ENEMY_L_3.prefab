@@ -360,7 +360,7 @@ MonoBehaviour:
   KnockbackForce: 100
   CooldownDuration: 2
   PlayerTag: Player
-  CurrentHealth: 50
+  CurrentHealth: 5
   IsGettingHitInThisHit: 0
 --- !u!65 &-3880748946148653923
 BoxCollider:

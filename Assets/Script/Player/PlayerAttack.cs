@@ -5,13 +5,30 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerAttack : MonoBehaviour
 {
-    private PlayerInput _playerInput;
-    private Coroutine _attackRoutine = null; //use to run attack with duration
+    public bool IsAttacking { get; private set; } = false;
+    public static event Action OnAttackDone;
     private PlayerMovement _playerMovement;
     [SerializeField] private Animator _animator;
     [SerializeField] float _attackDuration;
-    public bool IsAttacking { get; private set; } = false;
-    public static event Action OnAttackDone;
+    [SerializeField] private int _playerDamage;
+    private PlayerInput _playerInput;
+    private Coroutine _attackRoutine = null; //use to run attack with duration
+
+    public int PlayerDamage
+    {
+        get
+        {
+            return _playerDamage;
+        }
+        set
+        {
+            _playerDamage = value;
+        }
+    }
+    private void Update()
+    {
+        Debug.Log("PlayerDamage: " + _playerDamage);
+    }
 
     private void Awake()
     {

@@ -7,6 +7,7 @@ public class PlayerStat : MonoBehaviour
 {
     [SerializeField] private Health _playerHealth;
     [SerializeField] private PlayerMovement _playerMovement;
+    [SerializeField] private PlayerAttack _playerAttack;
 
     //updating value based on stat everytime the game start
     private void Awake()
@@ -15,7 +16,8 @@ public class PlayerStat : MonoBehaviour
         UpdatePlayerSpeed(StaticStat.PlayerSpeed);
         UpdatePlayerRunMultiplier(StaticStat.PlayerRunMultiplier);
         UpdatePlayerDodge(StaticStat.PlayerDodge);
-        UpdatePlayerDamagerStat(StaticStat.PlayerDamagerStat);
+        UpdatePlayerDamageLevelStat(StaticStat.PlayerDamageLevelStat);
+        UpdatePlayerDamageStat(StaticStat.PlayerDamageStat);
     }
 
     public virtual void UpgradePlayerHealth(int addedHealth)
@@ -42,10 +44,16 @@ public class PlayerStat : MonoBehaviour
         UpdatePlayerDodge(StaticStat.PlayerDodge);
     }
 
-    public virtual void UpgradePlayerDamagerStat(int newDamageStat)
+    public virtual void UpgradePlayerDamageLevelStat(int newDamageStat)
     {
-        StaticStat.PlayerDamagerStat += newDamageStat;
-        UpdatePlayerDamagerStat(StaticStat.PlayerDamagerStat);
+        StaticStat.PlayerDamageLevelStat += newDamageStat;
+        UpdatePlayerDamageLevelStat(StaticStat.PlayerDamageLevelStat);
+    }
+
+    public virtual void UpgradePlayerDamageStat(int addedDamageStat)
+    {
+        StaticStat.PlayerDamageStat += addedDamageStat;
+        UpdatePlayerDamageStat(StaticStat.PlayerDamageStat);
     }
 
     public virtual void UpdatePlayerHealth(int newHealth)
@@ -69,8 +77,13 @@ public class PlayerStat : MonoBehaviour
         _playerMovement.SetDodge(newDodge);
     }
 
-    public virtual void UpdatePlayerDamagerStat(int newDamageStat)
+    public virtual void UpdatePlayerDamageLevelStat(int newDamageStat)
     {
 
+    }
+
+    public virtual void UpdatePlayerDamageStat(int newDamageStat)
+    {
+        _playerAttack.PlayerDamage = newDamageStat;
     }
 }

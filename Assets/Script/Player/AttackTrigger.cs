@@ -62,7 +62,7 @@ public class AttackTrigger : MonoBehaviour
 
                 Debug.Log("Hit Enemy L");
                 comboScript.comboCount++;
-                enemyL.TakeDamage(10);
+                enemyL.TakeDamage(playerAttackScript.PlayerDamage);
                 if (enemyL.CurrentHealth <= 0)
                 {
                     killCountScript.killCount++;
@@ -82,7 +82,7 @@ public class AttackTrigger : MonoBehaviour
                 }
                 _patih.IsGettingHitInThisHit = true;
                 comboScript.comboCount++;
-                _patih.HP -= 1;
+                _patih.HP -= playerAttackScript.PlayerDamage;
                 Debug.Log("Boss HP: " + _patih.HP);
                 if (_patih.HP <= 0)
                 {
