@@ -133,7 +133,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_NavMeshLayer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -823,7 +823,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_NavMeshLayer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2590,7 +2590,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_NavMeshLayer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3532,7 +3532,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_NavMeshLayer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4748,7 +4748,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_NavMeshLayer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5962,7 +5962,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_NavMeshLayer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6876,7 +6876,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_NavMeshLayer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7449,7 +7449,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_NavMeshLayer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9421,7 +9421,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 485131127}
   damage: 1
-  HP: 5
+  HP: 10
+  MaxHP: 10
   moveSpeed: 5
   attackRange: 7
   triggerRange: 4
@@ -9430,9 +9431,12 @@ MonoBehaviour:
   Charging: 0
   CanMove: 1
   IsStunned: 0
+  IsRage: 0
   hitboxPrefab: {fileID: 1873538412}
   normalMaterial: {fileID: 2100000, guid: c2b6eda734ebc7e4884e778957bf1b10, type: 2}
   stunMaterial: {fileID: 2100000, guid: 1e0a9fe13d485eb4a87cdf397da4ebb3, type: 2}
+  rageMaterial: {fileID: 2100000, guid: 3718616386d98624ab242b60f99bbc32, type: 2}
+  IsGettingHitInThisHit: 0
 --- !u!1 &2024717531
 GameObject:
   m_ObjectHideFlags: 0

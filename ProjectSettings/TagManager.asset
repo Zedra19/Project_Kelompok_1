@@ -12,6 +12,7 @@ TagManager:
   - Ground
   - Dialog Trigger
   - BossAttack
+  - Patih
   layers:
   - Default
   - TransparentFX
