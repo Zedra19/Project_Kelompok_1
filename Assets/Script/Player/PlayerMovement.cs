@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody _rigidbody;
     private Stamina _stamina;
     private PlayerAttack _playerAttack;
+    private PlayerAttack_Dukun _playerAttackDukun;
     private Vector2 _currentMovementInput;
     private Vector3 _currentMovement;
     private Vector3 _currentRunMovement;
@@ -69,6 +70,7 @@ public class PlayerMovement : MonoBehaviour
         _stamina = GetComponent<Stamina>();
         _playerInput = new PlayerInput();
         _playerAttack = GetComponent<PlayerAttack>();
+        _playerAttackDukun = GetComponent<PlayerAttack_Dukun>();
         _lastPosition = transform.position;
 
 
@@ -81,10 +83,23 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDodgeInput(InputAction.CallbackContext context)
     {
-        if ((!IsDodging || _isAllowedToDodge) && _stamina.CurrentStamina >= 1 && _playerAttack.IsAttacking == false)
+        GameObject playerKsatria = GameObject.Find("Player-Ksatria");
+        GameObject playerDukun = GameObject.Find("Player_Dukun");
+        if (playerKsatria != null)
         {
-            StartCoroutine(Dodge());
+            if ((!IsDodging || _isAllowedToDodge) && _stamina.CurrentStamina >= 1 && _playerAttack.IsAttacking == false)
+            {
+                StartCoroutine(Dodge());
+            }
         }
+        else if (playerDukun != null)
+        {
+            if ((!IsDodging || _isAllowedToDodge) && _stamina.CurrentStamina >= 1 && _playerAttackDukun.IsAttacking == false)
+            {
+                StartCoroutine(Dodge());
+            }
+        }
+
     }
 
     private IEnumerator Dodge()

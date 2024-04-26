@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-public class PlayerAttack : MonoBehaviour
+public class PlayerAttack : MonoBehaviour, IPlayerAttack
 {
     public bool IsAttacking { get; private set; } = false;
     public static event Action OnAttackDone;

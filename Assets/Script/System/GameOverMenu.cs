@@ -16,6 +16,17 @@ public class GameOverMenu : MonoBehaviour
 
     private void Start()
     {
+        GameObject playerKsatria = GameObject.Find("Player-Ksatria");
+        GameObject playerDukun = GameObject.Find("Player_Dukun");
+        if (playerKsatria != null)
+        {
+            HealthScript = playerKsatria.GetComponent<Health>();
+        }
+        else if (playerDukun != null)
+        {
+            HealthScript = playerDukun.GetComponent<Health>();
+        }
+
         UpdateRevivePriceText();
 
         if (HealthScript == null)

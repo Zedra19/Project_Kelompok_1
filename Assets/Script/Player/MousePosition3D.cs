@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class MousePosition3D : MonoBehaviour
 {
-    [SerializeField] private Camera _mainCamera;
     [SerializeField] private LayerMask _layerMask;
 
     private void Update()
     {
-        Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit, float.MaxValue, _layerMask))
+        // Mencari kamera utama yang aktif
+        Camera mainCamera = Camera.main;
+
+        // Memastikan kamera utama telah ditemukan
+        if (mainCamera != null)
         {
-            transform.position = hit.point;
+            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit, float.MaxValue, _layerMask))
+            {
+                transform.position = hit.point;
+            }
+        }
+        else
+        {
+            Debug.LogError("Tidak ada kamera utama yang ditemukan.");
         }
     }
 }

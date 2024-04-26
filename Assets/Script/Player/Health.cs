@@ -1,7 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+public interface IPlayerAttack
+{
+    bool IsAttacking { get; }
+}
 
 public class Health : MonoBehaviour
 {
@@ -9,8 +13,7 @@ public class Health : MonoBehaviour
     public int currentHealth;
 
     public Image[] healthIcons;
-    public PlayerAttack playerAttackScipt;
-
+    public IPlayerAttack playerAttackScript; // Menggunakan interface sebagai tipe data
     private bool hasTakenDamage = false;
 
     private void Start()
@@ -74,7 +77,7 @@ public class Health : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy S"))
         {
-            if (playerAttackScipt.IsAttacking)
+            if (playerAttackScript.IsAttacking)
             {
                 TakeDamage(0);
             }

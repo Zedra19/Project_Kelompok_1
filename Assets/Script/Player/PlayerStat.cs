@@ -8,6 +8,7 @@ public class PlayerStat : MonoBehaviour
     [SerializeField] private Health _playerHealth;
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private PlayerAttack _playerAttack;
+    [SerializeField] private PlayerAttack_Dukun _playerAttackDukun;
 
     //updating value based on stat everytime the game start
     private void Awake()
@@ -84,6 +85,16 @@ public class PlayerStat : MonoBehaviour
 
     public virtual void UpdatePlayerDamageStat(int newDamageStat)
     {
-        _playerAttack.PlayerDamage = newDamageStat;
+        GameObject playerKsatria = GameObject.Find("Player-Ksatria");
+        GameObject playerDukun = GameObject.Find("Player_Dukun");
+        if (playerKsatria != null)
+        {
+            _playerAttack.PlayerDamage = newDamageStat;
+        }
+        else if (playerDukun != null)
+        {
+            _playerAttackDukun.PlayerDamage = newDamageStat;
+        }
+        
     }
 }
