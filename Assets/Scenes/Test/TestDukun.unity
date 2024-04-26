@@ -4708,7 +4708,7 @@ GameObject:
   - component: {fileID: 1027110898}
   m_Layer: 0
   m_Name: Player_Dukun
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4725,8 +4725,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f646058f6ad45534ebe8120c24bd807b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerHealth: {fileID: 1544562479}
-  _playerMovement: {fileID: 2095561246}
+  _playerHealth: {fileID: 1027110901}
+  _playerMovement: {fileID: 1027110903}
+  _playerAttack: {fileID: 1027110902}
 --- !u!114 &1027110899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4792,6 +4793,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 1812550572}
   _attackDuration: 0.5
+  _playerDamage: 0
 --- !u!114 &1027110903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6504,7 +6506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c79c82b075df6448a199d7c5d8b732b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthScript: {fileID: 1544562479}
+  HealthScript: {fileID: 1027110901}
   ScoreScript: {fileID: 1306228004}
   ScoreText: {fileID: 1575664424}
   PriceForRevive: {fileID: 56757274}
@@ -6929,7 +6931,7 @@ PrefabInstance:
       objectReference: {fileID: 910016535}
     - target: {fileID: 3449522194914699223, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
       propertyPath: m_Name
-      value: Player_Dukun
+      value: Player-Ksatria
       objectReference: {fileID: 0}
     - target: {fileID: 3449522194914699223, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
       propertyPath: m_IsActive
@@ -8066,17 +8068,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1540812155}
   m_CullTransparentMesh: 1
---- !u!114 &1544562479 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2520874054194030175, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
-  m_PrefabInstance: {fileID: 1353240711}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5f3019b5e34fac4693ca4c692ab4898, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1544562485 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5942102218231823982, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
@@ -9754,17 +9745,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8144113367235297207, guid: bcc2c078608a37c4a9f535e51d1710cd, type: 3}
   m_PrefabInstance: {fileID: 2071896429}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2095561246 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3808349405739192136, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
-  m_PrefabInstance: {fileID: 1353240711}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dc4119b5e7cfcb49b051f3c73fa62f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &2095561248 stripped
 CapsuleCollider:
   m_CorrespondingSourceObject: {fileID: 1032707630523938863, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
