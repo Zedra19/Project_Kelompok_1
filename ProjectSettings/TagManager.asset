@@ -13,6 +13,8 @@ TagManager:
   - Dialog Trigger
   - BossAttack
   - Patih
+  - HitBoxSenopati
+  - Senopati
   layers:
   - Default
   - TransparentFX

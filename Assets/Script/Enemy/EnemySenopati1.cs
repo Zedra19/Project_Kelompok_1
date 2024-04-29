@@ -1,39 +1,44 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class BossBehavior : MonoBehaviour
+public class Senopati : MonoBehaviour
 {
     public Transform player;
-    public float detectionRange = 15f;
-    public float attackRange = 3f;
-    public float chaseSpeed = 5f;
+    public Transform[] hitboxSpawnPoints;
     public GameObject hitboxPrefab;
     public GameObject rageHitboxPrefab;
+    public Transform attackSpawnPoint;
+    public BossHealth bossHealth;
+    
+    public float detectionRange = 10000000000f;
+    public float attackRange = 6f;
+    public float retreatRange = 3f;
+    public float chaseSpeed = 5f;
     public float hitboxSpeed = 10f;
     public float hitboxDuration = 1f;
-    public float rageThreshold = 0.5f;
     public float rageDuration = 20f;
     public float attackCooldown = 4f;
-    public float maxHealth = 100f;
-    public Transform attackSpawnPoint; // Objek Transform untuk titik spawn serangan
-    // public Transform attackSpawnPointMide;
-    // public Transform attackSpawnPointLeft;
-    // public Transform attackSpawnPointRight;
-    public Transform[] hitboxSpawnPoints;
+    public float HP;
+    public bool isGettingHitInThisHit;
 
     private bool isRageMode = false;
     private bool canAttack = true;
+    private Transform _playerTransform;
+    private NavMeshAgent _navAgent;
     private float currentHealth;
     private float stageDuration = 0f;
-   
+    
 
-    void Start()
+    private void Start()
     {
-        currentHealth = maxHealth;
+        currentHealth = bossHealth.BossMaxHealth;
+        _navAgent = GetComponent<NavMeshAgent>();
     }
 
-    void Update()
+    private void Update()
     {
+        HP = currentHealth;
         stageDuration += Time.deltaTime;
         if (player == null)
         {
@@ -45,20 +50,23 @@ public class BossBehavior : MonoBehaviour
 
         if (distanceToPlayer <= detectionRange)
         {
-            if (distanceToPlayer < attackRange) // Ubah nilai 1.5f sesuai dengan jarak minimum yang diinginkan
+            if (distanceToPlayer <= attackRange && canAttack)
             {
-                Retreat();
-                 if (distanceToPlayer == attackRange && canAttack)
-                {
-                    if (!isRageMode)
-                        Attack();
-                    else
-                        RageAttack();
-                }
+                if (!isRageMode)
+                    Attack();
+                else
+                    RageAttack();
             }
             else
             {
+                if (distanceToPlayer <= retreatRange)
+                {
+                    Retreat();
+                }
+                else
+                {
                     ChasePlayer();
+                }
             }
         }
 
@@ -66,126 +74,86 @@ public class BossBehavior : MonoBehaviour
         {
             EnterRageMode();
         }
-        
-        // if (distanceToPlayer <= attackRange && canAttack)
-        // {
-        //     // Jarak terlalu dekat, boss mundur untuk menjaga jarak
-        //     if (distanceToPlayer <= 1.5f) // Ubah nilai 1.5f sesuai dengan jarak minimum yang diinginkan
-        //     {
-        //         Retreat();
-        //     }
-        // }
     }
 
-    void ChasePlayer()
+    private void ChasePlayer()
     {
         Vector3 moveDirection = (player.position - transform.position).normalized;
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
         if (distanceToPlayer > attackRange)
         {
+            // _navAgent.SetDestination(player.transform.position);
             transform.position += moveDirection * chaseSpeed * Time.deltaTime;
             transform.LookAt(player);
         }
     }
 
-    void Attack()
+    private void Attack()
     {
-        StopChasing();
-
         Vector3 directionToPlayer = (player.position - transform.position).normalized;
-
         SpawnHitbox(directionToPlayer);
         StartCoroutine(AttackCooldown());
-        StartCoroutine(ResumeChasingAfterDelay(2f));
+        Health playerHealth = _playerTransform.GetComponent<Health>();
+        if (playerHealth != null)
+        {
+            playerHealth.TakeDamage(1);
+        }
     }
 
-    void RageAttack()
+    private void RageAttack()
     {
-        StopChasing();
-
         Vector3 directionToPlayer = (player.position - transform.position).normalized;
         SpawnRageHitbox(directionToPlayer);
         StartCoroutine(AttackCooldown());
-        StartCoroutine(ResumeChasingAfterDelay(5f));
+        Health playerHealth = _playerTransform.GetComponent<Health>();
+        if (playerHealth != null)
+        {
+            playerHealth.TakeDamage(1);
+        }
     }
 
-    void StopChasing()
-    {
-        
-    }
-
-    IEnumerator ResumeChasingAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        // Implement your logic to resume chasing here
-    }
-
-    void SpawnHitbox(Vector3 direction)
+    private void SpawnHitbox(Vector3 direction)
     {
         foreach (Transform spawnPoint in hitboxSpawnPoints)
         {
-            // Pastikan spawnPoint tidak null
             if (spawnPoint != null)
             {
-                // Munculkan hitbox di titik spawn yang sedang diproses dan arahkan ke depan
                 GameObject hitbox = Instantiate(hitboxPrefab, spawnPoint.position, Quaternion.identity);
                 hitbox.GetComponent<Rigidbody>().velocity = spawnPoint.forward * hitboxSpeed;
                 Destroy(hitbox, hitboxDuration);
             }
             else
             {
-                Debug.LogError("One of the hitbox spawn points is null.");
+                Debug.LogError("Spawn points is null.");
             }
         }
-        // Vector3 spawnPosition = attackSpawnPoin.position; // Menggunakan posisi dari objek transform sebagai titik spawn
-        // GameObject hitbox = Instantiate(hitboxPrefab, spawnPosition, Quaternion.identity);
-        // hitbox.GetComponent<Rigidbody>().velocity = direction.normalized * hitboxSpeed;
-        // Destroy(hitbox, hitboxDuration);
     }
 
-    void SpawnRageHitbox(Vector3 direction)
+    private void SpawnRageHitbox(Vector3 direction)
     {
-        // foreach (Transform spawnPoint in hitboxSpawnPoints)
-        // {
-        //     // Pastikan spawnPoint tidak null
-        //     if (spawnPoint != null)
-        //     {
-        //         // Munculkan hitbox di titik spawn yang sedang diproses dan arahkan ke depan
-        //         GameObject rageHitbox = Instantiate(rageHitboxPrefab, spawnPoint.position, Quaternion.identity);
-        //         rageHitbox.GetComponent<Rigidbody>().velocity = spawnPoint.forward * hitboxSpeed;
-        //         Destroy(rageHitbox, hitboxDuration);
-        //     }
-        //     else
-        //     {
-        //         Debug.LogError("One of the hitbox spawn points is null.");
-        //     }
-        // }
-        Vector3 spawnPosition = attackSpawnPoint.position; // Menggunakan posisi dari objek transform sebagai titik spawn
+        Vector3 spawnPosition = attackSpawnPoint.position;
         GameObject rageHitbox = Instantiate(rageHitboxPrefab, spawnPosition, Quaternion.identity);
-        rageHitbox.GetComponent<Rigidbody>().velocity = Vector3.zero; // Set kecepatan hitbox menjadi nol
-        Destroy(rageHitbox, hitboxDuration); // Hancurkan hitbox setelah durasi yang ditentukan
-        Destroy(rageHitbox, 1f); // Hancurkan hitbox setelah 1 detik
+        rageHitbox.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        Destroy(rageHitbox, hitboxDuration);
+        Destroy(rageHitbox, 1f);
     }
-    IEnumerator AttackCooldown()
+
+    private IEnumerator AttackCooldown()
     {
         canAttack = false;
         yield return new WaitForSeconds(attackCooldown);
         canAttack = true;
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-    }
-
-    void EnterRageMode()
+    private void EnterRageMode()
     {
         Debug.Log("Boss enters rage mode!");
         isRageMode = true;
         Invoke("ExitRageMode", rageDuration);
     }
 
-    void ExitRageMode()
+    private void ExitRageMode()
     {
         Debug.Log("Boss exits rage mode!");
         isRageMode = false;
@@ -199,39 +167,43 @@ public class BossBehavior : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-    currentHealth -= damage;
-        if (currentHealth <= 0)
+        currentHealth -= damage;
+        if (currentHealth <= bossHealth.BossMaxHealth * 0.5f && !isRageMode)
         {
-            Die();
-        }
-        else if (currentHealth <= maxHealth * rageThreshold && !isRageMode)
-        {
-            EnterRageMode(); // Panggil EnterRageMode ketika kesehatan bos mencapai batas kemarahan
-        }
-    }
-    void Retreat()
-    {
-        // Hitung vektor arah mundur dari boss ke player
-        Vector3 retreatDirection = (transform.position - player.position).normalized;
-        // Menghindari gerakan vertikal
-        retreatDirection.y = 0f;
-        // Tentukan posisi mundur untuk boss
-        Vector3 retreatPosition = transform.position + retreatDirection * chaseSpeed * Time.deltaTime;
-        // Hindari benturan dengan objek lain
-        if (!Physics.Raycast(transform.position, retreatDirection, 1f))
-        {
-            // Terapkan pergerakan mundur
-            transform.position = retreatPosition;
+            EnterRageMode(); 
         }
     }
 
-    void ResetStageDuration()
+    private void Retreat()
+    {
+        Vector3 retreatDirection = (transform.position - player.position).normalized;
+        retreatDirection.y = 0f;
+        float retreatSpeed = chaseSpeed * 0.2f;
+        Vector3 retreatPosition = transform.position + retreatDirection * retreatSpeed * Time.deltaTime;
+        if (!Physics.Raycast(transform.position, retreatDirection, 1f))
+        {
+            transform.position = retreatPosition;
+        }
+        transform.LookAt(player);
+    }
+
+    private void ResetStageDuration()
     {
         stageDuration = 0f;
     }
-    void Die()
+
+    private void OnEnable()
     {
-        Debug.Log("Boss died!");
-        Destroy(gameObject);
+        PlayerAttack.OnAttackDone += AllowAttack;
+    }
+
+    private void OnDisable()
+    {
+        PlayerAttack.OnAttackDone -= AllowAttack;
+    }
+
+    private void AllowAttack()
+    {
+        isGettingHitInThisHit = false;
     }
 }

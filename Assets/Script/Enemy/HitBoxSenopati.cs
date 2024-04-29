@@ -2,12 +2,17 @@ using UnityEngine;
 
 public class Hitbox : MonoBehaviour
 {
+    private Transform _playerTransform;
     private void OnTriggerEnter(Collider other)
     {
-        // Jika terjadi tabrakan dengan objek yang memiliki tag "Player"
         if (other.CompareTag("Player"))
         {
-            // Hancurkan hitbox
+            Health playerHealth = _playerTransform.GetComponent<Health>();
+            if (playerHealth != null)
+            {
+                Debug.Log("Player Hit");
+                playerHealth.TakeDamage(1);
+            }
             Destroy(gameObject);
         }
     }
