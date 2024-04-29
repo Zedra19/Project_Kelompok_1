@@ -472,7 +472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 6904118684246652434}
   _attackDuration: 0
-  _playerDamage: 0
+  _playerDamage: 1
 --- !u!114 &1343143933572900015
 MonoBehaviour:
   m_ObjectHideFlags: 0

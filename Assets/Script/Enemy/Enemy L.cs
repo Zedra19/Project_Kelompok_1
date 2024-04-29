@@ -10,7 +10,7 @@ public class EnemyL : MonoBehaviour
     public float CooldownDuration = 0f;
     public string PlayerTag = "Player";
     public int CurrentHealth = 5;
-    public bool IsGettingHitInThisHit = false;
+    public bool IsGettingHitInThisHit;
 
     private Transform _playerTransform;
     private bool _isOnCooldown = false;
@@ -115,8 +115,8 @@ public class EnemyL : MonoBehaviour
     {
         if (CurrentHealth > 0)
         {
-            Debug.Log($"Enemy L is taking damage{damage}, current health: {CurrentHealth}");
             CurrentHealth -= damage;
+            Debug.Log($"Enemy L is taking damage{damage}, current health: {CurrentHealth}");
             if (CurrentHealth <= 0)
             {
                 Die();

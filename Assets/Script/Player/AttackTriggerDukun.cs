@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public class AttackTriggerDukun : MonoBehaviour
 {
@@ -11,7 +10,9 @@ public class AttackTriggerDukun : MonoBehaviour
     Score scoreScript;
     PatternPatih _patih;
 
-    // Start is called before the first frame update
+    // Dictionary untuk melacak objek yang telah menabrak EnemyL
+    Dictionary<GameObject, bool> collidedObjects = new Dictionary<GameObject, bool>();
+
     void Start()
     {
         comboScript = FindObjectOfType<Combo>();
@@ -21,16 +22,23 @@ public class AttackTriggerDukun : MonoBehaviour
         _patih = FindObjectOfType<PatternPatih>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-
+        if (other.gameObject.CompareTag("Enemy L"))
+        {
+            // Tambahkan objek yang menabrak EnemyL ke dalam dictionary
+            if (!collidedObjects.ContainsKey(other.gameObject))
+            {
+                collidedObjects.Add(other.gameObject, false);
+            }
+        }
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy S") && playerAttackScript.IsAttacking)
         {
+            // Penanganan ketika EnemyS terkena serangan
             Debug.Log("Hit Enemy S");
             scoreScript.currentScore += scoreScript.EnemyS;
             comboScript.comboCount++;
@@ -39,6 +47,7 @@ public class AttackTriggerDukun : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Enemy M") && playerAttackScript.IsAttacking)
         {
+            // Penanganan ketika EnemyM terkena serangan
             Debug.Log("Hit Enemy M");
             scoreScript.currentScore += scoreScript.EnemyM;
             comboScript.comboCount++;
@@ -47,22 +56,23 @@ public class AttackTriggerDukun : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Enemy L") && playerAttackScript.IsAttacking)
         {
-
-            Debug.Log("Hit Enemy L");
             EnemyL enemyL = other.gameObject.GetComponent<EnemyL>();
 
             if (enemyL != null)
             {
-                //making the L enemy only hitable once per attack
-                if (enemyL.IsGettingHitInThisHit)
+                if (!collidedObjects.ContainsKey(other.gameObject) || collidedObjects[other.gameObject])
                 {
+                    // Jika objek belum ada dalam dictionary atau sudah terkena damage, lewati
                     return;
                 }
-                enemyL.IsGettingHitInThisHit = true;
 
                 Debug.Log("Hit Enemy L");
                 comboScript.comboCount++;
                 enemyL.TakeDamage(playerAttackScript.PlayerDamage);
+
+                // Tandai objek sebagai sudah terkena damage
+                collidedObjects[other.gameObject] = true;
+
                 if (enemyL.CurrentHealth <= 0)
                 {
                     killCountScript.killCount++;
@@ -73,6 +83,7 @@ public class AttackTriggerDukun : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Boss") && playerAttackScript.IsAttacking && _patih.IsStunned)
         {
+            // Penanganan ketika Boss terkena serangan
             Debug.Log("Hit Boss");
             if (_patih != null)
             {

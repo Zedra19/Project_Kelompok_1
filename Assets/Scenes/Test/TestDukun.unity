@@ -3515,6 +3515,10 @@ PrefabInstance:
       propertyPath: attackTarget
       value: 
       objectReference: {fileID: 1369483281}
+    - target: {fileID: 5064819507172276111, guid: d9e085f83bd45f54ba69b3643e65437e, type: 3}
+      propertyPath: _playerDamage
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7064517064719259568, guid: d9e085f83bd45f54ba69b3643e65437e, type: 3}
       propertyPath: _playerAttack
       value: 
