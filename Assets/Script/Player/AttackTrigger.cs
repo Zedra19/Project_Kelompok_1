@@ -10,6 +10,7 @@ public class AttackTrigger : MonoBehaviour
     [SerializeField] private PlayerAttack playerAttackScript;
     Score scoreScript;
     PatternPatih _patih;
+    Senopati Senopati;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,7 @@ public class AttackTrigger : MonoBehaviour
         killCountScript = FindAnyObjectByType<KillCount>();
         scoreScript = FindObjectOfType<Score>();
         _patih = FindObjectOfType<PatternPatih>();
+        Senopati = FindObjectOfType<Senopati>();
     }
 
     // Update is called once per frame
@@ -66,6 +68,28 @@ public class AttackTrigger : MonoBehaviour
                 {
                     killCountScript.killCount++;
                     scoreScript.currentScore += scoreScript.EnemyL;
+                    Destroy(other.gameObject);
+                }
+            }
+        }
+        else if (other.gameObject.CompareTag("Senopati") && playerAttackScript.IsAttacking)
+        {
+
+            Debug.Log("Hit Enemy Senopati");
+            if (Senopati != null)
+            {
+                if (Senopati.isGettingHitInThisHit)
+                {
+                    return;
+                }
+                Senopati.isGettingHitInThisHit = true;
+                // comboScript.comboCount++;
+                Senopati.HP -= playerAttackScript.PlayerDamage;
+                Debug.Log("Boss HP: " + Senopati.HP);
+                if (Senopati.HP <= 0)
+                {
+                    // killCountScript.killCount++;
+                    // scoreScript.currentScore += scoreScript.EnemyL;
                     Destroy(other.gameObject);
                 }
             }
