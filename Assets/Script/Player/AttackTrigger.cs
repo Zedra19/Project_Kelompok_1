@@ -7,7 +7,7 @@ public class AttackTrigger : MonoBehaviour
 {
     Combo comboScript;
     KillCount killCountScript;
-    PlayerAttack playerAttackScript;
+    [SerializeField] private PlayerAttack playerAttackScript;
     Score scoreScript;
     PatternPatih _patih;
 
@@ -16,7 +16,6 @@ public class AttackTrigger : MonoBehaviour
     {
         comboScript = FindObjectOfType<Combo>();
         killCountScript = FindAnyObjectByType<KillCount>();
-        playerAttackScript = FindObjectOfType<PlayerAttack>();
         scoreScript = FindObjectOfType<Score>();
         _patih = FindObjectOfType<PatternPatih>();
     }
@@ -24,7 +23,7 @@ public class AttackTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Debug.Log(playerAttackScript.PlayerDamage);
     }
 
     private void OnTriggerStay(Collider other)
@@ -92,5 +91,28 @@ public class AttackTrigger : MonoBehaviour
                 }
             }
         }
+        /*
+        else if (other.gameObject.CompareTag("Senopati") && playerAttackScript.IsAttacking)
+        {
+
+            Debug.Log("Hit Enemy Senopati");
+            if (Senopati != null)
+            {
+                if (Senopati.IsGettingHitInThisHit)
+                {
+                    return;
+                }
+                Senopati.IsGettingHitInThisHit = true;
+                // comboScript.comboCount++;
+                Senopati.maxHealth -= playerAttackScript.PlayerDamage;
+                Debug.Log("Boss HP: " + Senopati.maxHealth);
+                if (Senopati.maxHealth <= 0)
+                {
+                    // killCountScript.killCount++;
+                    // scoreScript.currentScore += scoreScript.EnemyL;
+                    Destroy(other.gameObject);
+                }
+            }
+        }*/
     }
 }

@@ -1122,7 +1122,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Damage
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &295607539
@@ -4014,6 +4014,10 @@ PrefabInstance:
       propertyPath: _dodgeDuration
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 4614444901545589669, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4681214313848904982, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4546,11 +4550,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1255438766}
   m_CullTransparentMesh: 1
---- !u!20 &1269678582 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 6997479841231422393, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
-  m_PrefabInstance: {fileID: 1172203070}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1320797307
 GameObject:
   m_ObjectHideFlags: 0
@@ -5181,7 +5180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd896136b1b985044b507247f3661165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainCamera: {fileID: 1269678582}
   _layerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -6332,9 +6330,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eb4698170aed1b428ac6bdee170f511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementPrice: 100
-  _damagePrice: 100
   _score: {fileID: 1830208739}
+  _buyMovementID: Movement
+  _movementPrice: 100
   BuyMovement:
     m_PersistentCalls:
       m_Calls:
@@ -6362,6 +6360,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _buyDamageID: Damage
+  _damagePrice: 100
   BuyDamage:
     m_PersistentCalls:
       m_Calls:

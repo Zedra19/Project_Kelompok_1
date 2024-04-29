@@ -5,24 +5,30 @@ using UnityEngine.Events;
 
 public class ShopManager : MonoBehaviour
 {
-    [SerializeField] private int _movementPrice = 100;
-    [SerializeField] private int _damagePrice = 100;
     [SerializeField] private Score _score;
+
+    [SerializeField] private string _buyMovementID = "Movement";
+    [SerializeField] private int _movementPrice = 100;
     public UnityEvent BuyMovement;
+
+    [SerializeField] private string _buyDamageID = "Damage";
+    [SerializeField] private int _damagePrice = 100;
     public UnityEvent BuyDamage;
+
 
     public void BuyUpgrade(string buyID)
     {
-        switch (buyID)
+        if (buyID == _buyMovementID)
         {
-            case "Movement":
-                CheckBuying(_movementPrice, BuyMovement);
-                break;
-            case "Damage":
-                CheckBuying(_damagePrice, BuyDamage);
-                break;
-            default:
-                break;
+            CheckBuying(_movementPrice, BuyMovement);
+        }
+        else if (buyID == _buyDamageID)
+        {
+            CheckBuying(_damagePrice, BuyDamage);
+        }
+        else
+        {
+            Debug.Log("Invalid ID!");
         }
     }
 

@@ -95,6 +95,6 @@ public class PlayerStat : MonoBehaviour
         {
             _playerAttackDukun.PlayerDamage = newDamageStat;
         }
-        
+
     }
 }
