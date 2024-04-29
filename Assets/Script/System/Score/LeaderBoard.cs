@@ -10,32 +10,31 @@ public class LeaderBoard : MonoBehaviour
     public GameObject inputName;
     public GameObject inputField;
     public GameObject leaderdBoard;
+    public GameObject Content;
     public Score scoreScript;
 
-    public Text rank1;
-    public Text rank2;
-    public Text rank3;
-    public Text rank4;
-    public Text rank5;
+    private ScoreData sd;
+    public RowUI rowUIScript;
 
-
+    void Awake(){
+        var json = PlayerPrefs.GetString("Leaderboard","{}");
+        sd = JsonUtility.FromJson<ScoreData>(json);
+    }
     // Start is called before the first frame update
     void Start()
     {
-        scoreScript = FindAnyObjectByType<Score>();
+        scoreScript = GetComponent<Score>();
+    }
+    void Update(){
+        leaderBoardShow();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        ShowLeaderBoard();
+    public IEnumerable<SaveScore> GetHighScores(){
+        return sd.scoreList.OrderByDescending(x => x.Score);
     }
 
-    void ShowLeaderBoard()
-    {
-        if (leaderdBoard.activeSelf == true){
-            rank1.text = (1) + " " + PlayerPrefs.GetString(name);
-        }
+    public void AddScore(SaveScore ss){
+        sd.scoreList.Add(ss);
     }
 
     public void inputNameShow()
@@ -43,20 +42,34 @@ public class LeaderBoard : MonoBehaviour
         inputName.SetActive(true);
     }
 
-    public void LeaderBoardShow()
-    {
-        leaderdBoard.SetActive(true);
+    public void leaderBoardShow(){
+        if(leaderdBoard.activeSelf){
+            var scores = GetHighScores().ToArray();
+            for (int i = 0; i < scores.Length; i++)
+            {
+                var row = Instantiate(rowUIScript, Content.transform).GetComponent<RowUI>();
+                row.Rank.text = (i+1).ToString();
+                row.Name.text = scores[i].Name;
+                row.Score.text = scores[i].Score.ToString();
+            }
+        }
     }
 
     public void saveScore(){
         string name = inputField.GetComponent<InputField>().text;
         int score = scoreScript.currentScore;
-        PlayerPrefs.SetString(name, score.ToString());
-        LeaderBoardShow();
+        AddScore(new SaveScore(name, score));
+        leaderdBoard.SetActive(true);
         inputName.SetActive(false);
     }
 
     public void homeButton(){
         SceneManager.LoadScene(0);
+    }
+
+    public void SaveScoreToLeaderBoard()
+    {
+        var json = JsonUtility.ToJson(sd);
+        PlayerPrefs.SetString("Leaderboard",json);
     }
 }
