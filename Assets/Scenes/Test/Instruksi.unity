@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -595,6 +595,7 @@ MonoBehaviour:
   _bossPrefab: {fileID: 0}
   totalEnemyCount: 100
   spawnInterval: 2
+  isEndlessMode: 0
 --- !u!4 &371689843
 Transform:
   m_ObjectHideFlags: 0
@@ -1412,7 +1413,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -1619,11 +1621,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 905099494}
   m_CullTransparentMesh: 1
---- !u!20 &963194227 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 6997479841231422393, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
-  m_PrefabInstance: {fileID: 2911522664425959781}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1034006586
 GameObject:
   m_ObjectHideFlags: 0
@@ -2377,6 +2374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db89c5f0ab292c94fa42fcceaf87b2f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TutorialPanel: {fileID: 0}
   MovementPop: {fileID: 2138670848}
   DodgePop: {fileID: 1738312469}
   AttPop: {fileID: 840757884}
@@ -2386,6 +2384,7 @@ MonoBehaviour:
   StaminaPop: {fileID: 1457270368}
   Stats: {fileID: 469543314}
   StatsPop: {fileID: 2145773843}
+  enemySpawner: {fileID: 0}
 --- !u!1 &1330844372
 GameObject:
   m_ObjectHideFlags: 0
@@ -2625,6 +2624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3efbdc2e627c16e4ab9421c9dbc26721, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAttackScript: {fileID: 0}
 --- !u!65 &1487228010
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2878,7 +2878,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd896136b1b985044b507247f3661165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainCamera: {fileID: 963194227}
   _layerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -2923,7 +2922,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3065,7 +3064,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -10,7 +10,7 @@ public class Senopati : MonoBehaviour
     public GameObject rageHitboxPrefab;
     public Transform attackSpawnPoint;
     public BossHealth bossHealth;
-    
+
     public float detectionRange = 10000000000f;
     public float attackRange = 6f;
     public float retreatRange = 3f;
@@ -28,15 +28,15 @@ public class Senopati : MonoBehaviour
     private NavMeshAgent _navAgent;
     private float currentHealth;
     private float stageDuration = 0f;
-    
 
-    private void Start()
+
+    void Start()
     {
         currentHealth = bossHealth.BossMaxHealth;
         _navAgent = GetComponent<NavMeshAgent>();
     }
 
-    private void Update()
+    void Update()
     {
         HP = currentHealth;
         stageDuration += Time.deltaTime;
@@ -89,16 +89,24 @@ public class Senopati : MonoBehaviour
         }
     }
 
+    private void Retreat()
+    {
+        Vector3 retreatDirection = (transform.position - player.position).normalized;
+        retreatDirection.y = 0f;
+        float retreatSpeed = chaseSpeed * 0.2f;
+        Vector3 retreatPosition = transform.position + retreatDirection * retreatSpeed * Time.deltaTime;
+        if (!Physics.Raycast(transform.position, retreatDirection, 1f))
+        {
+            transform.position = retreatPosition;
+        }
+        transform.LookAt(player);
+    }
+
     private void Attack()
     {
         Vector3 directionToPlayer = (player.position - transform.position).normalized;
         SpawnHitbox(directionToPlayer);
         StartCoroutine(AttackCooldown());
-        Health playerHealth = _playerTransform.GetComponent<Health>();
-        if (playerHealth != null)
-        {
-            playerHealth.TakeDamage(1);
-        }
     }
 
     private void RageAttack()
@@ -106,11 +114,6 @@ public class Senopati : MonoBehaviour
         Vector3 directionToPlayer = (player.position - transform.position).normalized;
         SpawnRageHitbox(directionToPlayer);
         StartCoroutine(AttackCooldown());
-        Health playerHealth = _playerTransform.GetComponent<Health>();
-        if (playerHealth != null)
-        {
-            playerHealth.TakeDamage(1);
-        }
     }
 
     private void SpawnHitbox(Vector3 direction)
@@ -172,19 +175,6 @@ public class Senopati : MonoBehaviour
         {
             EnterRageMode(); 
         }
-    }
-
-    private void Retreat()
-    {
-        Vector3 retreatDirection = (transform.position - player.position).normalized;
-        retreatDirection.y = 0f;
-        float retreatSpeed = chaseSpeed * 0.2f;
-        Vector3 retreatPosition = transform.position + retreatDirection * retreatSpeed * Time.deltaTime;
-        if (!Physics.Raycast(transform.position, retreatDirection, 1f))
-        {
-            transform.position = retreatPosition;
-        }
-        transform.LookAt(player);
     }
 
     private void ResetStageDuration()
