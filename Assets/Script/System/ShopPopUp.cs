@@ -10,10 +10,12 @@ public class ShopPopUp : MonoBehaviour
     public Button buttonUpgrade;
     public Button buttonRole;
 
+
     private bool dialog1PopUp = false;
     private bool dialog2PopUp = false;
     private bool dialogUpgradePopUp = false;
     private bool dialogChangeRolePopUp = false;
+    private bool _isShopUICurrentlyActive = false;
 
     private ShopTrigger shopTrigger;
 
@@ -21,9 +23,9 @@ public class ShopPopUp : MonoBehaviour
     {
         Dialog1Text.SetActive(false);
         Dialog2Text.SetActive(false);
-        
+
         shopTrigger = FindObjectOfType<ShopTrigger>();
-        
+
         shopTrigger.OnDialogTriggerEnter.AddListener(StartDialog1);
         buttonUpgrade.onClick.AddListener(OnClickbuttonUpgrade);
         buttonRole.onClick.AddListener(OnClickbuttonRole);
@@ -31,6 +33,11 @@ public class ShopPopUp : MonoBehaviour
 
     private void StartDialog1()
     {
+        if (_isShopUICurrentlyActive)
+        {
+            return;
+        }
+        _isShopUICurrentlyActive = true;
         Dialog1Text.SetActive(true);
         dialog1PopUp = true;
     }
@@ -43,7 +50,7 @@ public class ShopPopUp : MonoBehaviour
 
     private void Update()
     {
-         if (dialog1PopUp && Input.GetKeyDown(KeyCode.Return))
+        if (dialog1PopUp && Input.GetKeyDown(KeyCode.Return))
         {
             Dialog1Text.SetActive(false);
             dialog1PopUp = false;
@@ -91,5 +98,6 @@ public class ShopPopUp : MonoBehaviour
         dialogUpgradePopUp = false;
         DialogRoleText.SetActive(false);
         dialogChangeRolePopUp = false;
+        _isShopUICurrentlyActive = false;
     }
 }
