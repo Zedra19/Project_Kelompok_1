@@ -74,10 +74,10 @@ public class AttackTrigger : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Senopati") && playerAttackScript.IsAttacking)
         {
-
-            Debug.Log("Hit Enemy Senopati");
+            Debug.Log("---SENOPATI");
             if (senopati != null)
             {
+                Debug.Log("----Hit Senopati HP SENOPATI: " + senopati.HP + "----");
                 if (senopati.isGettingHitInThisHit)
                 {
                     return;
@@ -94,11 +94,12 @@ public class AttackTrigger : MonoBehaviour
                 }
             }
         }
-        else if (other.gameObject.CompareTag("Boss") && playerAttackScript.IsAttacking && _patih.IsStunned)
+        else if (other.gameObject.CompareTag("Patih") && playerAttackScript.IsAttacking && _patih.IsStunned)
         {
-            Debug.Log("Hit Boss");
+            Debug.Log("---PATIH");
             if (_patih != null)
             {
+                Debug.Log("----Hit Patih HP PATIH: " + _patih.HP + "----");
                 if (_patih.IsGettingHitInThisHit)
                 {
                     return;
@@ -106,7 +107,7 @@ public class AttackTrigger : MonoBehaviour
                 _patih.IsGettingHitInThisHit = true;
                 comboScript.comboCount++;
                 _patih.HP -= playerAttackScript.PlayerDamage;
-                Debug.Log("Boss HP: " + _patih.HP);
+                Debug.Log("Patih HP: " + _patih.HP);
                 if (_patih.HP <= 0)
                 {
                     killCountScript.killCount++;

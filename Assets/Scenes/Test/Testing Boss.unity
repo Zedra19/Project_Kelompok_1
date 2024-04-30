@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -689,11 +689,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7687802548597274917, guid: c16004ec82e67f344b400e1ec53dc7a4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7687802548597274917, guid: c16004ec82e67f344b400e1ec53dc7a4, type: 3}
       propertyPath: m_TagString
-      value: Boss
+      value: Patih
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4069116268454857189, guid: c16004ec82e67f344b400e1ec53dc7a4, type: 3}
@@ -4633,6 +4633,10 @@ PrefabInstance:
       propertyPath: StaminaBar
       value: 
       objectReference: {fileID: 446752650}
+    - target: {fileID: 2210283626046868986, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
+      propertyPath: playerAttackScript
+      value: 
+      objectReference: {fileID: 485131124}
     - target: {fileID: 2520874054194030175, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
       propertyPath: playerAttackScipt
       value: 
@@ -4653,6 +4657,10 @@ PrefabInstance:
       propertyPath: StaminaBar
       value: 
       objectReference: {fileID: 446752650}
+    - target: {fileID: 3223859142709854288, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3449522194914699223, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
       propertyPath: m_Name
       value: Player-Ksatria
@@ -4704,7 +4712,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5955391904117536000, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2077453099}
   m_SourcePrefab: {fileID: 100100000, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
 --- !u!4 &884102202 stripped
 Transform:
@@ -6788,6 +6799,10 @@ PrefabInstance:
     - target: {fileID: 3964856401987869054, guid: d4b0dcd2da67e2b4e98af450e1d883bc, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3964856401987869054, guid: d4b0dcd2da67e2b4e98af450e1d883bc, type: 3}
+      propertyPath: m_TagString
+      value: Senopati
       objectReference: {fileID: 0}
     - target: {fileID: 4898852879160737350, guid: d4b0dcd2da67e2b4e98af450e1d883bc, type: 3}
       propertyPath: HP
@@ -9907,6 +9922,55 @@ RectTransform:
   m_AnchoredPosition: {x: 296, y: 243}
   m_SizeDelta: {x: 150, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2077453095 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5955391904117536000, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
+  m_PrefabInstance: {fileID: 871431735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2077453099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077453095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1001 &2079636037
 PrefabInstance:
   m_ObjectHideFlags: 0
