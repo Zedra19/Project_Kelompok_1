@@ -1,29 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-namespace EffectSceneManager
-{
+// namespace EffectSceneManager
+// {
 public class EffectManager : MonoBehaviour
 {
-    public List<GameObject> effects;
-    public List<KeyCode> keys;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static EffectManager Instance;
+    public VFX[] EffectVFX;
 
-    // Update is called once per frame
-    void Update()
+    // private void Awake()
+    // {
+    //     if (Instance == null)
+    //     {
+    //         Instance = this;
+    //         DontDestroyOnLoad(gameObject);
+    //     }
+    //     else
+    //     {
+    //         Destroy(gameObject);
+    //     }
+    // }
+
+    public void PlayVFX(string name, Vector3 spawnPosition)
     {
-        for (int i = 0; i < keys.Count; i++)
+        VFX s = Array.Find(EffectVFX, x => x.Name == name);
+
+        if(s == null)
         {
-            if (Input.GetKeyDown(keys[i]))
-            {
-                Instantiate<GameObject>(effects[i]);
-            }
+            Debug.Log("VFX Not Found");
+        }
+        else
+        {
+            GameObject.Instantiate(s.Visual, spawnPosition, Quaternion.identity);
         }
     }
 }
-}
+// }
