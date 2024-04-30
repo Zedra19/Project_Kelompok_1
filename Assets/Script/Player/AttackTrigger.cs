@@ -10,7 +10,7 @@ public class AttackTrigger : MonoBehaviour
     [SerializeField] private PlayerAttack playerAttackScript;
     Score scoreScript;
     PatternPatih _patih;
-    Senopati Senopati;
+    Senopati senopati;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,7 @@ public class AttackTrigger : MonoBehaviour
         killCountScript = FindAnyObjectByType<KillCount>();
         scoreScript = FindObjectOfType<Score>();
         _patih = FindObjectOfType<PatternPatih>();
-        Senopati = FindObjectOfType<Senopati>();
+        senopati = FindObjectOfType<Senopati>();
     }
 
     // Update is called once per frame
@@ -76,17 +76,17 @@ public class AttackTrigger : MonoBehaviour
         {
 
             Debug.Log("Hit Enemy Senopati");
-            if (Senopati != null)
+            if (senopati != null)
             {
-                if (Senopati.isGettingHitInThisHit)
+                if (senopati.isGettingHitInThisHit)
                 {
                     return;
                 }
-                Senopati.isGettingHitInThisHit = true;
+                senopati.isGettingHitInThisHit = true;
                 // comboScript.comboCount++;
-                Senopati.HP -= playerAttackScript.PlayerDamage;
-                Debug.Log("Boss HP: " + Senopati.HP);
-                if (Senopati.HP <= 0)
+                senopati.TakeDamage(playerAttackScript.PlayerDamage);
+                Debug.Log("Boss HP: " + senopati.HP);
+                if (senopati.HP <= 0)
                 {
                     // killCountScript.killCount++;
                     // scoreScript.currentScore += scoreScript.EnemyL;
@@ -115,28 +115,5 @@ public class AttackTrigger : MonoBehaviour
                 }
             }
         }
-        /*
-        else if (other.gameObject.CompareTag("Senopati") && playerAttackScript.IsAttacking)
-        {
-
-            Debug.Log("Hit Enemy Senopati");
-            if (Senopati != null)
-            {
-                if (Senopati.IsGettingHitInThisHit)
-                {
-                    return;
-                }
-                Senopati.IsGettingHitInThisHit = true;
-                // comboScript.comboCount++;
-                Senopati.maxHealth -= playerAttackScript.PlayerDamage;
-                Debug.Log("Boss HP: " + Senopati.maxHealth);
-                if (Senopati.maxHealth <= 0)
-                {
-                    // killCountScript.killCount++;
-                    // scoreScript.currentScore += scoreScript.EnemyL;
-                    Destroy(other.gameObject);
-                }
-            }
-        }*/
     }
 }

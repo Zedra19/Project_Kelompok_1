@@ -44,7 +44,11 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
+<<<<<<< Updated upstream
     customRenderPipeline: {fileID: 0}
+=======
+    customRenderPipeline: {fileID: 11400000, guid: 2a4d51b140fd93d4eb58b92c2244b85e, type: 2}
+>>>>>>> Stashed changes
     terrainQualityOverrides: 0
     terrainPixelError: 1
     terrainDetailDensityScale: 1
@@ -93,7 +97,11 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
+<<<<<<< Updated upstream
     customRenderPipeline: {fileID: 0}
+=======
+    customRenderPipeline: {fileID: 11400000, guid: 8ebb4ba1151fcf3438e1fbfbb9f21adf, type: 2}
+>>>>>>> Stashed changes
     terrainQualityOverrides: 0
     terrainPixelError: 1
     terrainDetailDensityScale: 1
@@ -142,7 +150,11 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
+<<<<<<< Updated upstream
     customRenderPipeline: {fileID: 0}
+=======
+    customRenderPipeline: {fileID: 11400000, guid: ce968c0a30ca45344b00910f70368b0d, type: 2}
+>>>>>>> Stashed changes
     terrainQualityOverrides: 0
     terrainPixelError: 1
     terrainDetailDensityScale: 1
@@ -191,7 +203,11 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
+<<<<<<< Updated upstream
     customRenderPipeline: {fileID: 0}
+=======
+    customRenderPipeline: {fileID: 11400000, guid: 5c5e38c718a75214b918d4b0b5cc044e, type: 2}
+>>>>>>> Stashed changes
     terrainQualityOverrides: 0
     terrainPixelError: 1
     terrainDetailDensityScale: 1
@@ -240,7 +256,11 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
+<<<<<<< Updated upstream
     customRenderPipeline: {fileID: 0}
+=======
+    customRenderPipeline: {fileID: 11400000, guid: 7b4be2989a9492a4086a34909782df53, type: 2}
+>>>>>>> Stashed changes
     terrainQualityOverrides: 0
     terrainPixelError: 1
     terrainDetailDensityScale: 1
@@ -267,7 +287,7 @@ QualitySettings:
     globalTextureMipmapLimit: 0
     textureMipmapLimitSettings: []
     anisotropicTextures: 2
-    antiAliasing: 2
+    antiAliasing: 0
     softParticles: 1
     softVegetation: 1
     realtimeReflectionProbes: 1
@@ -289,7 +309,11 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
+<<<<<<< Updated upstream
     customRenderPipeline: {fileID: 0}
+=======
+    customRenderPipeline: {fileID: 11400000, guid: 7ddfc45b2a879e640824ac77301cde1e, type: 2}
+>>>>>>> Stashed changes
     terrainQualityOverrides: 0
     terrainPixelError: 1
     terrainDetailDensityScale: 1

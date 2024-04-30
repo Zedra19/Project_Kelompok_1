@@ -144,6 +144,10 @@ PrefabInstance:
       value: Senopati
       objectReference: {fileID: 0}
     - target: {fileID: 4898852879160737350, guid: d4b0dcd2da67e2b4e98af450e1d883bc, type: 3}
+      propertyPath: HP
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898852879160737350, guid: d4b0dcd2da67e2b4e98af450e1d883bc, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1544562486}
@@ -154,6 +158,10 @@ PrefabInstance:
     - target: {fileID: 4898852879160737350, guid: d4b0dcd2da67e2b4e98af450e1d883bc, type: 3}
       propertyPath: retreatRange
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898852879160737350, guid: d4b0dcd2da67e2b4e98af450e1d883bc, type: 3}
+      propertyPath: currentHealth
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4898852879160737350, guid: d4b0dcd2da67e2b4e98af450e1d883bc, type: 3}
       propertyPath: rageThreshold
@@ -231,6 +239,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3964856401987869054, guid: d4b0dcd2da67e2b4e98af450e1d883bc, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 1274654592}
     - targetCorrespondingSourceObject: {fileID: 3964856401987869054, guid: d4b0dcd2da67e2b4e98af450e1d883bc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1274654585}
@@ -635,6 +646,20 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1274654592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274654578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0fbc67ce0bffd7418d6db70f87da2fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BossHealthSlider: {fileID: 0}
+  BossMaxHealth: 5
 --- !u!1001 &1353240711
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -646,6 +671,14 @@ PrefabInstance:
     - target: {fileID: 922524191783920005, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
       propertyPath: TargetObject
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1032707630523938863, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1032707630523938863, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2117668409317907501, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
       propertyPath: StaminaBar
