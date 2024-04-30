@@ -16,8 +16,9 @@ public class LeaderBoard : MonoBehaviour
     private ScoreData sd;
     public RowUI rowUIScript;
 
-    void Awake(){
-        var json = PlayerPrefs.GetString("Leaderboard","{}");
+    void Awake()
+    {
+        var json = PlayerPrefs.GetString("Leaderboard", "{}");
         sd = JsonUtility.FromJson<ScoreData>(json);
     }
     // Start is called before the first frame update
@@ -25,15 +26,18 @@ public class LeaderBoard : MonoBehaviour
     {
         scoreScript = GetComponent<Score>();
     }
-    void Update(){
+    void Update()
+    {
         leaderBoardShow();
     }
 
-    public IEnumerable<SaveScore> GetHighScores(){
+    public IEnumerable<SaveScore> GetHighScores()
+    {
         return sd.scoreList.OrderByDescending(x => x.Score);
     }
 
-    public void AddScore(SaveScore ss){
+    public void AddScore(SaveScore ss)
+    {
         sd.scoreList.Add(ss);
     }
 
@@ -42,34 +46,39 @@ public class LeaderBoard : MonoBehaviour
         inputName.SetActive(true);
     }
 
-    public void leaderBoardShow(){
-        if(leaderdBoard.activeSelf){
+    public void leaderBoardShow()
+    {
+        if (leaderdBoard.activeSelf)
+        {
             var scores = GetHighScores().ToArray();
             for (int i = 0; i < scores.Length; i++)
             {
                 var row = Instantiate(rowUIScript, Content.transform).GetComponent<RowUI>();
-                row.Rank.text = (i+1).ToString();
+                row.Rank.text = (i + 1).ToString();
                 row.Name.text = scores[i].Name;
                 row.Score.text = scores[i].Score.ToString();
             }
         }
     }
 
-    public void saveScore(){
+    public void saveScore()
+    {
         string name = inputField.GetComponent<InputField>().text;
         int score = scoreScript.currentScore;
+        Debug.Log("Name: " + name + " Score: " + score);
         AddScore(new SaveScore(name, score));
         leaderdBoard.SetActive(true);
         inputName.SetActive(false);
     }
 
-    public void homeButton(){
+    public void homeButton()
+    {
         SceneManager.LoadScene(0);
     }
 
     public void SaveScoreToLeaderBoard()
     {
         var json = JsonUtility.ToJson(sd);
-        PlayerPrefs.SetString("Leaderboard",json);
+        PlayerPrefs.SetString("Leaderboard", json);
     }
 }
