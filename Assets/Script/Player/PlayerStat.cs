@@ -9,6 +9,7 @@ public class PlayerStat : MonoBehaviour
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private PlayerAttack _playerAttack;
     [SerializeField] private PlayerAttack_Dukun _playerAttackDukun;
+    [SerializeField] private PlayerAttack_Petani _playerAttackPetani;
 
     //updating value based on stat everytime the game start
     private void Awake()
@@ -87,6 +88,7 @@ public class PlayerStat : MonoBehaviour
     {
         GameObject playerKsatria = GameObject.Find("Player-Ksatria");
         GameObject playerDukun = GameObject.Find("Player_Dukun");
+        GameObject playerPetani = GameObject.Find("Player_Petani");
         if (playerKsatria != null)
         {
             _playerAttack.PlayerDamage = newDamageStat;
@@ -94,6 +96,10 @@ public class PlayerStat : MonoBehaviour
         else if (playerDukun != null)
         {
             _playerAttackDukun.PlayerDamage = newDamageStat;
+        }
+        else if (playerPetani != null)
+        {
+            _playerAttackPetani.PlayerDamage = newDamageStat;
         }
 
     }

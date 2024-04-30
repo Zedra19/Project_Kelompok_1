@@ -18,6 +18,7 @@ public class GameOverMenu : MonoBehaviour
     {
         GameObject playerKsatria = GameObject.Find("Player-Ksatria");
         GameObject playerDukun = GameObject.Find("Player_Dukun");
+        GameObject playerPetani = GameObject.Find("Player_Petani");
         if (playerKsatria != null)
         {
             HealthScript = playerKsatria.GetComponent<Health>();
@@ -25,6 +26,10 @@ public class GameOverMenu : MonoBehaviour
         else if (playerDukun != null)
         {
             HealthScript = playerDukun.GetComponent<Health>();
+        }
+        else if (playerPetani != null)
+        {
+            HealthScript = playerPetani.GetComponent<Health>();
         }
 
         UpdateRevivePriceText();

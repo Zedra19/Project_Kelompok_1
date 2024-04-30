@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     private Stamina _stamina;
     private PlayerAttack _playerAttack;
     private PlayerAttack_Dukun _playerAttackDukun;
+    private PlayerAttack_Petani _playerAttackPetani;
     private Vector2 _currentMovementInput;
     private Vector3 _currentMovement;
     private Vector3 _currentRunMovement;
@@ -71,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
         _playerInput = new PlayerInput();
         _playerAttack = GetComponent<PlayerAttack>();
         _playerAttackDukun = GetComponent<PlayerAttack_Dukun>();
+        _playerAttackPetani = GetComponent<PlayerAttack_Petani>();
         _lastPosition = transform.position;
 
 
@@ -85,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
     {
         GameObject playerKsatria = GameObject.Find("Player-Ksatria");
         GameObject playerDukun = GameObject.Find("Player_Dukun");
+        GameObject playerPetani = GameObject.Find("Player_Petani");
         if (playerKsatria != null)
         {
             if ((!IsDodging || _isAllowedToDodge) && _stamina.CurrentStamina >= 1 && _playerAttack.IsAttacking == false)
@@ -95,6 +98,13 @@ public class PlayerMovement : MonoBehaviour
         else if (playerDukun != null)
         {
             if ((!IsDodging || _isAllowedToDodge) && _stamina.CurrentStamina >= 1 && _playerAttackDukun.IsAttacking == false)
+            {
+                StartCoroutine(Dodge());
+            }
+        }
+        else if (playerPetani != null)
+        {
+            if ((!IsDodging || _isAllowedToDodge) && _stamina.CurrentStamina >= 1 && _playerAttackPetani.IsAttacking == false)
             {
                 StartCoroutine(Dodge());
             }

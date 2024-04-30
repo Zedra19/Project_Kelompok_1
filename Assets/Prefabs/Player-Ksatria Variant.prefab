@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3efbdc2e627c16e4ab9421c9dbc26721, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAttackScript: {fileID: 5942102218231823982}
 --- !u!1 &5955391904117536000
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,9 +408,6 @@ PrefabInstance:
       addedObject: {fileID: 4088118217457160271}
     - targetCorrespondingSourceObject: {fileID: 1426776051577652440, guid: 15872fb162cc78b46847f2af7f385baf, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4614444901545589669}
-    - targetCorrespondingSourceObject: {fileID: 1426776051577652440, guid: 15872fb162cc78b46847f2af7f385baf, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1343143933572900015}
   m_SourcePrefab: {fileID: 100100000, guid: 15872fb162cc78b46847f2af7f385baf, type: 3}
 --- !u!114 &2520874054194030175 stripped
@@ -441,7 +439,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetObject: {fileID: 0}
+  TargetPortal: {fileID: 0}
   HeightOffset: 5
+  EffectManager: {fileID: 0}
 --- !u!114 &4088118217457160271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,21 +458,6 @@ MonoBehaviour:
   _playerMovement: {fileID: 3808349405739192136}
   _playerAttack: {fileID: 5942102218231823982}
   _playerAttackDukun: {fileID: 0}
---- !u!114 &4614444901545589669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3449522194914699223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75e58f501fbecb84c84b9cbb3c46d669, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 6904118684246652434}
-  _attackDuration: 0
-  _playerDamage: 1
 --- !u!114 &1343143933572900015
 MonoBehaviour:
   m_ObjectHideFlags: 0
