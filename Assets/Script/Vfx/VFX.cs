@@ -6,5 +6,5 @@ using UnityEngine;
 public class VFX 
 {
    public string Name;
-   public GameObject VisualFX;
+   public GameObject Visual;
 }

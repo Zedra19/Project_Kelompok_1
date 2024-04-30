@@ -133,15 +133,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3650638188812647480, guid: a2a060732547fe64581bb0cb3c2bdf1d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -21.15
       objectReference: {fileID: 0}
     - target: {fileID: 3650638188812647480, guid: a2a060732547fe64581bb0cb3c2bdf1d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.68
+      value: -9.08
       objectReference: {fileID: 0}
     - target: {fileID: 3650638188812647480, guid: a2a060732547fe64581bb0cb3c2bdf1d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1.45
       objectReference: {fileID: 0}
     - target: {fileID: 3650638188812647480, guid: a2a060732547fe64581bb0cb3c2bdf1d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -753,7 +753,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7687802548597274917, guid: c16004ec82e67f344b400e1ec53dc7a4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7687802548597274917, guid: c16004ec82e67f344b400e1ec53dc7a4, type: 3}
       propertyPath: m_TagString
@@ -4643,10 +4643,22 @@ PrefabInstance:
       propertyPath: TargetObject
       value: 
       objectReference: {fileID: 525809012}
+    - target: {fileID: 922524191783920005, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
+      propertyPath: TargetPortal
+      value: 
+      objectReference: {fileID: 525809012}
+    - target: {fileID: 922524191783920005, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
+      propertyPath: EffectManager
+      value: 
+      objectReference: {fileID: 1530063316}
     - target: {fileID: 2117668409317907501, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
       propertyPath: StaminaBar
       value: 
       objectReference: {fileID: 446752650}
+    - target: {fileID: 2210283626046868986, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
+      propertyPath: playerAttackScript
+      value: 
+      objectReference: {fileID: 485131124}
     - target: {fileID: 2520874054194030175, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
       propertyPath: playerAttackScipt
       value: 
@@ -6803,6 +6815,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Senopati
       objectReference: {fileID: 0}
+    - target: {fileID: 3964856401987869054, guid: d4b0dcd2da67e2b4e98af450e1d883bc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4898852879160737350, guid: d4b0dcd2da67e2b4e98af450e1d883bc, type: 3}
       propertyPath: player
       value: 
@@ -7723,9 +7739,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EffectVFX:
-  - Name: spawn
-    VisualFX: {fileID: 3744133877081091469, guid: a2a060732547fe64581bb0cb3c2bdf1d, type: 3}
-  SourceVFX: {fileID: 1530063315}
+  - Name: Spawn
+    Visual: {fileID: 3744133877081091469, guid: a2a060732547fe64581bb0cb3c2bdf1d, type: 3}
 --- !u!4 &1530063317
 Transform:
   m_ObjectHideFlags: 0
@@ -8207,7 +8222,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681270403}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

@@ -9,39 +9,19 @@ public class EffectManager : MonoBehaviour
 {
     public static EffectManager Instance;
     public VFX[] EffectVFX;
-    public GameObject SourceVFX;
-    // public List<GameObject> effects;
-    // public List<KeyCode> keys;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // for (int i = 0; i < keys.Count; i++)
-        // {
-        //     if (Input.GetKeyDown(keys[i]))
-        //     {
-        //         Instantiate<GameObject>(effects[i]);
-        //     }
-        // }
-    }
-
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+    // private void Awake()
+    // {
+    //     if (Instance == null)
+    //     {
+    //         Instance = this;
+    //         DontDestroyOnLoad(gameObject);
+    //     }
+    //     else
+    //     {
+    //         Destroy(gameObject);
+    //     }
+    // }
 
     public void PlayVFX(string name, Vector3 spawnPosition)
     {
@@ -53,7 +33,7 @@ public class EffectManager : MonoBehaviour
         }
         else
         {
-            GameObject.Instantiate(SourceVFX, spawnPosition, Quaternion.identity);
+            GameObject.Instantiate(s.Visual, spawnPosition, Quaternion.identity);
         }
     }
 }
