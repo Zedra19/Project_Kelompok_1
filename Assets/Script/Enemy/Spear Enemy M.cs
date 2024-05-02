@@ -6,7 +6,6 @@ public class SpearEnemyM : MonoBehaviour
 {
     public GameObject enemyM;
     EnemyM enemyMScript;
-    public bool isAClone = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,13 +15,17 @@ public class SpearEnemyM : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (gameObject.tag != "Spear")
+        {
+            transform.position = gameObject.transform.parent.position;
+        }
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        // if(collision.gameObject.CompareTag("Ground") && enemyMScript._animator.GetBool("AttackZone") == true && isAClone == true){
-        //     Destroy(gameObject);
-        // }
+        if (gameObject.tag == "Spear" && collision.gameObject.tag == "Ground")
+        {
+            Destroy(gameObject);
+        }
     }
 }

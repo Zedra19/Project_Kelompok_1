@@ -83,6 +83,7 @@ public class EnemyM : MonoBehaviour
                     GameObject player = GameObject.FindWithTag("Player");
                     Vector3 playerPosition = player.transform.position - transform.position;
                     playerPosition.y = 0f;
+                    spearClone.tag = "Spear";
                     spearClone.transform.position = transform.position + new Vector3(0f, 1.8f, 0f);
                     spearClone.GetComponent<Rigidbody>().AddForce(playerPosition.normalized * spearForce, ForceMode.Impulse);
                     timerBetweenAttack = 0f;

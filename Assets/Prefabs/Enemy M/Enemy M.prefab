@@ -291,7 +291,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7522023517946731889, guid: 102e190bc8058334d8f921332535b322, type: 3}
       propertyPath: m_TagString
-      value: Spear
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8875972930460577529, guid: 102e190bc8058334d8f921332535b322, type: 3}
       propertyPath: m_Mass

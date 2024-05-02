@@ -14,7 +14,7 @@ public class LeaderBoard : MonoBehaviour
     public Score scoreScript;
 
     private ScoreData sd;
-    public RowUI rowUIScript;
+    public GameObject RowUIPrefab;
 
     void Awake()
     {
@@ -53,7 +53,7 @@ public class LeaderBoard : MonoBehaviour
             var scores = GetHighScores().ToArray();
             for (int i = 0; i < scores.Length; i++)
             {
-                var row = Instantiate(rowUIScript, Content.transform).GetComponent<RowUI>();
+                var row = Instantiate(RowUIPrefab, Content.transform).GetComponent<RowUI>();
                 row.Rank.text = (i + 1).ToString();
                 row.Name.text = scores[i].Name;
                 row.Score.text = scores[i].Score.ToString();
