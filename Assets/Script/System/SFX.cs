@@ -5,15 +5,6 @@ using UnityEngine;
 public class SFX : MonoBehaviour
 {
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
 
     public void HitSFX()
     {

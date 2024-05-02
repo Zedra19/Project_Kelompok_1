@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _maxRunSpeed;
     [SerializeField] private float _maxDodgeForce;
 
-    private SFX _SFX;
+    private SFX _sfx;
     private PlayerInput _playerInput;
     private Rigidbody _rigidbody;
     private Stamina _stamina;
@@ -75,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
         _playerAttackDukun = GetComponent<PlayerAttack_Dukun>();
         _playerAttackPetani = GetComponent<PlayerAttack_Petani>();
         _lastPosition = transform.position;
-        _SFX = GetComponent<SFX>();
+        _sfx = GetComponent<SFX>();
 
 
         _maxSpeed = _speed * _maxSpeedMultiplier;
@@ -93,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if ((!IsDodging || _isAllowedToDodge) && _stamina.CurrentStamina >= 1 && _playerAttack.IsAttacking == false)
             {
-                _SFX.DashSFX();
+                _sfx.DashSFX();
                 StartCoroutine(Dodge());
             }
         }
