@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     private PlayerAttack _playerAttack;
     private PlayerAttack_Dukun _playerAttackDukun;
     private PlayerAttack_Petani _playerAttackPetani;
+    private PlayerAttack_Prajurit _playerAttackPrajurit;
     private Vector2 _currentMovementInput;
     private Vector3 _currentMovement;
     private Vector3 _currentRunMovement;
@@ -74,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
         _playerAttack = GetComponent<PlayerAttack>();
         _playerAttackDukun = GetComponent<PlayerAttack_Dukun>();
         _playerAttackPetani = GetComponent<PlayerAttack_Petani>();
+        _playerAttackPrajurit = GetComponent<PlayerAttack_Prajurit>();
         _lastPosition = transform.position;
         _sfx = GetComponent<SFX>();
 
@@ -88,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
         GameObject playerKsatria = GameObject.Find("Player-Ksatria");
         GameObject playerDukun = GameObject.Find("Player_Dukun");
         GameObject playerPetani = GameObject.Find("Player_Petani");
+        GameObject playerPrajurit = GameObject.Find("Player_Prajurit");
         if (playerKsatria != null)
         {
             if ((!IsDodging || _isAllowedToDodge) && _stamina.CurrentStamina >= 1 && _playerAttack.IsAttacking == false)
@@ -110,6 +113,14 @@ public class PlayerMovement : MonoBehaviour
             if ((!IsDodging || _isAllowedToDodge) && _stamina.CurrentStamina >= 1 && _playerAttackPetani.IsAttacking == false)
             {
                 AudioManager.Instance.PlaySFX("Dash");
+                StartCoroutine(Dodge());
+            }
+        }
+        else if (playerPrajurit != null)
+        {
+            if ((!IsDodging || _isAllowedToDodge) && _stamina.CurrentStamina >= 1 && _playerAttackPrajurit.IsAttacking == false)
+            {
+                _sfx.DashSFX();
                 StartCoroutine(Dodge());
             }
         }
