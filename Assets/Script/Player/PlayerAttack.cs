@@ -7,12 +7,15 @@ public class PlayerAttack : MonoBehaviour, IPlayerAttack
 {
     public bool IsAttacking { get; private set; } = false;
     public static event Action OnAttackDone;
-    private PlayerMovement _playerMovement;
+    
     [SerializeField] private Animator _animator;
     [SerializeField] float _attackDuration;
     [SerializeField] private int _playerDamage;
+
+    private PlayerMovement _playerMovement;
     private PlayerInput _playerInput;
     private Coroutine _attackRoutine = null; //use to run attack with duration
+    private SFX _sfx;
 
     public int PlayerDamage
     {
@@ -35,6 +38,7 @@ public class PlayerAttack : MonoBehaviour, IPlayerAttack
         _playerMovement = GetComponent<PlayerMovement>();
         _playerInput = new PlayerInput();
         _playerInput.CharacterControls.Attack.performed += OnAttack;
+        _sfx = GetComponent<SFX>();
     }
 
     private void OnEnable()
@@ -52,6 +56,7 @@ public class PlayerAttack : MonoBehaviour, IPlayerAttack
         //only attack if currently not attacking and not dodging
         if (_attackRoutine == null && !_playerMovement.IsDodging)
         {
+            AudioManager.Instance.PlaySFX("Kesatria Att");
             _attackRoutine = StartCoroutine(AttackRoutine());
         }
     }

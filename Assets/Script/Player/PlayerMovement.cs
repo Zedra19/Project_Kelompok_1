@@ -77,7 +77,6 @@ public class PlayerMovement : MonoBehaviour
         _lastPosition = transform.position;
         _sfx = GetComponent<SFX>();
 
-
         _maxSpeed = _speed * _maxSpeedMultiplier;
         _maxRunSpeed = _maxSpeed * _runMultiplier;
         _maxDodgeForce = _dodgeForce * _dodgeMaxForceMultiplier;
@@ -93,7 +92,8 @@ public class PlayerMovement : MonoBehaviour
         {
             if ((!IsDodging || _isAllowedToDodge) && _stamina.CurrentStamina >= 1 && _playerAttack.IsAttacking == false)
             {
-                _sfx.DashSFX();
+                AudioManager.Instance.PlaySFX("Dash");
+                // _sfx.DashSFX();
                 StartCoroutine(Dodge());
             }
         }
@@ -101,6 +101,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if ((!IsDodging || _isAllowedToDodge) && _stamina.CurrentStamina >= 1 && _playerAttackDukun.IsAttacking == false)
             {
+                _sfx.DashSFX();
                 StartCoroutine(Dodge());
             }
         }
@@ -108,6 +109,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if ((!IsDodging || _isAllowedToDodge) && _stamina.CurrentStamina >= 1 && _playerAttackPetani.IsAttacking == false)
             {
+                _sfx.DashSFX();
                 StartCoroutine(Dodge());
             }
         }

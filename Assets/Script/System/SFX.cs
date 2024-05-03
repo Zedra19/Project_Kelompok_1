@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class SFX : MonoBehaviour
 {
-
-
     public void HitSFX()
     {
         AudioManager.Instance.PlaySFX("Hit");
