@@ -101,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if ((!IsDodging || _isAllowedToDodge) && _stamina.CurrentStamina >= 1 && _playerAttackDukun.IsAttacking == false)
             {
-                _sfx.DashSFX();
+                AudioManager.Instance.PlaySFX("Dash");
                 StartCoroutine(Dodge());
             }
         }
@@ -109,7 +109,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if ((!IsDodging || _isAllowedToDodge) && _stamina.CurrentStamina >= 1 && _playerAttackPetani.IsAttacking == false)
             {
-                _sfx.DashSFX();
+                AudioManager.Instance.PlaySFX("Dash");
                 StartCoroutine(Dodge());
             }
         }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1994,6 +1994,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 491149907}
   m_CullTransparentMesh: 1
+--- !u!1 &525853353
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 525853355}
+  - component: {fileID: 525853354}
+  m_Layer: 0
+  m_Name: VFXManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &525853354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525853353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a95b2861b2c0488f7d570dd4bb1b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectVFX:
+  - Name: Spawn
+    Visual: {fileID: 3744133877081091469, guid: a2a060732547fe64581bb0cb3c2bdf1d, type: 3}
+--- !u!4 &525853355
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525853353}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 532.3601, y: 297.81207, z: 356.54205}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &586813509
 GameObject:
   m_ObjectHideFlags: 0
@@ -6970,7 +7017,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetObject: {fileID: 1063855613856766843}
+  TargetPortal: {fileID: 0}
   HeightOffset: 5
+  EffectManager: {fileID: 0}
 --- !u!4 &1907573799 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4681214313848904982, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
@@ -10770,12 +10819,13 @@ GameObject:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 150657948}
+  - {fileID: 525853355}
   - {fileID: 1491482671}
   - {fileID: 2068670572}
   - {fileID: 1172203070}
   - {fileID: 1573111763}
   - {fileID: 1830208746}
-  - {fileID: 150657948}
   - {fileID: 1050912233}
   - {fileID: 1863992882}
   - {fileID: 672966624575468298}
