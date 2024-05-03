@@ -534,6 +534,10 @@ MonoBehaviour:
   SFXSounds:
   - Name: UI
     Clip: {fileID: 8300000, guid: 9cd5ac966da4c334eb31cc6e0bb258d7, type: 3}
+  - Name: Dash
+    Clip: {fileID: 8300000, guid: 0d69ccf05b092084992f637f539914a2, type: 3}
+  - Name: Kesatria Att
+    Clip: {fileID: 8300000, guid: 5b2c7d2feb5620b4cbe2f9644d412586, type: 3}
   MusicSource: {fileID: 1320797308}
   SFXSource: {fileID: 23751724}
 --- !u!4 &150657948
@@ -2026,6 +2030,8 @@ MonoBehaviour:
   EffectVFX:
   - Name: Spawn
     Visual: {fileID: 3744133877081091469, guid: a2a060732547fe64581bb0cb3c2bdf1d, type: 3}
+  - Name: Upgrade
+    Visual: {fileID: 7155335147208632822, guid: 97c43495f80a3244fad1301dfafbe252, type: 3}
 --- !u!4 &525853355
 Transform:
   m_ObjectHideFlags: 0
@@ -4272,6 +4278,14 @@ PrefabInstance:
       propertyPath: TargetObject
       value: 
       objectReference: {fileID: 1063855613856766843}
+    - target: {fileID: 922524191783920005, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
+      propertyPath: TargetPortal
+      value: 
+      objectReference: {fileID: 1063855613856766843}
+    - target: {fileID: 922524191783920005, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
+      propertyPath: EffectManager
+      value: 
+      objectReference: {fileID: 525853354}
     - target: {fileID: 2117668409317907501, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
       propertyPath: StaminaBar
       value: 
@@ -6713,9 +6727,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eb4698170aed1b428ac6bdee170f511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _score: {fileID: 1830208739}
-  _buyMovementID: Movement
-  _movementPrice: 100
+  EffectManager: {fileID: 525853354}
+  Player: {fileID: 1907573796}
   BuyMovement:
     m_PersistentCalls:
       m_Calls:
@@ -6743,8 +6756,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _buyDamageID: Damage
-  _damagePrice: 100
   BuyDamage:
     m_PersistentCalls:
       m_Calls:
@@ -6760,6 +6771,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _score: {fileID: 1830208739}
+  _buyMovementID: Movement
+  _movementPrice: 100
+  _buyDamageID: Damage
+  _damagePrice: 100
 --- !u!1 &1863992878
 GameObject:
   m_ObjectHideFlags: 0
@@ -7017,9 +7033,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetObject: {fileID: 1063855613856766843}
-  TargetPortal: {fileID: 0}
+  TargetPortal: {fileID: 1063855613856766843}
   HeightOffset: 5
-  EffectManager: {fileID: 0}
+  EffectManager: {fileID: 525853354}
 --- !u!4 &1907573799 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4681214313848904982, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
