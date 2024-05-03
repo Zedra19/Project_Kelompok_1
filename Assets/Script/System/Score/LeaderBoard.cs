@@ -67,8 +67,10 @@ public class LeaderBoard : MonoBehaviour
         int score = scoreScript.currentScore;
         Debug.Log("Name: " + name + " Score: " + score);
         AddScore(new SaveScore(name, score));
+        SaveScoreToLeaderBoard();
         leaderdBoard.SetActive(true);
         inputName.SetActive(false);
+        Debug.Log("Leaderboard saved");
     }
 
     public void homeButton()

@@ -1,67 +1,55 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using System.Linq;
 
 public class LeaderboardTest : MonoBehaviour
 {
-    public GameObject inputName;
-    public GameObject inputField;
-    public GameObject leaderdBoard;
-    public GameObject Content;
-    public Score scoreScript;
-    public Text[] rowTexts;
-
-    List<SaveScore> saveScores = new List<SaveScore>();
-
-    void Start()
+    [System.Serializable]
+    public class LeaderboardEntry
     {
-        scoreScript = GetComponent<Score>();
-        LoadScoreFromLeaderBoard();
+        public int Rank;
+        public string Name;
+        public int Score;
     }
 
-    public void inputNameShow()
-    {
-        inputName.SetActive(true);
-    }
+    public Text RankText;
+    public Text NameText;
+    public Text ScoreText;
+    public GameObject EntryPrefab;
+    public Transform Content;
 
-    public void saveScore()
-    {
-        string name = inputField.GetComponent<InputField>().text;
-        int score = scoreScript.currentScore;
-        saveScores.Add(new SaveScore(name, score));
-        leaderdBoard.SetActive(true);
-        inputName.SetActive(false);
-        SaveScoreToLeaderBoard();
-        
-    }
+    private List<LeaderboardEntry> leaderboard;
 
-    public void LoadScoreFromLeaderBoard()
+    private void Start()
     {
-        string json = PlayerPrefs.GetString("Leaderboard");
-        saveScores = JsonUtility.FromJson<List<SaveScore>>(json);
-    }
+        leaderboard = new List<LeaderboardEntry>
+        {
+            new LeaderboardEntry { Rank = 1, Name = "Asep", Score = 1000 },
+            new LeaderboardEntry { Rank = 2, Name = "Budi", Score = 800 },
+            new LeaderboardEntry { Rank = 3, Name = "Caca", Score = 600 },
+            new LeaderboardEntry { Rank = 4, Name = "Doni", Score = 400 },
+            new LeaderboardEntry { Rank = 5, Name = "Eko", Score = 200 },
+        };
 
-    public void SaveScoreToLeaderBoard()
-    {
-        string json = JsonUtility.ToJson(saveScores);
-        PlayerPrefs.SetString("Leaderboard", json);
-    }
-
-    public void leaderBoardShow(){
-        if(leaderdBoard.activeSelf){
-            var scores = saveScores.OrderByDescending(x => x.Score).ToArray();
-            for (int i = 0; i < scores.Length; i++)
-            {
-                var row = Instantiate(rowTexts[i], Content.transform);
-                row.text = (i+1) + ". " + scores[i].Name + " : " + scores[i].Score;
-            }
+        foreach (var entry in leaderboard)
+        {
+            var newEntry = Instantiate(EntryPrefab, Content);
+            newEntry.GetComponent<LeaderboardEntryUI>().SetValues(entry.Rank, entry.Name, entry.Score);
         }
     }
+}
 
-    public void homeButton(){
-        SceneManager.LoadScene(0);
+[RequireComponent(typeof(LeaderboardEntryUI))]
+public class LeaderboardEntryUI : MonoBehaviour
+{
+    public Text RankText;
+    public Text NameText;
+    public Text ScoreText;
+
+    public void SetValues(int rank, string name, int score)
+    {
+        RankText.text = rank.ToString();
+        NameText.text = name;
+        ScoreText.text = score.ToString();
     }
 }

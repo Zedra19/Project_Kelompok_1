@@ -10,8 +10,6 @@ public class SaveScore : MonoBehaviour
 
     public SaveScore(string name, int score)
     {
-        Debug.Log("SaveScore");
-        Debug.Log("Name: " + name + " Score: " + score);
         Name = name;
         Score = score;
     }
