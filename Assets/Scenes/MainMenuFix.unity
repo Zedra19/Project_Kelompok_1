@@ -198,6 +198,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 21005247}
   m_CullTransparentMesh: 1
+--- !u!1 &23467098 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8231070617714276286, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
+  m_PrefabInstance: {fileID: 7249404833932829577}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &27366707
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,6 +293,7 @@ GameObject:
   - component: {fileID: 34175889}
   - component: {fileID: 34175888}
   - component: {fileID: 34175891}
+  - component: {fileID: 34175892}
   m_Layer: 5
   m_Name: Home
   m_TagString: Untagged
@@ -371,9 +377,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 382484459}
-        m_TargetAssemblyTypeName: Leaderboard, Assembly-CSharp
-        m_MethodName: Display
+      - m_Target: {fileID: 34175892}
+        m_TargetAssemblyTypeName: PopUpOnClick, Assembly-CSharp
+        m_MethodName: Click
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -383,22 +389,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 382484457}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1209203867}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 382484459}
+        m_TargetAssemblyTypeName: Leaderboard, Assembly-CSharp
+        m_MethodName: Display
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -466,6 +460,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &34175892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34175886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f5c0251155dd24e9d5d54c087a033e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Close: {fileID: 382484457}
+  Close2: {fileID: 0}
+  PopUp: {fileID: 1209203867}
 --- !u!1 &45583022
 GameObject:
   m_ObjectHideFlags: 0
@@ -2520,7 +2529,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16.8
+  m_fontSize: 12.9
   m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3046,6 +3055,7 @@ GameObject:
   - component: {fileID: 654531482}
   - component: {fileID: 654531481}
   - component: {fileID: 654531484}
+  - component: {fileID: 654531485}
   m_Layer: 5
   m_Name: High Score
   m_TagString: Untagged
@@ -3129,22 +3139,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1209203867}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 382484457}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 654531485}
+        m_TargetAssemblyTypeName: PopUpOnClick, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3212,6 +3210,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &654531485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654531478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f5c0251155dd24e9d5d54c087a033e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Close: {fileID: 1209203867}
+  Close2: {fileID: 0}
+  PopUp: {fileID: 382484457}
 --- !u!1 &667934661
 GameObject:
   m_ObjectHideFlags: 0
@@ -3332,7 +3345,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 47.45
+  m_fontSize: 39.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3591,6 +3604,7 @@ GameObject:
   - component: {fileID: 744805534}
   - component: {fileID: 744805533}
   - component: {fileID: 744805536}
+  - component: {fileID: 744805537}
   m_Layer: 5
   m_Name: No
   m_TagString: Untagged
@@ -3674,10 +3688,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 426381025}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 744805537}
+        m_TargetAssemblyTypeName: PopUpOnClick, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3685,18 +3699,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1209203867}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &744805534
 MonoBehaviour:
@@ -3757,6 +3759,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &744805537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744805531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f5c0251155dd24e9d5d54c087a033e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Close: {fileID: 426381025}
+  Close2: {fileID: 0}
+  PopUp: {fileID: 1209203867}
 --- !u!1 &754819820
 GameObject:
   m_ObjectHideFlags: 0
@@ -4207,6 +4224,7 @@ GameObject:
   - component: {fileID: 852505823}
   - component: {fileID: 852505822}
   - component: {fileID: 852505825}
+  - component: {fileID: 852505826}
   m_Layer: 5
   m_Name: Home
   m_TagString: Untagged
@@ -4290,22 +4308,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1126622594}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1209203867}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 852505826}
+        m_TargetAssemblyTypeName: PopUpOnClick, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4373,6 +4379,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &852505826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852505820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f5c0251155dd24e9d5d54c087a033e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Close: {fileID: 1126622594}
+  Close2: {fileID: 0}
+  PopUp: {fileID: 1209203867}
 --- !u!1 &890695468
 GameObject:
   m_ObjectHideFlags: 0
@@ -4386,6 +4407,7 @@ GameObject:
   - component: {fileID: 890695471}
   - component: {fileID: 890695470}
   - component: {fileID: 890695473}
+  - component: {fileID: 890695474}
   m_Layer: 5
   m_Name: Home
   m_TagString: Untagged
@@ -4469,22 +4491,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 205638485}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1209203867}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 890695474}
+        m_TargetAssemblyTypeName: PopUpOnClick, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4552,6 +4562,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &890695474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890695468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f5c0251155dd24e9d5d54c087a033e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Close: {fileID: 205638485}
+  Close2: {fileID: 0}
+  PopUp: {fileID: 1209203867}
 --- !u!1 &891246779
 GameObject:
   m_ObjectHideFlags: 0
@@ -4565,6 +4590,7 @@ GameObject:
   - component: {fileID: 891246783}
   - component: {fileID: 891246782}
   - component: {fileID: 891246785}
+  - component: {fileID: 891246786}
   m_Layer: 5
   m_Name: History
   m_TagString: Untagged
@@ -4648,22 +4674,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1209203867}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1126622594}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 891246786}
+        m_TargetAssemblyTypeName: NewBehaviourScript, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4731,6 +4745,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &891246786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891246779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f5c0251155dd24e9d5d54c087a033e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Close: {fileID: 1209203867}
+  Close2: {fileID: 0}
+  PopUp: {fileID: 1126622594}
 --- !u!1 &897014378
 GameObject:
   m_ObjectHideFlags: 0
@@ -5122,6 +5151,7 @@ GameObject:
   - component: {fileID: 1062934089}
   - component: {fileID: 1062934088}
   - component: {fileID: 1062934091}
+  - component: {fileID: 1062934092}
   m_Layer: 5
   m_Name: Setting
   m_TagString: Untagged
@@ -5205,22 +5235,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1209203867}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 397659572}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1062934092}
+        m_TargetAssemblyTypeName: PopUpOnClick, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5288,6 +5306,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1062934092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062934085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f5c0251155dd24e9d5d54c087a033e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Close: {fileID: 1209203867}
+  Close2: {fileID: 0}
+  PopUp: {fileID: 397659572}
 --- !u!1 &1068415031
 GameObject:
   m_ObjectHideFlags: 0
@@ -6402,6 +6435,21 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6835916612298748169, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
   m_PrefabInstance: {fileID: 7249404833932829577}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1367150573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23467098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f5c0251155dd24e9d5d54c087a033e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Close: {fileID: 179320558}
+  Close2: {fileID: 1079708412}
+  PopUp: {fileID: 1127020861}
 --- !u!1 &1385268626
 GameObject:
   m_ObjectHideFlags: 0
@@ -7549,6 +7597,7 @@ GameObject:
   - component: {fileID: 1580163993}
   - component: {fileID: 1580163992}
   - component: {fileID: 1580163996}
+  - component: {fileID: 1580163997}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -7644,10 +7693,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1209203867}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1580163997}
+        m_TargetAssemblyTypeName: PopUpOnClick, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7655,18 +7704,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 426381025}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1580163994
 MonoBehaviour:
@@ -7727,6 +7764,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1580163997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580163990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f5c0251155dd24e9d5d54c087a033e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Close: {fileID: 1209203867}
+  Close2: {fileID: 0}
+  PopUp: {fileID: 426381025}
 --- !u!1 &1581321090
 GameObject:
   m_ObjectHideFlags: 0
@@ -8368,6 +8420,7 @@ GameObject:
   - component: {fileID: 1786417581}
   - component: {fileID: 1786417580}
   - component: {fileID: 1786417583}
+  - component: {fileID: 1786417584}
   m_Layer: 5
   m_Name: Home
   m_TagString: Untagged
@@ -8451,21 +8504,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 397659576}
-        m_TargetAssemblyTypeName: TransitionSetting, Assembly-CSharp
-        m_MethodName: Close
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 397659576}
-        m_TargetAssemblyTypeName: TransitionSetting, Assembly-CSharp
-        m_MethodName: OnDisable
+      - m_Target: {fileID: 1786417584}
+        m_TargetAssemblyTypeName: PopUpOnClick, Assembly-CSharp
+        m_MethodName: Click
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8534,6 +8575,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1786417584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786417578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f5c0251155dd24e9d5d54c087a033e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Close: {fileID: 397659572}
+  Close2: {fileID: 0}
+  PopUp: {fileID: 1209203867}
 --- !u!1 &1947403640
 GameObject:
   m_ObjectHideFlags: 0
@@ -8682,6 +8738,7 @@ GameObject:
   - component: {fileID: 1981351483}
   - component: {fileID: 1981351482}
   - component: {fileID: 1981351485}
+  - component: {fileID: 1981351486}
   m_Layer: 5
   m_Name: Credit
   m_TagString: Untagged
@@ -8765,22 +8822,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1209203867}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 205638485}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1981351486}
+        m_TargetAssemblyTypeName: PopUpOnClick, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8848,6 +8893,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1981351486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981351479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f5c0251155dd24e9d5d54c087a033e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Close: {fileID: 1209203867}
+  Close2: {fileID: 0}
+  PopUp: {fileID: 205638485}
 --- !u!1 &2005446597
 GameObject:
   m_ObjectHideFlags: 0
@@ -9538,6 +9598,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2044735505}
     m_Modifications:
+    - target: {fileID: 1661631857912668301, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
+      propertyPath: m_fontSize
+      value: 12.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3752766256958881366, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3752766256958881366, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3752766256958881366, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3752766256958881366, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3752766256958881366, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3752766256958881366, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -9545,15 +9629,75 @@ PrefabInstance:
     - target: {fileID: 3752766256958881366, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 179320558}
+      objectReference: {fileID: 1367150573}
     - target: {fileID: 3752766256958881366, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 1079708412}
+      objectReference: {fileID: 382484457}
     - target: {fileID: 3752766256958881366, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 1127020861}
+      objectReference: {fileID: 1367150573}
+    - target: {fileID: 3752766256958881366, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 1367150573}
+    - target: {fileID: 3752766256958881366, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3752766256958881366, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Score
+      objectReference: {fileID: 0}
+    - target: {fileID: 3752766256958881366, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3752766256958881366, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: Score
+      objectReference: {fileID: 0}
+    - target: {fileID: 3752766256958881366, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
+      value: Score
+      objectReference: {fileID: 0}
+    - target: {fileID: 3752766256958881366, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PopUpOnClick, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3752766256958881366, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: PopUpOnClick, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3752766256958881366, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: PopUpOnClick, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3752766256958881366, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
+      value: PopUpOnClick, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3752766256958881366, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3752766256958881366, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3752766256958881366, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3752766256958881366, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3752766256958881366, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6835916612298748169, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -9641,7 +9785,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8231070617714276286, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1367150573}
   m_SourcePrefab: {fileID: 100100000, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
 --- !u!1001 &8017288111248978645
 PrefabInstance:
