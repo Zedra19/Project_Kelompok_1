@@ -1,15 +1,19 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SpawnerTutorial : MonoBehaviour
 {
-    
+
     [SerializeField] private GameObject _sSwarmerPrefab;
     [SerializeField] private GameObject _mSwarmerPrefab;
     [SerializeField] private GameObject _lSwarmerPrefab;
     [SerializeField] private GameObject _bossPrefab;
     [SerializeField] private PlayerMovement _playerMovement;
+    [SerializeField] private Rigidbody _rigidbodyPlayer;
+    [SerializeField] private Animator _animatorPlayer;
     [SerializeField] private PlayerAttack _playerAttack;
+    private bool DialogActivated = false;
     public GameObject Prolog;
     public GameObject Dialog3;
     public int totalEnemyCount;
@@ -23,7 +27,8 @@ public class SpawnerTutorial : MonoBehaviour
         StartCoroutine(SpawnEnemies());
     }
 
-    private void Update() {
+    private void Update()
+    {
         OnEnemyKilled();
     }
 
@@ -59,14 +64,17 @@ public class SpawnerTutorial : MonoBehaviour
 
     public void OnEnemyKilled()
     {
-        if (KillCount.killCount == totalTargetEnemy)
+        if (KillCount.killCount == totalTargetEnemy && !DialogActivated)
         {
             _playerAttack.enabled = false;
+            _animatorPlayer.SetBool("Move", false);
             _playerMovement.enabled = false;
             Prolog.SetActive(true);
             Dialog3.SetActive(true);
+            DialogActivated = true;
         }
     }
+
 
     private Vector3 GetRandomPosition()
     {
