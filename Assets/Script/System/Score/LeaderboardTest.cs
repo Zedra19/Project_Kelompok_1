@@ -1,70 +1,55 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-[Serializable]
 public class LeaderboardTest : MonoBehaviour
 {
-    public GameObject inputName;
-    public GameObject inputField;
-    public GameObject leaderdBoard;
-    public GameObject Content;
-    private Score scoreScript;
-    private ScoreData sd;
-    public GameObject RowUIPrefab;
-
-    public void loadScore(){
-        sd = new ScoreData();
+    [System.Serializable]
+    public class LeaderboardEntry
+    {
+        public int Rank;
+        public string Name;
+        public int Score;
     }
 
-    void Start()
-    {
-        loadScore();
-        scoreScript = GetComponent<Score>();
-    }
+    public Text RankText;
+    public Text NameText;
+    public Text ScoreText;
+    public GameObject EntryPrefab;
+    public Transform Content;
 
-    public void inputNameShow()
-    {
-        inputName.SetActive(true);
-    }
+    private List<LeaderboardEntry> leaderboard;
 
-    public IEnumerable<SaveScore> GetHighScores()
+    private void Start()
     {
-        return sd.scoreList.OrderByDescending(x => x.Score);
-    }
-
-    public void AddScore(SaveScore ss)
-    {
-        sd.scoreList.Add(ss);
-    }
-
-    public void saveScore()
-    {
-        string name = inputField.GetComponent<InputField>().text;
-        int score = scoreScript.currentScore;
-        AddScore(new SaveScore(name,score));
-        leaderdBoard.SetActive(true);
-        inputName.SetActive(false);
-        LeaderBoardShow();
-    }
-
-    public void LeaderBoardShow()
-    {
-        var scores = GetHighScores().ToArray();
-        for (int i = 0; i < scores.Length; i++)
+        leaderboard = new List<LeaderboardEntry>
         {
-            var row = Instantiate(RowUIPrefab, Content.transform).GetComponent<RowUI>();
-            row.Rank.text = (i + 1).ToString();
-            row.Name.text = scores[i].Name;
-            row.Score.text = scores[i].Score.ToString();
+            new LeaderboardEntry { Rank = 1, Name = "Asep", Score = 1000 },
+            new LeaderboardEntry { Rank = 2, Name = "Budi", Score = 800 },
+            new LeaderboardEntry { Rank = 3, Name = "Caca", Score = 600 },
+            new LeaderboardEntry { Rank = 4, Name = "Doni", Score = 400 },
+            new LeaderboardEntry { Rank = 5, Name = "Eko", Score = 200 },
+        };
+
+        foreach (var entry in leaderboard)
+        {
+            var newEntry = Instantiate(EntryPrefab, Content);
+            newEntry.GetComponent<LeaderboardEntryUI>().SetValues(entry.Rank, entry.Name, entry.Score);
         }
     }
+}
 
-    public void homeButton()
+[RequireComponent(typeof(LeaderboardEntryUI))]
+public class LeaderboardEntryUI : MonoBehaviour
+{
+    public Text RankText;
+    public Text NameText;
+    public Text ScoreText;
+
+    public void SetValues(int rank, string name, int score)
     {
-        SceneManager.LoadScene(0);
+        RankText.text = rank.ToString();
+        NameText.text = name;
+        ScoreText.text = score.ToString();
     }
 }

@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class ScoreData
+public class ScoreData : MonoBehaviour
 {
     public List<SaveScore> scoreList;
     
