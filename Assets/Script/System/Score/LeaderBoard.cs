@@ -60,7 +60,7 @@ public class LeaderBoard : MonoBehaviour
         leaderdBoard.SetActive(true);
         inputName.SetActive(false);
     }
-    
+
     public void SaveLeaderboard()
     {
         string json = JsonUtility.ToJson(sd);
@@ -69,8 +69,12 @@ public class LeaderBoard : MonoBehaviour
 
     public void leaderBoardShow()
     {
+        foreach (Transform child in Content.transform)
+        {
+            Destroy(child.gameObject);
+        }
         var scores = GetHighScores().ToArray();
-        for (int i = 0; i < scores.Length; i++)
+        for (int i = 0; i < 10; i++)
         {
             var row = Instantiate(RowUIPrefab, Content.transform).GetComponent<RowUI>();
             row.Rank.text = (i + 1).ToString();
