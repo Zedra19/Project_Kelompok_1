@@ -10,7 +10,8 @@ public class ShopPopUp : MonoBehaviour
     public Button buttonUpgrade;
     public Button buttonRole;
 
-
+    [SerializeField] private PlayerMovement _playerMovement;
+    [SerializeField] private PlayerAttack _playerAttack;
     private bool dialog1PopUp = false;
     private bool dialog2PopUp = false;
     private bool dialogUpgradePopUp = false;
@@ -52,13 +53,18 @@ public class ShopPopUp : MonoBehaviour
     {
         if (dialog1PopUp && Input.GetKeyDown(KeyCode.Return))
         {
+            //player entering shop
             Dialog1Text.SetActive(false);
             dialog1PopUp = false;
             StartDialog2();
+
+            _playerAttack.enabled = false;
+            _playerMovement.enabled = false;
         }
 
-        if ((dialog1PopUp || dialog2PopUp || dialogUpgradePopUp || dialogChangeRolePopUp) && Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
+            //player exiting shop
             CloseAllDialogs();
         }
     }
@@ -88,16 +94,22 @@ public class ShopPopUp : MonoBehaviour
         StartdialogChangeRole();
     }
 
-    private void CloseAllDialogs()
+    public void CloseAllDialogs()
     {
-        Dialog1Text.SetActive(false);
-        dialog1PopUp = false;
-        Dialog2Text.SetActive(false);
-        dialog2PopUp = false;
-        DialogUpgradeText.SetActive(false);
-        dialogUpgradePopUp = false;
-        DialogRoleText.SetActive(false);
-        dialogChangeRolePopUp = false;
-        _isShopUICurrentlyActive = false;
+        if (dialog1PopUp || dialog2PopUp || dialogUpgradePopUp || dialogChangeRolePopUp)
+        {
+            Dialog1Text.SetActive(false);
+            dialog1PopUp = false;
+            Dialog2Text.SetActive(false);
+            dialog2PopUp = false;
+            DialogUpgradeText.SetActive(false);
+            dialogUpgradePopUp = false;
+            DialogRoleText.SetActive(false);
+            dialogChangeRolePopUp = false;
+            _isShopUICurrentlyActive = false;
+
+            _playerAttack.enabled = true;
+            _playerMovement.enabled = true;
+        }
     }
 }

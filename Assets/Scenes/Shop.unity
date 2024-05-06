@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6703,6 +6703,8 @@ MonoBehaviour:
   DialogRoleText: {fileID: 302672782}
   buttonUpgrade: {fileID: 1060669493}
   buttonRole: {fileID: 744125290}
+  _playerMovement: {fileID: 1907573810}
+  _playerAttack: {fileID: 1907573809}
 --- !u!114 &1830208748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7056,6 +7058,21 @@ MonoBehaviour:
   OnDialogTriggerEnter:
     m_PersistentCalls:
       m_Calls: []
+  OnDialogTriggerExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1830208747}
+        m_TargetAssemblyTypeName: ShopPopUp, Assembly-CSharp
+        m_MethodName: CloseAllDialogs
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1907573808 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4088118217457160271, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
@@ -7076,6 +7093,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75e58f501fbecb84c84b9cbb3c46d669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1907573810 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3808349405739192136, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
+  m_PrefabInstance: {fileID: 1172203070}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907573796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dc4119b5e7cfcb49b051f3c73fa62f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2068670570
