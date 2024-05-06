@@ -30,7 +30,7 @@ public class PlayerAttack : MonoBehaviour, IPlayerAttack
     }
     private void Update()
     {
-        Debug.Log("PlayerDamage: " + _playerDamage);
+        
     }
 
     private void Awake()
