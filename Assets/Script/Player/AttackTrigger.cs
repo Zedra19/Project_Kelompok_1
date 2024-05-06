@@ -25,7 +25,7 @@ public class AttackTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(playerAttackScript.PlayerDamage);
+        
     }
 
     private void OnTriggerStay(Collider other)

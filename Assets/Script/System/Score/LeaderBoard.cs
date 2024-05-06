@@ -63,7 +63,6 @@ public class LeaderBoard : MonoBehaviour
 
     public void SaveScoreToLeaderBoard()
     {
-        sd.scoreList.ForEach(x => Debug.Log("Name: " + x.Name + " Score: " + x.Score));
         var json = JsonUtility.ToJson(sd);
         PlayerPrefs.SetString("Leaderboard", json);
     }
