@@ -73,8 +73,8 @@ public class LeaderBoard : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-        var scores = GetHighScores().ToArray();
-        for (int i = 0; i < 10; i++)
+        var scores = GetHighScores().Take(10).ToArray();
+        for (int i = 0; i < scores.Length; i++)
         {
             var row = Instantiate(RowUIPrefab, Content.transform).GetComponent<RowUI>();
             row.Rank.text = (i + 1).ToString();
@@ -86,5 +86,6 @@ public class LeaderBoard : MonoBehaviour
     public void homeButton()
     {
         SceneManager.LoadScene(0);
+        Time.timeScale = 1;
     }
 }
