@@ -4536,7 +4536,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &592934909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4544,7 +4544,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 592934908}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6becc1c9f6c1cfd49ba698be08c86ac0, type: 3}
   m_Name: 
@@ -8381,7 +8381,7 @@ MonoBehaviour:
   StaminaPop: {fileID: 1336959520}
   Stats: {fileID: 682661239}
   StatsPop: {fileID: 727074819}
-  enemySpawner: {fileID: 592934909}
+  enemySpawner: {fileID: 592934908}
 --- !u!114 &1306228014
 MonoBehaviour:
   m_ObjectHideFlags: 0

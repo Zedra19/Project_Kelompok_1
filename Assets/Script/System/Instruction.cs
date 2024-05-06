@@ -16,7 +16,7 @@ public class Instruction : MonoBehaviour
     public GameObject Stats;
     public GameObject StatsPop;
 
-    public SpawnerTutorial enemySpawner;
+    public GameObject enemySpawner;
 
     private bool wPressed = false;
     private bool aPressed = false;
@@ -154,7 +154,7 @@ public class Instruction : MonoBehaviour
 
             if (enemySpawner != null)
             {
-                enemySpawner.enabled = true;
+                enemySpawner.SetActive(true);
             }
         }
     }
@@ -169,7 +169,7 @@ public class Instruction : MonoBehaviour
             Stamina.SetActive(true);
             if (enemySpawner != null)
             {
-                enemySpawner.enabled = true;
+                enemySpawner.SetActive(true);
             }
         }
     }
