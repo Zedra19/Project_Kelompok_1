@@ -16,7 +16,7 @@ public class Instruction : MonoBehaviour
     public GameObject Stats;
     public GameObject StatsPop;
 
-    public EnemySpawner enemySpawner;
+    public SpawnerTutorial enemySpawner;
 
     private bool wPressed = false;
     private bool aPressed = false;
