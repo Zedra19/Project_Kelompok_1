@@ -16,15 +16,18 @@ public class LeaderBoard : MonoBehaviour
     private ScoreData sd;
     public GameObject RowUIPrefab;
 
-    void Awake()
-    {
-        var json = PlayerPrefs.GetString("Leaderboard", "{}");
-        sd = JsonUtility.FromJson<ScoreData>(json);
-    }
     // Start is called before the first frame update
     void Start()
     {
+        sd = new ScoreData();
+        var json = PlayerPrefs.GetString("Leaderboard");
+        if (IsValidJson(json))
+        {
+            Debug.Log("CHECK JSON : "+json);
+            sd = JsonUtility.FromJson<ScoreData>(json);
+        }
         scoreScript = GetComponent<Score>();
+
     }
     void Update()
     {
@@ -36,14 +39,33 @@ public class LeaderBoard : MonoBehaviour
         return sd.scoreList.OrderByDescending(x => x.Score);
     }
 
+    public void inputNameShow()
+    {
+        inputName.SetActive(true);
+    }
+
     public void AddScore(SaveScore ss)
     {
         sd.scoreList.Add(ss);
     }
 
-    public void inputNameShow()
+    public void saveScore()
     {
-        inputName.SetActive(true);
+        string name = inputField.GetComponent<InputField>().text;
+        int score = scoreScript.currentScore;
+        Debug.Log("Name: " + name + " Score: " + score);
+        AddScore(new SaveScore(name,score));
+        SaveScoreToLeaderBoard();
+        leaderdBoard.SetActive(true);
+        inputName.SetActive(false);
+        Debug.Log("Leaderboard saved");
+    }
+
+    public void SaveScoreToLeaderBoard()
+    {
+        sd.scoreList.ForEach(x => Debug.Log("Name: " + x.Name + " Score: " + x.Score));
+        var json = JsonUtility.ToJson(sd);
+        PlayerPrefs.SetString("Leaderboard", json);
     }
 
     public void leaderBoardShow()
@@ -61,26 +83,21 @@ public class LeaderBoard : MonoBehaviour
         }
     }
 
-    public void saveScore()
-    {
-        string name = inputField.GetComponent<InputField>().text;
-        int score = scoreScript.currentScore;
-        Debug.Log("Name: " + name + " Score: " + score);
-        AddScore(new SaveScore(name, score));
-        SaveScoreToLeaderBoard();
-        leaderdBoard.SetActive(true);
-        inputName.SetActive(false);
-        Debug.Log("Leaderboard saved");
-    }
-
     public void homeButton()
     {
         SceneManager.LoadScene(0);
     }
-
-    public void SaveScoreToLeaderBoard()
+    
+    private bool IsValidJson(string jsonString)
     {
-        var json = JsonUtility.ToJson(sd);
-        PlayerPrefs.SetString("Leaderboard", json);
+        try
+        {
+            JsonUtility.FromJsonOverwrite(jsonString, new object());
+            return true;
+        }
+        catch (System.Exception)
+        {
+            return false;
+        }
     }
 }
