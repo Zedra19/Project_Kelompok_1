@@ -16,12 +16,23 @@ public class LeaderBoard : MonoBehaviour
     private ScoreData sd;
     public GameObject RowUIPrefab;
 
+    public void loadScore()
+    {
+        string leaderboardJson = PlayerPrefs.GetString("Leaderboard");
+        if (!string.IsNullOrEmpty(leaderboardJson))
+        {
+            sd = JsonUtility.FromJson<ScoreData>(leaderboardJson);
+        }
+        else
+        {
+            sd = new ScoreData();
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
-        sd = new ScoreData();
+        loadScore();
         scoreScript = GetComponent<Score>();
-
     }
 
     public IEnumerable<SaveScore> GetHighScores()
@@ -43,10 +54,17 @@ public class LeaderBoard : MonoBehaviour
     {
         string name = inputField.GetComponent<InputField>().text;
         int score = scoreScript.currentScore;
-        AddScore(new SaveScore(name,score));
+        AddScore(new SaveScore(name, score));
+        SaveLeaderboard();
         leaderBoardShow();
         leaderdBoard.SetActive(true);
         inputName.SetActive(false);
+    }
+    
+    public void SaveLeaderboard()
+    {
+        string json = JsonUtility.ToJson(sd);
+        PlayerPrefs.SetString("Leaderboard", json);
     }
 
     public void leaderBoardShow()
