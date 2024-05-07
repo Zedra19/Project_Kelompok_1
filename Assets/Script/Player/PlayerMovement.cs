@@ -7,10 +7,10 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public bool IsDodging { get; private set; } = false;
+    public Transform _pointer; // Reference to object to face
 
     [SerializeField] private Animator _animator;
     [SerializeField] private Transform _visualObject; // Reference to the object representing the player visually
-    [SerializeField] private Transform _pointer; // Reference to object to face
 
     [SerializeField] private float _speed = 4f;
     [SerializeField] private float _maxSpeedMultiplier = 2;
@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
     private int _facingAnimatorState = 0;
     private bool _isRunPressed;
     private bool _isMovementPressed;
-    private float _rotationFactorPerFrame = 15f;
+    [SerializeField] private float _rotationFactorPerFrame = 15f;
 
     private void OnEnable()
     {
