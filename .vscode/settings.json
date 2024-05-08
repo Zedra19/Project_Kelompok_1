@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Monday B6.sln"
+    "dotnet.defaultSolution": "Project_Kelompok_1.sln"
 }

@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDodgeInput(InputAction.CallbackContext context)
     {
-        GameObject playerKsatria = GameObject.Find("Player-Ksatria");
+        GameObject playerKsatria = GameObject.Find("Player-Ksatria(Clone)");
         GameObject playerDukun = GameObject.Find("Player_Dukun");
         GameObject playerPetani = GameObject.Find("Player_Petani");
         GameObject playerPrajurit = GameObject.Find("Player_Prajurit");
