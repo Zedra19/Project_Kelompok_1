@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1373,11 +1373,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 225585546}
   m_CullTransparentMesh: 1
---- !u!20 &230108150 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 6997479841231422393, guid: 0eb71495788bc144a8c7351aa4244ed5, type: 3}
-  m_PrefabInstance: {fileID: 1353240711}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &235599597
 GameObject:
   m_ObjectHideFlags: 0
@@ -3138,6 +3133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3efbdc2e627c16e4ab9421c9dbc26721, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAttackScript: {fileID: 0}
 --- !u!65 &557500052
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5638,6 +5634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db89c5f0ab292c94fa42fcceaf87b2f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TutorialPanel: {fileID: 0}
   MovementPop: {fileID: 116666869}
   DodgePop: {fileID: 1243212788}
   AttPop: {fileID: 1466082344}
@@ -6060,7 +6057,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd896136b1b985044b507247f3661165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainCamera: {fileID: 230108150}
   _layerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -6791,6 +6787,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1533127202}
   - component: {fileID: 1533127201}
+  - component: {fileID: 1533127203}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -6875,6 +6872,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1533127203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533127200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &1540812155
 GameObject:
   m_ObjectHideFlags: 0
@@ -6969,6 +6989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetObject: {fileID: 1277127929}
   HeightOffset: 5
+  EffectManager: {fileID: 0}
 --- !u!1001 &1592555868
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8274,6 +8295,7 @@ MonoBehaviour:
   _bossPrefab: {fileID: 0}
   totalEnemyCount: 100
   spawnInterval: 2
+  isEndlessMode: 0
 --- !u!4 &1991162393
 Transform:
   m_ObjectHideFlags: 0
