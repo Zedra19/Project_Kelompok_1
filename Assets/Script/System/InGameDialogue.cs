@@ -1,5 +1,6 @@
 using UnityEngine;
-
+using UnityEngine.Serialization;
+using System.Collections;
 public class InGameDialogue : MonoBehaviour
 {
     public GameObject Prolog;
@@ -10,34 +11,44 @@ public class InGameDialogue : MonoBehaviour
     public GameObject Dialog5;
     public GameObject Dialog6;
     public GameObject enemySpawner;
-    [SerializeField] private PlayerMovement _playerMovement;
-    [SerializeField] private PlayerAttack _playerAttack;
+
+    [FormerlySerializedAs("_playerAttack")] public PlayerAttack PlayerAttack;
+    [FormerlySerializedAs("_playerMovement")] public PlayerMovement PlayerMovement;
     [SerializeField] private Rigidbody _rigidbodyPlayer;
     public GameObject TutorialPanel;
 
-    private void Start() {
-        _playerAttack.enabled = false;
-        _playerMovement.enabled = false;
+    private IEnumerator Start()
+    {
+        yield return new WaitForSeconds(0.1f);
+        PlayerAttack.enabled = false;
+        PlayerMovement.enabled = false;
     }
+
 
     private void Update()
     {
-        if(Prolog.activeInHierarchy && Dialog1.activeInHierarchy && !Dialog2.activeInHierarchy) {
+        if (Prolog.activeInHierarchy && Dialog1.activeInHierarchy && !Dialog2.activeInHierarchy)
+        {
             PrologInstruction1();
         }
-        else if(Prolog.activeInHierarchy && !Dialog1.activeInHierarchy && Dialog2.activeInHierarchy) {
+        else if (Prolog.activeInHierarchy && !Dialog1.activeInHierarchy && Dialog2.activeInHierarchy)
+        {
             PrologInstruction2();
         }
-        else if(Prolog.activeInHierarchy && !Dialog2.activeInHierarchy && Dialog3.activeInHierarchy) {
+        else if (Prolog.activeInHierarchy && !Dialog2.activeInHierarchy && Dialog3.activeInHierarchy)
+        {
             PrologInstruction3();
         }
-        else if(Prolog.activeInHierarchy && !Dialog3.activeInHierarchy  && Dialog4.activeInHierarchy) {
+        else if (Prolog.activeInHierarchy && !Dialog3.activeInHierarchy && Dialog4.activeInHierarchy)
+        {
             PrologInstruction4();
         }
-        else if(Prolog.activeInHierarchy && !Dialog4.activeInHierarchy  && Dialog5.activeInHierarchy) {
+        else if (Prolog.activeInHierarchy && !Dialog4.activeInHierarchy && Dialog5.activeInHierarchy)
+        {
             PrologInstruction5();
         }
-        else if(Prolog.activeInHierarchy && !Dialog5.activeInHierarchy  && Dialog6.activeInHierarchy) {
+        else if (Prolog.activeInHierarchy && !Dialog5.activeInHierarchy && Dialog6.activeInHierarchy)
+        {
             PrologInstruction6();
         }
     }
@@ -57,8 +68,8 @@ public class InGameDialogue : MonoBehaviour
         {
             Dialog2.SetActive(false);
             Prolog.SetActive(false);
-            _playerAttack.enabled = true;
-            _playerMovement.enabled = true;
+            PlayerAttack.enabled = true;
+            PlayerMovement.enabled = true;
             TutorialPanel.SetActive(true);
         }
     }
@@ -95,13 +106,13 @@ public class InGameDialogue : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             Dialog6.SetActive(false);
-            _playerAttack.enabled = true;
-            _playerMovement.enabled = true;
+            PlayerAttack.enabled = true;
+            PlayerMovement.enabled = true;
             if (enemySpawner != null)
             {
                 enemySpawner.SetActive(true);
             }
         }
     }
-    
+
 }

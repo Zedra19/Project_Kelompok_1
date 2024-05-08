@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections;
 public class SetStartPosition : MonoBehaviour
 {
     public GameObject TargetObject;
@@ -8,8 +8,10 @@ public class SetStartPosition : MonoBehaviour
 
     public EffectManager EffectManager;
 
-    void Start()
+    //TODO: jadiin satu sama playerSpawnManager?
+    IEnumerator Start()
     {
+        yield return new WaitForSeconds(0.01f);
         if (TargetObject != null)
         {
             Vector3 Portal = TargetPortal.transform.position;

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7502908938303803607}
   - component: {fileID: 734296466671748272}
   - component: {fileID: 7079374268600347867}
+  - component: {fileID: 2938020026093595843}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3204559714825225509}
   serializedVersion: 2
   m_LocalRotation: {x: 0.3420201, y: -0, z: -0, w: 0.9396927}
-  m_LocalPosition: {x: 1.3300015, y: 10.456975, z: -22.447021}
+  m_LocalPosition: {x: 1.3300015, y: 12.63, z: -9.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -92,6 +93,50 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3204559714825225509}
   m_Enabled: 1
+--- !u!114 &2938020026093595843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3204559714825225509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1 &8198426975804042383
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,7 +161,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4395659494858720712
 Transform:
   m_ObjectHideFlags: 0
@@ -130,8 +175,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 111823116977190200}
   - {fileID: 7502908938303803607}
+  - {fileID: 111823116977190200}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &4390308939494515326
@@ -196,9 +241,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dc4119b5e7cfcb49b051f3c73fa62f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 3484378722269987382}
-  _visualObject: {fileID: 4395659494858720712}
   _pointer: {fileID: 0}
+  _animator: {fileID: 3484378722269987382}
+  _visualObject: {fileID: 111823116977190200}
   _speed: 4
   _maxSpeedMultiplier: 2
   _runMultiplier: 2
@@ -208,6 +253,7 @@ MonoBehaviour:
   _maxSpeed: 0
   _maxRunSpeed: 0
   _maxDodgeForce: 0
+  _rotationFactorPerFrame: 15
 --- !u!114 &1742925953848449911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,7 +303,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetObject: {fileID: 0}
+  TargetPortal: {fileID: 0}
   HeightOffset: 5
+  EffectManager: {fileID: 0}
 --- !u!114 &7064517064719259568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,6 +322,8 @@ MonoBehaviour:
   _playerMovement: {fileID: 3279076440615112826}
   _playerAttack: {fileID: 0}
   _playerAttackDukun: {fileID: 5064819507172276111}
+  _playerAttackPetani: {fileID: 0}
+  _playerAttackPrajurit: {fileID: 0}
 --- !u!114 &5064819507172276111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,6 +356,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06d542c3427579b419df7441f6d034fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerKsatriaName: Player-Ksatria Variant(Clone)
+  _playerDukunName: Player_Dukun(Clone)
 --- !u!1001 &1169938462418095270
 PrefabInstance:
   m_ObjectHideFlags: 0
