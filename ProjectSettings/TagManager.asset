@@ -15,6 +15,7 @@ TagManager:
   - Patih
   - HitBoxSenopati
   - Senopati
+  - Arrow
   layers:
   - Default
   - TransparentFX
