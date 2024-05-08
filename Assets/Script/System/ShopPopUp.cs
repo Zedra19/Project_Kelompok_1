@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using UnityEngine.UI;
 
 public class ShopPopUp : MonoBehaviour
@@ -10,8 +11,8 @@ public class ShopPopUp : MonoBehaviour
     public Button buttonUpgrade;
     public Button buttonRole;
 
-    [SerializeField] private PlayerMovement _playerMovement;
-    [SerializeField] private PlayerAttack _playerAttack;
+    public PlayerMovement PlayerMovement_I;
+    public PlayerAttack PlayerAttack_I;
     private bool dialog1PopUp = false;
     private bool dialog2PopUp = false;
     private bool dialogUpgradePopUp = false;
@@ -20,16 +21,19 @@ public class ShopPopUp : MonoBehaviour
 
     private ShopTrigger shopTrigger;
 
-    private void Start()
+    IEnumerator Start()
     {
         Dialog1Text.SetActive(false);
         Dialog2Text.SetActive(false);
 
-        shopTrigger = FindObjectOfType<ShopTrigger>();
 
-        shopTrigger.OnDialogTriggerEnter.AddListener(StartDialog1);
         buttonUpgrade.onClick.AddListener(OnClickbuttonUpgrade);
         buttonRole.onClick.AddListener(OnClickbuttonRole);
+
+        yield return new WaitForSeconds(0.1f);
+        shopTrigger = FindObjectOfType<ShopTrigger>();
+        shopTrigger.OnDialogTriggerEnter.AddListener(StartDialog1);
+        shopTrigger.OnDialogTriggerExit.AddListener(CloseAllDialogs);
     }
 
     private void StartDialog1()
@@ -58,8 +62,8 @@ public class ShopPopUp : MonoBehaviour
             dialog1PopUp = false;
             StartDialog2();
 
-            _playerAttack.enabled = false;
-            _playerMovement.enabled = false;
+            PlayerAttack_I.enabled = false;
+            PlayerMovement_I.enabled = false;
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -108,8 +112,8 @@ public class ShopPopUp : MonoBehaviour
             dialogChangeRolePopUp = false;
             _isShopUICurrentlyActive = false;
 
-            _playerAttack.enabled = true;
-            _playerMovement.enabled = true;
+            PlayerAttack_I.enabled = true;
+            PlayerMovement_I.enabled = true;
         }
     }
 }

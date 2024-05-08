@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Project_Kelompok_1 dev-ziedny.sln"
+    "dotnet.defaultSolution": "Project_Kelompok_1.sln"
 }
