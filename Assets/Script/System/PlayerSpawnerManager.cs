@@ -22,9 +22,9 @@ public class PlayerSpawnerManager : MonoBehaviour
     [SerializeField] private float _heightOffset = 5f;
     [SerializeField] private EffectManager _effectManager;
 
-    [SerializeField] private InGameDialogue _inGameDialogue;
+    [HideInInspector] public InGameDialogue InGameDialogue;
 
-    [SerializeField] private ShopPopUp _shopPopUp;
+    [HideInInspector] public ShopPopUp ShopPopUp;
     public enum CurrentScene
     {
         game,
@@ -59,21 +59,21 @@ public class PlayerSpawnerManager : MonoBehaviour
             if (playerSpawnerManager._currentScene == PlayerSpawnerManager.CurrentScene.game)
             {
                 //ini udah cukup
-                playerSpawnerManager._inGameDialogue = (InGameDialogue)EditorGUILayout.ObjectField("InGameDialogue", playerSpawnerManager._inGameDialogue, typeof(InGameDialogue), true);
+                playerSpawnerManager.InGameDialogue = (InGameDialogue)EditorGUILayout.ObjectField("InGameDialogue", playerSpawnerManager.InGameDialogue, typeof(InGameDialogue), true);
 
                 //improved
-                // EditorGUILayout.BeginToggleGroup("In-Game Dialogue", playerSpawnerManager._inGameDialogue != null);
-                // playerSpawnerManager._inGameDialogue = (InGameDialogue)EditorGUILayout.ObjectField("In-Game Dialogue", playerSpawnerManager._inGameDialogue, typeof(InGameDialogue), true);
+                // EditorGUILayout.BeginToggleGroup("In-Game Dialogue", playerSpawnerManager.InGameDialogue != null);
+                // playerSpawnerManager.InGameDialogue = (InGameDialogue)EditorGUILayout.ObjectField("In-Game Dialogue", playerSpawnerManager.InGameDialogue, typeof(InGameDialogue), true);
                 // EditorGUILayout.EndToggleGroup();
             }
             if (playerSpawnerManager._currentScene == PlayerSpawnerManager.CurrentScene.shop)
             {
                 //ini udah cukup
-                playerSpawnerManager._shopPopUp = (ShopPopUp)EditorGUILayout.ObjectField("ShopPopUp", playerSpawnerManager._shopPopUp, typeof(ShopPopUp), true);
+                playerSpawnerManager.ShopPopUp = (ShopPopUp)EditorGUILayout.ObjectField("ShopPopUp", playerSpawnerManager.ShopPopUp, typeof(ShopPopUp), true);
 
                 //improved
-                // EditorGUILayout.BeginToggleGroup("Shop PopUp", playerSpawnerManager._shopPopUp != null);
-                // playerSpawnerManager._shopPopUp = (ShopPopUp)EditorGUILayout.ObjectField("Shop PopUp", playerSpawnerManager._shopPopUp, typeof(ShopPopUp), true);
+                // EditorGUILayout.BeginToggleGroup("Shop PopUp", playerSpawnerManager.ShopPopUp != null);
+                // playerSpawnerManager.ShopPopUp = (ShopPopUp)EditorGUILayout.ObjectField("Shop PopUp", playerSpawnerManager.ShopPopUp, typeof(ShopPopUp), true);
                 // EditorGUILayout.EndToggleGroup();
             }
             if (GUI.changed)
@@ -105,15 +105,15 @@ public class PlayerSpawnerManager : MonoBehaviour
         if (_currentScene == CurrentScene.game)
         {
             //InGameDialogue Setup
-            _inGameDialogue.PlayerAttack = player.GetComponent<PlayerAttack>();
-            _inGameDialogue.PlayerMovement = player.GetComponent<PlayerMovement>();
+            InGameDialogue.PlayerAttack = player.GetComponent<PlayerAttack>();
+            InGameDialogue.PlayerMovement = player.GetComponent<PlayerMovement>();
         }
 
         if (_currentScene == CurrentScene.shop)
         {
             player.AddComponent<ShopTrigger>();
-            _shopPopUp.PlayerMovement_I = player.GetComponent<PlayerMovement>();
-            _shopPopUp.PlayerAttack_I = player.GetComponent<PlayerAttack>();
+            ShopPopUp.PlayerMovement_I = player.GetComponent<PlayerMovement>();
+            ShopPopUp.PlayerAttack_I = player.GetComponent<PlayerAttack>();
         }
 
         //SetStartPosition Setup
@@ -133,7 +133,7 @@ public class PlayerSpawnerManager : MonoBehaviour
 
         _player = Instantiate(_playerPrefab[StaticPlayer.CurrentPlayerIndex], _lastPlayerPosition, Quaternion.identity);
         SetupPlayer(_player);
-        _shopPopUp.CloseAllDialogs();
+        ShopPopUp.CloseAllDialogs();
     }
 
     public void SetPlayerIndex(int index)
