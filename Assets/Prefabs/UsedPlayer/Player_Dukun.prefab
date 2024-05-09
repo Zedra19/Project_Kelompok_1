@@ -340,9 +340,10 @@ MonoBehaviour:
   _attackDuration: 0
   attackPointPrefab: {fileID: 7301347686692755009, guid: 20707ad6a14a10c4bb4d44d1f46e477a, type: 3}
   attackAreaPrefab: {fileID: 2444226299480264975, guid: 858818d7676300242903bfdfedc0c3c8, type: 3}
+  attackVFXPrefab: {fileID: 2696780747509582947, guid: d0065a51e6106e944b36b725313089ef, type: 3}
   attackTarget: {fileID: 0}
   CastDuration: 2
-  SpellDuration: 1
+  SpellDuration: 0.5
   _playerDamage: 0
 --- !u!114 &2064532451532965619
 MonoBehaviour:
