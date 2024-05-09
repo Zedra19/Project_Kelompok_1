@@ -18,9 +18,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _dodgeForce = 8f;
     [SerializeField] private float _dodgeMaxForceMultiplier = 4f;
     [SerializeField] private float _dodgeDuration = 1f;
+    [SerializeField] private bool _isDodgingFront = true;
     [SerializeField] private float _maxSpeed;
     [SerializeField] private float _maxRunSpeed;
     [SerializeField] private float _maxDodgeForce;
+    [SerializeField] private string _outsideLimitTag = "OutsideLimit";
 
     private SFX _sfx;
     private PlayerInput _playerInput;
@@ -34,11 +36,16 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 _currentMovement;
     private Vector3 _currentRunMovement;
     private Vector3 _lastPosition;
-
+    private GameObject playerKsatria;
+    private GameObject playerDukun;
+    private GameObject playerPetani;
+    private GameObject playerPrajurit;
+    private Collider playerCollider;
     private bool _isAllowedToDodge = true;
     private int _facingAnimatorState = 0;
     private bool _isRunPressed;
     private bool _isMovementPressed;
+
     [SerializeField] private float _rotationFactorPerFrame = 15f;
 
     private void OnEnable()
@@ -82,21 +89,39 @@ public class PlayerMovement : MonoBehaviour
         _maxSpeed = _speed * _maxSpeedMultiplier;
         _maxRunSpeed = _maxSpeed * _runMultiplier;
         _maxDodgeForce = _dodgeForce * _dodgeMaxForceMultiplier;
+
+        playerCollider = GetComponent<Collider>();
+
+        ChoosePlayerType();
     }
 
+    private void ChoosePlayerType()
+    {
+        PlayerAttack playerAttack = GetComponent<PlayerAttack>();
+        PlayerAttack_Dukun playerAttack_Dukun = GetComponent<PlayerAttack_Dukun>();
+        PlayerAttack_Petani playerAttack_Petani = GetComponent<PlayerAttack_Petani>();
+        PlayerAttack_Prajurit playerAttack_prajurit = GetComponent<PlayerAttack_Prajurit>();
+
+        playerKsatria = playerAttack != null ? gameObject : null;
+        playerDukun = playerAttack_Dukun != null ? gameObject : null;
+        playerPetani = playerAttack_Petani != null ? gameObject : null;
+        playerPrajurit = playerAttack_prajurit != null ? gameObject : null;
+    }
 
     private void OnDodgeInput(InputAction.CallbackContext context)
     {
+        /*
         GameObject playerKsatria = GameObject.Find("Player-Ksatria");
         GameObject playerDukun = GameObject.Find("Player_Dukun");
         GameObject playerPetani = GameObject.Find("Player_Petani");
         GameObject playerPrajurit = GameObject.Find("Player_Prajurit");
+        */
         if (playerKsatria != null)
         {
             if ((!IsDodging || _isAllowedToDodge) && _stamina.CurrentStamina >= 1 && _playerAttack.IsAttacking == false)
             {
-                AudioManager.Instance.PlaySFX("Dash");
                 // _sfx.DashSFX();
+                AudioManager.Instance.PlaySFX("Dash");
                 StartCoroutine(Dodge());
             }
         }
@@ -129,19 +154,24 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator Dodge()
     {
-        _animator.SetTrigger("Dodge");
+
         Debug.Log("Dodge");
+        _animator.SetTrigger("Dodge");
+        playerCollider.isTrigger = true;
+        _rigidbody.useGravity = false;
         _rigidbody.velocity = Vector3.zero; //make previous velocity to 0 so doesnt make dodge feel too fast/ too slow
         IsDodging = true;
         _animator.SetBool("Move", false);
         // Get the dodge direction based on visual object's rotation
-        Vector3 dodgeDirection = _visualObject.forward * -1f; // Push back
+
+        Vector3 dodgeDirection = _isDodgingFront ? _visualObject.forward : _visualObject.forward * -1f; // Push based on direction
         // Apply a strong force in the dodge direction
         _rigidbody.AddForce(dodgeDirection * _dodgeForce, ForceMode.VelocityChange);
         yield return new WaitForSeconds(_dodgeDuration);
         IsDodging = false;
+        playerCollider.isTrigger = false;
+        _rigidbody.useGravity = true;
     }
-
 
     private void OnMovementInput(InputAction.CallbackContext context)
     {
@@ -174,6 +204,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (IsDodging)
         {
+
             _rigidbody.maxLinearVelocity = _maxDodgeForce;
             return;
         }
@@ -375,5 +406,13 @@ public class PlayerMovement : MonoBehaviour
     {
         _dodgeForce = dodgeForce;
         _maxDodgeForce = _dodgeForce * _dodgeMaxForceMultiplier;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag(_outsideLimitTag))
+        {
+            playerCollider.isTrigger = false;
+        }
     }
 }

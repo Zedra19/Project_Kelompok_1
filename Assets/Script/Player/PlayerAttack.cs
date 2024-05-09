@@ -7,7 +7,7 @@ public class PlayerAttack : MonoBehaviour, IPlayerAttack
 {
     public bool IsAttacking { get; private set; } = false;
     public static event Action OnAttackDone;
-    
+
     [SerializeField] private Animator _animator;
     [SerializeField] float _attackDuration;
     [SerializeField] private int _playerDamage;

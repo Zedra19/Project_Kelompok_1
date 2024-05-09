@@ -15,6 +15,7 @@ TagManager:
   - Patih
   - HitBoxSenopati
   - Senopati
+  - OutsideLimit
   layers:
   - Default
   - TransparentFX
