@@ -8,11 +8,11 @@ public class PlayerAttack_Prajurit : MonoBehaviour, IPlayerAttack
     private PlayerMovement _playerMovement;
     [SerializeField] private Animator _animator;
     [SerializeField] private float _attackDuration;
-    [SerializeField] private GameObject attackPointPrefab; // Objek attackPoint yang akan di-spawn
-    [SerializeField] private GameObject attackAreaPrefab;  // Objek attackArea yang akan di-spawn
+    [SerializeField] private GameObject attackPrefab;  // Objek attackArea yang akan di-spawn
+    public Transform spawnPoint;
     public Transform attackTarget; // Target posisi serangan
-    public float CastDuration = 2f;
-    public float SpellDuration = 1f;
+    public float attackDuration = 2f;
+    // public float SpellDuration = 1f;
     public bool IsAttacking { get; private set; } = false;
     public static event System.Action OnAttackDone;
     [SerializeField] private int _playerDamage;
@@ -55,42 +55,49 @@ public class PlayerAttack_Prajurit : MonoBehaviour, IPlayerAttack
         //only attack if currently not attacking and not dodging
         if (_attackRoutine == null && !_playerMovement.IsDodging)
         {
-            // Spawn objek attackPoint di posisi attackTarget
-            GameObject attackPoint = Instantiate(attackPointPrefab, attackTarget.position, attackTarget.rotation);
-
-            // Mulai serangan
-            _attackRoutine = StartCoroutine(AttackRoutine(attackPoint));
+            _attackRoutine = StartCoroutine(AttackRoutine());
         }
+        // else if (_attackRoutine != null)
+        // {
+        //     StopCoroutine(_attackRoutine);
+        //     _attackRoutine = null;
+        // }
     }
 
-    private IEnumerator AttackRoutine(GameObject attackPoint)
+    private IEnumerator AttackRoutine()
     {
-        // Animasi serangan
-        _animator.SetTrigger("Attack");
         IsAttacking = true;
 
-        // Tunggu sejenak sebelum mengubah attackPoint menjadi attackArea
-        yield return new WaitForSeconds(CastDuration);
+        // Spawn panah pada spawn point
+        GameObject arrow = Instantiate(attackPrefab, spawnPoint.position, Quaternion.identity);
+        Rigidbody arrowRigidbody = arrow.GetComponent<Rigidbody>();
 
-        // Spawn objek attackArea di posisi attackPoint
-        GameObject attackArea = Instantiate(attackAreaPrefab, attackPoint.transform.position, attackPoint.transform.rotation);
+        // Menghitung arah dari spawn point ke target
+        Vector3 direction = (attackTarget.position - spawnPoint.position).normalized;
 
-        // Hancurkan attackPoint
-        Destroy(attackPoint);
+        // Memberikan gaya melambung ke panah
+        arrowRigidbody.AddForce(direction * 10f, ForceMode.Impulse);
 
-        // Tunggu 2 detik
-        yield return new WaitForSeconds(SpellDuration);
+        // // Menunggu hingga panah mencapai target atau jarak yang sangat dekat dengan target
+        // yield return new WaitUntil(() => Vector3.Distance(arrow.transform.position, attackTarget.position) < 0.1f);
 
-        // Hancurkan attackArea
-        Destroy(attackArea);
+        // // Menghancurkan panah
+        // Destroy(arrow);
 
-        // Tunggu sampai animasi selesai
-        yield return new WaitForSeconds(_attackDuration);
+        // Menunggu sejenak sebelum serangan selesai
+        yield return new WaitForSeconds(0.5f);
 
-        // Selesaikan serangan
-        _attackRoutine = null;
         IsAttacking = false;
+        _attackRoutine = null; // Set _attackRoutine kembali ke null agar serangan bisa dimulai kembali
         OnAttackDone?.Invoke();
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (gameObject.tag == "Spear" && collision.gameObject.tag == "Ground")
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Method untuk menetapkan target posisi serangan

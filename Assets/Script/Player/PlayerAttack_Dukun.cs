@@ -10,6 +10,7 @@ public class PlayerAttack_Dukun : MonoBehaviour, IPlayerAttack
     [SerializeField] private float _attackDuration;
     [SerializeField] private GameObject attackPointPrefab; // Objek attackPoint yang akan di-spawn
     [SerializeField] private GameObject attackAreaPrefab;  // Objek attackArea yang akan di-spawn
+    [SerializeField] private GameObject attackVFXPrefab;  // Objek attackVFX yang akan di-spawn
     public Transform attackTarget; // Target posisi serangan
     public float CastDuration = 2f;
     public float SpellDuration = 1f;
@@ -35,6 +36,15 @@ public class PlayerAttack_Dukun : MonoBehaviour, IPlayerAttack
     }
     private void Awake()
     {
+        GameObject pointerObject = GameObject.Find("Pointer");
+        if (pointerObject != null)
+        {
+            attackTarget = pointerObject.transform;
+        }
+        else
+        {
+            Debug.LogWarning("Pointer object not found in the scene.");
+        }
         _playerMovement = GetComponent<PlayerMovement>();
         _playerInput = new PlayerInput();
         _playerInput.CharacterControls.Attack.performed += OnAttack;
@@ -65,6 +75,7 @@ public class PlayerAttack_Dukun : MonoBehaviour, IPlayerAttack
 
     private IEnumerator AttackRoutine(GameObject attackPoint)
     {
+        GameObject attackVFX = Instantiate(attackVFXPrefab, attackPoint.transform.position, Quaternion.identity);
         // Animasi serangan
         _animator.SetTrigger("Attack");
         IsAttacking = true;

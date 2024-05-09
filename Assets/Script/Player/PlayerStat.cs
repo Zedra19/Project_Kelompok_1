@@ -87,8 +87,8 @@ public class PlayerStat : MonoBehaviour
 
     public virtual void UpdatePlayerDamageStat(int newDamageStat)
     {
-        GameObject playerKsatria = GameObject.Find("Player-Ksatria");
-        GameObject playerDukun = GameObject.Find("Player_Dukun");
+        GameObject playerKsatria = GameObject.Find("Player-Ksatria(Clone)");
+        GameObject playerDukun = GameObject.Find("Player_Dukun(Clone)");
         GameObject playerPetani = GameObject.Find("Player_Petani");
         GameObject playerPrajurit = GameObject.Find("Player_Prajurit");
         if (playerKsatria != null)

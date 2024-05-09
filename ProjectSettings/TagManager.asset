@@ -16,6 +16,7 @@ TagManager:
   - HitBoxSenopati
   - Senopati
   - OutsideLimit
+  - Arrow
   layers:
   - Default
   - TransparentFX
