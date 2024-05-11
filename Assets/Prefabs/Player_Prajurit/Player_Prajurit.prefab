@@ -358,7 +358,7 @@ Transform:
   m_GameObject: {fileID: 777310431177112117}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.44169998, y: 1.3377, z: 0.0427}
+  m_LocalPosition: {x: 0.228, y: 0.916, z: 0.0427}
   m_LocalScale: {x: 0.26653674, y: 0.194768, z: 0.15111971}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2191,8 +2191,8 @@ GameObject:
   - component: {fileID: 6743982851235653881}
   - component: {fileID: 6669002945856387810}
   - component: {fileID: 1133136238822173065}
-  - component: {fileID: 7048421750434933326}
   - component: {fileID: 2819017096345230870}
+  - component: {fileID: 7048421750434933326}
   m_Layer: 0
   m_Name: Player_Prajurit
   m_TagString: Player
@@ -2253,18 +2253,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dc4119b5e7cfcb49b051f3c73fa62f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pointer: {fileID: 0}
   _animator: {fileID: 2262297848528857190}
   _visualObject: {fileID: 4607674046364904703}
-  _pointer: {fileID: 0}
   _speed: 4
   _maxSpeedMultiplier: 2
   _runMultiplier: 2
   _dodgeForce: 8
   _dodgeMaxForceMultiplier: 4
   _dodgeDuration: 0.8
+  _isDodgingFront: 1
   _maxSpeed: 0
   _maxRunSpeed: 0
   _maxDodgeForce: 0
+  _outsideLimitTag: OutsideLimit
+  _rotationFactorPerFrame: 15
 --- !u!54 &5055827354133484416
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2374,18 +2377,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06d542c3427579b419df7441f6d034fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7048421750434933326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7643126771042429404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dce64c71e6b241c4c81f50222ed085b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _playerKsatriaName: Player-Ksatria Variant(Clone)
+  _playerDukunName: Player_Dukun(Clone)
 --- !u!114 &2819017096345230870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2405,6 +2398,18 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   attackDuration: 2
   _playerDamage: 0
+--- !u!114 &7048421750434933326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7643126771042429404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce64c71e6b241c4c81f50222ed085b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7675620686127348738
 GameObject:
   m_ObjectHideFlags: 0

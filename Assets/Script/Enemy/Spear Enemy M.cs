@@ -21,9 +21,9 @@ public class SpearEnemyM : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
-        if (gameObject.tag == "Arrow" && collision.gameObject.tag == "Ground")
+        if (gameObject.tag == "Spear" && collision.gameObject.tag == "Ground")
         {
             Destroy(gameObject);
         }

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerArrow : MonoBehaviour
 {
-    void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (other.CompareTag("Ground"))
         {
-            Destroy(gameObject); // Menghancurkan objek ini jika menyentuh ground
+            Destroy(gameObject);
         }
     }
 }

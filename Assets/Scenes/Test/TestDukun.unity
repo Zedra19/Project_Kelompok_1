@@ -1903,6 +1903,7 @@ GameObject:
   - component: {fileID: 313186306}
   - component: {fileID: 313186305}
   - component: {fileID: 313186304}
+  - component: {fileID: 313186308}
   m_Layer: 6
   m_Name: Plane
   m_TagString: Ground
@@ -1997,6 +1998,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &313186308
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313186303}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &333620426
 GameObject:
   m_ObjectHideFlags: 0
@@ -3839,13 +3861,17 @@ PrefabInstance:
       propertyPath: attackTarget
       value: 
       objectReference: {fileID: 1369483281}
+    - target: {fileID: 2819017096345230870, guid: e8c40a01e1893824aaa6b0eceb6e9902, type: 3}
+      propertyPath: _attackDuration
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3948207810254540776, guid: e8c40a01e1893824aaa6b0eceb6e9902, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.657
+      value: 0.295
       objectReference: {fileID: 0}
     - target: {fileID: 3948207810254540776, guid: e8c40a01e1893824aaa6b0eceb6e9902, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.32
+      value: 0.927
       objectReference: {fileID: 0}
     - target: {fileID: 3948207810254540776, guid: e8c40a01e1893824aaa6b0eceb6e9902, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9502,7 +9528,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1991162391}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5212114ee57f34d4fb6b85b535230ddd, type: 3}
   m_Name: 

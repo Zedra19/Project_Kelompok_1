@@ -8,15 +8,15 @@ public class PlayerAttack_Prajurit : MonoBehaviour, IPlayerAttack
     private PlayerMovement _playerMovement;
     [SerializeField] private Animator _animator;
     [SerializeField] private float _attackDuration;
-    [SerializeField] private GameObject attackPrefab;  // Objek attackArea yang akan di-spawn
-    public Transform spawnPoint;
+    [SerializeField] private GameObject attackPrefab;  // Objek arrow yang akan di-spawn
+    public Transform spawnPoint; // Posisi spawn arrow
     public Transform attackTarget; // Target posisi serangan
-    public float attackDuration = 2f;
-    // public float SpellDuration = 1f;
+    public float attackDuration = 0f;
     public bool IsAttacking { get; private set; } = false;
     public static event System.Action OnAttackDone;
     [SerializeField] private int _playerDamage;
     private Coroutine _attackRoutine = null; //use to run attack with duration
+    
 
     public int PlayerDamage
     {
@@ -52,53 +52,31 @@ public class PlayerAttack_Prajurit : MonoBehaviour, IPlayerAttack
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        //only attack if currently not attacking and not dodging
         if (_attackRoutine == null && !_playerMovement.IsDodging)
         {
             _attackRoutine = StartCoroutine(AttackRoutine());
         }
-        // else if (_attackRoutine != null)
-        // {
-        //     StopCoroutine(_attackRoutine);
-        //     _attackRoutine = null;
-        // }
     }
 
     private IEnumerator AttackRoutine()
     {
         IsAttacking = true;
-
-        // Spawn panah pada spawn point
         GameObject arrow = Instantiate(attackPrefab, spawnPoint.position, Quaternion.identity);
         Rigidbody arrowRigidbody = arrow.GetComponent<Rigidbody>();
-
-        // Menghitung arah dari spawn point ke target
         Vector3 direction = (attackTarget.position - spawnPoint.position).normalized;
-
+        // Menentukan rotasi untuk panah agar sumbu z menghadap ke arah target
+        Quaternion rotation = Quaternion.LookRotation(direction);
+        // Memutar panah sesuai dengan rotasi yang dihitung
+        arrow.transform.rotation = rotation;
         // Memberikan gaya melambung ke panah
-        arrowRigidbody.AddForce(direction * 10f, ForceMode.Impulse);
-
-        // // Menunggu hingga panah mencapai target atau jarak yang sangat dekat dengan target
-        // yield return new WaitUntil(() => Vector3.Distance(arrow.transform.position, attackTarget.position) < 0.1f);
-
-        // // Menghancurkan panah
-        // Destroy(arrow);
-
-        // Menunggu sejenak sebelum serangan selesai
-        yield return new WaitForSeconds(0.5f);
+        arrowRigidbody.AddForce(arrow.transform.forward * 10f, ForceMode.Impulse);
+        yield return new WaitForSeconds(attackDuration);
 
         IsAttacking = false;
         _attackRoutine = null; // Set _attackRoutine kembali ke null agar serangan bisa dimulai kembali
         OnAttackDone?.Invoke();
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if (gameObject.tag == "Spear" && collision.gameObject.tag == "Ground")
-        {
-            Destroy(gameObject);
-        }
-    }
 
     // Method untuk menetapkan target posisi serangan
     public void SetAttackTarget(Transform target)
