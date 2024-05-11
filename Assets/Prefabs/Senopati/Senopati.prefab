@@ -472,6 +472,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4919614660257977850, guid: c16004ec82e67f344b400e1ec53dc7a4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4072036651be4854ab2d20c01808ee1d, type: 2}
     - target: {fileID: 6351502794173889066, guid: c16004ec82e67f344b400e1ec53dc7a4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -540,19 +544,16 @@ MonoBehaviour:
   - {fileID: 8311766519674346725}
   - {fileID: 4399906507496589862}
   hitboxPrefab: {fileID: 2871018853519431222, guid: 6ada6de87d2258c4da4668d1c3766c1a, type: 3}
-  rageHitboxPrefab: {fileID: 2871018853519431222, guid: 6ada6de87d2258c4da4668d1c3766c1a, type: 3}
+  areaAttackHitbox: {fileID: 1352662252161028013, guid: 31907cdffa1a48945a8bd1e39e7da210, type: 3}
+  rageHitboxPrefab: {fileID: 6036660082309536335, guid: 8e54251409870d549ab02beab58c9b24, type: 3}
   attackSpawnPoint: {fileID: 7636440807905962752}
   bossHealth: {fileID: 0}
-  detectionRange: 1000000
   attackRange: 3
-  retreatRange: 3
-  chaseSpeed: 5
   hitboxSpeed: 10
   hitboxDuration: 1
-  rageDuration: 20
   attackCooldown: 4
-  HP: 0
   isGettingHitInThisHit: 0
+  HP: 0
 --- !u!195 &5639369957786515582
 NavMeshAgent:
   m_ObjectHideFlags: 0
