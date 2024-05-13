@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using EffectSceneManager;
 
 public class ShopManager : MonoBehaviour
 {

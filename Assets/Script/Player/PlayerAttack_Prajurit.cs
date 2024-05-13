@@ -15,8 +15,9 @@ public class PlayerAttack_Prajurit : MonoBehaviour, IPlayerAttack
     public bool IsAttacking { get; private set; } = false;
     public static event System.Action OnAttackDone;
     [SerializeField] private int _playerDamage;
+    [SerializeField] private float arrowForce = 5f;
     private Coroutine _attackRoutine = null; //use to run attack with duration
-    
+
 
     public int PlayerDamage
     {
@@ -63,13 +64,14 @@ public class PlayerAttack_Prajurit : MonoBehaviour, IPlayerAttack
         IsAttacking = true;
         GameObject arrow = Instantiate(attackPrefab, spawnPoint.position, Quaternion.identity);
         Rigidbody arrowRigidbody = arrow.GetComponent<Rigidbody>();
-        Vector3 direction = (attackTarget.position - spawnPoint.position).normalized;
+        Vector3 attackTargetWithoutYAxis = new Vector3(attackTarget.position.x, spawnPoint.position.y, attackTarget.position.z);
+        Vector3 direction = (attackTargetWithoutYAxis - spawnPoint.position).normalized;
         // Menentukan rotasi untuk panah agar sumbu z menghadap ke arah target
         Quaternion rotation = Quaternion.LookRotation(direction);
         // Memutar panah sesuai dengan rotasi yang dihitung
         arrow.transform.rotation = rotation;
         // Memberikan gaya melambung ke panah
-        arrowRigidbody.AddForce(arrow.transform.forward * 10f, ForceMode.Impulse);
+        arrowRigidbody.AddForce(arrow.transform.forward * arrowForce, ForceMode.Impulse);
         yield return new WaitForSeconds(attackDuration);
 
         IsAttacking = false;
