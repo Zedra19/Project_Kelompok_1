@@ -6152,7 +6152,7 @@ MonoBehaviour:
   _effectManager: {fileID: 525853354}
   InGameDialogue: {fileID: 0}
   ShopPopUp: {fileID: 1830208747}
-  _currentScene: 0
+  _currentScene: 1
 --- !u!4 &1790857405
 Transform:
   m_ObjectHideFlags: 0
