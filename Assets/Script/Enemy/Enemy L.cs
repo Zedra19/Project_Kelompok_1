@@ -11,6 +11,7 @@ public class EnemyL : MonoBehaviour
     public string PlayerTag = "Player";
     public int CurrentHealth = 5;
     public bool IsGettingHitInThisHit;
+    [SerializeField] private GameObject attackVFXPrefab; 
 
     private Transform _playerTransform;
     private bool _isOnCooldown = false;
@@ -85,6 +86,9 @@ public class EnemyL : MonoBehaviour
     {
         _animator.SetTrigger("Attack");
         _isAttacking = true;
+        // Instantiate attackVFX at the position of EnemyL
+    GameObject attackVFX = Instantiate(attackVFXPrefab, transform.position, Quaternion.identity);
+    Destroy(attackVFX, 2f); // Destroy the VFX after 2 seconds (adjust as needed)
     }
 
     // Dipanggil dari animasi saat serangan selesai

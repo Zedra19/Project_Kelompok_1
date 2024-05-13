@@ -62,21 +62,6 @@ public class PlayerAttack : MonoBehaviour, IPlayerAttack
             _attackRoutine = StartCoroutine(AttackRoutine());
         }
     }
-// private IEnumerator AttackRoutine()
-// {
-//     _animator.SetTrigger("Attack");
-
-//     // Instantiate attackVFX with the position and rotation of attackTrigger
-//     Quaternion reversedRotation = attackTrigger.rotation * Quaternion.Euler(0, 180, 0); // Rotate by 180 degrees around the Y-axis
-//     GameObject attackVFX = Instantiate(attackVFXPrefab, attackTrigger.position, reversedRotation);
-
-//     IsAttacking = true;
-//     yield return new WaitForSeconds(_attackDuration);
-//     _attackRoutine = null;
-//     IsAttacking = false;
-//     Destroy(attackVFX);
-//     OnAttackDone?.Invoke(); //invoke event to notify other script that attack is done, making enemy L hitable in another attack
-// }
 
 private IEnumerator AttackRoutine()
 {
