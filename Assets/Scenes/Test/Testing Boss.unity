@@ -4214,7 +4214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BossHealthSlider: {fileID: 639403905}
-  BossMaxHealth: 5
+  BossMaxHealth: 10
 --- !u!4 &821958492
 Transform:
   m_ObjectHideFlags: 0
@@ -7818,6 +7818,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7812535678962721379, guid: 41bedeecd6e931c4ebbf19580c6fba8e, type: 3}
+      propertyPath: currentHealth
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7812535678962721379, guid: 41bedeecd6e931c4ebbf19580c6fba8e, type: 3}
+      propertyPath: healthIcons.Array.data[0]
+      value: 
+      objectReference: {fileID: 469368895}
+    - target: {fileID: 7812535678962721379, guid: 41bedeecd6e931c4ebbf19580c6fba8e, type: 3}
+      propertyPath: healthIcons.Array.data[1]
+      value: 
+      objectReference: {fileID: 990977967}
+    - target: {fileID: 7812535678962721379, guid: 41bedeecd6e931c4ebbf19580c6fba8e, type: 3}
+      propertyPath: healthIcons.Array.data[2]
+      value: 
+      objectReference: {fileID: 842276187}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9598,7 +9614,7 @@ MonoBehaviour:
   normalMaterial: {fileID: 2100000, guid: c2b6eda734ebc7e4884e778957bf1b10, type: 2}
   stunMaterial: {fileID: 2100000, guid: 1e0a9fe13d485eb4a87cdf397da4ebb3, type: 2}
   rageMaterial: {fileID: 2100000, guid: 3718616386d98624ab242b60f99bbc32, type: 2}
-  bossHealth: {fileID: 0}
+  bossHealth: {fileID: 821958491}
   IsGettingHitInThisHit: 0
 --- !u!1 &2024717531
 GameObject:
