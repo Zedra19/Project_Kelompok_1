@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using EffectSceneManager;
 public class SetStartPosition : MonoBehaviour
 {
     public GameObject TargetObject;

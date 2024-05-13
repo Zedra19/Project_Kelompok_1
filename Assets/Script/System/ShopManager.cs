@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using EffectSceneManager;
 
 public class ShopManager : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private int _movementPrice = 100;
     [SerializeField] private string _buyDamageID = "Damage";
     [SerializeField] private int _damagePrice = 100;
-    
+
     public void BuyUpgrade(string buyID)
     {
         // Vector3 Player = Player.transform.position;
