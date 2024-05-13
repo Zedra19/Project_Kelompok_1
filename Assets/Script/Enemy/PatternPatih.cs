@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 public class PatternPatih : MonoBehaviour
 {
-    public Transform player;
+    // public Transform player;
     public int damage, HP, MaxHP;
 
     public float moveSpeed = 5f;
@@ -22,7 +22,10 @@ public class PatternPatih : MonoBehaviour
     public Material normalMaterial;
     public Material stunMaterial;
     public Material rageMaterial;
+    public BossHealth bossHealth;
 
+    private string playerTag = "Player";
+    private Transform player;
     private NavMeshAgent _navAgent;
     private Health _playerHealth;
     private GameObject hitboxInstance;
@@ -45,6 +48,7 @@ public class PatternPatih : MonoBehaviour
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag(playerTag).transform;
         _playerHealth = GetComponent<Health>();
         _navAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         _navAgent.speed = moveSpeed;
