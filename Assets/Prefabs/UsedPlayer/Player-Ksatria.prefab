@@ -227,6 +227,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75e58f501fbecb84c84b9cbb3c46d669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EffectManager: {fileID: 0}
+  TargetPortal: {fileID: 1652267585623112888}
+  attackTrigger: {fileID: 8408833636512918871}
+  attackVFXPrefab: {fileID: 8531510595707029202, guid: e1f532037c099044a901f99ab5aa7b28, type: 3}
   _animator: {fileID: 1541511734081752183}
   _attackDuration: 0.5
   _playerDamage: 0
