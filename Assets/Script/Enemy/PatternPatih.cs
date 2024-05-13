@@ -48,6 +48,7 @@ public class PatternPatih : MonoBehaviour
 
     void Start()
     {
+        HP = bossHealth.BossMaxHealth;
         player = GameObject.FindGameObjectWithTag(playerTag).transform;
         _playerHealth = GetComponent<Health>();
         _navAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
