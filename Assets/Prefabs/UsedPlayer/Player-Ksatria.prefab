@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 842652844403814179}
   - component: {fileID: 3188272310640718243}
   - component: {fileID: 4387052929544704429}
+  - component: {fileID: 2566161459191952068}
   m_Layer: 0
   m_Name: Player-Ksatria
   m_TagString: Player
@@ -208,9 +209,11 @@ MonoBehaviour:
   _dodgeForce: 8
   _dodgeMaxForceMultiplier: 4
   _dodgeDuration: 0.8
+  _isDodgingFront: 1
   _maxSpeed: 0
   _maxRunSpeed: 0
   _maxDodgeForce: 0
+  _outsideLimitTag: OutsideLimit
   _rotationFactorPerFrame: 15
 --- !u!114 &5748205247403693035
 MonoBehaviour:
@@ -338,6 +341,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerKsatriaName: Player-Ksatria Variant(Clone)
   _playerDukunName: Player_Dukun(Clone)
+--- !u!114 &2566161459191952068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242259732691763411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe243425541c2f438a7d0bfa6a04bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RageTime: 30
+  ComboRageTrigger: 3
+  visualObjectRenderer: {fileID: 41788949919053388}
 --- !u!1 &511329156119174146
 GameObject:
   m_ObjectHideFlags: 0

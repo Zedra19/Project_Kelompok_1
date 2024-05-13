@@ -12,6 +12,16 @@ public class AttackTrigger : MonoBehaviour
     PatternPatih _patih;
     Senopati senopati;
 
+    private void OnEnable()
+    {
+        RageMode.OnRageMode += RageModeSizeCube;
+    }
+
+    private void OnDisable()
+    {
+        RageMode.OnRageMode += RageModeSizeCube;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -117,4 +127,22 @@ public class AttackTrigger : MonoBehaviour
             }
         }
     }
+
+    private void RageModeSizeCube(bool isRageModeOn)
+    {
+        Debug.Log("Rageee");
+        if (isRageModeOn)
+        {
+            Debug.Log("Scaling bigger");
+            transform.localScale = new Vector3(transform.localScale.x * 2, transform.localScale.y * 2, transform.localScale.z * 2);
+
+        }
+        if (!isRageModeOn)
+        {
+            Debug.Log("Scaling smaller");
+            transform.localScale = new Vector3(transform.localScale.x / 2, transform.localScale.y / 2, transform.localScale.z / 2);
+        }
+    }
+
+
 }
