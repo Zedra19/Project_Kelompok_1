@@ -94,6 +94,7 @@ public class PlayerAttack_Dukun : MonoBehaviour, IPlayerAttack
 
         // Hancurkan attackArea
         Destroy(attackArea);
+        Destroy(attackVFX);
 
         // Tunggu sampai animasi selesai
         yield return new WaitForSeconds(_attackDuration);
