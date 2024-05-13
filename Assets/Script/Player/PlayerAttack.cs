@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
+
 public class PlayerAttack : MonoBehaviour, IPlayerAttack
 {
     public bool IsAttacking { get; private set; } = false;
     public static event Action OnAttackDone;
-
+    public Transform attackTrigger;
+    [SerializeField] private GameObject attackVFXPrefab; 
     [SerializeField] private Animator _animator;
     [SerializeField] float _attackDuration;
     [SerializeField] private int _playerDamage;
@@ -60,14 +62,42 @@ public class PlayerAttack : MonoBehaviour, IPlayerAttack
             _attackRoutine = StartCoroutine(AttackRoutine());
         }
     }
+// private IEnumerator AttackRoutine()
+// {
+//     _animator.SetTrigger("Attack");
 
-    private IEnumerator AttackRoutine()
-    {
-        _animator.SetTrigger("Attack");
-        IsAttacking = true;
-        yield return new WaitForSeconds(_attackDuration);
-        _attackRoutine = null;
-        IsAttacking = false;
-        OnAttackDone?.Invoke(); //invoke event to notify other script that attack is done, making enemy L hitable in another attack
-    }
+//     // Instantiate attackVFX with the position and rotation of attackTrigger
+//     Quaternion reversedRotation = attackTrigger.rotation * Quaternion.Euler(0, 180, 0); // Rotate by 180 degrees around the Y-axis
+//     GameObject attackVFX = Instantiate(attackVFXPrefab, attackTrigger.position, reversedRotation);
+
+//     IsAttacking = true;
+//     yield return new WaitForSeconds(_attackDuration);
+//     _attackRoutine = null;
+//     IsAttacking = false;
+//     Destroy(attackVFX);
+//     OnAttackDone?.Invoke(); //invoke event to notify other script that attack is done, making enemy L hitable in another attack
+// }
+
+private IEnumerator AttackRoutine()
+{
+    _animator.SetTrigger("Attack");
+
+    // Determine the position to instantiate attackVFX
+    Vector3 offset = -attackTrigger.forward * 1.5f; // Move backward by 0.5 units
+    Vector3 attackPosition = attackTrigger.position + offset;
+
+    // Instantiate attackVFX with the adjusted position and rotation of attackTrigger
+    Quaternion reversedRotation = attackTrigger.rotation * Quaternion.Euler(0, 180, 0); // Rotate by 180 degrees around the Y-axis
+    GameObject attackVFX = Instantiate(attackVFXPrefab, attackPosition, reversedRotation);
+
+    IsAttacking = true;
+    yield return new WaitForSeconds(_attackDuration);
+    _attackRoutine = null;
+    IsAttacking = false;
+    Destroy(attackVFX);
+    OnAttackDone?.Invoke(); //invoke event to notify other script that attack is done, making enemy L hitable in another attack
+}
+
+
+
 }
