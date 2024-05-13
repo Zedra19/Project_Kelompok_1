@@ -8,11 +8,11 @@ public class EnemyL : MonoBehaviour
     public float AttackRange = 0f;
     public float KnockbackForce = 0f;
     public float CooldownDuration = 0f;
-    public string PlayerTag = "Player";
     public int CurrentHealth = 5;
     public bool IsGettingHitInThisHit;
     [SerializeField] private GameObject attackVFXPrefab; 
 
+    private string PlayerTag = "Player";
     private Transform _playerTransform;
     private bool _isOnCooldown = false;
     private bool _isAttacking = false;
@@ -39,6 +39,7 @@ public class EnemyL : MonoBehaviour
         _animator = GetComponent<Animator>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _navMeshAgent.stoppingDistance = AttackRange;
+        _navMeshAgent.speed = 2.5f;
     }
 
     void Update()
@@ -87,8 +88,8 @@ public class EnemyL : MonoBehaviour
         _animator.SetTrigger("Attack");
         _isAttacking = true;
         // Instantiate attackVFX at the position of EnemyL
-    GameObject attackVFX = Instantiate(attackVFXPrefab, transform.position, Quaternion.identity);
-    Destroy(attackVFX, 2f); // Destroy the VFX after 2 seconds (adjust as needed)
+        GameObject attackVFX = Instantiate(attackVFXPrefab, transform.position, Quaternion.identity);
+        Destroy(attackVFX, 2f); // Destroy the VFX after 2 seconds (adjust as needed)
     }
 
     // Dipanggil dari animasi saat serangan selesai

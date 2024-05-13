@@ -32,6 +32,10 @@ public class AttackTriggerPrajurit : MonoBehaviour
                 collidedObjects.Add(other.gameObject, false);
             }
         }
+        else if (other.CompareTag("Ground"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerStay(Collider other)

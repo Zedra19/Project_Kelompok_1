@@ -4,7 +4,6 @@ using UnityEngine.AI;
 
 public class Senopati : MonoBehaviour
 {
-    public Transform player;
     public Transform[] hitboxSpawnPoints;
     public GameObject hitboxPrefab;
     public GameObject areaAttackHitbox;
@@ -20,6 +19,8 @@ public class Senopati : MonoBehaviour
     public bool isGettingHitInThisHit;
     public float HP;
 
+    private string playerTag = "Player";
+    private Transform player;
     private bool isRageMode = false;
     private bool canAttack = true;
     private NavMeshAgent _navAgent;
@@ -30,6 +31,11 @@ public class Senopati : MonoBehaviour
     {
         currentHealth = bossHealth.BossMaxHealth;
         _navAgent = GetComponent<NavMeshAgent>();
+        player = GameObject.FindGameObjectWithTag(playerTag).transform;
+        if (player == null)
+        {
+            Debug.LogWarning("Player object not found.");
+        }
     }
 
     void Update()

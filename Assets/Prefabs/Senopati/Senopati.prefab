@@ -420,6 +420,52 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &7367324741599485671
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1348898450076529445}
+  - component: {fileID: 6025893123805525419}
+  m_Layer: 0
+  m_Name: BossHealth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1348898450076529445
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7367324741599485671}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10.430654, y: 2.722604, z: 20.478035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5829517730808431794}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6025893123805525419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7367324741599485671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0fbc67ce0bffd7418d6db70f87da2fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BossHealthSlider: {fileID: 0}
+  BossMaxHealth: 5
 --- !u!1001 &6752426686917124187
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -501,6 +547,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 960369766097069289, guid: c16004ec82e67f344b400e1ec53dc7a4, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 1348898450076529445}
+    - targetCorrespondingSourceObject: {fileID: 960369766097069289, guid: c16004ec82e67f344b400e1ec53dc7a4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7636440807905962752}
     - targetCorrespondingSourceObject: {fileID: 960369766097069289, guid: c16004ec82e67f344b400e1ec53dc7a4, type: 3}
@@ -537,7 +586,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7660b96fa35030b4cb2e8ba829136a88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   hitboxSpawnPoints:
   - {fileID: 7636440807905962752}
   - {fileID: 2282721572756526578}
@@ -547,13 +595,14 @@ MonoBehaviour:
   areaAttackHitbox: {fileID: 1352662252161028013, guid: 31907cdffa1a48945a8bd1e39e7da210, type: 3}
   rageHitboxPrefab: {fileID: 6036660082309536335, guid: 8e54251409870d549ab02beab58c9b24, type: 3}
   attackSpawnPoint: {fileID: 7636440807905962752}
-  bossHealth: {fileID: 0}
+  bossHealth: {fileID: 6025893123805525419}
   attackRange: 3
   hitboxSpeed: 10
   hitboxDuration: 1
   attackCooldown: 4
   isGettingHitInThisHit: 0
   HP: 0
+  playerTag: Player
 --- !u!195 &5639369957786515582
 NavMeshAgent:
   m_ObjectHideFlags: 0
