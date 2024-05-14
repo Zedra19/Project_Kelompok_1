@@ -250,9 +250,11 @@ MonoBehaviour:
   _dodgeForce: 8
   _dodgeMaxForceMultiplier: 4
   _dodgeDuration: 0.8
+  _isDodgingFront: 1
   _maxSpeed: 0
   _maxRunSpeed: 0
   _maxDodgeForce: 0
+  _outsideLimitTag: OutsideLimit
   _rotationFactorPerFrame: 15
 --- !u!114 &1742925953848449911
 MonoBehaviour:
@@ -415,6 +417,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2334706467710062224, guid: 135acb53133c7904193157e6a7935052, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 2b9b59909cf3240449013b51f9b4c8d2, type: 2}
     - target: {fileID: 2334706467710062224, guid: 135acb53133c7904193157e6a7935052, type: 3}
       propertyPath: m_WarningMessage
       value: 
