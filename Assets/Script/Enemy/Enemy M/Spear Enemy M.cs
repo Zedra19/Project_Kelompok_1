@@ -18,6 +18,7 @@ public class SpearEnemyM : MonoBehaviour
         if (gameObject.tag != "Spear")
         {
             transform.position = gameObject.transform.parent.position;
+            transform.eulerAngles = gameObject.transform.parent.eulerAngles + new Vector3(0,90f,0);
         }
     }
 

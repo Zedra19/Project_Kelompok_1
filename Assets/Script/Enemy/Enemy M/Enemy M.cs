@@ -7,7 +7,6 @@ public class EnemyM : MonoBehaviour
 {
     public float distanceToPlayer = 10f;
     public float timeIntervalToMove = 3f;
-    public float Gravity = 9.81f;
     bool enableToMove = true;
     bool timerIsRunning = false;
     public Animator _animator; // Animator component
@@ -37,33 +36,33 @@ public class EnemyM : MonoBehaviour
     }
 
     void moveToAttackRange()
-{
-    if (player != null)
     {
-        float distance = Vector3.Distance(transform.position, player.transform.position);
-        if (!timerIsRunning) // Jika tidak sedang dalam fase serangan
+        if (player != null)
         {
-            if (distance > distanceToPlayer + 1 && enableToMove)
+            float distance = Vector3.Distance(transform.position, player.transform.position);
+            if (!timerIsRunning) // Jika tidak sedang dalam fase serangan
             {
-                // Deketin titik range attack
-                _animator.SetBool("Moving", true); // Mengaktifkan animasi lari
-                navAgent.SetDestination(player.transform.position);
-            }
-            else if (distance < distanceToPlayer - 1 && enableToMove)
-            {
-                // Jauhin Player
-                _animator.SetBool("Moving", true); // Mengaktifkan animasi lari
-                navAgent.SetDestination(transform.position - player.transform.position);
-            }
-            else if (distance <= distanceToPlayer + 1 && distance >= distanceToPlayer - 1)
-            {
-                _animator.SetBool("Moving", false); // Menonaktifkan animasi lari
-                navAgent.ResetPath(); // Menghentikan NavMeshAgent
-                timerIsRunning = true;
+                if (distance > distanceToPlayer + 1 && enableToMove)
+                {
+                    // Deketin titik range attack
+                    _animator.SetBool("Moving", true); // Mengaktifkan animasi lari
+                    navAgent.SetDestination(player.transform.position);
+                }
+                else if (distance < distanceToPlayer - 1 && enableToMove)
+                {
+                    // Jauhin Player
+                    _animator.SetBool("Moving", true); // Mengaktifkan animasi lari
+                    navAgent.SetDestination(transform.position - player.transform.position);
+                }
+                else if (distance <= distanceToPlayer + 1 && distance >= distanceToPlayer - 1)
+                {
+                    _animator.SetBool("Moving", false); // Menonaktifkan animasi lari
+                    navAgent.ResetPath(); // Menghentikan NavMeshAgent
+                    timerIsRunning = true;
+                }
             }
         }
     }
-}
 
 
     void attacking()

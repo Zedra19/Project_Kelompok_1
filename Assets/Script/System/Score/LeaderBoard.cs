@@ -52,7 +52,7 @@ public class LeaderBoard : MonoBehaviour
 
     public void saveScore()
     {
-        string name = inputField.GetComponent<InputField>().text;
+        string name = PlayerPrefs.GetString("Profile"+Profile.CurrentPlayerIndex);
         int score = scoreScript.currentScore;
         AddScore(new SaveScore(name, score));
         SaveLeaderboard();
