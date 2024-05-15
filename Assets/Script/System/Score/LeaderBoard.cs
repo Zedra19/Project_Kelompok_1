@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class LeaderBoard : MonoBehaviour
 {
-    public GameObject inputName;
     public GameObject inputField;
     public GameObject leaderdBoard;
     public GameObject Content;
@@ -40,11 +39,6 @@ public class LeaderBoard : MonoBehaviour
         return sd.scoreList.OrderByDescending(x => x.Score);
     }
 
-    public void inputNameShow()
-    {
-        inputName.SetActive(true);
-    }
-
     public void AddScore(SaveScore ss)
     {
         sd.scoreList.Add(ss);
@@ -58,7 +52,6 @@ public class LeaderBoard : MonoBehaviour
         SaveLeaderboard();
         leaderBoardShow();
         leaderdBoard.SetActive(true);
-        inputName.SetActive(false);
     }
 
     public void SaveLeaderboard()
