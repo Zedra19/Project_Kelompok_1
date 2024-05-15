@@ -16,7 +16,7 @@ public class Senopati : MonoBehaviour
     public float hitboxSpeed = 10f;
     public float hitboxDuration = 1f;
     public float attackCooldown = 4f;
-    public bool isGettingHitInThisHit;
+    public bool isGettingHitInThisHit = false;
     public float HP;
 
     private string playerTag = "Player";
@@ -36,6 +36,7 @@ public class Senopati : MonoBehaviour
         {
             Debug.LogWarning("Player object not found.");
         }
+        Debug.Log("Senopati HP: " + currentHealth);
     }
 
     void Update()
@@ -51,7 +52,7 @@ public class Senopati : MonoBehaviour
 
         if (distanceToPlayer <= attackRange)
         {
-            _navAgent.isStopped = true; 
+            _navAgent.isStopped = true;
 
             if (!isRageMode && canAttack)
                 Attack();
@@ -64,7 +65,7 @@ public class Senopati : MonoBehaviour
         // }
         else
         {
-            _navAgent.isStopped = false; 
+            _navAgent.isStopped = false;
             ChasePlayer();
         }
 
@@ -159,7 +160,10 @@ public class Senopati : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        Debug.Log("Senopati Damaged");
         currentHealth -= damage;
+        Debug.Log("Senopati HP: " + currentHealth);
+        Debug.Log("senopati Hp" + HP);
         if (currentHealth <= bossHealth.BossMaxHealth * 0.5f && !isRageMode)
         {
             EnterRageMode();

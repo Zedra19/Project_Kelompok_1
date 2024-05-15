@@ -2461,6 +2461,72 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 782652974}
   m_CullTransparentMesh: 1
+--- !u!1001 &843991044
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: c5145c113bc8fc94c976b526275ffc10, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 106.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c5145c113bc8fc94c976b526275ffc10, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 42.81244
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c5145c113bc8fc94c976b526275ffc10, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 54.247948
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c5145c113bc8fc94c976b526275ffc10, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c5145c113bc8fc94c976b526275ffc10, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c5145c113bc8fc94c976b526275ffc10, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c5145c113bc8fc94c976b526275ffc10, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c5145c113bc8fc94c976b526275ffc10, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c5145c113bc8fc94c976b526275ffc10, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c5145c113bc8fc94c976b526275ffc10, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c5145c113bc8fc94c976b526275ffc10, type: 3}
+      propertyPath: m_Name
+      value: Sukma (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2836342992475879764, guid: c5145c113bc8fc94c976b526275ffc10, type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163438502613370902, guid: c5145c113bc8fc94c976b526275ffc10, type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 6572683484597976625, guid: c5145c113bc8fc94c976b526275ffc10, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c5145c113bc8fc94c976b526275ffc10, type: 3}
 --- !u!1 &866588064
 GameObject:
   m_ObjectHideFlags: 0
@@ -6710,6 +6776,7 @@ MonoBehaviour:
   _lSwarmerPrefab: {fileID: 763990388291138446, guid: f6e52706680ea5e4aa9324169cc68fe5, type: 3}
   _bossPrefab: {fileID: 0}
   totalEnemyCount: 100
+  spawnThreshold: 0
   spawnInterval: 2
   isEndlessMode: 0
 --- !u!4 &2068670572
@@ -10445,3 +10512,4 @@ SceneRoots:
   - {fileID: 1059003305}
   - {fileID: 1790857405}
   - {fileID: 1953845330}
+  - {fileID: 843991044}

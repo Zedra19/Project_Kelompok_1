@@ -29,6 +29,7 @@ public class AttackTrigger : MonoBehaviour
         killCountScript = FindAnyObjectByType<KillCount>();
         scoreScript = FindObjectOfType<Score>();
         _patih = FindObjectOfType<PatternPatih>();
+        Debug.Log($"_patih == null{_patih == null}");
         senopati = FindObjectOfType<Senopati>();
     }
 
@@ -87,16 +88,19 @@ public class AttackTrigger : MonoBehaviour
             Debug.Log("---SENOPATI");
             if (senopati != null)
             {
-                Debug.Log("----Hit Senopati HP SENOPATI: " + senopati.HP + "----");
+                Debug.Log($"senopati.isGettingHitInThisHit{senopati.isGettingHitInThisHit}");
                 if (senopati.isGettingHitInThisHit)
                 {
+                    Debug.Log("Senopati is getting hit in this hit");
                     return;
                 }
                 senopati.isGettingHitInThisHit = true;
+
                 // comboScript.comboCount++;
+                Debug.Log("Player Damage: " + playerAttackScript.PlayerDamage);
                 senopati.TakeDamage(playerAttackScript.PlayerDamage);
-                Debug.Log("Boss HP: " + senopati.HP);
-                if (senopati.HP <= 0)
+                Debug.Log("Boss Senopati HP: " + senopati.HP);
+                if (senopati.GetCurrentHealth() <= 0)
                 {
                     // killCountScript.killCount++;
                     // scoreScript.currentScore += scoreScript.EnemyL;
@@ -110,12 +114,14 @@ public class AttackTrigger : MonoBehaviour
             if (_patih != null)
             {
                 Debug.Log("----Hit Patih HP PATIH: " + _patih.HP + "----");
+                Debug.Log($"_patih.IsGettingHitInThisHit: {_patih.IsGettingHitInThisHit}");
                 if (_patih.IsGettingHitInThisHit)
                 {
                     return;
                 }
                 _patih.IsGettingHitInThisHit = true;
                 comboScript.comboCount++;
+                Debug.Log("Player Damage: " + playerAttackScript.PlayerDamage);
                 _patih.HP -= playerAttackScript.PlayerDamage;
                 Debug.Log("Patih HP: " + _patih.HP);
                 if (_patih.HP <= 0)
