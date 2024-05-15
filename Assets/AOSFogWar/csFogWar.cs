@@ -46,8 +46,10 @@ namespace FischlWorks_FogWar
             }
 
             // Indexer definition
-            public LevelColumn this[int index] {
-                get {
+            public LevelColumn this[int index]
+            {
+                get
+                {
                     if (index >= 0 && index < levelRow.Count)
                     {
                         return levelRow[index];
@@ -59,7 +61,8 @@ namespace FischlWorks_FogWar
                         return null;
                     }
                 }
-                set {
+                set
+                {
                     if (index >= 0 && index < levelRow.Count)
                     {
                         levelRow[index] = value;
@@ -103,8 +106,10 @@ namespace FischlWorks_FogWar
             }
 
             // Indexer definition
-            public ETileState this[int index] {
-                get {
+            public ETileState this[int index]
+            {
+                get
+                {
                     if (index >= 0 && index < levelColumn.Count)
                     {
                         return levelColumn[index];
@@ -116,7 +121,8 @@ namespace FischlWorks_FogWar
                         return ETileState.Empty;
                     }
                 }
-                set {
+                set
+                {
                     if (index >= 0 && index < levelColumn.Count)
                     {
                         levelColumn[index] = value;
@@ -146,6 +152,10 @@ namespace FischlWorks_FogWar
                 this.updateOnlyOnMove = updateOnlyOnMove;
             }
 
+            public FogRevealer()
+            {
+            }
+
             public Vector2Int GetCurrentLevelCoordinates(csFogWar fogWar)
             {
                 currentLevelCoordinates = new Vector2Int(
@@ -157,21 +167,23 @@ namespace FischlWorks_FogWar
 
             // To be assigned manually by the user
             [SerializeField]
-            private Transform revealerTransform = null;
+            public Transform revealerTransform = null;
             // These are called expression-bodied properties btw, being stricter here because these are not pure data containers
             public Transform _RevealerTransform => revealerTransform;
 
             [SerializeField]
-            private int sightRange = 0;
+            public int sightRange = 0;
             public int _SightRange => sightRange;
 
             [SerializeField]
-            private bool updateOnlyOnMove = true;
+            public bool updateOnlyOnMove = true;
             public bool _UpdateOnlyOnMove => updateOnlyOnMove;
 
             private Vector2Int currentLevelCoordinates = new Vector2Int();
-            public Vector2Int _CurrentLevelCoordinates {
-                get {
+            public Vector2Int _CurrentLevelCoordinates
+            {
+                get
+                {
                     lastSeenAt = currentLevelCoordinates;
 
                     return currentLevelCoordinates;
@@ -271,11 +283,46 @@ namespace FischlWorks_FogWar
 
 
 
+        //         private void Start()
+        //         {
+        //             CheckProperties();
+
+        //             InitializeVariables();
+
+        //             if (LevelDataToLoad == null)
+        //             {
+        //                 ScanLevel();
+
+        //                 if (saveDataOnScan == true)
+        //                 {
+        //                     // Preprocessor definitions are used because the save function code will be stripped out on build
+        // #if UNITY_EDITOR
+        //                     SaveScanAsLevelData();
+        // #endif
+        //                 }
+        //             }
+        //             else
+        //             {
+        //                 LoadLevelData();
+        //             }
+
+        //             InitializeFog();
+
+        //             // This part passes the needed references to the shadowcaster
+        //             shadowcaster.Initialize(this);
+
+        //             // This is needed because we do not update the fog when there's no unit-scale movement of each fogRevealer
+        //             ForceUpdateFog();
+        //         }
+
         private void Start()
         {
             CheckProperties();
 
             InitializeVariables();
+
+            // Panggil fungsi untuk mencari dan mengatur Transform untuk FogRevealer
+            SetRevealerTransformAutomatically();
 
             if (LevelDataToLoad == null)
             {
@@ -303,10 +350,107 @@ namespace FischlWorks_FogWar
             ForceUpdateFog();
         }
 
+        private void SetRevealerTransformAutomatically()
+        {
+            foreach (FogRevealer fogRevealer in fogRevealers)
+            {
+                if (fogRevealer._RevealerTransform == null)
+                {
+                    GameObject ksatriaObject = GameObject.Find("Player-Ksatria(Clone)");
+                    GameObject dukunObject = GameObject.Find("Player_Dukun(Clone)");
+                    if (ksatriaObject != null)
+                    {
+                        fogRevealer.revealerTransform = ksatriaObject.transform;
+                        fogRevealer.sightRange = 10;
+                        fogRevealer.updateOnlyOnMove = false;
+                        Debug.LogFormat("Found and assigned Transform for FogRevealer: {0}", ksatriaObject.name);
+                    }
+                    else if (dukunObject != null)
+                    {
+                        fogRevealer.revealerTransform = dukunObject.transform;
+                        fogRevealer.sightRange = 10;
+                        fogRevealer.updateOnlyOnMove = false;
+                        Debug.LogFormat("Found and assigned Transform for FogRevealer: {0}", dukunObject.name);
+                    }
+                    else
+                    {
+                        Debug.LogErrorFormat("Cannot find object with name 'Player-Ksatria(Clone)' or 'Player_Dukun(Clone)' for FogRevealer.");
+                    }
+                }
+            }
+        }
+        private bool newRevealerTransformsFound = false;
+
+// Metode yang dipanggil di Update untuk mencari objek 'DukunDamageArea(Clone)', 'Menyan-Dukun(Clone)', dan 'Meteor'
+private void FindAndAssignNewFogRevealerTransforms()
+{
+    if (!newRevealerTransformsFound)
+    {
+        FogRevealer newFogRevealer = new FogRevealer();
+
+        // Cari objek 'DukunDamageArea(Clone)'
+        GameObject meteorObject = GameObject.Find("DukunDamageArea(Clone)");
+        if (meteorObject != null)
+        {
+            newFogRevealer.revealerTransform = meteorObject.transform;
+            Debug.LogFormat("Found and assigned Transform for new FogRevealer: {0}", meteorObject.name);
+
+            // Set Sight Range dan Update Only On Move
+            newFogRevealer.sightRange = 5;
+            newFogRevealer.updateOnlyOnMove = false;
+
+            // Tambahkan fog revealer baru ke dalam list
+            fogRevealers.Add(newFogRevealer);
+        }
+        else
+        {
+            Debug.LogError("Cannot find object with name 'DukunDamageArea(Clone)' for new FogRevealer.");
+        }
+
+        FogRevealer anotherNewFogRevealer = new FogRevealer();
+
+        // Cari objek 'Menyan-Dukun(Clone)'
+        GameObject menyanObject = GameObject.Find("Menyan-Dukun(Clone)");
+        if (menyanObject != null)
+        {
+            anotherNewFogRevealer.revealerTransform = menyanObject.transform;
+            Debug.LogFormat("Found and assigned Transform for another new FogRevealer: {0}", menyanObject.name);
+
+            // Set Sight Range dan Update Only On Move
+            anotherNewFogRevealer.sightRange = 5;
+            anotherNewFogRevealer.updateOnlyOnMove = false;
+
+            // Tambahkan fog revealer baru lagi ke dalam list
+            fogRevealers.Add(anotherNewFogRevealer);
+        }
+        else
+        {
+            Debug.LogError("Cannot find object with name 'Menyan-Dukun(Clone)' for another new FogRevealer.");
+        }
+
+        newRevealerTransformsFound = true;
+    }
+
+    // Menghapus data dari list jika objeknya sudah tidak ada di dalam scene
+    fogRevealers.RemoveAll(revealer =>
+{
+    if (revealer.revealerTransform == null)
+    {
+        // Matikan atau nonaktifkan fog revealer
+        Destroy(revealer.revealerTransform); // jika menggunakan Unity 2019 ke atas
+        // atau
+        // GameObject.Destroy(revealer.gameObject); // jika menggunakan Unity sebelum 2019
+        return true;
+    }
+    return false;
+});
+    newRevealerTransformsFound = false;
+}
 
 
         private void Update()
         {
+            FindAndAssignNewFogRevealerTransforms();
             UpdateFog();
         }
 
@@ -666,7 +810,7 @@ namespace FischlWorks_FogWar
 
             if (additionalRadius == 0)
             {
-                return shadowcaster.fogField[levelCoordinates.x][levelCoordinates.y] == 
+                return shadowcaster.fogField[levelCoordinates.x][levelCoordinates.y] ==
                     Shadowcaster.LevelColumn.ETileVisibility.Revealed;
             }
 
@@ -677,7 +821,7 @@ namespace FischlWorks_FogWar
                 for (int yIterator = -1; yIterator < additionalRadius + 1; yIterator++)
                 {
                     if (CheckLevelGridRange(new Vector2Int(
-                        levelCoordinates.x + xIterator, 
+                        levelCoordinates.x + xIterator,
                         levelCoordinates.y + yIterator)) == false)
                     {
                         scanResult = 0;
@@ -686,7 +830,7 @@ namespace FischlWorks_FogWar
                     }
 
                     scanResult += Convert.ToInt32(
-                        shadowcaster.fogField[levelCoordinates.x + xIterator][levelCoordinates.y + yIterator] == 
+                        shadowcaster.fogField[levelCoordinates.x + xIterator][levelCoordinates.y + yIterator] ==
                         Shadowcaster.LevelColumn.ETileVisibility.Revealed);
                 }
             }
@@ -717,8 +861,8 @@ namespace FischlWorks_FogWar
         public Vector3 GetWorldVector(Vector2Int worldCoordinates)
         {
             return new Vector3(
-                GetWorldX(worldCoordinates.x + (levelDimensionX / 2)), 
-                0, 
+                GetWorldX(worldCoordinates.x + (levelDimensionX / 2)),
+                0,
                 GetWorldY(worldCoordinates.y + (levelDimensionY / 2)));
         }
 
@@ -848,7 +992,8 @@ namespace FischlWorks_FogWar
     [AttributeUsage(AttributeTargets.Field, AllowMultiple = true, Inherited = true)]
     public class ShowIfAttribute : PropertyAttribute
     {
-        public string _BaseCondition {
+        public string _BaseCondition
+        {
             get { return mBaseCondition; }
         }
 
@@ -865,7 +1010,8 @@ namespace FischlWorks_FogWar
     [AttributeUsage(AttributeTargets.Field, AllowMultiple = true, Inherited = true)]
     public class BigHeaderAttribute : PropertyAttribute
     {
-        public string _Text {
+        public string _Text
+        {
             get { return mText; }
         }
 

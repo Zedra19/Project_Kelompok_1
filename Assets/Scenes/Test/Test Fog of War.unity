@@ -738,6 +738,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 734248134}
     m_Modifications:
     - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -802,8 +806,16 @@ PrefabInstance:
       value: Pohon Ril (4)
       objectReference: {fileID: 0}
     - target: {fileID: 8327034794873501466, guid: 9675977528dee664ab8763f48c61e212, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8327034794873501466, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071670267773217843, guid: 9675977528dee664ab8763f48c61e212, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9071670267773217843, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_NavMeshLayer
@@ -1041,7 +1053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86601f104e881dd4db3b05464dc6acae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerIndex: 0
+  _playerIndex: 1
   _playerPrefab:
   - {fileID: 242259732691763411, guid: 41bedeecd6e931c4ebbf19580c6fba8e, type: 3}
   - {fileID: 8198426975804042383, guid: d9e085f83bd45f54ba69b3643e65437e, type: 3}
@@ -2015,6 +2027,10 @@ PrefabInstance:
       value: Pohon Batas (4)
       objectReference: {fileID: 0}
     - target: {fileID: 7412158496874576080, guid: 1cfa3ff7a6e35e144afe9b52eba89c9d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7412158496874576080, guid: 1cfa3ff7a6e35e144afe9b52eba89c9d, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -2642,6 +2658,10 @@ PrefabInstance:
       value: Envi_1_Trunk (5)
       objectReference: {fileID: 0}
     - target: {fileID: 3708701844784975656, guid: dac71d41eb914f744b603fdc95cae77a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3708701844784975656, guid: dac71d41eb914f744b603fdc95cae77a, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -3251,6 +3271,10 @@ PrefabInstance:
       value: Pohon Batas (2)
       objectReference: {fileID: 0}
     - target: {fileID: 7412158496874576080, guid: 1cfa3ff7a6e35e144afe9b52eba89c9d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7412158496874576080, guid: 1cfa3ff7a6e35e144afe9b52eba89c9d, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -3388,6 +3412,10 @@ PrefabInstance:
     - target: {fileID: 3708701844784975656, guid: dac71d41eb914f744b603fdc95cae77a, type: 3}
       propertyPath: m_Name
       value: Envi_1_Trunk (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3708701844784975656, guid: dac71d41eb914f744b603fdc95cae77a, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3708701844784975656, guid: dac71d41eb914f744b603fdc95cae77a, type: 3}
       propertyPath: m_IsActive
@@ -4377,6 +4405,10 @@ PrefabInstance:
       value: Envi_1_Trunk (1)
       objectReference: {fileID: 0}
     - target: {fileID: 3708701844784975656, guid: dac71d41eb914f744b603fdc95cae77a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3708701844784975656, guid: dac71d41eb914f744b603fdc95cae77a, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -4513,6 +4545,10 @@ PrefabInstance:
     - target: {fileID: 7412158496874576080, guid: 1cfa3ff7a6e35e144afe9b52eba89c9d, type: 3}
       propertyPath: m_Name
       value: Pohon Batas (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7412158496874576080, guid: 1cfa3ff7a6e35e144afe9b52eba89c9d, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7412158496874576080, guid: 1cfa3ff7a6e35e144afe9b52eba89c9d, type: 3}
       propertyPath: m_IsActive
@@ -5378,6 +5414,10 @@ PrefabInstance:
       value: Envi_1_Trunk (2)
       objectReference: {fileID: 0}
     - target: {fileID: 3708701844784975656, guid: dac71d41eb914f744b603fdc95cae77a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3708701844784975656, guid: dac71d41eb914f744b603fdc95cae77a, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -5875,6 +5915,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 734248134}
     m_Modifications:
     - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -5939,8 +5983,16 @@ PrefabInstance:
       value: Pohon Ril (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8327034794873501466, guid: 9675977528dee664ab8763f48c61e212, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8327034794873501466, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071670267773217843, guid: 9675977528dee664ab8763f48c61e212, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9071670267773217843, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_NavMeshLayer
@@ -6601,6 +6653,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 734248134}
     m_Modifications:
     - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -6665,8 +6721,16 @@ PrefabInstance:
       value: Pohon Ril (7)
       objectReference: {fileID: 0}
     - target: {fileID: 8327034794873501466, guid: 9675977528dee664ab8763f48c61e212, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8327034794873501466, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071670267773217843, guid: 9675977528dee664ab8763f48c61e212, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9071670267773217843, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_NavMeshLayer
@@ -6875,6 +6939,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 734248134}
     m_Modifications:
     - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -6939,8 +7007,16 @@ PrefabInstance:
       value: Pohon Ril (3)
       objectReference: {fileID: 0}
     - target: {fileID: 8327034794873501466, guid: 9675977528dee664ab8763f48c61e212, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8327034794873501466, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071670267773217843, guid: 9675977528dee664ab8763f48c61e212, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9071670267773217843, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_NavMeshLayer
@@ -7104,6 +7180,10 @@ PrefabInstance:
       value: Pohon Batas (3)
       objectReference: {fileID: 0}
     - target: {fileID: 7412158496874576080, guid: 1cfa3ff7a6e35e144afe9b52eba89c9d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7412158496874576080, guid: 1cfa3ff7a6e35e144afe9b52eba89c9d, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -7133,6 +7213,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 734248134}
     m_Modifications:
+    - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
@@ -7198,8 +7282,16 @@ PrefabInstance:
       value: Pohon Ril (6)
       objectReference: {fileID: 0}
     - target: {fileID: 8327034794873501466, guid: 9675977528dee664ab8763f48c61e212, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8327034794873501466, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071670267773217843, guid: 9675977528dee664ab8763f48c61e212, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9071670267773217843, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_NavMeshLayer
@@ -10433,6 +10525,10 @@ PrefabInstance:
       value: Envi_1_Trunk (3)
       objectReference: {fileID: 0}
     - target: {fileID: 3708701844784975656, guid: dac71d41eb914f744b603fdc95cae77a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3708701844784975656, guid: dac71d41eb914f744b603fdc95cae77a, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -10585,6 +10681,112 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1598593364}
   m_CullTransparentMesh: 1
+--- !u!1 &1610695526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1610695527}
+  - component: {fileID: 1610695530}
+  - component: {fileID: 1610695529}
+  - component: {fileID: 1610695528}
+  m_Layer: 6
+  m_Name: Plane Fog
+  m_TagString: Ground
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 8
+  m_IsActive: 1
+--- !u!4 &1610695527
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610695526}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.05, z: 0}
+  m_LocalScale: {x: 8, y: 1, z: 8}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &1610695528
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610695526}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1610695529
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610695526}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1610695530
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610695526}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1625916809
 GameObject:
   m_ObjectHideFlags: 0
@@ -10805,6 +11007,10 @@ PrefabInstance:
       value: Pohon Batas
       objectReference: {fileID: 0}
     - target: {fileID: 7412158496874576080, guid: 1cfa3ff7a6e35e144afe9b52eba89c9d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7412158496874576080, guid: 1cfa3ff7a6e35e144afe9b52eba89c9d, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -10987,6 +11193,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 734248134}
     m_Modifications:
     - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -11051,8 +11261,16 @@ PrefabInstance:
       value: Pohon Ril (5)
       objectReference: {fileID: 0}
     - target: {fileID: 8327034794873501466, guid: 9675977528dee664ab8763f48c61e212, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8327034794873501466, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071670267773217843, guid: 9675977528dee664ab8763f48c61e212, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9071670267773217843, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_NavMeshLayer
@@ -11553,6 +11771,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1919285604}
   m_CullTransparentMesh: 1
+--- !u!1 &1930650599
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1930650601}
+  - component: {fileID: 1930650600}
+  m_Layer: 0
+  m_Name: FogWar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1930650600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930650599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5de54c084f472845b61ee9a97cb8a48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fogRevealers:
+  - revealerTransform: {fileID: 0}
+    sightRange: 0
+    updateOnlyOnMove: 0
+    lastSeenAt: {x: 0, y: 0}
+  levelMidPoint: {fileID: 1610695527}
+  FogRefreshRate: 5
+  fogPlaneHeight: 1
+  fogPlaneMaterial: {fileID: 2100000, guid: 36b93ac6fcf129c449491654e397fe4a, type: 2}
+  fogColor: {r: 0.019607844, g: 0.05882353, b: 0.09803922, a: 1}
+  fogPlaneAlpha: 1
+  fogLerpSpeed: 2.5
+  fogPlaneTextureLerpTarget: {fileID: 0}
+  fogPlaneTextureLerpBuffer: {fileID: 0}
+  LevelDataToLoad: {fileID: 4900000, guid: 363df304b1d0fe8449cc0f93bfa29817, type: 3}
+  saveDataOnScan: 0
+  levelNameToSave: Percobaan1
+  levelDimensionX: 21
+  levelDimensionY: 21
+  unitScale: 7
+  scanSpacingPerUnit: 0.25
+  rayStartHeight: 5
+  rayMaxDistance: 10
+  obstacleLayers:
+    serializedVersion: 2
+    m_Bits: 256
+  ignoreTriggers: 0
+  drawGizmos: 1
+  LogOutOfRange: 0
+--- !u!4 &1930650601
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930650599}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.32486817, y: 1.4459862, z: -8.814086}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1932530520
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11564,6 +11855,10 @@ PrefabInstance:
     - target: {fileID: 3708701844784975656, guid: dac71d41eb914f744b603fdc95cae77a, type: 3}
       propertyPath: m_Name
       value: Envi_1_Trunk (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3708701844784975656, guid: dac71d41eb914f744b603fdc95cae77a, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3708701844784975656, guid: dac71d41eb914f744b603fdc95cae77a, type: 3}
       propertyPath: m_IsActive
@@ -12721,6 +13016,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 734248134}
     m_Modifications:
     - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -12785,8 +13084,16 @@ PrefabInstance:
       value: Pohon Ril (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8327034794873501466, guid: 9675977528dee664ab8763f48c61e212, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8327034794873501466, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071670267773217843, guid: 9675977528dee664ab8763f48c61e212, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9071670267773217843, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_NavMeshLayer
@@ -12817,6 +13124,10 @@ PrefabInstance:
     - target: {fileID: 3708701844784975656, guid: dac71d41eb914f744b603fdc95cae77a, type: 3}
       propertyPath: m_Name
       value: Envi_1_Trunk
+      objectReference: {fileID: 0}
+    - target: {fileID: 3708701844784975656, guid: dac71d41eb914f744b603fdc95cae77a, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3708701844784975656, guid: dac71d41eb914f744b603fdc95cae77a, type: 3}
       propertyPath: m_IsActive
@@ -13095,6 +13406,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 734248134}
     m_Modifications:
     - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1354610017597002390, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -13159,8 +13474,16 @@ PrefabInstance:
       value: Pohon Ril
       objectReference: {fileID: 0}
     - target: {fileID: 8327034794873501466, guid: 9675977528dee664ab8763f48c61e212, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8327034794873501466, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071670267773217843, guid: 9675977528dee664ab8763f48c61e212, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9071670267773217843, guid: 9675977528dee664ab8763f48c61e212, type: 3}
       propertyPath: m_NavMeshLayer
@@ -13196,3 +13519,5 @@ SceneRoots:
   - {fileID: 734248134}
   - {fileID: 343117135}
   - {fileID: 135941006}
+  - {fileID: 1610695527}
+  - {fileID: 1930650601}
