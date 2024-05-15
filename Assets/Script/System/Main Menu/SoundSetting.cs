@@ -5,12 +5,6 @@ public class SoundSetting : MonoBehaviour
 {
     public Slider MusicSlider, SFXSlider;
 
-    void Start()
-    {
-        AudioManager.Instance.MusicVolume(0.2f);
-        AudioManager.Instance.PlayMusic("BGM Lobby");
-    }
-
     public void UISFX()
     {
         AudioManager.Instance.PlaySFX("UI");
@@ -36,8 +30,4 @@ public class SoundSetting : MonoBehaviour
         AudioManager.Instance.SFXVolume(SFXSlider.value);
     }
 
-    public void StopBGMLobby()
-    {
-        AudioManager.Instance.StopMusic("BGM Lobby");
-    }
 }
