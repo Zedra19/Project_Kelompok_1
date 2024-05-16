@@ -77,6 +77,7 @@ public class LeaderBoard : MonoBehaviour
 
     public void homeButton()
     {
+        StaticScore.currentScore = 0;
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
     }

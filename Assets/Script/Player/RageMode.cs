@@ -6,12 +6,10 @@ using System;
 public class RageMode : MonoBehaviour
 {
     Combo comboScript;
-    [SerializeField] float RageTime;
+    [SerializeField] float RageTime = 15f;
     public int ComboRageTrigger;
     public GameObject visualObjectRenderer;
     float rageTimer = 0f;
-    Color baseColor;
-    Color RageColor = Color.red; //ganti warna rage mode sesuai keinginan
     public static event Action<bool> OnRageMode;
     private bool _isRaging = false;
 
@@ -23,6 +21,11 @@ public class RageMode : MonoBehaviour
     }
 
     void Update()
+    {
+        
+    }
+
+    void RageModeFix()
     {
         if (comboScript.comboCount >= ComboRageTrigger)
         {

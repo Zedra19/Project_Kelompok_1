@@ -7,7 +7,6 @@ public class KillCount : MonoBehaviour
 {
     public int killCount = 0;
     public int killCountForBossSpawn = 5;
-    public Text KillCountText;
 
     [SerializeField] private Slider bossHealthSlider; // Reference to the UI Slider
     [SerializeField] private Text bossName; // Reference to the Boss Name
@@ -20,7 +19,6 @@ public class KillCount : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        KillCountText.text = "Kill Count : " + killCount;
         //activate boss health here
         /*
         if (killCount >= killCountForBossSpawn)
