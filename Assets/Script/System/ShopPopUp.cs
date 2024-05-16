@@ -21,11 +21,15 @@ public class ShopPopUp : MonoBehaviour
 
     private ShopTrigger shopTrigger;
 
-    IEnumerator Start()
+    void Awake()
+    {
+        StartCoroutine(SetupShopTrigger());
+    }
+
+    public IEnumerator SetupShopTrigger()
     {
         Dialog1Text.SetActive(false);
         Dialog2Text.SetActive(false);
-
 
         buttonUpgrade.onClick.AddListener(OnClickbuttonUpgrade);
         buttonRole.onClick.AddListener(OnClickbuttonRole);

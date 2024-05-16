@@ -19,7 +19,7 @@ public class RageMode : MonoBehaviour
     void Start()
     {
         comboScript = FindObjectOfType<Combo>();
-        baseColor = visualObjectRenderer.GetComponent<Renderer>().material.color;
+        //baseColor = visualObjectRenderer.GetComponent<Renderer>().material.color;
     }
 
     void Update()
