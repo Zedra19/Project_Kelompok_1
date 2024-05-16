@@ -15,6 +15,7 @@ public class InGameDialogue : MonoBehaviour
 
     [FormerlySerializedAs("_playerAttack")] public PlayerAttack PlayerAttack;
     public PlayerAttack_Dukun PlayerAttackDukun;
+    public PlayerAttack_Petani PlayerAttackPetani;
     [FormerlySerializedAs("_playerMovement")] public PlayerMovement PlayerMovement;
     [SerializeField] private Rigidbody _rigidbodyPlayer;
     public GameObject TutorialPanel;
@@ -58,6 +59,7 @@ public class InGameDialogue : MonoBehaviour
     {
         GameObject playerKsatria = GameObject.Find("Player-Ksatria(Clone)");
         GameObject playerDukun = GameObject.Find("Player_Dukun(Clone)");
+        GameObject playerPetani = GameObject.Find("Player_Petani(Clone)");
 
         if (playerKsatria != null)
         {
@@ -70,6 +72,12 @@ public class InGameDialogue : MonoBehaviour
             PlayerAttackDukun = playerDukun.GetComponent<PlayerAttack_Dukun>();
             PlayerMovement = playerDukun.GetComponent<PlayerMovement>();
             _rigidbodyPlayer = playerDukun.GetComponent<Rigidbody>();
+        }
+        else if (playerPetani != null)
+        {
+            PlayerAttackPetani = playerPetani.GetComponent<PlayerAttack_Petani>();
+            PlayerMovement = playerPetani.GetComponent<PlayerMovement>();
+            _rigidbodyPlayer = playerPetani.GetComponent<Rigidbody>();
         }
     }
 

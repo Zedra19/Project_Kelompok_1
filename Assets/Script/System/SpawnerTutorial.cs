@@ -13,6 +13,7 @@ public class SpawnerTutorial : MonoBehaviour
     [SerializeField] private Animator _animatorPlayer;
     [SerializeField] private PlayerAttack _playerAttack;
     [SerializeField] private PlayerAttack_Dukun _playerAttackDukun;
+    [SerializeField] private PlayerAttack_Petani _playerAttackPetani;
     private bool DialogActivated = false;
     public GameObject Prolog;
     public GameObject Dialog3;
@@ -39,6 +40,8 @@ public class SpawnerTutorial : MonoBehaviour
         GameObject playerChildKsatria = GameObject.Find("Player-Keris");
         GameObject playerDukun = GameObject.Find("Player_Dukun(Clone)");
         GameObject playerChildDukun = GameObject.Find("Player-Dukun");
+        GameObject playerPetani = GameObject.Find("Player_Petani(Clone)");
+        GameObject playerChildPetani = GameObject.Find("Player-Petani");
 
         if (playerKsatria != null)
         {
@@ -53,6 +56,13 @@ public class SpawnerTutorial : MonoBehaviour
             _playerMovement = playerDukun.GetComponent<PlayerMovement>();
             _rigidbodyPlayer = playerDukun.GetComponent<Rigidbody>();
             _animatorPlayer = playerChildDukun.GetComponent<Animator>();
+        }
+        else if (playerPetani != null)
+        {
+            _playerAttackPetani = playerPetani.GetComponent<PlayerAttack_Petani>();
+            _playerMovement = playerPetani.GetComponent<PlayerMovement>();
+            _rigidbodyPlayer = playerPetani.GetComponent<Rigidbody>();
+            _animatorPlayer = playerChildPetani.GetComponent<Animator>();
         }
     }
 

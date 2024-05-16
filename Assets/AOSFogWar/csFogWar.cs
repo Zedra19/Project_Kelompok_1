@@ -358,6 +358,8 @@ namespace FischlWorks_FogWar
                 {
                     GameObject ksatriaObject = GameObject.Find("Player-Ksatria(Clone)");
                     GameObject dukunObject = GameObject.Find("Player_Dukun(Clone)");
+                    GameObject petaniObject = GameObject.Find("Player_Petani(Clone)");
+                    GameObject prajuritObject = GameObject.Find("Player_Prajurit(Clone)");
                     if (ksatriaObject != null)
                     {
                         fogRevealer.revealerTransform = ksatriaObject.transform;
@@ -371,6 +373,20 @@ namespace FischlWorks_FogWar
                         fogRevealer.sightRange = 11;
                         fogRevealer.updateOnlyOnMove = false;
                         Debug.LogFormat("Found and assigned Transform for FogRevealer: {0}", dukunObject.name);
+                    }
+                    else if (petaniObject != null)
+                    {
+                        fogRevealer.revealerTransform = petaniObject.transform;
+                        fogRevealer.sightRange = 11;
+                        fogRevealer.updateOnlyOnMove = false;
+                        Debug.LogFormat("Found and assigned Transform for FogRevealer: {0}", petaniObject.name);
+                    }
+                    else if (prajuritObject != null)
+                    {
+                        fogRevealer.revealerTransform = prajuritObject.transform;
+                        fogRevealer.sightRange = 11;
+                        fogRevealer.updateOnlyOnMove = false;
+                        Debug.LogFormat("Found and assigned Transform for FogRevealer: {0}", prajuritObject.name);
                     }
                     else
                     {
