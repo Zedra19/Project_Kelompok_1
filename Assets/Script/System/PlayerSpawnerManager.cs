@@ -87,12 +87,17 @@ public class PlayerSpawnerManager : MonoBehaviour
     void Start()
     {
         AssetDatabase.SaveAssets();
-        SetPlayerIndex(_playerIndex);
+        if (_playerIndex != StaticPlayer.CurrentPlayerIndex)
+        {
+            SetPlayerIndex(StaticPlayer.CurrentPlayerIndex);
+        }
+        else
+        {
+            SetPlayerIndex(_playerIndex);
+        }
 
         _player = Instantiate(_playerPrefab[StaticPlayer.CurrentPlayerIndex], transform.position, Quaternion.identity);
-
         SetupPlayer(_player);
-
     }
 
     private void SetupPlayer(GameObject player)

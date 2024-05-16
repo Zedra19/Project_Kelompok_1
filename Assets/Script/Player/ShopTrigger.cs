@@ -23,4 +23,13 @@ public class ShopTrigger : MonoBehaviour
             OnDialogTriggerExit.Invoke();
         }
     }
+
+    private void Awake()
+    {
+        ShopPopUp shopPopUp = FindObjectOfType<ShopPopUp>();
+        if (shopPopUp != null)
+        {
+            StartCoroutine(shopPopUp.SetupShopTrigger());
+        }
+    }
 }
