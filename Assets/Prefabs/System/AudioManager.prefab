@@ -185,6 +185,10 @@ MonoBehaviour:
   SFXSounds:
   - Name: UI
     Clip: {fileID: 8300000, guid: 9cd5ac966da4c334eb31cc6e0bb258d7, type: 3}
+  - Name: Dash
+    Clip: {fileID: 8300000, guid: 9cd5ac966da4c334eb31cc6e0bb258d7, type: 3}
+  - Name: Kesatria Att
+    Clip: {fileID: 8300000, guid: 9cd5ac966da4c334eb31cc6e0bb258d7, type: 3}
   MusicSource: {fileID: 5991534002033701049}
   SFXSource: {fileID: 8376783408269568113}
 --- !u!114 &3596823500597014226
