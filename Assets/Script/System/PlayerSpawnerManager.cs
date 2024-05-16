@@ -25,6 +25,7 @@ public class PlayerSpawnerManager : MonoBehaviour
     [HideInInspector] public InGameDialogue InGameDialogue;
 
     [HideInInspector] public ShopPopUp ShopPopUp;
+    [HideInInspector] public float SugmaSpawnForce = 10f;
     public enum CurrentScene
     {
         game,
@@ -70,6 +71,7 @@ public class PlayerSpawnerManager : MonoBehaviour
             {
                 //ini udah cukup
                 playerSpawnerManager.ShopPopUp = (ShopPopUp)EditorGUILayout.ObjectField("ShopPopUp", playerSpawnerManager.ShopPopUp, typeof(ShopPopUp), true);
+                playerSpawnerManager.SugmaSpawnForce = EditorGUILayout.FloatField("Sugma Spawn Force", playerSpawnerManager.SugmaSpawnForce);
 
                 //improved
                 // EditorGUILayout.BeginToggleGroup("Shop PopUp", playerSpawnerManager.ShopPopUp != null);
@@ -97,6 +99,7 @@ public class PlayerSpawnerManager : MonoBehaviour
         }
 
         _player = Instantiate(_playerPrefab[StaticPlayer.CurrentPlayerIndex], transform.position, Quaternion.identity);
+
         SetupPlayer(_player);
     }
 
@@ -119,6 +122,8 @@ public class PlayerSpawnerManager : MonoBehaviour
             player.AddComponent<ShopTrigger>();
             ShopPopUp.PlayerMovement_I = player.GetComponent<PlayerMovement>();
             ShopPopUp.PlayerAttack_I = player.GetComponent<PlayerAttack>();
+
+            // StartCoroutine(AddForceToPlayer(player));
         }
 
         //SetStartPosition Setup
@@ -127,6 +132,13 @@ public class PlayerSpawnerManager : MonoBehaviour
         _setStartPosition.TargetPortal = _targetPortal;
         _setStartPosition.HeightOffset = _heightOffset;
         _setStartPosition.EffectManager = _effectManager;
+    }
+
+    private IEnumerator AddForceToPlayer(GameObject player)
+    {
+        yield return new WaitForSeconds(1f);
+        Rigidbody playerRb = player.GetComponent<Rigidbody>();
+        playerRb.AddForce(Vector3.forward * SugmaSpawnForce, ForceMode.Impulse);
     }
 
     public void UpdatePlayer(int index)
