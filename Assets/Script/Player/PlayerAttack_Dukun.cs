@@ -17,7 +17,8 @@ public class PlayerAttack_Dukun : MonoBehaviour, IPlayerAttack
     public bool IsAttacking { get; private set; } = false;
     public static event System.Action OnAttackDone;
     [SerializeField] private int _playerDamage;
-    private Coroutine _attackRoutine = null; //use to run attack with duration
+    private Coroutine _attackRoutine = null;
+    private SFX _sfx;
 
     public int PlayerDamage
     {
@@ -48,6 +49,7 @@ public class PlayerAttack_Dukun : MonoBehaviour, IPlayerAttack
         _playerMovement = GetComponent<PlayerMovement>();
         _playerInput = new PlayerInput();
         _playerInput.CharacterControls.Attack.performed += OnAttack;
+        _sfx = GetComponent<SFX>();
     }
 
     private void OnEnable()
@@ -69,6 +71,8 @@ public class PlayerAttack_Dukun : MonoBehaviour, IPlayerAttack
             GameObject attackPoint = Instantiate(attackPointPrefab, attackTarget.position, attackTarget.rotation);
 
             // Mulai serangan
+            AudioManager.Instance.PlaySFX("Kesatria Att");
+            AudioManager.Instance.PlaySFX("Meteor Dukun");
             _attackRoutine = StartCoroutine(AttackRoutine(attackPoint));
         }
     }
