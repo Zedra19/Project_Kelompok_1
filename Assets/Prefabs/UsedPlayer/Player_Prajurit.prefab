@@ -341,6 +341,7 @@ GameObject:
   - component: {fileID: 3948207810254540776}
   - component: {fileID: 8923851511757499190}
   - component: {fileID: 4240429344659774201}
+  - component: {fileID: 3050321186769637839}
   - component: {fileID: 7753226151142871685}
   m_Layer: 0
   m_Name: SpawnBox
@@ -357,8 +358,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 777310431177112117}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.228, y: 0.916, z: 0.0427}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.295, y: 0.927, z: 0.0427}
   m_LocalScale: {x: 0.26653674, y: 0.194768, z: 0.15111971}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -414,6 +415,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3050321186769637839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777310431177112117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dae3db3b8c1a20b4c970b7b523907e7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pointer: {fileID: 0}
 --- !u!65 &7753226151142871685
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -431,7 +445,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -2361,10 +2375,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerHealth: {fileID: 7910147493122130143}
   _playerMovement: {fileID: 6536107778352244373}
-  _playerAttack: {fileID: 0}
-  _playerAttackDukun: {fileID: 0}
-  _playerAttackPetani: {fileID: 0}
-  _playerAttackPrajurit: {fileID: 2819017096345230870}
 --- !u!114 &1133136238822173065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2392,7 +2402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 0}
-  _attackDuration: 0
+  _attackDuration: 5
   attackPrefab: {fileID: 7854100900196059137, guid: 16da7ed51e91c1e4ea107d03dfab307f, type: 3}
   spawnPoint: {fileID: 3948207810254540776}
   attackTarget: {fileID: 0}

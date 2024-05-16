@@ -15,7 +15,7 @@ public class PlayerAttack_Prajurit : MonoBehaviour, IPlayerAttack
     public bool IsAttacking { get; private set; } = false;
     public static event System.Action OnAttackDone;
     [SerializeField] private int _playerDamage;
-    [SerializeField] private float arrowForce = 5f;
+    [SerializeField] private float arrowForce = 10f;
     private Coroutine _attackRoutine = null; //use to run attack with duration
 
 
