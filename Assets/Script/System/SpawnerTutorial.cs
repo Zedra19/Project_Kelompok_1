@@ -36,21 +36,23 @@ public class SpawnerTutorial : MonoBehaviour
     private void AssignPlayerComponents()
     {
         GameObject playerKsatria = GameObject.Find("Player-Ksatria(Clone)");
+        GameObject playerChildKsatria = GameObject.Find("Player-Keris");
         GameObject playerDukun = GameObject.Find("Player_Dukun(Clone)");
+        GameObject playerChildDukun = GameObject.Find("Player-Dukun");
 
         if (playerKsatria != null)
         {
             _playerAttack = playerKsatria.GetComponent<PlayerAttack>();
             _playerMovement = playerKsatria.GetComponent<PlayerMovement>();
             _rigidbodyPlayer = playerKsatria.GetComponent<Rigidbody>();
-            _animatorPlayer = playerKsatria.GetComponent<Animator>();
+            _animatorPlayer = playerChildKsatria.GetComponent<Animator>();
         }
         else if (playerDukun != null)
         {
             _playerAttackDukun = playerDukun.GetComponent<PlayerAttack_Dukun>();
             _playerMovement = playerDukun.GetComponent<PlayerMovement>();
             _rigidbodyPlayer = playerDukun.GetComponent<Rigidbody>();
-            _animatorPlayer = playerDukun.GetComponent<Animator>();
+            _animatorPlayer = playerChildDukun.GetComponent<Animator>();
         }
     }
 

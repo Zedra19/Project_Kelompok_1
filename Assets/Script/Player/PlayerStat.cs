@@ -2,25 +2,49 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//we need to create some variant of character so we can create new script and inherit from here per character
 public class PlayerStat : MonoBehaviour
 {
     [SerializeField] private Health _playerHealth;
     [SerializeField] private PlayerMovement _playerMovement;
-    [SerializeField] private PlayerAttack _playerAttack;
-    [SerializeField] private PlayerAttack_Dukun _playerAttackDukun;
-    [SerializeField] private PlayerAttack_Petani _playerAttackPetani;
-    [SerializeField] private PlayerAttack_Prajurit _playerAttackPrajurit;
+    private PlayerAttack _playerAttack;
+    private PlayerAttack_Dukun _playerAttackDukun;
+    private PlayerAttack_Petani _playerAttackPetani;
+    private PlayerAttack_Prajurit _playerAttackPrajurit;
 
-    //updating value based on stat everytime the game start
     private void Awake()
     {
+        AssignPlayerComponents();
         UpdatePlayerHealth(StaticStat.PlayerHealth);
         UpdatePlayerSpeed(StaticStat.PlayerSpeed);
         UpdatePlayerRunMultiplier(StaticStat.PlayerRunMultiplier);
         UpdatePlayerDodge(StaticStat.PlayerDodge);
         UpdatePlayerDamageLevelStat(StaticStat.PlayerDamageLevelStat);
         UpdatePlayerDamageStat(StaticStat.PlayerDamageStat);
+    }
+
+    private void AssignPlayerComponents()
+    {
+        GameObject playerKsatria = GameObject.Find("Player-Ksatria(Clone)");
+        GameObject playerDukun = GameObject.Find("Player_Dukun(Clone)");
+        GameObject playerPetani = GameObject.Find("Player_Petani(Clone)");
+        GameObject playerPrajurit = GameObject.Find("Player_Prajurit(Clone)");
+
+        if (playerKsatria != null)
+        {
+            _playerAttack = playerKsatria.GetComponent<PlayerAttack>();
+        }
+        if (playerDukun != null)
+        {
+            _playerAttackDukun = playerDukun.GetComponent<PlayerAttack_Dukun>();
+        }
+        if (playerPetani != null)
+        {
+            _playerAttackPetani = playerPetani.GetComponent<PlayerAttack_Petani>();
+        }
+        if (playerPrajurit != null)
+        {
+            _playerAttackPrajurit = playerPrajurit.GetComponent<PlayerAttack_Prajurit>();
+        }
     }
 
     public virtual void UpgradePlayerHealth(int addedHealth)
@@ -82,31 +106,26 @@ public class PlayerStat : MonoBehaviour
 
     public virtual void UpdatePlayerDamageLevelStat(int newDamageStat)
     {
-
+        // Logic for updating player damage level stat, if needed
     }
 
     public virtual void UpdatePlayerDamageStat(int newDamageStat)
     {
-        GameObject playerKsatria = GetComponent<PlayerAttack>().gameObject;
-        GameObject playerDukun = GetComponent<PlayerAttack_Dukun>().gameObject;
-        GameObject playerPetani = GetComponent<PlayerAttack_Petani>().gameObject;
-        GameObject playerPrajurit = GetComponent<PlayerAttack_Prajurit>().gameObject;
-        if (playerKsatria != null)
+        if (_playerAttack != null)
         {
             _playerAttack.PlayerDamage = newDamageStat;
         }
-        else if (playerDukun != null)
+        if (_playerAttackDukun != null)
         {
             _playerAttackDukun.PlayerDamage = newDamageStat;
         }
-        else if (playerPetani != null)
+        if (_playerAttackPetani != null)
         {
             _playerAttackPetani.PlayerDamage = newDamageStat;
         }
-        else if (playerPrajurit != null)
+        if (_playerAttackPrajurit != null)
         {
             _playerAttackPrajurit.PlayerDamage = newDamageStat;
         }
-
     }
 }
