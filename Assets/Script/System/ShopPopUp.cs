@@ -23,6 +23,7 @@ public class ShopPopUp : MonoBehaviour
 
     void Awake()
     {
+        //find obj shop trigger
         StartCoroutine(SetupShopTrigger());
     }
 
@@ -36,8 +37,11 @@ public class ShopPopUp : MonoBehaviour
 
         yield return new WaitForSeconds(0.1f);
         shopTrigger = FindObjectOfType<ShopTrigger>();
-        shopTrigger.OnDialogTriggerEnter.AddListener(StartDialog1);
-        shopTrigger.OnDialogTriggerExit.AddListener(CloseAllDialogs);
+        if (shopTrigger != null)
+        {
+            shopTrigger.OnDialogTriggerEnter.AddListener(StartDialog1); // if null skip
+            shopTrigger.OnDialogTriggerExit.AddListener(CloseAllDialogs);
+        }
     }
 
     private void StartDialog1()
@@ -116,7 +120,7 @@ public class ShopPopUp : MonoBehaviour
             dialogChangeRolePopUp = false;
             _isShopUICurrentlyActive = false;
 
-            PlayerAttack_I.enabled = true;
+            PlayerAttack_I.enabled = true; // if null skip
             PlayerMovement_I.enabled = true;
         }
     }

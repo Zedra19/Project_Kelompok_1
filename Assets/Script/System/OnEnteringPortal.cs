@@ -10,6 +10,7 @@ public class OnEnteringPortal : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            AudioManager.Instance.StopMusic("Shop");
             SceneManager.LoadScene(_sceneName);
         }
     }

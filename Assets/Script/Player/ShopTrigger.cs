@@ -20,7 +20,7 @@ public class ShopTrigger : MonoBehaviour
     {
         if (other.CompareTag("Dialog Trigger"))
         {
-            OnDialogTriggerExit.Invoke();
+            OnDialogTriggerExit?.Invoke(); // if null skip
         }
     }
 

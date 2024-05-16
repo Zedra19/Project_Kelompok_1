@@ -29,14 +29,14 @@ public class EffectManager : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     public void PlayVFXEndless(string name, Vector3 spawnPosition)
     {
         VFX s = Array.Find(EffectVFX, x => x.Name == name);
 
-        if(s == null)
+        if (s == null)
         {
             Debug.Log("VFX Not Found");
         }
@@ -48,14 +48,17 @@ public class EffectManager : MonoBehaviour
 
     public void PlayVFX(string name, Vector3 spawnPosition)
     {
-        StartCoroutine(VFXOneShot(name, spawnPosition, 2f));
+        if (gameObject.activeSelf == true)
+        {
+            StartCoroutine(VFXOneShot(name, spawnPosition, 2f)); // if nulll skip
+        }
     }
 
     private IEnumerator VFXOneShot(string name, Vector3 spawnPosition, float delay)
     {
         VFX s = Array.Find(EffectVFX, x => x.Name == name);
 
-        if(s == null)
+        if (s == null)
         {
             Debug.Log("VFX Not Found");
         }

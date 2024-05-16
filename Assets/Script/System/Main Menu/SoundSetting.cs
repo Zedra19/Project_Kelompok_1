@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class SoundSetting : MonoBehaviour
 {
@@ -7,9 +8,19 @@ public class SoundSetting : MonoBehaviour
 
     private void Awake()
     {
-        MusicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
+        StartCoroutine(ProcessAwake());
+    }
+    private IEnumerator ProcessAwake()
+    {
+        if (MusicSlider != null || SFXSlider != null)
+        {
+            MusicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
+            SFXSlider.value = PlayerPrefs.GetFloat("SFXVolume", 0.5f);
+        }
+
+        yield return new WaitForSeconds(0.3f);
+
         MusicVolume();
-        SFXSlider.value = PlayerPrefs.GetFloat("SFXVolume", 0.5f);
         SFXVolume();
     }
 
@@ -31,14 +42,28 @@ public class SoundSetting : MonoBehaviour
 
     public void MusicVolume()
     {
-        AudioManager.Instance.MusicVolume(MusicSlider.value);
-        PlayerPrefs.SetFloat("MusicVolume", MusicSlider.value);
+        if (MusicSlider != null || SFXSlider != null)
+        {
+            AudioManager.Instance.MusicVolume(MusicSlider.value);
+            PlayerPrefs.SetFloat("MusicVolume", MusicSlider.value);
+        }
+        else
+        {
+            AudioManager.Instance.MusicVolume(PlayerPrefs.GetFloat("MusicVolume", 0.5f));
+        }
     }
 
     public void SFXVolume()
     {
-        AudioManager.Instance.SFXVolume(SFXSlider.value);
-        PlayerPrefs.SetFloat("SFXVolume", SFXSlider.value);
+        if (MusicSlider != null || SFXSlider != null)
+        {
+            AudioManager.Instance.SFXVolume(SFXSlider.value);
+            PlayerPrefs.SetFloat("SFXVolume", SFXSlider.value);
+        }
+        else
+        {
+            AudioManager.Instance.MusicVolume(PlayerPrefs.GetFloat("SFXVolume", 0.5f));
+        }
     }
 
 }

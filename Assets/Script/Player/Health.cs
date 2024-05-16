@@ -20,6 +20,7 @@ public class Health : MonoBehaviour
     {
         currentHealth = maxHealth;
         UpdateHealthUI();
+        playerAttackScript = GetComponent<IPlayerAttack>(); // Mengambil komponen yang menggunakan interface
     }
 
     public void TakeDamage(int damage)
@@ -77,7 +78,7 @@ public class Health : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy S"))
         {
-            if (playerAttackScript.IsAttacking)
+            if (playerAttackScript.IsAttacking) //belum ter assign nigga
             {
                 TakeDamage(0);
             }

@@ -88,7 +88,8 @@ public class PlayerSpawnerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AssetDatabase.SaveAssets();
+
+        //    AssetDatabase.SaveAssets();
 
         if (StaticPlayer.CurrentPlayerIndex == -1)
         {

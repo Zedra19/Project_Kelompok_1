@@ -90,7 +90,10 @@ public class SpawnerTutorial : MonoBehaviour
             if (totalEnemyCount == 0 && !isEndlessMode) // Hentikan loop jika totalEnemyCount mencapai 0 dan bukan endless mode
             {
                 Debug.Log("All enemies spawned");
-                Instantiate(_bossPrefab, GetRandomPosition(), Quaternion.identity);
+                if (_bossPrefab != null)
+                {
+                    Instantiate(_bossPrefab, GetRandomPosition(), Quaternion.identity); //if disini boss null skip baris ini
+                }
                 yield break; // Hentikan coroutine
             }
         }

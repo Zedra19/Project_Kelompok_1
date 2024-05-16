@@ -22,12 +22,18 @@ public class ShopManager : MonoBehaviour
         if (buyID == _buyMovementID)
         {
             CheckBuying(_movementPrice, BuyMovement);
-            EffectManager.PlayVFX("Upgrade", Player.transform.position);
+            if (EffectManager != null)
+            {
+                EffectManager.PlayVFX("Upgrade", Player.transform.position); // if null skip
+            }
         }
         else if (buyID == _buyDamageID)
         {
             CheckBuying(_damagePrice, BuyDamage);
-            EffectManager.PlayVFX("Upgrade", Player.transform.position);
+            if (EffectManager != null)
+            {
+                EffectManager.PlayVFX("Upgrade", Player.transform.position); // if null skip
+            }
         }
         else
         {
