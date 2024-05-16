@@ -89,14 +89,13 @@ public class PlayerSpawnerManager : MonoBehaviour
     void Start()
     {
         AssetDatabase.SaveAssets();
-        if (_playerIndex != StaticPlayer.CurrentPlayerIndex)
+
+        if (StaticPlayer.CurrentPlayerIndex == -1)
         {
+            Debug.Log("Player Index not set, setting to default");
             SetPlayerIndex(_playerIndex);
         }
-        else
-        {
-            SetPlayerIndex(StaticPlayer.CurrentPlayerIndex);
-        }
+
 
         _player = Instantiate(_playerPrefab[StaticPlayer.CurrentPlayerIndex], transform.position, Quaternion.identity);
 

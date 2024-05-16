@@ -381,71 +381,71 @@ namespace FischlWorks_FogWar
         }
         private bool newRevealerTransformsFound = false;
 
-// Metode yang dipanggil di Update untuk mencari objek 'DukunDamageArea(Clone)', 'Menyan-Dukun(Clone)', dan 'Meteor'
-private void FindAndAssignNewFogRevealerTransforms()
-{
-    if (!newRevealerTransformsFound)
-    {
-        FogRevealer newFogRevealer = new FogRevealer();
-
-        // Cari objek 'DukunDamageArea(Clone)'
-        GameObject meteorObject = GameObject.Find("DukunDamageArea(Clone)");
-        if (meteorObject != null)
+        // Metode yang dipanggil di Update untuk mencari objek 'DukunDamageArea(Clone)', 'Menyan-Dukun(Clone)', dan 'Meteor'
+        private void FindAndAssignNewFogRevealerTransforms()
         {
-            newFogRevealer.revealerTransform = meteorObject.transform;
-            Debug.LogFormat("Found and assigned Transform for new FogRevealer: {0}", meteorObject.name);
+            if (!newRevealerTransformsFound)
+            {
+                FogRevealer newFogRevealer = new FogRevealer();
 
-            // Set Sight Range dan Update Only On Move
-            newFogRevealer.sightRange = 5;
-            newFogRevealer.updateOnlyOnMove = false;
+                // Cari objek 'DukunDamageArea(Clone)'
+                GameObject meteorObject = GameObject.Find("DukunDamageArea(Clone)");
+                if (meteorObject != null)
+                {
+                    newFogRevealer.revealerTransform = meteorObject.transform;
+                    Debug.LogFormat("Found and assigned Transform for new FogRevealer: {0}", meteorObject.name);
 
-            // Tambahkan fog revealer baru ke dalam list
-            fogRevealers.Add(newFogRevealer);
-        }
-        else
+                    // Set Sight Range dan Update Only On Move
+                    newFogRevealer.sightRange = 5;
+                    newFogRevealer.updateOnlyOnMove = false;
+
+                    // Tambahkan fog revealer baru ke dalam list
+                    fogRevealers.Add(newFogRevealer);
+                }
+                else
+                {
+                    Debug.LogError("Cannot find object with name 'DukunDamageArea(Clone)' for new FogRevealer.");
+                }
+
+                FogRevealer anotherNewFogRevealer = new FogRevealer();
+
+                // Cari objek 'Menyan-Dukun(Clone)'
+                GameObject menyanObject = GameObject.Find("Menyan-Dukun(Clone)");
+                if (menyanObject != null)
+                {
+                    anotherNewFogRevealer.revealerTransform = menyanObject.transform;
+                    Debug.LogFormat("Found and assigned Transform for another new FogRevealer: {0}", menyanObject.name);
+
+                    // Set Sight Range dan Update Only On Move
+                    anotherNewFogRevealer.sightRange = 5;
+                    anotherNewFogRevealer.updateOnlyOnMove = false;
+
+                    // Tambahkan fog revealer baru lagi ke dalam list
+                    fogRevealers.Add(anotherNewFogRevealer);
+                }
+                else
+                {
+                    Debug.LogError("Cannot find object with name 'Menyan-Dukun(Clone)' for another new FogRevealer.");
+                }
+
+                newRevealerTransformsFound = true;
+            }
+
+            // Menghapus data dari list jika objeknya sudah tidak ada di dalam scene
+            fogRevealers.RemoveAll(revealer =>
         {
-            Debug.LogError("Cannot find object with name 'DukunDamageArea(Clone)' for new FogRevealer.");
+            if (revealer.revealerTransform == null)
+            {
+                // Matikan atau nonaktifkan fog revealer
+                Destroy(revealer.revealerTransform); // jika menggunakan Unity 2019 ke atas
+                                                     // atau
+                                                     // GameObject.Destroy(revealer.gameObject); // jika menggunakan Unity sebelum 2019
+                return true;
+            }
+            return false;
+        });
+            newRevealerTransformsFound = false;
         }
-
-        FogRevealer anotherNewFogRevealer = new FogRevealer();
-
-        // Cari objek 'Menyan-Dukun(Clone)'
-        GameObject menyanObject = GameObject.Find("Menyan-Dukun(Clone)");
-        if (menyanObject != null)
-        {
-            anotherNewFogRevealer.revealerTransform = menyanObject.transform;
-            Debug.LogFormat("Found and assigned Transform for another new FogRevealer: {0}", menyanObject.name);
-
-            // Set Sight Range dan Update Only On Move
-            anotherNewFogRevealer.sightRange = 5;
-            anotherNewFogRevealer.updateOnlyOnMove = false;
-
-            // Tambahkan fog revealer baru lagi ke dalam list
-            fogRevealers.Add(anotherNewFogRevealer);
-        }
-        else
-        {
-            Debug.LogError("Cannot find object with name 'Menyan-Dukun(Clone)' for another new FogRevealer.");
-        }
-
-        newRevealerTransformsFound = true;
-    }
-
-    // Menghapus data dari list jika objeknya sudah tidak ada di dalam scene
-    fogRevealers.RemoveAll(revealer =>
-{
-    if (revealer.revealerTransform == null)
-    {
-        // Matikan atau nonaktifkan fog revealer
-        Destroy(revealer.revealerTransform); // jika menggunakan Unity 2019 ke atas
-        // atau
-        // GameObject.Destroy(revealer.gameObject); // jika menggunakan Unity sebelum 2019
-        return true;
-    }
-    return false;
-});
-    newRevealerTransformsFound = false;
-}
 
 
         private void Update()

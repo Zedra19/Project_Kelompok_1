@@ -6959,6 +6959,8 @@ MonoBehaviour:
   _playerPrefab:
   - {fileID: 242259732691763411, guid: 41bedeecd6e931c4ebbf19580c6fba8e, type: 3}
   - {fileID: 8198426975804042383, guid: d9e085f83bd45f54ba69b3643e65437e, type: 3}
+  - {fileID: 3618516517979024316, guid: 6a05829e6a037e24ab0b6e8b25107968, type: 3}
+  - {fileID: 7643126771042429404, guid: e8c40a01e1893824aaa6b0eceb6e9902, type: 3}
   _mousePosition3D: {fileID: 1573111764}
   _healthIcons:
   - {fileID: 1253441172}
