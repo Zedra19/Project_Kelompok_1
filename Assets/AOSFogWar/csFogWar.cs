@@ -361,14 +361,14 @@ namespace FischlWorks_FogWar
                     if (ksatriaObject != null)
                     {
                         fogRevealer.revealerTransform = ksatriaObject.transform;
-                        fogRevealer.sightRange = 10;
+                        fogRevealer.sightRange = 11;
                         fogRevealer.updateOnlyOnMove = false;
                         Debug.LogFormat("Found and assigned Transform for FogRevealer: {0}", ksatriaObject.name);
                     }
                     else if (dukunObject != null)
                     {
                         fogRevealer.revealerTransform = dukunObject.transform;
-                        fogRevealer.sightRange = 10;
+                        fogRevealer.sightRange = 11;
                         fogRevealer.updateOnlyOnMove = false;
                         Debug.LogFormat("Found and assigned Transform for FogRevealer: {0}", dukunObject.name);
                     }
