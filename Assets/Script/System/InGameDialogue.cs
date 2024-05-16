@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 using System.Collections;
+
 public class InGameDialogue : MonoBehaviour
 {
     public GameObject Prolog;
@@ -13,6 +14,7 @@ public class InGameDialogue : MonoBehaviour
     public GameObject enemySpawner;
 
     [FormerlySerializedAs("_playerAttack")] public PlayerAttack PlayerAttack;
+    public PlayerAttack_Dukun PlayerAttackDukun;
     [FormerlySerializedAs("_playerMovement")] public PlayerMovement PlayerMovement;
     [SerializeField] private Rigidbody _rigidbodyPlayer;
     public GameObject TutorialPanel;
@@ -20,10 +22,9 @@ public class InGameDialogue : MonoBehaviour
     private IEnumerator Start()
     {
         yield return new WaitForSeconds(0.1f);
-        PlayerAttack.enabled = false;
-        PlayerMovement.enabled = false;
+        AssignPlayerComponents();
+        DisablePlayerAbilities();
     }
-
 
     private void Update()
     {
@@ -53,6 +54,57 @@ public class InGameDialogue : MonoBehaviour
         }
     }
 
+    private void AssignPlayerComponents()
+    {
+        GameObject playerKsatria = GameObject.Find("Player-Ksatria(Clone)");
+        GameObject playerDukun = GameObject.Find("Player_Dukun(Clone)");
+
+        if (playerKsatria != null)
+        {
+            PlayerAttack = playerKsatria.GetComponent<PlayerAttack>();
+            PlayerMovement = playerKsatria.GetComponent<PlayerMovement>();
+            _rigidbodyPlayer = playerKsatria.GetComponent<Rigidbody>();
+        }
+        else if (playerDukun != null)
+        {
+            PlayerAttackDukun = playerDukun.GetComponent<PlayerAttack_Dukun>();
+            PlayerMovement = playerDukun.GetComponent<PlayerMovement>();
+            _rigidbodyPlayer = playerDukun.GetComponent<Rigidbody>();
+        }
+    }
+
+    private void DisablePlayerAbilities()
+    {
+        if (PlayerAttack != null)
+        {
+            PlayerAttack.enabled = false;
+        }
+        if (PlayerAttackDukun != null)
+        {
+            PlayerAttackDukun.enabled = false;
+        }
+        if (PlayerMovement != null)
+        {
+            PlayerMovement.enabled = false;
+        }
+    }
+
+    private void EnablePlayerAbilities()
+    {
+        if (PlayerAttack != null)
+        {
+            PlayerAttack.enabled = true;
+        }
+        if (PlayerAttackDukun != null)
+        {
+            PlayerAttackDukun.enabled = true;
+        }
+        if (PlayerMovement != null)
+        {
+            PlayerMovement.enabled = true;
+        }
+    }
+
     private void PrologInstruction1()
     {
         if (Input.GetKeyDown(KeyCode.Return))
@@ -68,8 +120,7 @@ public class InGameDialogue : MonoBehaviour
         {
             Dialog2.SetActive(false);
             Prolog.SetActive(false);
-            PlayerAttack.enabled = true;
-            PlayerMovement.enabled = true;
+            EnablePlayerAbilities();
             TutorialPanel.SetActive(true);
         }
     }
@@ -106,13 +157,11 @@ public class InGameDialogue : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             Dialog6.SetActive(false);
-            PlayerAttack.enabled = true;
-            PlayerMovement.enabled = true;
+            EnablePlayerAbilities();
             if (enemySpawner != null)
             {
                 enemySpawner.SetActive(true);
             }
         }
     }
-
 }

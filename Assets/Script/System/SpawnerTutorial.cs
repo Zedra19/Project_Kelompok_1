@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 
 public class SpawnerTutorial : MonoBehaviour
 {
-
     [SerializeField] private GameObject _sSwarmerPrefab;
     [SerializeField] private GameObject _mSwarmerPrefab;
     [SerializeField] private GameObject _lSwarmerPrefab;
@@ -13,6 +12,7 @@ public class SpawnerTutorial : MonoBehaviour
     [SerializeField] private Rigidbody _rigidbodyPlayer;
     [SerializeField] private Animator _animatorPlayer;
     [SerializeField] private PlayerAttack _playerAttack;
+    [SerializeField] private PlayerAttack_Dukun _playerAttackDukun;
     private bool DialogActivated = false;
     public GameObject Prolog;
     public GameObject Dialog3;
@@ -24,12 +24,34 @@ public class SpawnerTutorial : MonoBehaviour
 
     private void Start()
     {
+        AssignPlayerComponents();
         StartCoroutine(SpawnEnemies());
     }
 
     private void Update()
     {
         OnEnemyKilled();
+    }
+
+    private void AssignPlayerComponents()
+    {
+        GameObject playerKsatria = GameObject.Find("Player-Ksatria(Clone)");
+        GameObject playerDukun = GameObject.Find("Player_Dukun(Clone)");
+
+        if (playerKsatria != null)
+        {
+            _playerAttack = playerKsatria.GetComponent<PlayerAttack>();
+            _playerMovement = playerKsatria.GetComponent<PlayerMovement>();
+            _rigidbodyPlayer = playerKsatria.GetComponent<Rigidbody>();
+            _animatorPlayer = playerKsatria.GetComponent<Animator>();
+        }
+        else if (playerDukun != null)
+        {
+            _playerAttackDukun = playerDukun.GetComponent<PlayerAttack_Dukun>();
+            _playerMovement = playerDukun.GetComponent<PlayerMovement>();
+            _rigidbodyPlayer = playerDukun.GetComponent<Rigidbody>();
+            _animatorPlayer = playerDukun.GetComponent<Animator>();
+        }
     }
 
     public IEnumerator SpawnEnemies()
@@ -66,7 +88,9 @@ public class SpawnerTutorial : MonoBehaviour
     {
         if (KillCount.killCount == totalTargetEnemy && !DialogActivated)
         {
-            _playerAttack.enabled = false;
+            if (_playerAttack != null) _playerAttack.enabled = false;
+            if (_playerAttackDukun != null) _playerAttackDukun.enabled = false;
+
             _animatorPlayer.SetBool("Move", false);
             _playerMovement.enabled = false;
             Prolog.SetActive(true);
@@ -74,7 +98,6 @@ public class SpawnerTutorial : MonoBehaviour
             DialogActivated = true;
         }
     }
-
 
     private Vector3 GetRandomPosition()
     {
