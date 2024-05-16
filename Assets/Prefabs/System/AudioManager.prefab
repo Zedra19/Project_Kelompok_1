@@ -182,6 +182,8 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: fb4664826ca993a4fa62a78323b8e46e, type: 3}
   - Name: BGM Stage 1
     Clip: {fileID: 8300000, guid: 4f7721759d10baf4cade47c52cf6252c, type: 3}
+  - Name: Shop
+    Clip: {fileID: 8300000, guid: 76f63310e2da2914daec19287e0ba720, type: 3}
   SFXSounds:
   - Name: UI
     Clip: {fileID: 8300000, guid: 9cd5ac966da4c334eb31cc6e0bb258d7, type: 3}
