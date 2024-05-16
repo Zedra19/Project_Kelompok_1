@@ -36,6 +36,13 @@ public class ProfileMenu : MonoBehaviour
             Profile.firstGame = false;
         }
     }
+
+    public void profileButton()
+    {
+        profile.SetActive(true);
+        selectProfile.SetActive(true);
+    }
+    
     void Update()
     {
         if(selectProfile.activeSelf || deleteProfile.activeSelf){

@@ -7968,7 +7968,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1029897864}
         m_TargetAssemblyTypeName: ProfileMenu, Assembly-CSharp
-        m_MethodName: kondisi_profile
+        m_MethodName: profileButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
