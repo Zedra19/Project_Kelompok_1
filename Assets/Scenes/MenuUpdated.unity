@@ -371,7 +371,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 368834620}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SoundSetting, Assembly-CSharp
         m_MethodName: UISFX
         m_Mode: 1
@@ -2057,7 +2057,7 @@ PrefabInstance:
     - target: {fileID: 804091181770051273, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 368834620}
+      objectReference: {fileID: 0}
     - target: {fileID: 804091181770051273, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -2065,7 +2065,7 @@ PrefabInstance:
     - target: {fileID: 1852985064632392931, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 368834620}
+      objectReference: {fileID: 0}
     - target: {fileID: 1852985064632392931, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -2073,7 +2073,7 @@ PrefabInstance:
     - target: {fileID: 2358074010774695358, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 368834620}
+      objectReference: {fileID: 0}
     - target: {fileID: 2358074010774695358, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -2081,7 +2081,7 @@ PrefabInstance:
     - target: {fileID: 2587733790275585708, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 368834620}
+      objectReference: {fileID: 0}
     - target: {fileID: 2587733790275585708, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -2089,7 +2089,7 @@ PrefabInstance:
     - target: {fileID: 2993694853268338003, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 368834620}
+      objectReference: {fileID: 0}
     - target: {fileID: 2993694853268338003, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -2097,7 +2097,7 @@ PrefabInstance:
     - target: {fileID: 4083156629623461458, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 368834620}
+      objectReference: {fileID: 0}
     - target: {fileID: 4083156629623461458, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -2105,7 +2105,7 @@ PrefabInstance:
     - target: {fileID: 4368632792695626608, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 368834620}
+      objectReference: {fileID: 0}
     - target: {fileID: 4368632792695626608, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -2113,7 +2113,7 @@ PrefabInstance:
     - target: {fileID: 4413108177618606460, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 368834620}
+      objectReference: {fileID: 0}
     - target: {fileID: 4413108177618606460, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -2205,7 +2205,7 @@ PrefabInstance:
     - target: {fileID: 6967358105266190995, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 368834620}
+      objectReference: {fileID: 0}
     - target: {fileID: 6967358105266190995, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -2213,7 +2213,7 @@ PrefabInstance:
     - target: {fileID: 7147860365011425052, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 368834620}
+      objectReference: {fileID: 0}
     - target: {fileID: 7147860365011425052, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -2272,17 +2272,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &368834620 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3596823500597014226, guid: 6efe53ada60898a428966b2f3f0812cd, type: 3}
-  m_PrefabInstance: {fileID: 369284356903084266}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e98815fa47540845bb45817c94d3e9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &382484457
 GameObject:
   m_ObjectHideFlags: 0
@@ -3307,7 +3296,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 368834620}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SoundSetting, Assembly-CSharp
         m_MethodName: UISFX
         m_Mode: 1
@@ -3789,7 +3778,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 368834620}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SoundSetting, Assembly-CSharp
         m_MethodName: UISFX
         m_Mode: 1
@@ -4161,7 +4150,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 368834620}
+      - m_Target: {fileID: 2082252213}
         m_TargetAssemblyTypeName: SoundSetting, Assembly-CSharp
         m_MethodName: SFXVolume
         m_Mode: 1
@@ -4572,7 +4561,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 368834620}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SoundSetting, Assembly-CSharp
         m_MethodName: UISFX
         m_Mode: 1
@@ -4755,7 +4744,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 368834620}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SoundSetting, Assembly-CSharp
         m_MethodName: UISFX
         m_Mode: 1
@@ -4950,7 +4939,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 368834620}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SoundSetting, Assembly-CSharp
         m_MethodName: UISFX
         m_Mode: 1
@@ -5830,7 +5819,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 368834620}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SoundSetting, Assembly-CSharp
         m_MethodName: UISFX
         m_Mode: 1
@@ -6918,7 +6907,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 368834620}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SoundSetting, Assembly-CSharp
         m_MethodName: UISFX
         m_Mode: 1
@@ -7354,7 +7343,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 368834620}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SoundSetting, Assembly-CSharp
         m_MethodName: UISFX
         m_Mode: 1
@@ -7625,7 +7614,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 368834620}
+      - m_Target: {fileID: 2082252213}
         m_TargetAssemblyTypeName: SoundSetting, Assembly-CSharp
         m_MethodName: MusicVolume
         m_Mode: 1
@@ -8054,7 +8043,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 368834620}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SoundSetting, Assembly-CSharp
         m_MethodName: UISFX
         m_Mode: 1
@@ -9341,7 +9330,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 368834620}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SoundSetting, Assembly-CSharp
         m_MethodName: UISFX
         m_Mode: 1
@@ -10040,7 +10029,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 368834620}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SoundSetting, Assembly-CSharp
         m_MethodName: UISFX
         m_Mode: 1
@@ -10102,6 +10091,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2058704120}
   m_CullTransparentMesh: 1
+--- !u!1 &2082252212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2082252214}
+  - component: {fileID: 2082252213}
+  m_Layer: 0
+  m_Name: SoundSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2082252213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082252212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e98815fa47540845bb45817c94d3e9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MusicSlider: {fileID: 1445036984}
+  SFXSlider: {fileID: 776566432}
+--- !u!4 &2082252214
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082252212}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 119.631516, y: 97.15507, z: -413.30392}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2090556437
 GameObject:
   m_ObjectHideFlags: 0
@@ -10421,7 +10456,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 368834620}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SoundSetting, Assembly-CSharp
         m_MethodName: UISFX
         m_Mode: 1
@@ -10733,7 +10768,8 @@ PrefabInstance:
       propertyPath: MusicSounds.Array.data[2].Clip
       value: 
       objectReference: {fileID: 8300000, guid: 4f7721759d10baf4cade47c52cf6252c, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3596823500597014226, guid: 6efe53ada60898a428966b2f3f0812cd, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -10833,7 +10869,7 @@ PrefabInstance:
     - target: {fileID: 8775807482835580273, guid: 4fa0bb8857bc95c40ac348c609433136, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 368834620}
+      objectReference: {fileID: 0}
     - target: {fileID: 8775807482835580273, guid: 4fa0bb8857bc95c40ac348c609433136, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -10902,7 +10938,7 @@ PrefabInstance:
     - target: {fileID: 3752766256958881366, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 368834620}
+      objectReference: {fileID: 0}
     - target: {fileID: 3752766256958881366, guid: 614cd43133022ee48ad36a00eb614a8f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -11199,7 +11235,7 @@ PrefabInstance:
     - target: {fileID: 8946017167966169345, guid: 60e871ea72cf71045aa5ff542a9d55ba, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 368834620}
+      objectReference: {fileID: 0}
     - target: {fileID: 8946017167966169345, guid: 60e871ea72cf71045aa5ff542a9d55ba, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -11231,3 +11267,4 @@ SceneRoots:
   - {fileID: 369284356903084266}
   - {fileID: 1029897862}
   - {fileID: 2103801107}
+  - {fileID: 2082252214}
