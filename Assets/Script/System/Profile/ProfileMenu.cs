@@ -25,14 +25,15 @@ public class ProfileMenu : MonoBehaviour
 
     public void kondisi_profile()
     {
-        if(string.IsNullOrEmpty(PlayerPrefs.GetString("Profile1")) && string.IsNullOrEmpty(PlayerPrefs.GetString("Profile2")) && string.IsNullOrEmpty(PlayerPrefs.GetString("Profile3")))
+        if(Profile.firstGame == true && string.IsNullOrEmpty(PlayerPrefs.GetString("Profile1")) && string.IsNullOrEmpty(PlayerPrefs.GetString("Profile2")) && string.IsNullOrEmpty(PlayerPrefs.GetString("Profile3")))
         {
             profile.SetActive(true);
             inputName.SetActive(true);
-        }else
-        {
+            Profile.firstGame = false;
+        }else if(Profile.firstGame == true && (!string.IsNullOrEmpty(PlayerPrefs.GetString("Profile1")) || !string.IsNullOrEmpty(PlayerPrefs.GetString("Profile2")) || !string.IsNullOrEmpty(PlayerPrefs.GetString("Profile3")))){
             profile.SetActive(true);
             selectProfile.SetActive(true);
+            Profile.firstGame = false;
         }
     }
     void Update()

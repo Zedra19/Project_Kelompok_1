@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class LeaderBoard : MonoBehaviour
 {
-    public GameObject inputField;
     public GameObject leaderdBoard;
     public GameObject Content;
     public Score scoreScript;
