@@ -36,6 +36,15 @@ public class PlayerAttack_Prajurit : MonoBehaviour, IPlayerAttack
     }
     private void Awake()
     {
+        GameObject pointerObject = GameObject.Find("Pointer");
+        if (pointerObject != null)
+        {
+            attackTarget = pointerObject.transform;
+        }
+        else
+        {
+            Debug.LogWarning("Pointer object not found in the scene.");
+        }
         _playerMovement = GetComponent<PlayerMovement>();
         _playerInput = new PlayerInput();
         _playerInput.CharacterControls.Attack.performed += OnAttack;
