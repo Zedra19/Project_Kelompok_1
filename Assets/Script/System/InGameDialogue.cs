@@ -16,6 +16,7 @@ public class InGameDialogue : MonoBehaviour
     [FormerlySerializedAs("_playerAttack")] public PlayerAttack PlayerAttack;
     public PlayerAttack_Dukun PlayerAttackDukun;
     public PlayerAttack_Petani PlayerAttackPetani;
+    public PlayerAttack_Prajurit PlayerAttackPrajurit;
     [FormerlySerializedAs("_playerMovement")] public PlayerMovement PlayerMovement;
     [SerializeField] private Rigidbody _rigidbodyPlayer;
     public GameObject TutorialPanel;
@@ -60,6 +61,7 @@ public class InGameDialogue : MonoBehaviour
         GameObject playerKsatria = GameObject.Find("Player-Ksatria(Clone)");
         GameObject playerDukun = GameObject.Find("Player_Dukun(Clone)");
         GameObject playerPetani = GameObject.Find("Player_Petani(Clone)");
+        GameObject playerPrajurit = GameObject.Find("Player_Prajurit(Clone)");
 
         if (playerKsatria != null)
         {
@@ -79,6 +81,12 @@ public class InGameDialogue : MonoBehaviour
             PlayerMovement = playerPetani.GetComponent<PlayerMovement>();
             _rigidbodyPlayer = playerPetani.GetComponent<Rigidbody>();
         }
+        else if (playerPrajurit != null)
+        {
+            PlayerAttackPrajurit = playerPrajurit.GetComponent<PlayerAttack_Prajurit>();
+            PlayerMovement = playerPrajurit.GetComponent<PlayerMovement>();
+            _rigidbodyPlayer = playerPrajurit.GetComponent<Rigidbody>();
+        }
     }
 
     private void DisablePlayerAbilities()
@@ -90,6 +98,14 @@ public class InGameDialogue : MonoBehaviour
         if (PlayerAttackDukun != null)
         {
             PlayerAttackDukun.enabled = false;
+        }
+        if (PlayerAttackPrajurit != null)
+        {
+            PlayerAttackPrajurit.enabled = false;
+        }
+        if (PlayerAttackPetani != null)
+        {
+            PlayerAttackPetani.enabled = false;
         }
         if (PlayerMovement != null)
         {
@@ -106,6 +122,14 @@ public class InGameDialogue : MonoBehaviour
         if (PlayerAttackDukun != null)
         {
             PlayerAttackDukun.enabled = true;
+        }
+        if (PlayerAttackPetani != null)
+        {
+            PlayerAttackPetani.enabled = true;
+        }
+        if (PlayerAttackPrajurit != null)
+        {
+            PlayerAttackPrajurit.enabled = true;
         }
         if (PlayerMovement != null)
         {
