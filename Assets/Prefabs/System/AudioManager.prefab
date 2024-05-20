@@ -138,7 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5078549946197056529}
   - component: {fileID: 7718212177459516798}
-  - component: {fileID: 3596823500597014226}
+  - component: {fileID: 8687734267322364639}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -195,7 +195,7 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: c930e044d60ecfd4caa1dae145a9011a, type: 3}
   MusicSource: {fileID: 5991534002033701049}
   SFXSource: {fileID: 8376783408269568113}
---- !u!114 &3596823500597014226
+--- !u!114 &8687734267322364639
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
