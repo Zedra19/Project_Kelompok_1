@@ -5,6 +5,8 @@ public class SpearEnemyM : MonoBehaviour
 {
     public GameObject enemyM;
     EnemyM enemyMScript;
+    public GameObject Trail;
+
     private bool isThrown = false;
 
     void Start()
@@ -32,6 +34,7 @@ public class SpearEnemyM : MonoBehaviour
     public void ThrowSpear()
     {
         isThrown = true;
+        Trail.SetActive(true);
         StartCoroutine(DestroyAfterDelay(1f));
     }
 

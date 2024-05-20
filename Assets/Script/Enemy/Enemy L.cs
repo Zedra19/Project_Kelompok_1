@@ -4,10 +4,9 @@ using UnityEngine.AI;
 
 public class EnemyL : MonoBehaviour
 {
-    public float DetectionRange = 0f;
-    public float AttackRange = 0f;
-    public float KnockbackForce = 0f;
-    public float CooldownDuration = 0f;
+    public float AttackRange = 2f; // Set default attack range
+    public float KnockbackForce = 5f; // Set default knockback force
+    public float CooldownDuration = 2f; // Set default cooldown duration
     public int CurrentHealth = 5;
     public bool IsGettingHitInThisHit;
     [SerializeField] private GameObject attackVFXPrefab; 
@@ -61,18 +60,15 @@ public class EnemyL : MonoBehaviour
 
         float distanceToPlayer = Vector3.Distance(transform.position, _playerTransform.position);
 
-        if (distanceToPlayer <= DetectionRange)
+        if (distanceToPlayer > AttackRange)
         {
-            if (distanceToPlayer > AttackRange)
+            ChasePlayer();
+        }
+        else
+        {
+            if (!_isOnCooldown && !_isAttacking)
             {
-                ChasePlayer();
-            }
-            else
-            {
-                if (!_isOnCooldown && !_isAttacking)
-                {
-                    AttackPlayer();
-                }
+                AttackPlayer();
             }
         }
     }
@@ -92,20 +88,28 @@ public class EnemyL : MonoBehaviour
         Destroy(attackVFX, 2f); // Destroy the VFX after 2 seconds (adjust as needed)
     }
 
-    // Dipanggil dari animasi saat serangan selesai
+    // Called from animation when the attack is performed
     public void PerformKnockback()
     {
-        Vector3 knockbackDirection = (_playerTransform.position - transform.position).normalized;
-        _playerTransform.GetComponent<Rigidbody>().AddForce(knockbackDirection * KnockbackForce, ForceMode.Impulse);
-
-        // Panggil metode TakeDamage pada script Health objek Player
-        Health playerHealth = _playerTransform.GetComponent<Health>();
-        if (playerHealth != null)
+        if (_playerTransform != null)
         {
-            playerHealth.TakeDamage(1);
-        }
+            Vector3 knockbackDirection = (_playerTransform.position - transform.position).normalized;
+            Rigidbody playerRigidbody = _playerTransform.GetComponent<Rigidbody>();
 
-        StartCoroutine(StartCooldown());
+            if (playerRigidbody != null)
+            {
+                playerRigidbody.AddForce(knockbackDirection * KnockbackForce, ForceMode.Impulse);
+            }
+
+            // Call the TakeDamage method on the player's Health script
+            Health playerHealth = _playerTransform.GetComponent<Health>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(1);
+            }
+
+            StartCoroutine(StartCooldown());
+        }
     }
 
     IEnumerator StartCooldown()
@@ -113,7 +117,7 @@ public class EnemyL : MonoBehaviour
         _isOnCooldown = true;
         yield return new WaitForSeconds(CooldownDuration);
         _isOnCooldown = false;
-        _isAttacking = false; // Setelah cooldown selesai, atur kembali ke false
+        _isAttacking = false; // Reset attack state after cooldown
     }
 
     public void TakeDamage(int damage)
@@ -121,7 +125,7 @@ public class EnemyL : MonoBehaviour
         if (CurrentHealth > 0)
         {
             CurrentHealth -= damage;
-            Debug.Log($"Enemy L is taking damage{damage}, current health: {CurrentHealth}");
+            Debug.Log($"Enemy L is taking damage: {damage}, current health: {CurrentHealth}");
             if (CurrentHealth <= 0)
             {
                 Die();

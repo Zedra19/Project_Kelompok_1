@@ -11,11 +11,10 @@ public class PlayerAttack_Prajurit : MonoBehaviour, IPlayerAttack
     [SerializeField] private GameObject attackPrefab;  // Objek arrow yang akan di-spawn
     public Transform spawnPoint; // Posisi spawn arrow
     public Transform attackTarget; // Target posisi serangan
-    public float attackDuration = 0f;
     public bool IsAttacking { get; private set; } = false;
     public static event System.Action OnAttackDone;
     [SerializeField] private int _playerDamage;
-    [SerializeField] private float arrowForce = 10f;
+    [SerializeField] private float arrowForce = 0f;
     private Coroutine _attackRoutine = null; //use to run attack with duration
 
 
@@ -81,7 +80,7 @@ public class PlayerAttack_Prajurit : MonoBehaviour, IPlayerAttack
         arrow.transform.rotation = rotation;
         // Memberikan gaya melambung ke panah
         arrowRigidbody.AddForce(arrow.transform.forward * arrowForce, ForceMode.Impulse);
-        yield return new WaitForSeconds(attackDuration);
+        yield return new WaitForSeconds(_attackDuration);
 
         IsAttacking = false;
         _attackRoutine = null; // Set _attackRoutine kembali ke null agar serangan bisa dimulai kembali
