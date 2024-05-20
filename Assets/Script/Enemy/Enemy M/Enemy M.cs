@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,8 +8,8 @@ public class EnemyM : MonoBehaviour
     public float timeIntervalToMove = 3f;
     bool enableToMove = true;
     bool timerIsRunning = false;
-    public Animator _animator; // Animator component
-    public GameObject Spear;
+    public Animator _animator;
+    public GameObject spearPrefab;
     [SerializeField] float spearForce = 10f;
     [SerializeField] float timeIntervalAnimation = 1.5f;
     [SerializeField] float timeBetweenAttack = 3f;
@@ -24,7 +23,7 @@ public class EnemyM : MonoBehaviour
     void Start()
     {
         navAgent = GetComponent<NavMeshAgent>();
-        _animator = GetComponent<Animator>(); // Get the Animator component
+        _animator = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player");
     }
 
@@ -40,30 +39,27 @@ public class EnemyM : MonoBehaviour
         if (player != null)
         {
             float distance = Vector3.Distance(transform.position, player.transform.position);
-            if (!timerIsRunning) // Jika tidak sedang dalam fase serangan
+            if (!timerIsRunning)
             {
                 if (distance > distanceToPlayer + 1 && enableToMove)
                 {
-                    // Deketin titik range attack
-                    _animator.SetBool("Moving", true); // Mengaktifkan animasi lari
+                    _animator.SetBool("Moving", true);
                     navAgent.SetDestination(player.transform.position);
                 }
                 else if (distance < distanceToPlayer - 1 && enableToMove)
                 {
-                    // Jauhin Player
-                    _animator.SetBool("Moving", true); // Mengaktifkan animasi lari
+                    _animator.SetBool("Moving", true);
                     navAgent.SetDestination(transform.position - player.transform.position);
                 }
                 else if (distance <= distanceToPlayer + 1 && distance >= distanceToPlayer - 1)
                 {
-                    _animator.SetBool("Moving", false); // Menonaktifkan animasi lari
-                    navAgent.ResetPath(); // Menghentikan NavMeshAgent
+                    _animator.SetBool("Moving", false); 
+                    navAgent.ResetPath();
                     timerIsRunning = true;
                 }
             }
         }
     }
-
 
     void attacking()
     {
@@ -78,13 +74,17 @@ public class EnemyM : MonoBehaviour
                 timerAttack += Time.deltaTime;
                 if (timerAttack >= timeIntervalAnimation)
                 {
-                    var spearClone = Instantiate(Spear, transform.position + transform.forward, transform.rotation);
+                    var spearClone = Instantiate(spearPrefab, transform.position + transform.forward, transform.rotation);
+                    SpearEnemyM spearScript = spearClone.GetComponent<SpearEnemyM>();
+                    spearScript.ThrowSpear();
+
                     GameObject player = GameObject.FindWithTag("Player");
                     Vector3 playerPosition = player.transform.position - transform.position;
                     playerPosition.y = 0f;
                     spearClone.tag = "Spear";
                     spearClone.transform.position = transform.position + new Vector3(0f, 1.8f, 0f);
                     spearClone.GetComponent<Rigidbody>().AddForce(playerPosition.normalized * spearForce, ForceMode.Impulse);
+                    
                     timerBetweenAttack = 0f;
                     timerAttack = 0f;
                 }

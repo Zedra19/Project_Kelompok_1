@@ -106,9 +106,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distanceToPlayer: 10
   timeIntervalToMove: 3
-  Gravity: 9.81
   _animator: {fileID: 0}
-  Spear: {fileID: 1878670401912944913}
+  spearPrefab: {fileID: 1878670401912944913}
   spearForce: 15
   timeIntervalAnimation: 0.5
   timeBetweenAttack: 3

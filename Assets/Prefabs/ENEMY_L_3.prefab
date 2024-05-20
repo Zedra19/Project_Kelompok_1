@@ -359,7 +359,6 @@ MonoBehaviour:
   AttackRange: 1
   KnockbackForce: 100
   CooldownDuration: 2
-  PlayerTag: Player
   CurrentHealth: 5
   IsGettingHitInThisHit: 0
   attackVFXPrefab: {fileID: 6445826192643391251, guid: 60d310309985b9d4e9917e6e851e63c9, type: 3}
@@ -382,7 +381,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.6788913, y: 3.5025988, z: 1.2430686}
+  m_Size: {x: 3.5, y: 3.5025988, z: 2}
   m_Center: {x: -0.051565457, y: 1.7045811, z: 0.09195558}
 --- !u!195 &-6235872758688712023
 NavMeshAgent:

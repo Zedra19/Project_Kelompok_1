@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spear enemy m
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a2e1806e48349df4489e1a7a4fc9031e, type: 3}
+      propertyPath: m_TagString
+      value: Spear
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -145,3 +149,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ecc52786b1058f4caf66119ac68a541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyM: {fileID: 0}
