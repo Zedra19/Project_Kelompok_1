@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Trail_Spear
+  m_Name: Trail_trisula_att
   m_Shader: {fileID: -6465566751694194690, guid: 24c03b42203a4ec418e12058b341a3b3, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -46,8 +46,8 @@ Material:
     - _QueueOffset: 0
     - _alphaClip: 0
     m_Colors:
-    - _Color01: {r: 1.4980391, g: 0.2745098, b: 0.31450585, a: 1}
-    - _Color02: {r: 0.19855922, g: 0.011903278, b: 1.1367608, a: 0.6666667}
+    - _Color01: {r: 2.9084766, g: 0.97897774, b: 5.342421, a: 1}
+    - _Color02: {r: 0.21149264, g: 0.110565335, b: 1.3627834, a: 0.6666667}
     - _DissolveSpeed: {r: -0.5, g: 0, b: 0, a: 0}
     - _MainTexSpee: {r: -0.5, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
