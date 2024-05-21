@@ -1811,7 +1811,6 @@ MonoBehaviour:
     Cornelia Rahmawati
 
 
-
     Resta Rahmadani Zulkarnain
 
     Wahyu
@@ -1859,36 +1858,42 @@ MonoBehaviour:
     Nendra Atvirya Irsyadhi
 
 
+    Nendra Atvirya
+    Irsyadhi
+
+
     M Farhan Soedjana
-
-    Lufi
-    Ilham Zahul Haq
-
-    Wahyu Pratama
-
-    Ziedny Bisma Mubarok
-
-
-    Zolla Humicha
-    Rizqiando
-
-    Nendra Atvirya Irsyadhi
 
     Lufi Ilham Zahul Haq
 
+    Wahyu Pratama
 
     Ziedny
     Bisma Mubarok
 
-    Wahyu Pratama
+
+    Zolla Humicha Rizqiando
+
+    Nendra Atvirya Irsyadhi
+
+    Lufi
+    Ilham Zahul Haq
 
 
     Ziedny Bisma Mubarok
 
-    Lufi Ilham Zahul
-    Haq
+    Wahyu Pratama
 
-    Nendra Atvirya Irsyadhi
+    Zolla Humicha
+    Rizqiando
+
+
+    Ziedny Bisma Mubarok
+
+    Lufi Ilham Zahul Haq
+
+    Nendra Atvirya
+    Irsyadhi
 
     M Farhan Soedjana
 
@@ -2278,6 +2283,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1984402692}
+    - target: {fileID: 8002923924393150659, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.2999878
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2348,7 +2357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &382484458
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4258,7 +4267,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1984402692}
         m_TargetAssemblyTypeName: SoundSetting, Assembly-CSharp
         m_MethodName: SFXVolume
         m_Mode: 1
@@ -4401,19 +4410,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1807246345326545229, guid: be109bf752196aa4aa3b3a2c364c85d3, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1807246345326545229, guid: be109bf752196aa4aa3b3a2c364c85d3, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1807246345326545229, guid: be109bf752196aa4aa3b3a2c364c85d3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 357.30072
       objectReference: {fileID: 0}
     - target: {fileID: 1807246345326545229, guid: be109bf752196aa4aa3b3a2c364c85d3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 2069229501247871282, guid: be109bf752196aa4aa3b3a2c364c85d3, type: 3}
       propertyPath: m_Pivot.x
@@ -4501,35 +4510,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7881692560701057393, guid: be109bf752196aa4aa3b3a2c364c85d3, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7881692560701057393, guid: be109bf752196aa4aa3b3a2c364c85d3, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7881692560701057393, guid: be109bf752196aa4aa3b3a2c364c85d3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 118.76691
       objectReference: {fileID: 0}
     - target: {fileID: 7881692560701057393, guid: be109bf752196aa4aa3b3a2c364c85d3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 7884764951312120628, guid: be109bf752196aa4aa3b3a2c364c85d3, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7884764951312120628, guid: be109bf752196aa4aa3b3a2c364c85d3, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7884764951312120628, guid: be109bf752196aa4aa3b3a2c364c85d3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 595.83453
       objectReference: {fileID: 0}
     - target: {fileID: 7884764951312120628, guid: be109bf752196aa4aa3b3a2c364c85d3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6110,6 +6119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1126622595}
   - component: {fileID: 1126622597}
+  - component: {fileID: 1126622598}
   m_Layer: 5
   m_Name: Historical
   m_TagString: Untagged
@@ -6148,6 +6158,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1126622594}
   m_CullTransparentMesh: 1
+--- !u!114 &1126622598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126622594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf704a322b07dda40849404b209e3bd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollbar: {fileID: 1180211263}
 --- !u!1 &1127020861
 GameObject:
   m_ObjectHideFlags: 0
@@ -6417,6 +6440,7 @@ GameObject:
   - component: {fileID: 1180211265}
   - component: {fileID: 1180211264}
   - component: {fileID: 1180211263}
+  - component: {fileID: 1180211266}
   m_Layer: 5
   m_Name: Scrollbar
   m_TagString: Untagged
@@ -6531,6 +6555,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1180211261}
   m_CullTransparentMesh: 1
+--- !u!114 &1180211266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180211261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38323969c44933845bf482b3ea1e2283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollbar: {fileID: 1180211263}
+  sensitivity: 0.05
 --- !u!1 &1209203867
 GameObject:
   m_ObjectHideFlags: 0
@@ -7664,7 +7702,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1984402692}
         m_TargetAssemblyTypeName: SoundSetting, Assembly-CSharp
         m_MethodName: MusicVolume
         m_Mode: 1
@@ -9748,8 +9786,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2447049, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -121.90664, y: 0.480011}
-  m_SizeDelta: {x: 203.5311, y: 136.0813}
+  m_AnchoredPosition: {x: -127.618866, y: 0.480011}
+  m_SizeDelta: {x: 214.9555, y: 136.0813}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2005446599
 MonoBehaviour:
@@ -9821,23 +9859,28 @@ MonoBehaviour:
 
 
     UI
+    Artist
 
 
-    Lead
-    Programmer
+    Technical Artist
 
 
-    Character, Control, & Camera
+    Lead Programmer
 
 
-
-
-    Sound
+    Character, Control,
+    & Camera
 
 
 
 
-    UI
+    Sound Programmer
+
+
+
+
+    UI Programmer
+
 
 
 
