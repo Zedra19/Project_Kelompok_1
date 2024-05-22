@@ -415,7 +415,7 @@ GameObject:
   - component: {fileID: 3088243973363274536}
   - component: {fileID: 1507309120960704437}
   m_Layer: 5
-  m_Name: LeaderBoard
+  m_Name: LeaderBoardMainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

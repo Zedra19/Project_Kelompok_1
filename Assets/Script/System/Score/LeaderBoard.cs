@@ -27,7 +27,7 @@ public class LeaderBoard : MonoBehaviour
         }
     }
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         loadScore();
         scoreScript = GetComponent<Score>();
