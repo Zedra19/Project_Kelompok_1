@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5547016650471114116}
   m_Layer: 5
   m_Name: Cancel
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,7 +69,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 17b1bc902a150604cb3049d0e27c417b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a9578d5a9477ad14dadbd6f68222c41f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 2358074010774695358}
   m_Layer: 5
   m_Name: Profile2
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -501,7 +501,7 @@ GameObject:
   - component: {fileID: 2587733790275585708}
   m_Layer: 5
   m_Name: Profile1
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -727,7 +727,7 @@ GameObject:
   - component: {fileID: 5394451343947506280}
   m_Layer: 5
   m_Name: Cancel
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -780,7 +780,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 17b1bc902a150604cb3049d0e27c417b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a9578d5a9477ad14dadbd6f68222c41f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -908,7 +908,7 @@ GameObject:
   - component: {fileID: 7147860365011425052}
   m_Layer: 5
   m_Name: Profile3
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1129,7 +1129,7 @@ GameObject:
   - component: {fileID: 7295721476746757108}
   m_Layer: 5
   m_Name: BackButton
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1315,8 +1315,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.5787964, y: -0.5753021}
-  m_SizeDelta: {x: -1.1312256, y: 2.2791138}
+  m_AnchoredPosition: {x: -2.3132935, y: 1.7243042}
+  m_SizeDelta: {x: 4.6295, y: 6.8712}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6263939485712348009
 CanvasRenderer:
@@ -2070,7 +2070,7 @@ GameObject:
   - component: {fileID: 804091181770051273}
   m_Layer: 5
   m_Name: Profile1
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2294,7 +2294,7 @@ GameObject:
   - component: {fileID: 6967358105266190995}
   m_Layer: 5
   m_Name: Profile3
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2441,7 +2441,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6583097474007200376
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2642,7 +2642,7 @@ GameObject:
   - component: {fileID: 2993694853268338003}
   m_Layer: 5
   m_Name: Profile2
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2788,7 +2788,7 @@ GameObject:
   - component: {fileID: 8327230714224379966}
   m_Layer: 5
   m_Name: DeleteButton
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2810,7 +2810,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.32514882, y: 0.123751596}
   m_AnchorMax: {x: 0.68514043, y: 0.2437516}
-  m_AnchoredPosition: {x: 0.19999695, y: 0.30000305}
+  m_AnchoredPosition: {x: 0.19999695, y: 0.2999878}
   m_SizeDelta: {x: 1.2433014, y: 0.07889938}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3773674293590565406
@@ -3032,7 +3032,7 @@ GameObject:
   - component: {fileID: 3488977895649516013}
   m_Layer: 5
   m_Name: ConfirmButton
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3357,7 +3357,7 @@ GameObject:
   - component: {fileID: 4387170609029116726}
   m_Layer: 5
   m_Name: BackButton
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

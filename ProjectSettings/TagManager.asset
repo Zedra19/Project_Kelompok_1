@@ -17,6 +17,9 @@ TagManager:
   - Senopati
   - OutsideLimit
   - Arrow
+  - Button
+  - Slider
+  - Scrollbar
   layers:
   - Default
   - TransparentFX
