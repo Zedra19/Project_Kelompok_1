@@ -6,7 +6,6 @@ public class CreditBGM : MonoBehaviour
 {
     public void Start()
     {
-        AudioManager.Instance.MusicVolume(0.2f);
         AudioManager.Instance.PlayMusic("BGM Credit");
     }
 
