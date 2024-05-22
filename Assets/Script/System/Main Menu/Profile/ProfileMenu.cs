@@ -11,6 +11,7 @@ public class ProfileMenu : MonoBehaviour
     [SerializeField] GameObject selectProfile;
     [SerializeField] GameObject deleteProfile;
     [SerializeField] GameObject noProfile;
+    [SerializeField] GameObject noProfileBeforeMainMenu;
     [SerializeField] Text profile1;
     [SerializeField] Text profile2;
     [SerializeField] Text profile3;
@@ -60,15 +61,10 @@ public class ProfileMenu : MonoBehaviour
         var name = inputField.GetComponent<InputField>().text;
         if(string.IsNullOrEmpty(PlayerPrefs.GetString("Profile1"))){
             PlayerPrefs.SetString("Profile1", name);
-            Profile.CurrentPlayerIndex = 1;
         }else if(!string.IsNullOrEmpty(PlayerPrefs.GetString("Profile1")) && string.IsNullOrEmpty(PlayerPrefs.GetString("Profile2"))){
             PlayerPrefs.SetString("Profile2", name);
-            Profile.CurrentPlayerIndex = 2;
         }else if(!string.IsNullOrEmpty(PlayerPrefs.GetString("Profile2")) && string.IsNullOrEmpty(PlayerPrefs.GetString("Profile3"))){
             PlayerPrefs.SetString("Profile3", name);
-            Profile.CurrentPlayerIndex = 3; 
-        }else{
-            Debug.Log("Profile is full");
         }
         inputField.GetComponent<InputField>().text = "";
         inputName.SetActive(false);
@@ -77,11 +73,11 @@ public class ProfileMenu : MonoBehaviour
 
     public void profile1select()
     {
-        Profile.CurrentPlayerIndex = 1;
         if(string.IsNullOrEmpty(PlayerPrefs.GetString("Profile1"))){
             selectProfile.SetActive(false);
             inputName.SetActive(true);
         }else{
+            Profile.CurrentPlayerIndex = 1;
             selectProfile.SetActive(false);
             profile.SetActive(false);
         }
@@ -89,11 +85,11 @@ public class ProfileMenu : MonoBehaviour
 
     public void profile2select()
     {
-        Profile.CurrentPlayerIndex = 2;
         if(string.IsNullOrEmpty(PlayerPrefs.GetString("Profile2"))){
             selectProfile.SetActive(false);
             inputName.SetActive(true);
         }else{
+            Profile.CurrentPlayerIndex = 2;
             selectProfile.SetActive(false);
             profile.SetActive(false);
         }
@@ -101,11 +97,11 @@ public class ProfileMenu : MonoBehaviour
 
     public void profile3select()
     {
-        Profile.CurrentPlayerIndex = 3;
         if(string.IsNullOrEmpty(PlayerPrefs.GetString("Profile3"))){
             selectProfile.SetActive(false);
             inputName.SetActive(true);
         }else{
+            Profile.CurrentPlayerIndex = 3;
             selectProfile.SetActive(false);
             profile.SetActive(false);
         }
@@ -164,5 +160,16 @@ public class ProfileMenu : MonoBehaviour
     public void backToDeleteProfile(){
         noProfile.SetActive(false);
         deleteProfile.SetActive(true);
+    }
+
+    public void checkProfileBeforeMenu()
+    {
+        if(Profile.CurrentPlayerIndex == 0){
+            profile.SetActive(true);
+            noProfileBeforeMainMenu.SetActive(true);
+        }else{
+            profile.SetActive(false);
+            noProfileBeforeMainMenu.SetActive(false);
+        }
     }
 }

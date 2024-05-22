@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2067,6 +2067,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1029897864}
+    - target: {fileID: 1423521091394227495, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1984402692}
     - target: {fileID: 1852985064632392931, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2103,18 +2107,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1984402692}
-    - target: {fileID: 4083156629623461458, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1029897864}
-    - target: {fileID: 4368632792695626608, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1984402692}
-    - target: {fileID: 4368632792695626608, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1029897864}
     - target: {fileID: 4413108177618606460, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2127,18 +2119,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1984402692}
-    - target: {fileID: 5394451343947506280, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
-      propertyPath: PopUp
+    - target: {fileID: 4821876136797862463, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1209203867}
+      objectReference: {fileID: 1029897864}
     - target: {fileID: 5484514566129007298, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
       propertyPath: m_Name
       value: Profile
       objectReference: {fileID: 0}
-    - target: {fileID: 5547016650471114116, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
-      propertyPath: PopUp
-      value: 
-      objectReference: {fileID: 1209203867}
     - target: {fileID: 6583097474007200376, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5737,6 +5725,7 @@ MonoBehaviour:
   selectProfile: {fileID: 87581389}
   deleteProfile: {fileID: 152998503}
   noProfile: {fileID: 251043059}
+  noProfileBeforeMainMenu: {fileID: 1490870868}
   profile1: {fileID: 1151837748}
   profile2: {fileID: 14765556}
   profile3: {fileID: 1267698056}
@@ -7887,6 +7876,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489586200}
   m_CullTransparentMesh: 1
+--- !u!1 &1490870868 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9062948190121600251, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
+  m_PrefabInstance: {fileID: 353569658}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1500183513
 GameObject:
   m_ObjectHideFlags: 0
