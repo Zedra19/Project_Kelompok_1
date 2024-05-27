@@ -196,7 +196,7 @@ MonoBehaviour:
   - Name: Meteor Dukun
     Clip: {fileID: 8300000, guid: c930e044d60ecfd4caa1dae145a9011a, type: 3}
   - Name: Prajurit Att
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: ae18b8f45568f964ba45aa6fa4a48bdb, type: 3}
   - Name: Petani Att
     Clip: {fileID: 8300000, guid: 4908c867c317ec54a8510b2b16dbd9d6, type: 3}
   - Name: S Att
