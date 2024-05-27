@@ -43,6 +43,7 @@ public class AttackTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy S") && playerAttackScript.IsAttacking)
         {
+            AudioManager.Instance.PlaySFX("Hit");
             Debug.Log("Hit Enemy S");
             scoreScript.currentScore += scoreScript.EnemyS;
             comboScript.comboCount++;
@@ -51,6 +52,7 @@ public class AttackTrigger : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Enemy M") && playerAttackScript.IsAttacking)
         {
+            AudioManager.Instance.PlaySFX("Hit");
             Debug.Log("Hit Enemy M");
             scoreScript.currentScore += scoreScript.EnemyM;
             comboScript.comboCount++;
@@ -59,7 +61,6 @@ public class AttackTrigger : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Enemy L") && playerAttackScript.IsAttacking)
         {
-
             Debug.Log("Hit Enemy L");
             EnemyL enemyL = other.gameObject.GetComponent<EnemyL>();
 
@@ -72,6 +73,7 @@ public class AttackTrigger : MonoBehaviour
                 }
                 enemyL.IsGettingHitInThisHit = true;
 
+                AudioManager.Instance.PlaySFX("Hit");
                 Debug.Log("Hit Enemy L");
                 comboScript.comboCount++;
                 enemyL.TakeDamage(playerAttackScript.PlayerDamage);
@@ -97,6 +99,7 @@ public class AttackTrigger : MonoBehaviour
                 senopati.isGettingHitInThisHit = true;
 
                 // comboScript.comboCount++;
+                AudioManager.Instance.PlaySFX("Hit");
                 Debug.Log("Player Damage: " + playerAttackScript.PlayerDamage);
                 senopati.TakeDamage(playerAttackScript.PlayerDamage);
                 Debug.Log("Boss Senopati HP: " + senopati.HP);
@@ -121,6 +124,7 @@ public class AttackTrigger : MonoBehaviour
                 }
                 _patih.IsGettingHitInThisHit = true;
                 comboScript.comboCount++;
+                AudioManager.Instance.PlaySFX("Hit");
                 Debug.Log("Player Damage: " + playerAttackScript.PlayerDamage);
                 _patih.HP -= playerAttackScript.PlayerDamage;
                 Debug.Log("Patih HP: " + _patih.HP);

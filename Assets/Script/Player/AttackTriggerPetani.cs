@@ -32,6 +32,7 @@ public class AttackTriggerPetani : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy S") && playerAttackScript.IsAttacking)
         {
+            AudioManager.Instance.PlaySFX("Hit");
             Debug.Log("Hit Enemy S");
             scoreScript.currentScore += scoreScript.EnemyS;
             comboScript.comboCount++;
@@ -40,6 +41,7 @@ public class AttackTriggerPetani : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Enemy M") && playerAttackScript.IsAttacking)
         {
+            AudioManager.Instance.PlaySFX("Hit");
             Debug.Log("Hit Enemy M");
             scoreScript.currentScore += scoreScript.EnemyM;
             comboScript.comboCount++;
@@ -60,7 +62,7 @@ public class AttackTriggerPetani : MonoBehaviour
                     return;
                 }
                 enemyL.IsGettingHitInThisHit = true;
-
+                AudioManager.Instance.PlaySFX("Hit");
                 Debug.Log("Hit Enemy L");
                 comboScript.comboCount++;
                 enemyL.TakeDamage(playerAttackScript.PlayerDamage);
@@ -84,6 +86,7 @@ public class AttackTriggerPetani : MonoBehaviour
                 }
                 senopati.isGettingHitInThisHit = true;
                 // comboScript.comboCount++;
+                AudioManager.Instance.PlaySFX("Hit");
                 senopati.TakeDamage(playerAttackScript.PlayerDamage);
                 Debug.Log("Boss HP: " + senopati.HP);
                 if (senopati.HP <= 0)
@@ -105,6 +108,7 @@ public class AttackTriggerPetani : MonoBehaviour
                     return;
                 }
                 _patih.IsGettingHitInThisHit = true;
+                AudioManager.Instance.PlaySFX("Hit");
                 comboScript.comboCount++;
                 _patih.HP -= playerAttackScript.PlayerDamage;
                 Debug.Log("Patih HP: " + _patih.HP);

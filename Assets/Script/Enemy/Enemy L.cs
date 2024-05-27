@@ -81,6 +81,7 @@ public class EnemyL : MonoBehaviour
 
     void AttackPlayer()
     {
+        AudioManager.Instance.PlaySFX("L Att");
         _animator.SetTrigger("Attack");
         _isAttacking = true;
         // Instantiate attackVFX at the position of EnemyL

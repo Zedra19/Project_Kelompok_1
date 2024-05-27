@@ -189,10 +189,26 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 9cd5ac966da4c334eb31cc6e0bb258d7, type: 3}
   - Name: Dash
     Clip: {fileID: 8300000, guid: 17a9e40e05bb60e418a71af01426439a, type: 3}
+  - Name: 'Hit '
+    Clip: {fileID: 8300000, guid: 5b58bd3ca6eef7f479c567428f19c820, type: 3}
   - Name: Kesatria Att
     Clip: {fileID: 8300000, guid: 5b2c7d2feb5620b4cbe2f9644d412586, type: 3}
   - Name: Meteor Dukun
     Clip: {fileID: 8300000, guid: c930e044d60ecfd4caa1dae145a9011a, type: 3}
+  - Name: Prajurit Att
+    Clip: {fileID: 0}
+  - Name: Petani Att
+    Clip: {fileID: 8300000, guid: 4908c867c317ec54a8510b2b16dbd9d6, type: 3}
+  - Name: S Att
+    Clip: {fileID: 0}
+  - Name: M Att
+    Clip: {fileID: 8300000, guid: 847316109b524dc4fa3f29a17414713d, type: 3}
+  - Name: L Att
+    Clip: {fileID: 8300000, guid: 92560609d076f2d4da719778e2a4c413, type: 3}
+  - Name: Senopati Att
+    Clip: {fileID: 8300000, guid: fda0fb2195166954a8d5446317983124, type: 3}
+  - Name: SenopatiQuake
+    Clip: {fileID: 8300000, guid: 571faaaff9ccae046a0a944491ef164f, type: 3}
   MusicSource: {fileID: 5991534002033701049}
   SFXSource: {fileID: 8376783408269568113}
 --- !u!114 &8687734267322364639

@@ -76,7 +76,9 @@ public class EnemyM : MonoBehaviour
                 {
                     var spearClone = Instantiate(spearPrefab, transform.position + transform.forward, transform.rotation);
                     SpearEnemyM spearScript = spearClone.GetComponent<SpearEnemyM>();
+                    
                     spearScript.ThrowSpear();
+                    AudioManager.Instance.PlaySFX("M Att");
 
                     GameObject player = GameObject.FindWithTag("Player");
                     Vector3 playerPosition = player.transform.position - transform.position;
