@@ -61,7 +61,7 @@ public class PlayerAttack_Prajurit : MonoBehaviour, IPlayerAttack
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        if (_attackRoutine == null && !_playerMovement.IsDodging)
+        if (_attackRoutine == null && !_playerMovement.IsDodging && Time.timeScale == 1)
         {
             _attackRoutine = StartCoroutine(AttackRoutine());
         }

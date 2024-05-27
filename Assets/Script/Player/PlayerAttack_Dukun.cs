@@ -65,13 +65,12 @@ public class PlayerAttack_Dukun : MonoBehaviour, IPlayerAttack
     public void OnAttack(InputAction.CallbackContext context)
     {
         //only attack if currently not attacking and not dodging
-        if (_attackRoutine == null && !_playerMovement.IsDodging)
+        if (_attackRoutine == null && !_playerMovement.IsDodging && Time.timeScale == 1)
         {
             // Spawn objek attackPoint di posisi attackTarget
             GameObject attackPoint = Instantiate(attackPointPrefab, attackTarget.position, attackTarget.rotation);
 
             // Mulai serangan
-            AudioManager.Instance.PlaySFX("Kesatria Att");
             AudioManager.Instance.PlaySFX("Meteor Dukun");
             _attackRoutine = StartCoroutine(AttackRoutine(attackPoint));
         }

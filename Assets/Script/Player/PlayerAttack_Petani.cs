@@ -52,7 +52,7 @@ public class PlayerAttack_Petani : MonoBehaviour, IPlayerAttack
     private void OnAttack(InputAction.CallbackContext context)
     {
         //only attack if currently not attacking and not dodging
-        if (_attackRoutine == null && !_playerMovement.IsDodging)
+        if (_attackRoutine == null && !_playerMovement.IsDodging && Time.timeScale == 1)
         {
             AudioManager.Instance.PlaySFX("Kesatria Att");
             _attackRoutine = StartCoroutine(AttackRoutine());
