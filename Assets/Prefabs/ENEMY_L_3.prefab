@@ -361,6 +361,7 @@ MonoBehaviour:
   CurrentHealth: 5
   IsGettingHitInThisHit: 0
   attackVFXPrefab: {fileID: 6445826192643391251, guid: 60d310309985b9d4e9917e6e851e63c9, type: 3}
+  heKsatriaVFXPrefab: {fileID: 4794043405585894037, guid: 37138c0c33167b04fa1fb90b7f5a794f, type: 3}
 --- !u!65 &-3880748946148653923
 BoxCollider:
   m_ObjectHideFlags: 0

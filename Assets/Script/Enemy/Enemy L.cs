@@ -9,7 +9,9 @@ public class EnemyL : MonoBehaviour
     public float CooldownDuration = 2f; // Set default cooldown duration
     public int CurrentHealth = 5;
     public bool IsGettingHitInThisHit;
-    [SerializeField] private GameObject attackVFXPrefab; 
+    [SerializeField] private GameObject attackVFXPrefab;
+    [SerializeField] private GameObject heKsatriaVFXPrefab;
+    [SerializeField] private GameObject hePrajuritVFXPrefab;
 
     private string PlayerTag = "Player";
     private Transform _playerTransform;
@@ -84,9 +86,8 @@ public class EnemyL : MonoBehaviour
         AudioManager.Instance.PlaySFX("L Att");
         _animator.SetTrigger("Attack");
         _isAttacking = true;
-        // Instantiate attackVFX at the position of EnemyL
         GameObject attackVFX = Instantiate(attackVFXPrefab, transform.position, Quaternion.identity);
-        Destroy(attackVFX, 2f); // Destroy the VFX after 2 seconds (adjust as needed)
+        Destroy(attackVFX, 2f);
     }
 
     // Called from animation when the attack is performed
@@ -125,8 +126,30 @@ public class EnemyL : MonoBehaviour
     {
         if (CurrentHealth > 0)
         {
+            Debug.Log($"Enemy L received damage: {damage}");
+
             CurrentHealth -= damage;
             Debug.Log($"Enemy L is taking damage: {damage}, current health: {CurrentHealth}");
+
+            if (_playerTransform != null)
+            {
+                if (_playerTransform.gameObject.name == "Player-Ksatria(Clone)")
+                {
+                    GameObject heKsatriaVFX = Instantiate(heKsatriaVFXPrefab, transform.position, Quaternion.identity);
+                    heKsatriaVFX.transform.localScale *= 3;
+                    Destroy(heKsatriaVFX, 2f);
+                }
+                else if (_playerTransform.gameObject.name == "Player_Prajurit(Clone)")
+                {
+                    // GameObject hePrajuritVFX = Instantiate(hePrajuritVFXPrefab, transform.position, Quaternion.identity);
+                    // hePrajuritVFX.transform.localScale *= 3;
+                    // Destroy(hePrajuritVFX, 2f);
+                    GameObject heKsatriaVFX = Instantiate(heKsatriaVFXPrefab, transform.position, Quaternion.identity);
+                    heKsatriaVFX.transform.localScale *= 3;
+                    Destroy(heKsatriaVFX, 2f);
+                }
+            }
+
             if (CurrentHealth <= 0)
             {
                 Die();
