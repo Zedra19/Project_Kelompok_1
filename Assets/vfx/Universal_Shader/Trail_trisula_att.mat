@@ -46,8 +46,8 @@ Material:
     - _QueueOffset: 0
     - _alphaClip: 0
     m_Colors:
-    - _Color01: {r: 2.9084766, g: 0.97897774, b: 5.342421, a: 1}
-    - _Color02: {r: 0.21149264, g: 0.110565335, b: 1.3627834, a: 0.6666667}
+    - _Color01: {r: 1.9416573, g: 0.054952234, b: 0.054952234, a: 1}
+    - _Color02: {r: 0.48746797, g: 0, b: 0.036091864, a: 0.6666667}
     - _DissolveSpeed: {r: -0.5, g: 0, b: 0, a: 0}
     - _MainTexSpee: {r: -0.5, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
