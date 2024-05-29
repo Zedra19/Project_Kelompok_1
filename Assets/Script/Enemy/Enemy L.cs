@@ -124,31 +124,28 @@ public class EnemyL : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (_playerTransform != null)
+        {
+            if (_playerTransform.gameObject.name == "Player-Ksatria(Clone)")
+            {
+                GameObject heKsatriaVFX = Instantiate(heKsatriaVFXPrefab, transform.position + transform.up * 2, Quaternion.identity);
+                heKsatriaVFX.transform.localScale *= 3;
+                Destroy(heKsatriaVFX, 2f);
+            }
+            else if (_playerTransform.gameObject.name == "Player_Prajurit(Clone)")
+            {
+                GameObject hePrajuritVFX = Instantiate(hePrajuritVFXPrefab, transform.position + transform.up * 2, Quaternion.identity);
+                hePrajuritVFX.transform.localScale *= 3;
+                Destroy(hePrajuritVFX, 2f);
+            }
+        }
+
         if (CurrentHealth > 0)
         {
             Debug.Log($"Enemy L received damage: {damage}");
 
             CurrentHealth -= damage;
             Debug.Log($"Enemy L is taking damage: {damage}, current health: {CurrentHealth}");
-
-            if (_playerTransform != null)
-            {
-                if (_playerTransform.gameObject.name == "Player-Ksatria(Clone)")
-                {
-                    GameObject heKsatriaVFX = Instantiate(heKsatriaVFXPrefab, transform.position, Quaternion.identity);
-                    heKsatriaVFX.transform.localScale *= 3;
-                    Destroy(heKsatriaVFX, 2f);
-                }
-                else if (_playerTransform.gameObject.name == "Player_Prajurit(Clone)")
-                {
-                    // GameObject hePrajuritVFX = Instantiate(hePrajuritVFXPrefab, transform.position, Quaternion.identity);
-                    // hePrajuritVFX.transform.localScale *= 3;
-                    // Destroy(hePrajuritVFX, 2f);
-                    GameObject heKsatriaVFX = Instantiate(heKsatriaVFXPrefab, transform.position, Quaternion.identity);
-                    heKsatriaVFX.transform.localScale *= 3;
-                    Destroy(heKsatriaVFX, 2f);
-                }
-            }
 
             if (CurrentHealth <= 0)
             {
@@ -159,7 +156,7 @@ public class EnemyL : MonoBehaviour
 
     void Die()
     {
-        Destroy(gameObject);
+        Destroy(gameObject, 1f);
         Debug.Log("Enemy L is Dead!");
     }
 }
