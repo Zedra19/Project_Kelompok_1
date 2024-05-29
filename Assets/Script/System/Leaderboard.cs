@@ -4,28 +4,24 @@ using UnityEngine;
 
 public class Leaderboard : MonoBehaviour
 {
-    public GameObject EasyButton;
-    public GameObject MediumButton;
-    public GameObject HardButton;
+    public GameObject StoryButton;
+    public GameObject EndlessButton;
 
-    private Animator easyButtonAnimator;
-    private Animator mediumButtonAnimator;
-    private Animator hardButtonAnimator;
+    private Animator StoryButtonAnimator;
+    private Animator EndlessButtonAnimator;
 
     void Start()
     {
         // Dapatkan komponen Animator dari tombol-tombol
-        easyButtonAnimator = EasyButton.GetComponent<Animator>();
-        mediumButtonAnimator = MediumButton.GetComponent<Animator>();
-        hardButtonAnimator = HardButton.GetComponent<Animator>();
+        StoryButtonAnimator = StoryButton.GetComponent<Animator>();
+        EndlessButtonAnimator = EndlessButton.GetComponent<Animator>();
     }
 
     public void Display()
     {
         // Reset state animasi tombol ke state normal
-        ResetButtonAnimation(easyButtonAnimator);
-        ResetButtonAnimation(mediumButtonAnimator);
-        ResetButtonAnimation(hardButtonAnimator);
+        ResetButtonAnimation(StoryButtonAnimator);
+        ResetButtonAnimation(EndlessButtonAnimator);
     }
 
     private void ResetButtonAnimation(Animator buttonAnimator)

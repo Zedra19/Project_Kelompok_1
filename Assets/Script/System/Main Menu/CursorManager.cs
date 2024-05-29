@@ -12,28 +12,42 @@ public class CursorManager : MonoBehaviour
     public Texture2D scrollbarCursor;
     public Vector2 cursorHotspot = Vector2.zero;
     public bool isHovering = false;
+    private bool isDraggingSlider = false;
+    private bool isDraggingScrollbar = false;
 
     void Start()
     {
-        Cursor.SetCursor(defaultCursor, cursorHotspot, CursorMode.Auto);   
+        Cursor.SetCursor(defaultCursor, cursorHotspot, CursorMode.Auto);
 
         DetectButton();
         DetectSlider();
+        DetectScrollbar();
     }
 
     void Update()
     {
         DetectButton();
         DetectSlider();
+        DetectScrollbar();
+
         if (Input.GetMouseButtonDown(0))
         {
             SetDefaultCursor();
         }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            isDraggingSlider = false;
+            isDraggingScrollbar = false;
+            SetDefaultCursor();
+        }
+
+        DetectScrollInput();
     }
 
     public void SetDefaultCursor()
     {
-        if (!isHovering)
+        if (!isHovering && !isDraggingSlider && !isDraggingScrollbar)
         {
             Cursor.SetCursor(defaultCursor, cursorHotspot, CursorMode.Auto);
         }
@@ -54,7 +68,7 @@ public class CursorManager : MonoBehaviour
     public void OnHoverExit()
     {
         isHovering = false;
-        Cursor.SetCursor(defaultCursor, cursorHotspot, CursorMode.Auto);
+        SetDefaultCursor();
     }
 
     public void OnSliderEnter()
@@ -65,24 +79,21 @@ public class CursorManager : MonoBehaviour
 
     public void OnSliderClick()
     {
-        if (EventSystem.current.currentSelectedGameObject != null)
-        {
-            if (EventSystem.current.currentSelectedGameObject.CompareTag("Slider"))
-            {
-                isHovering = true;
-                Cursor.SetCursor(sliderCursor, cursorHotspot, CursorMode.Auto);
-            }
-            else
-            {
-                SetDefaultCursor();
-            }
-        }
-        else
-        {
-            SetDefaultCursor();
-        }
+        isDraggingSlider = true;
+        Cursor.SetCursor(sliderCursor, cursorHotspot, CursorMode.Auto);
     }
 
+    public void OnScrollbarEnter()
+    {
+        isHovering = true;
+        Cursor.SetCursor(scrollbarCursor, cursorHotspot, CursorMode.Auto);
+    }
+
+    public void OnScrollbarClick()
+    {
+        isDraggingScrollbar = true;
+        Cursor.SetCursor(scrollbarCursor, cursorHotspot, CursorMode.Auto);
+    }
 
     public void DetectButton()
     {
@@ -138,6 +149,59 @@ public class CursorManager : MonoBehaviour
             exitEntry.eventID = EventTriggerType.PointerExit;
             exitEntry.callback.AddListener((eventData) => { OnHoverExit(); });
             trigger.triggers.Add(exitEntry);
+        }
+    }
+
+    public void DetectScrollbar()
+    {
+        GameObject[] scrollbars = GameObject.FindGameObjectsWithTag("Scrollbar");
+        foreach (GameObject scrollbar in scrollbars)
+        {
+            EventTrigger trigger = scrollbar.GetComponent<EventTrigger>();
+            if (trigger == null)
+            {
+                trigger = scrollbar.AddComponent<EventTrigger>();
+            }
+
+            EventTrigger.Entry enterEntry = new EventTrigger.Entry();
+            enterEntry.eventID = EventTriggerType.PointerEnter;
+            enterEntry.callback.AddListener((eventData) => { OnScrollbarEnter(); });
+            trigger.triggers.Add(enterEntry);
+
+            EventTrigger.Entry clickEntry = new EventTrigger.Entry();
+            clickEntry.eventID = EventTriggerType.PointerDown;
+            clickEntry.callback.AddListener((eventData) => { OnScrollbarClick(); });
+            trigger.triggers.Add(clickEntry);
+
+            EventTrigger.Entry exitEntry = new EventTrigger.Entry();
+            exitEntry.eventID = EventTriggerType.PointerExit;
+            exitEntry.callback.AddListener((eventData) => { OnHoverExit(); });
+            trigger.triggers.Add(exitEntry);
+        }
+    }
+
+    public void DetectScrollInput()
+    {
+        if (Input.mouseScrollDelta.y != 0)
+        {
+            PointerEventData pointerData = new PointerEventData(EventSystem.current)
+            {
+                position = Input.mousePosition
+            };
+
+            List<RaycastResult> raycastResults = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(pointerData, raycastResults);
+
+            foreach (RaycastResult result in raycastResults)
+            {
+                if (result.gameObject.CompareTag("Scrollbar"))
+                {
+                    OnScrollbarEnter();
+                    return;
+                }
+            }
+
+            SetDefaultCursor();
         }
     }
 }
