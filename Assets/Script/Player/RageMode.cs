@@ -12,6 +12,7 @@ public class RageMode : MonoBehaviour
     float rageTimer = 0f;
     public static event Action<bool> OnRageMode;
     private bool _isRaging = false;
+    [SerializeField] private GameObject rageModeVFX;
 
 
     void Start()
@@ -30,6 +31,8 @@ public class RageMode : MonoBehaviour
         if (comboScript.comboCount >= ComboRageTrigger)
         {
             //TODO: Replace using vfx instead of change color
+            GameObject _rageModeVFX = Instantiate(rageModeVFX, transform.position, Quaternion.identity);
+            
             Debug.Log("Rage Mode On");
             // Rage mode Start
             rageTimer += Time.deltaTime;

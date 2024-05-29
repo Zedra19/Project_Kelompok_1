@@ -325,10 +325,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerHealth: {fileID: 7812535678962721379}
   _playerMovement: {fileID: 127297790280241974}
-  _playerAttack: {fileID: 5748205247403693035}
-  _playerAttackDukun: {fileID: 0}
-  _playerAttackPetani: {fileID: 0}
-  _playerAttackPrajurit: {fileID: 0}
 --- !u!114 &4387052929544704429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,6 +339,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerKsatriaName: Player-Ksatria(Clone)
   _playerDukunName: Player_Dukun(Clone)
+  _playerPrajuritName: Player_Prajurit(Clone)
+  _playerPetaniName: Player_Petani(Clone)
 --- !u!114 &2566161459191952068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,6 +356,7 @@ MonoBehaviour:
   RageTime: 30
   ComboRageTrigger: 3
   visualObjectRenderer: {fileID: 41788949919053388}
+  rageModeVFX: {fileID: 6593579210643490428, guid: 22c197b0339be68439817a4f3dd0d80d, type: 3}
 --- !u!1 &511329156119174146
 GameObject:
   m_ObjectHideFlags: 0
