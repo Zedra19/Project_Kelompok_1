@@ -19,15 +19,38 @@ public class EnemyL : MonoBehaviour
     private bool _isAttacking = false;
     private Animator _animator;
     private NavMeshAgent _navMeshAgent;
+    private PlayerMovement _playerMovement;
+    private bool isPlayerDodging = false;
 
     private void OnEnable()
     {
+        PlayerMovement.OnDodgeStart += HandlePlayerDodgeStart;
+        PlayerMovement.OnDodgeEnd += HandlePlayerDodgeEnd;
         PlayerAttack.OnAttackDone += AllowAttack;
     }
 
     private void OnDisable()
     {
+        PlayerMovement.OnDodgeStart -= HandlePlayerDodgeStart;
+        PlayerMovement.OnDodgeEnd -= HandlePlayerDodgeEnd;
         PlayerAttack.OnAttackDone -= AllowAttack;
+    }
+
+    private void HandlePlayerDodgeStart()
+    {
+        isPlayerDodging = true;
+    }
+
+    private void HandlePlayerDodgeEnd()
+    {
+        isPlayerDodging = false;
+        ResetAttackState();
+    }
+
+    private void ResetAttackState()
+    {
+        _isOnCooldown = false;
+        _isAttacking = false;
     }
 
     private void AllowAttack()
@@ -68,13 +91,12 @@ public class EnemyL : MonoBehaviour
         }
         else
         {
-            if (!_isOnCooldown && !_isAttacking)
+            if (!_isOnCooldown && !_isAttacking && !isPlayerDodging)
             {
                 AttackPlayer();
             }
         }
     }
-
     void ChasePlayer()
     {
         _navMeshAgent.SetDestination(_playerTransform.position);
@@ -90,9 +112,13 @@ public class EnemyL : MonoBehaviour
         Destroy(attackVFX, 2f);
     }
 
-    // Called from animation when the attack is performed
     public void PerformKnockback()
     {
+        if (isPlayerDodging)
+        {
+            return;
+        }
+
         if (_playerTransform != null)
         {
             Vector3 knockbackDirection = (_playerTransform.position - transform.position).normalized;
@@ -113,7 +139,6 @@ public class EnemyL : MonoBehaviour
             StartCoroutine(StartCooldown());
         }
     }
-
     IEnumerator StartCooldown()
     {
         _isOnCooldown = true;
@@ -146,6 +171,22 @@ public class EnemyL : MonoBehaviour
 
             CurrentHealth -= damage;
             Debug.Log($"Enemy L is taking damage: {damage}, current health: {CurrentHealth}");
+
+            if (_playerTransform != null)
+            {
+                if (_playerTransform.gameObject.name == "Player-Ksatria(Clone)")
+                {
+                    GameObject heKsatriaVFX = Instantiate(heKsatriaVFXPrefab, transform.position, Quaternion.identity);
+                    heKsatriaVFX.transform.localScale *= 3;
+                    Destroy(heKsatriaVFX, 2f);
+                }
+                else if (_playerTransform.gameObject.name == "Player_Prajurit(Clone)")
+                {
+                    GameObject heKsatriaVFX = Instantiate(heKsatriaVFXPrefab, transform.position, Quaternion.identity);
+                    heKsatriaVFX.transform.localScale *= 3;
+                    Destroy(heKsatriaVFX, 2f);
+                }
+            }
 
             if (CurrentHealth <= 0)
             {

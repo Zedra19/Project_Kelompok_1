@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,9 @@ public class PlayerMovement : MonoBehaviour
 {
     public bool IsDodging { get; private set; } = false;
     public Transform _pointer; // Reference to object to face
+    public static event Action OnDodgeStart;
+    public static event Action OnDodgeEnd;
+
 
     [SerializeField] private Animator _animator;
     [SerializeField] private Transform _visualObject; // Reference to the object representing the player visually
@@ -154,6 +158,7 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator Dodge()
     {
+        OnDodgeStart?.Invoke();
 
         Debug.Log("Dodge");
         _animator.SetTrigger("Dodge");
@@ -171,6 +176,8 @@ public class PlayerMovement : MonoBehaviour
         IsDodging = false;
         playerCollider.isTrigger = false;
         _rigidbody.useGravity = true;
+
+        OnDodgeEnd?.Invoke();
     }
 
     private void OnMovementInput(InputAction.CallbackContext context)
@@ -416,3 +423,4 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 }
+
