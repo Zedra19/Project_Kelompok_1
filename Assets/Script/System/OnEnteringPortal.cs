@@ -14,4 +14,10 @@ public class OnEnteringPortal : MonoBehaviour
             SceneManager.LoadScene(_sceneName);
         }
     }
+
+    public string SceneName
+    {
+        get { return _sceneName; }
+        set { _sceneName = value; }
+    }
 }

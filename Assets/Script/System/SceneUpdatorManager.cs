@@ -1,0 +1,91 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
+public class SceneUpdatorManager : MonoBehaviour
+{
+    [SerializeField] private string _shopSceneName = "Shop";
+
+
+    [HideInInspector] public OnEnteringPortal OnEnteringPortal;
+    // [HideInInspector] public PlayerSpawnerManager PlayerSpawnerManager;
+    [HideInInspector] public string InGameNextSceneName;
+    public enum CurrentScene
+    {
+        game,
+        shop
+    }
+    [SerializeField] private CurrentScene _currentScene;
+
+#if UNITY_EDITOR
+
+    [CustomEditor(typeof(SceneUpdatorManager))]
+    public class SceneUpdatorManagerEditor : Editor
+    {
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+
+            SceneUpdatorManager SceneUpdatorManager = (SceneUpdatorManager)target;
+
+            EditorGUILayout.Space();
+            EditorGUILayout.LabelField("Needed Values based on Scene", EditorStyles.boldLabel);
+
+            DrawDetailPerScene(SceneUpdatorManager);
+        }
+
+        private static void DrawDetailPerScene(SceneUpdatorManager SceneUpdatorManager)
+        {
+            if (SceneUpdatorManager._currentScene == SceneUpdatorManager.CurrentScene.game)
+            {
+                SceneUpdatorManager.InGameNextSceneName = EditorGUILayout.TextField("In Game Next Scene Name", SceneUpdatorManager.InGameNextSceneName);
+            }
+            if (SceneUpdatorManager._currentScene == SceneUpdatorManager.CurrentScene.shop)
+            {
+                SceneUpdatorManager.OnEnteringPortal = (OnEnteringPortal)EditorGUILayout.ObjectField("On Entering Portal", SceneUpdatorManager.OnEnteringPortal, typeof(OnEnteringPortal), true);
+                // SceneUpdatorManager.PlayerSpawnerManager = (PlayerSpawnerManager)EditorGUILayout.ObjectField("Player Spawner Manager", SceneUpdatorManager.PlayerSpawnerManager, typeof(PlayerSpawnerManager), true);
+            }
+            if (GUI.changed)
+                EditorUtility.SetDirty(SceneUpdatorManager);
+        }
+    }
+
+#endif
+
+    void Start()
+    {
+        if (_currentScene == CurrentScene.shop)
+        {
+            if (PlayerPrefs.GetInt("isLevelSuccess") == 1)
+            {
+                // PlayerSpawnerManager.SpawnPlayer();
+                OnEnteringPortal.SceneName = PlayerPrefs.GetString("nextScene");
+                PlayerPrefs.SetInt("isLevelSuccess", 0);
+            }
+        }
+    }
+
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.RightControl))
+        {
+            LevelSuccessNextScene();
+        }
+    }
+
+    /// <summary>
+    /// call this function in game scene, not need in shop scene
+    /// </summary>
+    public void LevelSuccessNextScene()
+    {
+        // Time.timeScale = 1;
+        PlayerPrefs.SetInt("isLevelSuccess", 1);
+        PlayerPrefs.SetString("nextScene", InGameNextSceneName);
+        SceneManager.LoadScene(_shopSceneName);
+    }
+}

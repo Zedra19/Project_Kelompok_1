@@ -86,11 +86,16 @@ public class PlayerSpawnerManager : MonoBehaviour
 #endif
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+#if UNITY_EDITOR
+        AssetDatabase.SaveAssets();
+#endif
+        SpawnPlayer();
+    }
 
-        //    AssetDatabase.SaveAssets();
-
+    public void SpawnPlayer()
+    {
         if (StaticPlayer.CurrentPlayerIndex == -1)
         {
             Debug.Log("Player Index not set, setting to default");

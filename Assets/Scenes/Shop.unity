@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44834453, g: 0.49837756, b: 0.575607, a: 1}
+  m_IndirectSpecularColor: {r: 0.44834453, g: 0.49837792, b: 0.57560736, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5703,6 +5703,75 @@ RectTransform:
   m_AnchoredPosition: {x: -274.6, y: 164}
   m_SizeDelta: {x: 109.799995, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &1647138783
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2075746010199560688, guid: ccd81069ae027cf45a056bf921b48197, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -109.90543
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075746010199560688, guid: ccd81069ae027cf45a056bf921b48197, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -21.381733
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075746010199560688, guid: ccd81069ae027cf45a056bf921b48197, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.759964
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075746010199560688, guid: ccd81069ae027cf45a056bf921b48197, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075746010199560688, guid: ccd81069ae027cf45a056bf921b48197, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075746010199560688, guid: ccd81069ae027cf45a056bf921b48197, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075746010199560688, guid: ccd81069ae027cf45a056bf921b48197, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075746010199560688, guid: ccd81069ae027cf45a056bf921b48197, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075746010199560688, guid: ccd81069ae027cf45a056bf921b48197, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075746010199560688, guid: ccd81069ae027cf45a056bf921b48197, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989166639386015371, guid: ccd81069ae027cf45a056bf921b48197, type: 3}
+      propertyPath: _currentScene
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989166639386015371, guid: ccd81069ae027cf45a056bf921b48197, type: 3}
+      propertyPath: OnEnteringPortal
+      value: 
+      objectReference: {fileID: 168527387}
+    - target: {fileID: 7989166639386015371, guid: ccd81069ae027cf45a056bf921b48197, type: 3}
+      propertyPath: PlayerSpawnerManager
+      value: 
+      objectReference: {fileID: 1790857404}
+    - target: {fileID: 8696872547603563297, guid: ccd81069ae027cf45a056bf921b48197, type: 3}
+      propertyPath: m_Name
+      value: UpdateLevelManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ccd81069ae027cf45a056bf921b48197, type: 3}
 --- !u!1 &1650378813
 GameObject:
   m_ObjectHideFlags: 0
@@ -6693,7 +6762,7 @@ MonoBehaviour:
   _playerPrefab:
   - {fileID: 242259732691763411, guid: 41bedeecd6e931c4ebbf19580c6fba8e, type: 3}
   - {fileID: 8198426975804042383, guid: d9e085f83bd45f54ba69b3643e65437e, type: 3}
-  - {fileID: 3618516517979024316, guid: 6a05829e6a037e24ab0b6e8b25107968, type: 3}
+  - {fileID: 2948516622923247369, guid: 5af3ffd4d4e255540bc4e00544266b53, type: 3}
   - {fileID: 7643126771042429404, guid: e8c40a01e1893824aaa6b0eceb6e9902, type: 3}
   _mousePosition3D: {fileID: 1573111764}
   _healthIcons:
@@ -11319,3 +11388,4 @@ SceneRoots:
   - {fileID: 636273926}
   - {fileID: 544945804}
   - {fileID: 648817215}
+  - {fileID: 1647138783}
