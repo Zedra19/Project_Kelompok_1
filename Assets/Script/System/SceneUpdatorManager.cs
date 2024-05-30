@@ -9,8 +9,7 @@ using UnityEditor;
 public class SceneUpdatorManager : MonoBehaviour
 {
     [SerializeField] private string _shopSceneName = "Shop";
-
-
+    [SerializeField] private string _level1SceneName = "Env";
     [HideInInspector] public OnEnteringPortal OnEnteringPortal;
     // [HideInInspector] public PlayerSpawnerManager PlayerSpawnerManager;
     [HideInInspector] public string InGameNextSceneName;
@@ -65,6 +64,14 @@ public class SceneUpdatorManager : MonoBehaviour
                 // PlayerSpawnerManager.SpawnPlayer();
                 OnEnteringPortal.SceneName = PlayerPrefs.GetString("nextScene");
                 PlayerPrefs.SetInt("isLevelSuccess", 0);
+            }
+        }
+        if (_currentScene == CurrentScene.game)
+        {
+            //setting up shop in level 1 if lost
+            if (SceneManager.GetActiveScene().name == _level1SceneName)
+            {
+                PlayerPrefs.SetString("nextScene", _level1SceneName);
             }
         }
     }
