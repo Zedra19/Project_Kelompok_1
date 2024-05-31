@@ -1,5 +1,8 @@
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
+using System.Collections.Generic;
+using System.Linq;
 using System.Collections;
 
 public class InGameDialogue : MonoBehaviour
@@ -21,11 +24,70 @@ public class InGameDialogue : MonoBehaviour
     [SerializeField] private Rigidbody _rigidbodyPlayer;
     public GameObject TutorialPanel;
 
+    public Texture texture1;
+    public Texture texture2;
+    public Texture texture3;
+    public Texture texture4;
+
+    private List<RawImage> mcImages = new List<RawImage>();
+
     private IEnumerator Start()
     {
         yield return new WaitForSeconds(0.1f);
         AssignPlayerComponents();
         DisablePlayerAbilities();
+    }
+    
+private void FindAndAssignMCImages()
+{
+    mcImages.Clear(); // Bersihkan list sebelum mencari lagi
+
+    RawImage[] rawImages = GameObject.FindObjectsOfType<RawImage>();
+
+    foreach (RawImage rawImage in rawImages)
+    {
+        if (rawImage.gameObject.name == "MC")
+        {
+            mcImages.Add(rawImage);
+        }
+    }
+
+    if (mcImages.Any())
+    {
+        UpdateMCImages();
+    }
+    else
+    {
+        Debug.LogError("GameObject dengan nama 'MC' dan komponen RawImage tidak ditemukan.");
+    }
+}
+
+    private void UpdateMCImages()
+    {
+        foreach (RawImage mcImage in mcImages)
+        {
+            UpdateMCImage(mcImage);
+        }
+    }
+
+    private void UpdateMCImage(RawImage mcImage)
+    {
+        if (StaticPlayer.CurrentPlayerIndex == 1)
+        {
+            mcImage.texture = texture1;
+        }
+        else if (StaticPlayer.CurrentPlayerIndex == 2)
+        {
+            mcImage.texture = texture2;
+        }
+        else if (StaticPlayer.CurrentPlayerIndex == 3)
+        {
+            mcImage.texture = texture3;
+        }
+        else
+        {
+            mcImage.texture = texture4;
+        }
     }
 
     private void Update()
@@ -172,6 +234,7 @@ public class InGameDialogue : MonoBehaviour
         {
             Dialog4.SetActive(false);
             Dialog5.SetActive(true);
+            FindAndAssignMCImages();
         }
     }
 
@@ -181,6 +244,7 @@ public class InGameDialogue : MonoBehaviour
         {
             Dialog5.SetActive(false);
             Dialog6.SetActive(true);
+            FindAndAssignMCImages();
         }
     }
 
