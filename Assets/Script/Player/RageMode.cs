@@ -23,33 +23,41 @@ public class RageMode : MonoBehaviour
 
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Rage();
+        }
     }
 
     void RageModeFix()
     {
         if (comboScript.comboCount >= ComboRageTrigger)
         {
-            //TODO: Replace using vfx instead of change color
-            GameObject _rageModeVFX = Instantiate(rageModeVFX, transform.position, Quaternion.identity);
-            
-            Debug.Log("Rage Mode On");
-            // Rage mode Start
-            rageTimer += Time.deltaTime;
-            //visualObjectRenderer.GetComponent<Renderer>().material.color = RageColor;
-            comboScript.comboCount = ComboRageTrigger;
-            if (!_isRaging) OnRageMode?.Invoke(true);
-            _isRaging = true;
-            if (rageTimer >= RageTime)
-            {
-                // Rage mode ends
-                Debug.Log("Rage Mode Off");
-                rageTimer = 0;
-                comboScript.comboCount = 0;
-                //visualObjectRenderer.GetComponent<Renderer>().material.color = baseColor;
-                if (_isRaging) OnRageMode?.Invoke(false);
-                _isRaging = false;
-            }
+            Rage();
+        }
+    }
+
+    private void Rage()
+    {
+        //TODO: Replace using vfx instead of change color
+        GameObject _rageModeVFX = Instantiate(rageModeVFX, transform.position, Quaternion.identity);
+        _rageModeVFX.transform.SetParent(transform);
+        Debug.Log("Rage Mode On");
+        // Rage mode Start
+        rageTimer += Time.deltaTime;
+        //visualObjectRenderer.GetComponent<Renderer>().material.color = RageColor;
+        comboScript.comboCount = ComboRageTrigger;
+        if (!_isRaging) OnRageMode?.Invoke(true);
+        _isRaging = true;
+        if (rageTimer >= RageTime)
+        {
+            // Rage mode ends
+            Debug.Log("Rage Mode Off");
+            rageTimer = 0;
+            comboScript.comboCount = 0;
+            //visualObjectRenderer.GetComponent<Renderer>().material.color = baseColor;
+            if (_isRaging) OnRageMode?.Invoke(false);
+            _isRaging = false;
         }
     }
 }
