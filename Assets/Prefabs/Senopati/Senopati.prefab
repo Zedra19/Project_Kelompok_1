@@ -544,6 +544,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4069116268454857189, guid: c16004ec82e67f344b400e1ec53dc7a4, type: 3}
+    - {fileID: 2818839496552718529, guid: c16004ec82e67f344b400e1ec53dc7a4, type: 3}
+    - {fileID: 4919614660257977850, guid: c16004ec82e67f344b400e1ec53dc7a4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 960369766097069289, guid: c16004ec82e67f344b400e1ec53dc7a4, type: 3}
@@ -602,7 +604,6 @@ MonoBehaviour:
   attackCooldown: 4
   isGettingHitInThisHit: 0
   HP: 0
-  playerTag: Player
 --- !u!195 &5639369957786515582
 NavMeshAgent:
   m_ObjectHideFlags: 0
