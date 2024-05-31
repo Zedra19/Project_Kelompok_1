@@ -7,6 +7,7 @@ public class PopUpOnClick : MonoBehaviour
     public GameObject Close;
     public GameObject Close2;
     public GameObject PopUp;
+    public GameObject PopUp2;
 
     private Animator animator;
 
@@ -20,9 +21,14 @@ public class PopUpOnClick : MonoBehaviour
         StartCoroutine(Delay());
     }
 
-    public void Score()
+    public void Click2()
     {
+        StartCoroutine(Delay2());
+    }
 
+    public void ClosePopUp()
+    {
+        StartCoroutine(DelayClose());
     }
 
     private IEnumerator Delay()
@@ -38,6 +44,13 @@ public class PopUpOnClick : MonoBehaviour
         Close.SetActive(false);
         Close2.SetActive(false);
         PopUp.SetActive(true);
-        animator.SetBool("Normal", true);
+    }
+
+    private IEnumerator DelayClose()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Close.SetActive(false);
+        PopUp.SetActive(true);
+        PopUp2.SetActive(true);
     }
 }
