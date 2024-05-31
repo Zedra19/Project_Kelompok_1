@@ -65,6 +65,10 @@ public class SceneUpdatorManager : MonoBehaviour
                 OnEnteringPortal.SceneName = PlayerPrefs.GetString("nextScene");
                 PlayerPrefs.SetInt("isLevelSuccess", 0);
             }
+            if (PlayerPrefs.GetString("nextScene") == _level1SceneName)
+            {
+                OnEnteringPortal.SceneName = _level1SceneName;
+            }
         }
         if (_currentScene == CurrentScene.game)
         {
