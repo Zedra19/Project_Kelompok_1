@@ -971,7 +971,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '[Enter] YES'
+  m_text: YES
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 96523830277d7d447bfefc5470f8b7d5, type: 2}
   m_sharedMaterial: {fileID: 1190488881392716221, guid: 96523830277d7d447bfefc5470f8b7d5, type: 2}
@@ -2327,6 +2327,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1029897862}
     m_Modifications:
+    - target: {fileID: 514042071822022789, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.2000122
+      objectReference: {fileID: 0}
     - target: {fileID: 701047441189045412, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2383,6 +2387,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1984402692}
+    - target: {fileID: 4132005765159373174, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.2000122
+      objectReference: {fileID: 0}
     - target: {fileID: 4413108177618606460, guid: 0321cb69ef8332946a9137c8a19bb209, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2825,6 +2833,7 @@ GameObject:
   m_Component:
   - component: {fileID: 426381028}
   - component: {fileID: 426381027}
+  - component: {fileID: 426381029}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -2861,6 +2870,21 @@ RectTransform:
   m_AnchoredPosition: {x: -0.30297852, y: -0.5366821}
   m_SizeDelta: {x: 0.61, y: -0.80472}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &426381029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426381025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af48c823ca705fc45aa2ecc77fc68866, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Close: {fileID: 426381025}
+  PopUp: {fileID: 1209203867}
+  PopUp2: {fileID: 945814050}
 --- !u!1 &457564470
 GameObject:
   m_ObjectHideFlags: 0
@@ -5691,7 +5715,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '[Esc] NO'
+  m_text: NO
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 96523830277d7d447bfefc5470f8b7d5, type: 2}
   m_sharedMaterial: {fileID: 1190488881392716221, guid: 96523830277d7d447bfefc5470f8b7d5, type: 2}
