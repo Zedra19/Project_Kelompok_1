@@ -170,6 +170,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  fullHealthSprite: {fileID: 21300000, guid: 24738fccbfb8ce84c9dcaa182e7a700a, type: 3}
+  emptyHealthSprite: {fileID: 21300000, guid: 24fed816c2719ea4eb41fc2899e30813, type: 3}
 --- !u!114 &5535623886896043165
 MonoBehaviour:
   m_ObjectHideFlags: 0

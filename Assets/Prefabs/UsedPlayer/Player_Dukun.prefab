@@ -274,6 +274,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  fullHealthSprite: {fileID: 21300000, guid: 24738fccbfb8ce84c9dcaa182e7a700a, type: 3}
+  emptyHealthSprite: {fileID: 21300000, guid: 24fed816c2719ea4eb41fc2899e30813, type: 3}
 --- !u!114 &983989108414869935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,10 +324,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerHealth: {fileID: 1742925953848449911}
   _playerMovement: {fileID: 3279076440615112826}
-  _playerAttack: {fileID: 0}
-  _playerAttackDukun: {fileID: 5064819507172276111}
-  _playerAttackPetani: {fileID: 0}
-  _playerAttackPrajurit: {fileID: 0}
 --- !u!114 &5064819507172276111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,6 +359,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerKsatriaName: Player-Ksatria Variant(Clone)
   _playerDukunName: Player_Dukun(Clone)
+  _playerPrajuritName: Player_Prajurit(Clone)
+  _playerPetaniName: Player_Petani(Clone)
 --- !u!1001 &1169938462418095270
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -13,6 +13,8 @@ public class Health : MonoBehaviour
     public int currentHealth;
 
     public Image[] healthIcons;
+    public Sprite fullHealthSprite;
+    public Sprite emptyHealthSprite;
     public IPlayerAttack playerAttackScript; // Menggunakan interface sebagai tipe data
     private bool hasTakenDamage = false;
 
@@ -52,9 +54,9 @@ public class Health : MonoBehaviour
         for (int i = 0; i < healthIcons.Length; i++)
         {
             if (i < currentHealth)
-                healthIcons[i].color = Color.red;
+                healthIcons[i].sprite = fullHealthSprite;
             else
-                healthIcons[i].color = Color.white;
+                healthIcons[i].sprite = emptyHealthSprite;
         }
     }
 
@@ -78,7 +80,7 @@ public class Health : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy S"))
         {
-            if (playerAttackScript.IsAttacking) //belum ter assign nigga
+            if (playerAttackScript != null && playerAttackScript.IsAttacking) // Cek null dan properti
             {
                 TakeDamage(0);
             }
@@ -86,7 +88,6 @@ public class Health : MonoBehaviour
             {
                 TakeDamage(1);
             }
-
         }
         else if (collision.gameObject.CompareTag("BossAttack"))
         {
