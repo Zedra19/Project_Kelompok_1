@@ -8,11 +8,13 @@ public class RageMode : MonoBehaviour
     Combo comboScript;
     [SerializeField] float RageTime = 15f;
     public int ComboRageTrigger;
-    public GameObject visualObjectRenderer;
+    // public GameObject visualObjectRenderer;
     float rageTimer = 0f;
     public static event Action<bool> OnRageMode;
     private bool _isRaging = false;
     [SerializeField] private GameObject rageModeVFX;
+    private GameObject rageModeInstance;
+    private bool rageModeInstanceCreated = false;
 
 
     void Start()
@@ -27,12 +29,15 @@ public class RageMode : MonoBehaviour
         {
             Rage();
         }
+
+        RageModeFix();
     }
 
     void RageModeFix()
     {
         if (comboScript.comboCount >= ComboRageTrigger)
         {
+
             Rage();
         }
     }
@@ -40,8 +45,13 @@ public class RageMode : MonoBehaviour
     private void Rage()
     {
         //TODO: Replace using vfx instead of change color
-        GameObject _rageModeVFX = Instantiate(rageModeVFX, transform.position, Quaternion.identity);
-        _rageModeVFX.transform.SetParent(transform);
+        if (!rageModeInstanceCreated)
+        {
+            rageModeInstance = Instantiate(rageModeVFX, transform.position, Quaternion.identity);
+            rageModeInstance.transform.SetParent(transform);
+
+            rageModeInstanceCreated = true;
+        }
         Debug.Log("Rage Mode On");
         // Rage mode Start
         rageTimer += Time.deltaTime;
@@ -53,6 +63,8 @@ public class RageMode : MonoBehaviour
         {
             // Rage mode ends
             Debug.Log("Rage Mode Off");
+            Destroy(rageModeInstance);
+            rageModeInstanceCreated = false;
             rageTimer = 0;
             comboScript.comboCount = 0;
             //visualObjectRenderer.GetComponent<Renderer>().material.color = baseColor;

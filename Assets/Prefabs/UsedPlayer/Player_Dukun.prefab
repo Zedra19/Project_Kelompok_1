@@ -155,6 +155,7 @@ GameObject:
   - component: {fileID: 7064517064719259568}
   - component: {fileID: 5064819507172276111}
   - component: {fileID: 2064532451532965619}
+  - component: {fileID: 6389732081398493720}
   m_Layer: 0
   m_Name: Player_Dukun
   m_TagString: Player
@@ -361,6 +362,21 @@ MonoBehaviour:
   _playerDukunName: Player_Dukun(Clone)
   _playerPrajuritName: Player_Prajurit(Clone)
   _playerPetaniName: Player_Petani(Clone)
+--- !u!114 &6389732081398493720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8198426975804042383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe243425541c2f438a7d0bfa6a04bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RageTime: 10
+  ComboRageTrigger: 2
+  rageModeVFX: {fileID: 6593579210643490428, guid: 22c197b0339be68439817a4f3dd0d80d, type: 3}
 --- !u!1001 &1169938462418095270
 PrefabInstance:
   m_ObjectHideFlags: 0
