@@ -7,6 +7,7 @@ using System.Collections;
 
 public class InGameDialogue : MonoBehaviour
 {
+    public bool isTutorial;
     public GameObject Prolog;
     public GameObject Dialog1;
     public GameObject Dialog2;
@@ -15,6 +16,8 @@ public class InGameDialogue : MonoBehaviour
     public GameObject Dialog5;
     public GameObject Dialog6;
     public GameObject enemySpawner;
+    public GameObject staminabar;
+    public GameObject healthbar;
 
     [FormerlySerializedAs("_playerAttack")] public PlayerAttack PlayerAttack;
     public PlayerAttack_Dukun PlayerAttackDukun;
@@ -36,31 +39,38 @@ public class InGameDialogue : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         AssignPlayerComponents();
         DisablePlayerAbilities();
-    }
-    
-private void FindAndAssignMCImages()
-{
-    mcImages.Clear(); // Bersihkan list sebelum mencari lagi
 
-    RawImage[] rawImages = GameObject.FindObjectsOfType<RawImage>();
-
-    foreach (RawImage rawImage in rawImages)
-    {
-        if (rawImage.gameObject.name == "MC")
+        if (!isTutorial)
         {
-            mcImages.Add(rawImage);
+            Prolog.SetActive(true);
+            Dialog1.SetActive(true);
+            yield break;
         }
     }
 
-    if (mcImages.Any())
+    private void FindAndAssignMCImages()
     {
-        UpdateMCImages();
+        mcImages.Clear(); // Clear the list before searching again
+
+        RawImage[] rawImages = GameObject.FindObjectsOfType<RawImage>();
+
+        foreach (RawImage rawImage in rawImages)
+        {
+            if (rawImage.gameObject.name == "MC")
+            {
+                mcImages.Add(rawImage);
+            }
+        }
+
+        if (mcImages.Any())
+        {
+            UpdateMCImages();
+        }
+        else
+        {
+            Debug.LogError("GameObject with name 'MC' and RawImage component not found.");
+        }
     }
-    else
-    {
-        Debug.LogError("GameObject dengan nama 'MC' dan komponen RawImage tidak ditemukan.");
-    }
-}
 
     private void UpdateMCImages()
     {
@@ -213,9 +223,16 @@ private void FindAndAssignMCImages()
         if (Input.GetKeyDown(KeyCode.Return))
         {
             Dialog2.SetActive(false);
-            Prolog.SetActive(false);
-            EnablePlayerAbilities();
-            TutorialPanel.SetActive(true);
+            if (isTutorial)
+            {
+                Prolog.SetActive(false);
+                TutorialPanel.SetActive(true);
+                EnablePlayerAbilities();
+            }
+            else
+            {
+                Dialog3.SetActive(true);
+            }
         }
     }
 
@@ -257,6 +274,8 @@ private void FindAndAssignMCImages()
             if (enemySpawner != null)
             {
                 enemySpawner.SetActive(true);
+                staminabar.SetActive(true);
+                healthbar.SetActive(true);
             }
         }
     }
