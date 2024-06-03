@@ -15,6 +15,7 @@ public class MousePosition3D : MonoBehaviour
         if (mainCamera != null)
         {
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            Debug.DrawRay(ray.origin, ray.direction * 1000, Color.red, 1f);
             if (Physics.Raycast(ray, out RaycastHit hit, float.MaxValue, _layerMask))
             {
                 transform.position = hit.point;
