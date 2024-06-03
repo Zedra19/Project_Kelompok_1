@@ -180,10 +180,16 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 4185fb4fb5e0d974bb1697323fa56d42, type: 3}
   - Name: BGM Credit
     Clip: {fileID: 8300000, guid: fb4664826ca993a4fa62a78323b8e46e, type: 3}
-  - Name: BGM Stage 1
-    Clip: {fileID: 8300000, guid: 4f7721759d10baf4cade47c52cf6252c, type: 3}
   - Name: Shop
     Clip: {fileID: 8300000, guid: 76f63310e2da2914daec19287e0ba720, type: 3}
+  - Name: BGM Stage 1
+    Clip: {fileID: 8300000, guid: 4f7721759d10baf4cade47c52cf6252c, type: 3}
+  - Name: BGM Stage 2
+    Clip: {fileID: 8300000, guid: 0ee32724a817d13459ee3032036097e1, type: 3}
+  - Name: BGM Stage 3
+    Clip: {fileID: 0}
+  - Name: BGM Stage 4
+    Clip: {fileID: 8300000, guid: 43887e02d3bc8144e9b270d57bda56ac, type: 3}
   SFXSounds:
   - Name: UI
     Clip: {fileID: 8300000, guid: 9cd5ac966da4c334eb31cc6e0bb258d7, type: 3}
@@ -208,6 +214,8 @@ MonoBehaviour:
   - Name: Senopati Att
     Clip: {fileID: 8300000, guid: fda0fb2195166954a8d5446317983124, type: 3}
   - Name: SenopatiQuake
+    Clip: {fileID: 8300000, guid: 571faaaff9ccae046a0a944491ef164f, type: 3}
+  - Name: BosSpawn
     Clip: {fileID: 8300000, guid: 571faaaff9ccae046a0a944491ef164f, type: 3}
   MusicSource: {fileID: 5991534002033701049}
   SFXSource: {fileID: 8376783408269568113}
