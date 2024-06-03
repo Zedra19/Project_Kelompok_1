@@ -206,7 +206,7 @@ MonoBehaviour:
   - Name: Petani Att
     Clip: {fileID: 8300000, guid: 4908c867c317ec54a8510b2b16dbd9d6, type: 3}
   - Name: S Att
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: 15ae9a9c18da05645bc1e2917e51f4e3, type: 3}
   - Name: M Att
     Clip: {fileID: 8300000, guid: 847316109b524dc4fa3f29a17414713d, type: 3}
   - Name: L Att

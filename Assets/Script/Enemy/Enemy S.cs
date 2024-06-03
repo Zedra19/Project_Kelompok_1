@@ -43,7 +43,16 @@ public class EnemyS : MonoBehaviour
     {
         if (hit.gameObject.CompareTag("Player"))
         {
+
             // Handle collision with player
+        }
+    }
+
+    void OnCollisionEnter(Collision S)
+    {
+        if(S.gameObject.CompareTag("Player"))
+        {
+            AudioManager.Instance.PlaySFX("S Att");
         }
     }
     
