@@ -187,8 +187,8 @@ MonoBehaviour:
   - Name: BGM Stage 2
     Clip: {fileID: 8300000, guid: 0ee32724a817d13459ee3032036097e1, type: 3}
   - Name: BGM Stage 3
-    Clip: {fileID: 0}
-  - Name: BGM Stage 4
+    Clip: {fileID: 8300000, guid: 446dbf95eda310e43b63948969bbbe2a, type: 3}
+  - Name: BGM Endless
     Clip: {fileID: 8300000, guid: 43887e02d3bc8144e9b270d57bda56ac, type: 3}
   SFXSounds:
   - Name: UI

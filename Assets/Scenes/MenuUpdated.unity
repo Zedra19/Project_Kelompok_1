@@ -12093,6 +12093,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7718212177459516798, guid: 6efe53ada60898a428966b2f3f0812cd, type: 3}
+      propertyPath: MusicSounds.Array.data[5].Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 446dbf95eda310e43b63948969bbbe2a, type: 3}
+    - target: {fileID: 7718212177459516798, guid: 6efe53ada60898a428966b2f3f0812cd, type: 3}
       propertyPath: MusicSounds.Array.data[6].Name
       value: BGM Endless
       objectReference: {fileID: 0}
