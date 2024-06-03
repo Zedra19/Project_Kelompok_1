@@ -374,7 +374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe243425541c2f438a7d0bfa6a04bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RageTime: 10
+  RageTime: 30
   ComboRageTrigger: 2
   rageModeVFX: {fileID: 6593579210643490428, guid: 22c197b0339be68439817a4f3dd0d80d, type: 3}
 --- !u!1001 &1169938462418095270
