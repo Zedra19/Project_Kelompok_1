@@ -15,6 +15,7 @@ public class PlayerAttack_Prajurit : MonoBehaviour, IPlayerAttack
     public static event System.Action OnAttackDone;
     [SerializeField] private int _playerDamage;
     [SerializeField] private float arrowForce = 0f;
+    private float originalArrowForce;
     private Coroutine _attackRoutine = null; //use to run attack with duration
 
 
@@ -35,6 +36,7 @@ public class PlayerAttack_Prajurit : MonoBehaviour, IPlayerAttack
     }
     private void Awake()
     {
+        originalArrowForce = arrowForce;
         GameObject pointerObject = GameObject.Find("Pointer");
         if (pointerObject != null)
         {
@@ -52,11 +54,13 @@ public class PlayerAttack_Prajurit : MonoBehaviour, IPlayerAttack
     private void OnEnable()
     {
         _playerInput.CharacterControls.Enable();
+        RageMode.OnRageMode += RageModeRange;
     }
 
     private void OnDisable()
     {
         _playerInput.CharacterControls.Disable();
+        RageMode.OnRageMode -= RageModeRange;
     }
 
     public void OnAttack(InputAction.CallbackContext context)
@@ -95,5 +99,17 @@ public class PlayerAttack_Prajurit : MonoBehaviour, IPlayerAttack
     public void SetAttackTarget(Transform target)
     {
         attackTarget = target;
+    }
+
+    public void RageModeRange(bool isRageModeOn)
+    {
+        if (isRageModeOn)
+        {
+            arrowForce *= 2;
+        }
+        else
+        {
+            arrowForce = originalArrowForce;
+        }
     }
 }
