@@ -703,9 +703,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6520846824057474858, guid: 22c197b0339be68439817a4f3dd0d80d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6593579210643490428, guid: 22c197b0339be68439817a4f3dd0d80d, type: 3}
       propertyPath: m_Name
       value: aura
+      objectReference: {fileID: 0}
+    - target: {fileID: 6593579210643490428, guid: 22c197b0339be68439817a4f3dd0d80d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8829549463986402141, guid: 22c197b0339be68439817a4f3dd0d80d, type: 3}
       propertyPath: m_LocalPosition.x
