@@ -16,13 +16,17 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private string _buyDamageID = "Damage";
     [SerializeField] private int _damagePrice = 100;
 
+    private void Awake()
+    {
+    }
+
     public void BuyUpgrade(string buyID)
     {
         // Vector3 Player = Player.transform.position;
         if (buyID == _buyMovementID)
         {
             CheckBuying(_movementPrice, BuyMovement);
-            if (EffectManager != null)
+            if (EffectManager != null && Player != null)
             {
                 EffectManager.PlayVFX("Upgrade", Player.transform.position); // if null skip
             }
@@ -30,7 +34,7 @@ public class ShopManager : MonoBehaviour
         else if (buyID == _buyDamageID)
         {
             CheckBuying(_damagePrice, BuyDamage);
-            if (EffectManager != null)
+            if (EffectManager != null && Player != null)
             {
                 EffectManager.PlayVFX("Upgrade", Player.transform.position); // if null skip
             }

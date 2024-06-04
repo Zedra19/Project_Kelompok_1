@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: 2583978955533444145}
   - component: {fileID: 3946083075604329609}
   - component: {fileID: 2707796061959420100}
+  - component: {fileID: -8864833150095358087}
   m_Layer: 0
   m_Name: Player_Petani
   m_TagString: Player
@@ -253,6 +254,21 @@ MonoBehaviour:
   _animator: {fileID: 8938442427168144690}
   _attackDuration: 0.5
   _playerDamage: 1
+--- !u!114 &-8864833150095358087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2948516622923247369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe243425541c2f438a7d0bfa6a04bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RageTime: 15
+  ComboRageTrigger: 2
+  rageModeVFX: {fileID: 6593579210643490428, guid: 22c197b0339be68439817a4f3dd0d80d, type: 3}
 --- !u!1 &4303635422251406699
 GameObject:
   m_ObjectHideFlags: 0

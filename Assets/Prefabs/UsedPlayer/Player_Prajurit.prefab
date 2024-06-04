@@ -2207,6 +2207,7 @@ GameObject:
   - component: {fileID: 1133136238822173065}
   - component: {fileID: 2819017096345230870}
   - component: {fileID: 7048421750434933326}
+  - component: {fileID: 831288764245473311}
   m_Layer: 0
   m_Name: Player_Prajurit
   m_TagString: Player
@@ -2424,6 +2425,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce64c71e6b241c4c81f50222ed085b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &831288764245473311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7643126771042429404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe243425541c2f438a7d0bfa6a04bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RageTime: 15
+  ComboRageTrigger: 2
+  rageModeVFX: {fileID: 6593579210643490428, guid: 22c197b0339be68439817a4f3dd0d80d, type: 3}
 --- !u!1 &7675620686127348738
 GameObject:
   m_ObjectHideFlags: 0

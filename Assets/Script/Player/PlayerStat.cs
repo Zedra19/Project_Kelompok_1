@@ -11,6 +11,20 @@ public class PlayerStat : MonoBehaviour
     private PlayerAttack_Petani _playerAttackPetani;
     private PlayerAttack_Prajurit _playerAttackPrajurit;
 
+    private void OnEnable()
+    {
+        BuyUpgradeEvent.OnBuyMovement += UpgradePlayerSpeed;
+        BuyUpgradeEvent.OnBuyMovement += UpgradePlayerRunMultiplier;
+        BuyUpgradeEvent.OnBuyDamage += UpgradePlayerDamageStat;
+    }
+
+    private void OnDisable()
+    {
+        BuyUpgradeEvent.OnBuyMovement -= UpgradePlayerSpeed;
+        BuyUpgradeEvent.OnBuyMovement -= UpgradePlayerRunMultiplier;
+        BuyUpgradeEvent.OnBuyDamage -= UpgradePlayerDamageStat;
+    }
+
     private void Awake()
     {
         AssignPlayerComponents();
@@ -96,7 +110,7 @@ public class PlayerStat : MonoBehaviour
 
     public virtual void UpdatePlayerRunMultiplier(float newRunMultiplier)
     {
-        _playerMovement.SetRunMultiplier(newRunMultiplier);
+        _playerMovement.SetRunMultiplier(newRunMultiplier * 2);
     }
 
     public virtual void UpdatePlayerDodge(float newDodge)
@@ -111,20 +125,25 @@ public class PlayerStat : MonoBehaviour
 
     public virtual void UpdatePlayerDamageStat(int newDamageStat)
     {
+
         if (_playerAttack != null)
         {
+            Debug.Log("UpdatePlayerDamageStat PlayerAttack");
             _playerAttack.PlayerDamage = newDamageStat;
         }
         if (_playerAttackDukun != null)
         {
+            Debug.Log("UpdatePlayerDamageStat PlayerAttackDukun");
             _playerAttackDukun.PlayerDamage = newDamageStat;
         }
         if (_playerAttackPetani != null)
         {
+            Debug.Log("UpdatePlayerDamageStat PlayerAttackPetani");
             _playerAttackPetani.PlayerDamage = newDamageStat;
         }
         if (_playerAttackPrajurit != null)
         {
+            Debug.Log("UpdatePlayerDamageStat PlayerAttackPrajurit");
             _playerAttackPrajurit.PlayerDamage = newDamageStat;
         }
     }
