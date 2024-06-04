@@ -4,6 +4,7 @@ using UnityEngine.AI;
 
 public class PatternPatih : MonoBehaviour
 {
+    private Animator _animator;
     // public Transform player;
     public int damage, HP, MaxHP;
 
@@ -97,6 +98,7 @@ public class PatternPatih : MonoBehaviour
                 CastDuration -= Time.deltaTime;
                 if (CastDuration <= 0f)
                 {
+                    _animator.SetTrigger("Attack");
                     Attack();
                     Charging = false;
                 }
@@ -109,6 +111,7 @@ public class PatternPatih : MonoBehaviour
 
     public void Attack()
     {
+
         Vector3 attackDirection = player.position - transform.position;
         attackDirection.y = 0f;
         attackDirection.Normalize();
