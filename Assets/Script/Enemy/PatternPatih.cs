@@ -63,10 +63,29 @@ public class PatternPatih : MonoBehaviour
 
     void Update()
     {
+        // if (Charging == true)
+        // {
+        //     _animator.SetTrigger("Charging");
+        // }
+
+        // if (CanMove == true)
+        // {
+        //     _animator.SetTrigger("CanMove");
+        // }
+
+        // if (IsStunned == true)
+        // {
+        //     _animator.SetTrigger("IsStunned");
+        // }
+
+        // if (IsRage == true)
+        // {
+        //     _animator.SetTrigger("IsRage");
+        // }
+
         if (player != null)
         {
             transform.LookAt(player);
-
             ChasingPlayer();
         }
     }
@@ -76,6 +95,7 @@ public class PatternPatih : MonoBehaviour
         if (HP <= 0.5 * MaxHP)
             {
                 IsRage = true;
+                // _animator.SetTrigger("Rage");
             }
 
         if (player != null && _navAgent != null)
@@ -85,33 +105,52 @@ public class PatternPatih : MonoBehaviour
                 _navAgent.isStopped = true;
                 return;
             }
+
             else
             {
                 _navAgent.isStopped = false;
+                // _animator.SetBool("Attack", false);
             }
 
-            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+            // if (IsStunned || Charging)
+            // {
+            //     _navAgent.isStopped = true;
+            //     return;
+            // }
 
-            if (distanceToPlayer <= triggerRange && CanMove && !IsStunned)
-            {
-                Charging = true;
-                CastDuration -= Time.deltaTime;
-                if (CastDuration <= 0f)
-                {
-                    _animator.SetTrigger("Attack");
-                    Attack();
-                    Charging = false;
-                }
-            }
+            // else if (!IsStunned || !Charging)
+            // {
+            //     _navAgent.isStopped = false;
+            // }
+
+            Charge();
 
             _navAgent.SetDestination(player.position);
             _navAgent.stoppingDistance = triggerRange;
         }
     }
 
+    public void Charge()
+    {
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        if (distanceToPlayer <= triggerRange && CanMove && !IsStunned)
+            {
+                // Debug.LogWarning("Charging");
+                // _animator.SetTrigger("Charging");
+                Charging = true;
+                CastDuration -= Time.deltaTime;
+                if (CastDuration <= 0f)
+                {
+                    Attack();
+                    Charging = false;
+                }
+            }
+    }
+
     public void Attack()
     {
-
+        // _animator.SetBool("Attack", false);
+        // _animator.SetTrigger("Attack");
         Vector3 attackDirection = player.position - transform.position;
         attackDirection.y = 0f;
         attackDirection.Normalize();
@@ -134,10 +173,12 @@ public class PatternPatih : MonoBehaviour
         // Atur skala hitbox agar sesuai dengan panjang yang dihitung
         if (!IsRage)
         {
+            // _animator.SetTrigger("Attack");
             hitboxInstance.transform.localScale = new Vector3(1f, 1f, hitboxLength);
         }
         if (IsRage)
         {
+            // _animator.SetTrigger("Attack");
             hitboxInstance.transform.localScale = new Vector3(3f, 1f, hitboxLength);
         }
            
@@ -158,6 +199,7 @@ public class PatternPatih : MonoBehaviour
         CastDuration = 3f;
         yield return new WaitForSeconds(2f);
         CanMove = true;
+        // _animator.SetTrigger("Walk");
     }
 
 

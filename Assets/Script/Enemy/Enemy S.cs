@@ -57,7 +57,8 @@ public class EnemyS : MonoBehaviour
     void AttackPlayer()
     {
         _navMeshAgent.isStopped = true;
-        _animator.SetTrigger("Zola Gei");
+        AudioManager.Instance.PlaySFX("S att");
+        // _animator.SetTrigger("Attack");
 
         GameObject attackVFX = Instantiate(attackVFXPrefab, transform.position, Quaternion.identity);
         Destroy(attackVFX, 2f);
