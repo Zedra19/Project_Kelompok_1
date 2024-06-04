@@ -71,6 +71,8 @@ public class PlayerAttack_Prajurit : MonoBehaviour, IPlayerAttack
     private IEnumerator AttackRoutine()
     {
         IsAttacking = true;
+        _animator.SetTrigger("Attack");
+        yield return new WaitForSeconds(0.25f);
         GameObject arrow = Instantiate(attackPrefab, spawnPoint.position, Quaternion.identity);
         Rigidbody arrowRigidbody = arrow.GetComponent<Rigidbody>();
         Vector3 attackTargetWithoutYAxis = new Vector3(attackTarget.position.x, spawnPoint.position.y, attackTarget.position.z);

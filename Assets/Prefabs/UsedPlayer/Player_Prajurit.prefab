@@ -1699,7 +1699,7 @@ Animator:
   m_GameObject: {fileID: 5734428902899269308}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 062a1ec426a214d4d8c83086a22edbea, type: 3}
-  m_Controller: {fileID: 9100000, guid: 58a61542ed4515342ad2ae7695edffa0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7526e6cad71153b48a9ee2d14d3900d7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2406,7 +2406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab28b41e0793833448846c8f88460d1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
+  _animator: {fileID: 2262297848528857190}
   _attackDuration: 0.5
   attackPrefab: {fileID: 7854100900196059137, guid: 16da7ed51e91c1e4ea107d03dfab307f, type: 3}
   spawnPoint: {fileID: 3948207810254540776}

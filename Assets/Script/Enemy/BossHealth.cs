@@ -34,7 +34,6 @@ public class BossHealth : MonoBehaviour
         if (_bossCurrentHealth <= 0)
         {
             Debug.Log("Boss defeated!");
-            
         }
     }
 }
