@@ -12,7 +12,6 @@ public class Senopati : MonoBehaviour
     public BossHealth bossHealth;
 
     public float attackRange = 6f;
-    // public float retreatRange = 3f;
     public float hitboxSpeed = 10f;
     public float hitboxDuration = 1f;
     public float attackCooldown = 4f;
@@ -26,46 +25,37 @@ public class Senopati : MonoBehaviour
     private NavMeshAgent _navAgent;
     private float currentHealth;
     private float stageDuration = 0f;
+    private Animator animator;
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         currentHealth = bossHealth.BossMaxHealth;
         _navAgent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag(playerTag).transform;
-        if (player == null)
-        {
-            Debug.LogWarning("Player object not found.");
-        }
         Debug.Log("Senopati HP: " + currentHealth);
     }
 
     void Update()
     {
         stageDuration += Time.deltaTime;
-        if (player == null)
-        {
-            Debug.LogWarning("Player object not found.");
-            return;
-        }
-
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-
         if (distanceToPlayer <= attackRange)
         {
             _navAgent.isStopped = true;
-
             if (!isRageMode && canAttack)
+            {
                 Attack();
+            }
             else if (isRageMode && canAttack)
+            {
                 RageAttack();
+            }
         }
-        // else if (distanceToPlayer <= retreatRange)
-        // {
-        //     Retreat();
-        // }
         else
         {
             _navAgent.isStopped = false;
+            animator.SetBool("Attack Zone", false);
             ChasePlayer();
         }
 
@@ -85,21 +75,14 @@ public class Senopati : MonoBehaviour
         _navAgent.SetDestination(player.position);
     }
 
-    // private void Retreat()
-    // {
-    //     Vector3 retreatDirection = (transform.position - player.position).normalized;
-    //     retreatDirection.y = 0f;
-    //     float retreatSpeed = _navAgent.speed * 0.2f;
-    //     Vector3 retreatPosition = transform.position + retreatDirection * retreatSpeed * Time.deltaTime;
-    //     if (!Physics.Raycast(transform.position, retreatDirection, 1f))
-    //     {
-    //         transform.position = retreatPosition;
-    //     }
-    //     transform.LookAt(player);
-    // }
-
     private void Attack()
     {
+        animator.SetBool("Attack Zone", true);
+        StartCoroutine(AnimationToAttack());
+    }
+    private IEnumerator AnimationToAttack()
+    {
+        yield return new WaitForSeconds(1.5f);
         Vector3 directionToPlayer = (player.position - transform.position).normalized;
         SpawnHitbox(directionToPlayer);
         Vector3 spawnPosition = attackSpawnPoint.position;
@@ -149,7 +132,6 @@ public class Senopati : MonoBehaviour
 
     private void EnterRageMode()
     {
-        Debug.Log("Boss enters rage mode!");
         isRageMode = true;
     }
 
@@ -163,7 +145,6 @@ public class Senopati : MonoBehaviour
         Debug.Log("Senopati Damaged");
         currentHealth -= damage;
         Debug.Log("Senopati HP: " + currentHealth);
-        Debug.Log("senopati Hp" + HP);
         if (currentHealth <= bossHealth.BossMaxHealth * 0.5f && !isRageMode)
         {
             EnterRageMode();
