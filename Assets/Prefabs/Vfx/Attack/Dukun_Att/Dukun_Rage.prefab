@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5945084301295132745
+--- !u!1 &2040460775051823323
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,24 +8,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8927691751655127537}
-  - component: {fileID: 4231447555196485847}
-  - component: {fileID: 747162554028203497}
-  - component: {fileID: 3233937565969040486}
+  - component: {fileID: 4703214625692298967}
+  - component: {fileID: 2299572467230386191}
+  - component: {fileID: 4954648134359500131}
+  - component: {fileID: 7021285108189239530}
   m_Layer: 0
-  m_Name: Beam
+  m_Name: Dukun_Rage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8927691751655127537
+--- !u!4 &4703214625692298967
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5945084301295132745}
+  m_GameObject: {fileID: 2040460775051823323}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -34,15 +34,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!2083052967 &4231447555196485847
+--- !u!2083052967 &2299572467230386191
 VisualEffect:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5945084301295132745}
+  m_GameObject: {fileID: 2040460775051823323}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: cc25a038ff1ad6243b3b6709e824a5c5, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: 195379aa058b36f40a705c5858c23e01, type: 3}
   m_InitialEventName: 
   m_InitialEventNameOverriden: 1
   m_StartSeed: 0
@@ -72,14 +72,14 @@ VisualEffect:
       m_Array: []
     m_Bool:
       m_Array: []
---- !u!73398921 &747162554028203497
+--- !u!73398921 &4954648134359500131
 VFXRenderer:
   serializedVersion: 1
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5945084301295132745}
+  m_GameObject: {fileID: 2040460775051823323}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 0
@@ -112,13 +112,13 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &3233937565969040486
+--- !u!114 &7021285108189239530
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5945084301295132745}
+  m_GameObject: {fileID: 2040460775051823323}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0c71a6d2387b2c43994066849084ae0, type: 3}
