@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -884,6 +884,78 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &502677526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 502677527}
+  - component: {fileID: 502677529}
+  - component: {fileID: 502677528}
+  m_Layer: 5
+  m_Name: MC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &502677527
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502677526}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.7000002, y: 2.38, z: 1.7000002}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 681629522}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -290.00003, y: -66.500015}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &502677528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502677526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &502677529
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502677526}
+  m_CullTransparentMesh: 1
 --- !u!1001 &537357256
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -79481,6 +79553,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 572126839}
   m_CullTransparentMesh: 1
+--- !u!1 &630364832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 630364833}
+  - component: {fileID: 630364835}
+  - component: {fileID: 630364834}
+  m_Layer: 5
+  m_Name: MC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &630364833
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630364832}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.7000002, y: 2.38, z: 1.7000002}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1101792681}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -290.00006, y: -66.500015}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &630364834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630364832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &630364835
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630364832}
+  m_CullTransparentMesh: 1
 --- !u!1 &662310706
 GameObject:
   m_ObjectHideFlags: 0
@@ -79559,7 +79703,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 244278129729715044, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_text
-      value: 'Mpu Naraya : '
+      value: 'Senopati : '
       objectReference: {fileID: 0}
     - target: {fileID: 244278129729715044, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_fontSize
@@ -79583,7 +79727,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 412340362448618594, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_text
-      value: 'Mpu Naraya : '
+      value: 'Senopati : '
       objectReference: {fileID: 0}
     - target: {fileID: 412340362448618594, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_fontSize
@@ -79633,6 +79777,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 573481169746941514, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 32ff04b8e1e4b164ca75363ab2881d9b, type: 3}
     - target: {fileID: 667904916777193108, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_Color.b
       value: 0.5294118
@@ -79685,9 +79833,17 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.72156864
       objectReference: {fileID: 0}
+    - target: {fileID: 1457861703697839489, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 264.8001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457861703697839489, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -66.499985
+      objectReference: {fileID: 0}
     - target: {fileID: 1607694543134637586, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_text
-      value: 'Mpu Naraya : '
+      value: 'Senopati : '
       objectReference: {fileID: 0}
     - target: {fileID: 1607694543134637586, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_fontSize
@@ -79720,6 +79876,26 @@ PrefabInstance:
     - target: {fileID: 1617360524519678894, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_Color.r
       value: 0.72156864
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758675017690260913, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.7000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758675017690260913, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758675017690260913, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.7000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758675017690260913, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -290.00003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758675017690260913, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -66.50002
       objectReference: {fileID: 0}
     - target: {fileID: 2057247473972983589, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_IsActive
@@ -79727,7 +79903,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2333134056140462682, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_text
-      value: Cepat kalahkan mereka dan bergegas lari dari sini!
+      value: Majulah. Kali ini akan ku lawan sampai titik darah penghabisan!
       objectReference: {fileID: 0}
     - target: {fileID: 2333134056140462682, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_fontSize
@@ -79777,9 +79953,21 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2701465078363489086, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 32ff04b8e1e4b164ca75363ab2881d9b, type: 3}
     - target: {fileID: 2707200517450070639, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2734394929189530647, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 264.8001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2734394929189530647, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -66.499985
       objectReference: {fileID: 0}
     - target: {fileID: 2824647753161581889, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_Color.b
@@ -79794,6 +79982,10 @@ PrefabInstance:
       value: 0.72156864
       objectReference: {fileID: 0}
     - target: {fileID: 2871840111398106913, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_text
+      value: 'Senopati : '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2871840111398106913, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_fontSize
       value: 24
       objectReference: {fileID: 0}
@@ -79813,6 +80005,14 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2976508052448880487, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 32ff04b8e1e4b164ca75363ab2881d9b, type: 3}
+    - target: {fileID: 3179131494711805407, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_text
+      value: Kali ini, aku tak akan mengampunimu lagi
+      objectReference: {fileID: 0}
     - target: {fileID: 3179131494711805407, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_fontSize
       value: 24
@@ -79833,6 +80033,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3377774724544755525, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 32ff04b8e1e4b164ca75363ab2881d9b, type: 3}
     - target: {fileID: 3399577412599520189, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_fontSize
       value: 24
@@ -79870,6 +80074,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4898221295031005077, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_text
+      value: Aku akan mewujudkan cita-cita tuanku untuk menguasai Singosari
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898221295031005077, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_fontSize
       value: 24
       objectReference: {fileID: 0}
@@ -79919,7 +80127,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6089116867212995172, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_text
-      value: Sepertinya pace Zidny mengetahui keberadaanmu
+      value: Kita bertemu lagi "Orang Tak Dikenal"
       objectReference: {fileID: 0}
     - target: {fileID: 6089116867212995172, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_fontSize
@@ -79940,6 +80148,10 @@ PrefabInstance:
     - target: {fileID: 6089116867212995172, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229790169866707877, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 264.8001
       objectReference: {fileID: 0}
     - target: {fileID: 6269227624932417494, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_IsActive
@@ -80154,6 +80366,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8001688747581857309, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_text
+      value: "KAMU? Tak kusangka kamu masih mengejarku ... \r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001688747581857309, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_fontSize
       value: 24
       objectReference: {fileID: 0}
@@ -80174,6 +80390,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8876229048952816036, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_text
+      value: Ayo mulai pertempuran sesungguhnya!!!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8876229048952816036, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_fontSize
       value: 24
       objectReference: {fileID: 0}
@@ -80192,10 +80412,40 @@ PrefabInstance:
     - target: {fileID: 8876229048952816036, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8984207808637853788, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.7000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 8984207808637853788, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 8984207808637853788, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.7000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 8984207808637853788, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -290.00003
+      objectReference: {fileID: 0}
+    - target: {fileID: 8984207808637853788, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -66.50002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2017001888543784129, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+    - {fileID: 8023101590572047975, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+    - {fileID: 6815989837787499359, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+    - {fileID: 8549285347711365952, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7917975170440657963, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 502677527}
+    - targetCorrespondingSourceObject: {fileID: 5378342917247819295, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 630364833}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
 --- !u!224 &681629515 stripped
@@ -80231,6 +80481,11 @@ GameObject:
 --- !u!1 &681629521 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2707200517450070639, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+  m_PrefabInstance: {fileID: 681629514}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &681629522 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7917975170440657963, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
   m_PrefabInstance: {fileID: 681629514}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &682661239
@@ -80809,6 +81064,11 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!224 &1101792681 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5378342917247819295, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+  m_PrefabInstance: {fileID: 681629514}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1103989151 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7242054980905559374, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
@@ -81346,10 +81606,10 @@ MonoBehaviour:
   PlayerMovement: {fileID: 0}
   _rigidbodyPlayer: {fileID: 0}
   TutorialPanel: {fileID: 0}
-  texture1: {fileID: 0}
-  texture2: {fileID: 0}
-  texture3: {fileID: 0}
-  texture4: {fileID: 0}
+  texture1: {fileID: 2800000, guid: 21ef375543e2ed4478cf8e899bb412fc, type: 3}
+  texture2: {fileID: 2800000, guid: 0cf3ad2a93e48c14391b6589618d39db, type: 3}
+  texture3: {fileID: 2800000, guid: dfc970d51de3de04bae15ccd928da9e6, type: 3}
+  texture4: {fileID: 2800000, guid: 526eaaa287e519245a0b3f3c4c68718c, type: 3}
 --- !u!114 &1306228017
 MonoBehaviour:
   m_ObjectHideFlags: 0
