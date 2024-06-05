@@ -153,6 +153,7 @@ public class Senopati : MonoBehaviour
     // Spawn area hitbox
     private void SpawnHitbox()
     {
+        AudioManager.Instance.PlaySFXForDuration("SenopatiQuake", 1);
         Quaternion rotation = Quaternion.LookRotation(transform.forward, Vector3.up);
         Vector3 spawnPosition = attackSpawnPoint.position;
         GameObject areaHitbox = Instantiate(areaAttackHitbox, spawnPosition, rotation);
@@ -162,6 +163,7 @@ public class Senopati : MonoBehaviour
     // Spawn rage hitbox
     private void SpawnRageHitbox()
     {
+        AudioManager.Instance.PlaySFXForDuration("SenopatiQuake", 1);
         Vector3 spawnPosition = attackSpawnPoint.position;
         Quaternion rotation = Quaternion.LookRotation(transform.forward, Vector3.up);
         GameObject rageHitbox = Instantiate(rageHitboxPrefab, spawnPosition, rotation);

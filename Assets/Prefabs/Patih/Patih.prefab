@@ -105,6 +105,52 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &4638656222600722134
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 860217024870036511}
+  - component: {fileID: 3167202774200027722}
+  m_Layer: 0
+  m_Name: BossHealth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &860217024870036511
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4638656222600722134}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.170231, y: 2.033025, z: 0.36219847}
+  m_LocalScale: {x: 1.227928, y: 1.227928, z: 1.227928}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3163593158154082952}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3167202774200027722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4638656222600722134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0fbc67ce0bffd7418d6db70f87da2fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BossHealthSlider: {fileID: 0}
+  BossMaxHealth: 5
 --- !u!1001 &875716645767901500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1920,6 +1966,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: e6e0ae1666ee6ad44a3e8e2cfe036613, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 860217024870036511}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: e6e0ae1666ee6ad44a3e8e2cfe036613, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2524517778812856238}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: e6e0ae1666ee6ad44a3e8e2cfe036613, type: 3}
@@ -2019,7 +2068,7 @@ MonoBehaviour:
   normalMaterial: {fileID: 0}
   stunMaterial: {fileID: 2100000, guid: 1e0a9fe13d485eb4a87cdf397da4ebb3, type: 2}
   rageMaterial: {fileID: 2100000, guid: 3718616386d98624ab242b60f99bbc32, type: 2}
-  bossHealth: {fileID: 0}
+  bossHealth: {fileID: 3167202774200027722}
   IsGettingHitInThisHit: 0
 --- !u!137 &438036629504372602
 SkinnedMeshRenderer:

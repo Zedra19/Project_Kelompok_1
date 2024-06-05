@@ -89,4 +89,28 @@ public class AudioManager : MonoBehaviour
     {
         SFXSource.volume = volume;
     }
+
+    public void PlaySFXForDuration(string name, float duration)
+    {
+        StartCoroutine(PlaySFXCoroutine(name, duration));
+    }
+
+    private IEnumerator PlaySFXCoroutine(string name, float duration)
+    {
+        Sound s = Array.Find(SFXSounds, x => x.Name == name);
+
+        if (s == null)
+        {
+            Debug.Log("Sound Not Found");
+        }
+        else
+        {
+            SFXSource.clip = s.Clip;
+            SFXSource.Play();
+
+            yield return new WaitForSeconds(duration);
+
+            SFXSource.Stop();
+        }
+    }
 }

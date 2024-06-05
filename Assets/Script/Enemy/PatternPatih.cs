@@ -94,10 +94,10 @@ public class PatternPatih : MonoBehaviour
 
     public void ChasingPlayer()
     {
-        if (HP <= 0.5 * MaxHP)
+        if (HP <= 0.5 * MaxHP && !IsRage)
         {
-            IsRage = true;
             _animator.SetTrigger("Rage");
+            IsRage = true;
         }
 
         if (player != null && _navAgent != null)
