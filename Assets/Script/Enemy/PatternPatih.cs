@@ -1,10 +1,12 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class PatternPatih : MonoBehaviour
 {
     private Animator _animator;
+
     public int damage, HP, MaxHP;
 
     public float moveSpeed = 5f;
@@ -19,18 +21,19 @@ public class PatternPatih : MonoBehaviour
     public bool IsRage = false;
     public bool RageAnim = false;
 
+    public Slider BossHealthSlider;
     public GameObject VFXAtt;
     public GameObject hitboxPrefab;
     public Material normalMaterial;
     public Material stunMaterial;
     public Material rageMaterial;
-    public BossHealth bossHealth;
 
     private string playerTag = "Player";
     private Transform player;
     private NavMeshAgent _navAgent;
     private Health _playerHealth;
     private GameObject hitboxInstance;
+    
     public bool IsGettingHitInThisHit = false;
 
     private void OnEnable()
@@ -51,7 +54,6 @@ public class PatternPatih : MonoBehaviour
     void Start()
     {
         _animator = GetComponent<Animator>();
-        HP = bossHealth.BossMaxHealth;
         player = GameObject.FindGameObjectWithTag(playerTag).transform;
         _playerHealth = GetComponent<Health>();
         _navAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -66,6 +68,7 @@ public class PatternPatih : MonoBehaviour
 
     void Update()
     {
+        SetHP();
         CekBool();
     }
 
@@ -88,6 +91,7 @@ public class PatternPatih : MonoBehaviour
 
         if (IsStunned)
         {
+            CanMove = false;
             _animator.SetBool("Stun", true);
         }
 
@@ -254,5 +258,11 @@ public class PatternPatih : MonoBehaviour
 
         IsStunned = false;
         CanMove = true;
+    }
+
+    public void SetHP()
+    {
+        BossHealthSlider.maxValue = MaxHP;
+        BossHealthSlider.value = HP;
     }
 }

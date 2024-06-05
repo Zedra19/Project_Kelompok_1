@@ -112,13 +112,15 @@ public class AttackTriggerPetani : MonoBehaviour
             if (_patih != null)
             {
                 Debug.Log("----Hit Patih HP PATIH: " + _patih.HP + "----");
+                Debug.Log($"_patih.IsGettingHitInThisHit: {_patih.IsGettingHitInThisHit}");
                 if (_patih.IsGettingHitInThisHit)
                 {
                     return;
                 }
                 _patih.IsGettingHitInThisHit = true;
-                AudioManager.Instance.PlaySFX("Hit");
                 comboScript.comboCount++;
+                AudioManager.Instance.PlaySFX("Hit");
+                Debug.Log("Player Damage: " + playerAttackScript.PlayerDamage);
                 _patih.HP -= playerAttackScript.PlayerDamage;
                 Debug.Log("Patih HP: " + _patih.HP);
                 if (_patih.HP <= 0)

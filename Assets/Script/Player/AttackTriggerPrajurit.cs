@@ -87,20 +87,23 @@ public class AttackTriggerPrajurit : MonoBehaviour
                 }
             }
         }
-        else if (other.gameObject.CompareTag("Boss") && playerAttackScript.IsAttacking && _patih.IsStunned)
+        else if (other.gameObject.CompareTag("Patih") && playerAttackScript.IsAttacking && _patih.IsStunned)
         {
-            // Penanganan ketika Boss terkena serangan
-            Debug.Log("Hit Boss");
+            Debug.Log("---PATIH");
             if (_patih != null)
             {
+                Debug.Log("----Hit Patih HP PATIH: " + _patih.HP + "----");
+                Debug.Log($"_patih.IsGettingHitInThisHit: {_patih.IsGettingHitInThisHit}");
                 if (_patih.IsGettingHitInThisHit)
                 {
                     return;
                 }
                 _patih.IsGettingHitInThisHit = true;
                 comboScript.comboCount++;
+                AudioManager.Instance.PlaySFX("Hit");
+                Debug.Log("Player Damage: " + playerAttackScript.PlayerDamage);
                 _patih.HP -= playerAttackScript.PlayerDamage;
-                Debug.Log("Boss HP: " + _patih.HP);
+                Debug.Log("Patih HP: " + _patih.HP);
                 if (_patih.HP <= 0)
                 {
                     killCountScript.killCount++;
