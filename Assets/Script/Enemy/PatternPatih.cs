@@ -11,7 +11,7 @@ public class PatternPatih : MonoBehaviour
     public float moveSpeed = 5f;
     public float attackRange = 7f;
     public float triggerRange = 4f;
-    public float CastDuration = 3f;
+    public float CastDuration = 2f;
     public float StunDuration = 3f;
 
     public bool Charging = false;
@@ -49,6 +49,7 @@ public class PatternPatih : MonoBehaviour
 
     void Start()
     {
+        _animator = GetComponent<Animator>();
         HP = bossHealth.BossMaxHealth;
         player = GameObject.FindGameObjectWithTag(playerTag).transform;
         _playerHealth = GetComponent<Health>();
@@ -68,15 +69,26 @@ public class PatternPatih : MonoBehaviour
         //     _animator.SetTrigger("Charging");
         // }
 
-        // if (CanMove == true)
-        // {
-        //     _animator.SetTrigger("CanMove");
-        // }
+        if (CanMove && !IsStunned)
+        {
+            _animator.SetBool("isMoving", true);
+        }
 
-        // if (IsStunned == true)
-        // {
-        //     _animator.SetTrigger("IsStunned");
-        // }
+        if (!CanMove && Charging)
+        {
+            _animator.SetBool("isMoving", false);
+        }
+
+
+        if (IsStunned)
+        {
+            _animator.SetBool("Stun", true);
+        }
+
+        if (!IsStunned)
+        {
+            _animator.SetBool("Stun", false);
+        }
 
         // if (IsRage == true)
         // {
@@ -92,14 +104,17 @@ public class PatternPatih : MonoBehaviour
 
     public void ChasingPlayer()
     {
+        
         if (HP <= 0.5 * MaxHP)
             {
                 IsRage = true;
-                // _animator.SetTrigger("Rage");
+                _animator.SetTrigger("Rage");
             }
 
         if (player != null && _navAgent != null)
         {
+            // _animator.SetBool("isMoving", true);
+
             if (IsStunned && !Charging)
             {
                 _navAgent.isStopped = true;
@@ -126,8 +141,15 @@ public class PatternPatih : MonoBehaviour
             Charge();
 
             _navAgent.SetDestination(player.position);
+            
             _navAgent.stoppingDistance = triggerRange;
         }
+
+        // else if (player == null && _navAgent == null)
+        // {
+        //     _animator.SetBool("isMoving", false);
+        //     _navAgent.isStopped = true;
+        // }
     }
 
     public void Charge()
@@ -138,6 +160,8 @@ public class PatternPatih : MonoBehaviour
                 // Debug.LogWarning("Charging");
                 // _animator.SetTrigger("Charging");
                 Charging = true;
+                _animator.SetBool("isMoving", false);
+                // _animator.SetTrigger("Charge");
                 CastDuration -= Time.deltaTime;
                 if (CastDuration <= 0f)
                 {
@@ -149,8 +173,9 @@ public class PatternPatih : MonoBehaviour
 
     public void Attack()
     {
+        
         // _animator.SetBool("Attack", false);
-        // _animator.SetTrigger("Attack");
+        _animator.SetTrigger("Attack");
         Vector3 attackDirection = player.position - transform.position;
         attackDirection.y = 0f;
         attackDirection.Normalize();
@@ -199,7 +224,7 @@ public class PatternPatih : MonoBehaviour
         CastDuration = 3f;
         yield return new WaitForSeconds(2f);
         CanMove = true;
-        // _animator.SetTrigger("Walk");
+        // _animator.SetBool("isMoving", true);
     }
 
 
@@ -213,7 +238,7 @@ public class PatternPatih : MonoBehaviour
         }
 
         IsStunned = true;
-
+        
         Renderer enemyRenderer = GetComponent<Renderer>();
         if (enemyRenderer != null && stunMaterial != null)
         {
@@ -227,6 +252,7 @@ public class PatternPatih : MonoBehaviour
 
         while (StunDuration > 0f)
         {
+            // _animator.SetBool("isMoving", false);
             yield return new WaitForSeconds(Time.deltaTime);
             StunDuration -= Time.deltaTime;
         }
@@ -244,5 +270,6 @@ public class PatternPatih : MonoBehaviour
 
         IsStunned = false;
         CanMove = true;
+        // _animator.SetBool("isMoving", true);
     }
 }
