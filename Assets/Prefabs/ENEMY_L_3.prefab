@@ -363,7 +363,6 @@ MonoBehaviour:
   attackVFXPrefab: {fileID: 6445826192643391251, guid: 60d310309985b9d4e9917e6e851e63c9, type: 3}
   heKsatriaVFXPrefab: {fileID: 4794043405585894037, guid: 37138c0c33167b04fa1fb90b7f5a794f, type: 3}
   hePrajuritVFXPrefab: {fileID: 3421640216827455911, guid: 7abde22d01f88d64d8f96b04289a8ef4, type: 3}
-  hePetaniVFXPrefab: {fileID: 6876657475351597146, guid: e1d3f80de1763b14dab112ecf985bb1d, type: 3}
 --- !u!65 &-3880748946148653923
 BoxCollider:
   m_ObjectHideFlags: 0

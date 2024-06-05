@@ -83,18 +83,18 @@ ModelImporter:
     serializedVersion: 3
     human: []
     skeleton:
-    - name: (2) senopati-mixamo(Clone)
+    - name: Patih(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Senopati full body
-      parentName: (2) senopati-mixamo(Clone)
+      parentName: Patih(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0.50000006, y: -0.49999997, z: -0.5, w: -0.5}
       scale: {x: 11.572186, y: 11.572186, z: 11.572186}
     - name: mixamorig:Hips
-      parentName: (2) senopati-mixamo(Clone)
+      parentName: Patih(Clone)
       position: {x: -0.0000044269623, y: 1.8141366, z: 0.012345226}
       rotation: {x: -0.00000002325815, y: -0.00000045435004, z: 0.000014421534, w: 1}
       scale: {x: 1, y: 1, z: 1}
