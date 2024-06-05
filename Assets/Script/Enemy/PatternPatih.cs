@@ -5,7 +5,6 @@ using UnityEngine.AI;
 public class PatternPatih : MonoBehaviour
 {
     private Animator _animator;
-    // public Transform player;
     public int damage, HP, MaxHP;
 
     public float moveSpeed = 5f;
@@ -19,6 +18,7 @@ public class PatternPatih : MonoBehaviour
     public bool IsStunned = false;
     public bool IsRage = false;
 
+    public GameObject VFXAtt;
     public GameObject hitboxPrefab;
     public Material normalMaterial;
     public Material stunMaterial;
@@ -55,6 +55,7 @@ public class PatternPatih : MonoBehaviour
         _playerHealth = GetComponent<Health>();
         _navAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         _navAgent.speed = moveSpeed;
+
         if (IsRage)
         {
             Renderer enemyRenderer = GetComponent<Renderer>();
@@ -64,11 +65,6 @@ public class PatternPatih : MonoBehaviour
 
     void Update()
     {
-        // if (Charging == true)
-        // {
-        //     _animator.SetTrigger("Charging");
-        // }
-
         if (CanMove && !IsStunned)
         {
             _animator.SetBool("isMoving", true);
@@ -78,7 +74,6 @@ public class PatternPatih : MonoBehaviour
         {
             _animator.SetBool("isMoving", false);
         }
-
 
         if (IsStunned)
         {
@@ -90,12 +85,7 @@ public class PatternPatih : MonoBehaviour
             _animator.SetBool("Stun", false);
         }
 
-        // if (IsRage == true)
-        // {
-        //     _animator.SetTrigger("IsRage");
-        // }
-
-        if (player != null)
+        if (player != null && !IsStunned)
         {
             transform.LookAt(player);
             ChasingPlayer();
@@ -104,109 +94,75 @@ public class PatternPatih : MonoBehaviour
 
     public void ChasingPlayer()
     {
-        
         if (HP <= 0.5 * MaxHP)
-            {
-                IsRage = true;
-                _animator.SetTrigger("Rage");
-            }
+        {
+            IsRage = true;
+            _animator.SetTrigger("Rage");
+        }
 
         if (player != null && _navAgent != null)
         {
-            // _animator.SetBool("isMoving", true);
-
             if (IsStunned && !Charging)
             {
                 _navAgent.isStopped = true;
                 return;
             }
-
             else
             {
                 _navAgent.isStopped = false;
-                // _animator.SetBool("Attack", false);
             }
 
-            // if (IsStunned || Charging)
-            // {
-            //     _navAgent.isStopped = true;
-            //     return;
-            // }
-
-            // else if (!IsStunned || !Charging)
-            // {
-            //     _navAgent.isStopped = false;
-            // }
-
             Charge();
-
             _navAgent.SetDestination(player.position);
-            
             _navAgent.stoppingDistance = triggerRange;
         }
-
-        // else if (player == null && _navAgent == null)
-        // {
-        //     _animator.SetBool("isMoving", false);
-        //     _navAgent.isStopped = true;
-        // }
     }
 
     public void Charge()
     {
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         if (distanceToPlayer <= triggerRange && CanMove && !IsStunned)
+        {
+            Charging = true;
+            _animator.SetBool("isMoving", false);
+            CastDuration -= Time.deltaTime;
+
+            if (CastDuration <= 0f)
             {
-                // Debug.LogWarning("Charging");
-                // _animator.SetTrigger("Charging");
-                Charging = true;
-                _animator.SetBool("isMoving", false);
-                // _animator.SetTrigger("Charge");
-                CastDuration -= Time.deltaTime;
-                if (CastDuration <= 0f)
-                {
-                    Attack();
-                    Charging = false;
-                }
+                Attack();
+                Charging = false;
             }
+        }
     }
 
     public void Attack()
     {
-        
-        // _animator.SetBool("Attack", false);
         _animator.SetTrigger("Attack");
+
         Vector3 attackDirection = player.position - transform.position;
         attackDirection.y = 0f;
         attackDirection.Normalize();
 
-        // Hitung rotasi hitbox agar menghadap ke arah pemain
         Quaternion hitboxRotation = Quaternion.LookRotation(attackDirection);
-
-        // Tentukan titik awal hitbox di bagian depan musuh (wajah musuh)
         Vector3 startPoint = transform.position + transform.forward * 1f;
-
-        // Tentukan titik akhir hitbox yang berjarak 7 unit dari startPoint ke arah pemain
         Vector3 endPoint = startPoint + attackDirection * 7f;
 
-        // Buat instance dari hitbox area serangan
         hitboxInstance = Instantiate(hitboxPrefab, startPoint, hitboxRotation);
 
-        // Tentukan panjang hitbox berdasarkan jarak antara startPoint dan endPoint
         float hitboxLength = Vector3.Distance(startPoint, endPoint);
 
-        // Atur skala hitbox agar sesuai dengan panjang yang dihitung
+        Vector3 vfxPosition = startPoint + new Vector3(0, 1, 0); // Adjust the y-value as needed
+        Instantiate(VFXAtt, vfxPosition, hitboxRotation);
+
         if (!IsRage)
         {
-            // _animator.SetTrigger("Attack");
             hitboxInstance.transform.localScale = new Vector3(1f, 1f, hitboxLength);
         }
-        if (IsRage)
+        else
         {
-            // _animator.SetTrigger("Attack");
             hitboxInstance.transform.localScale = new Vector3(3f, 1f, hitboxLength);
         }
-           
+
         Renderer hitboxRenderer = hitboxInstance.GetComponent<Renderer>();
         if (hitboxRenderer != null)
         {
@@ -224,9 +180,7 @@ public class PatternPatih : MonoBehaviour
         CastDuration = 3f;
         yield return new WaitForSeconds(2f);
         CanMove = true;
-        // _animator.SetBool("isMoving", true);
     }
-
 
     IEnumerator StunEnemy()
     {
@@ -238,7 +192,7 @@ public class PatternPatih : MonoBehaviour
         }
 
         IsStunned = true;
-        
+
         Renderer enemyRenderer = GetComponent<Renderer>();
         if (enemyRenderer != null && stunMaterial != null)
         {
@@ -252,7 +206,6 @@ public class PatternPatih : MonoBehaviour
 
         while (StunDuration > 0f)
         {
-            // _animator.SetBool("isMoving", false);
             yield return new WaitForSeconds(Time.deltaTime);
             StunDuration -= Time.deltaTime;
         }
@@ -263,13 +216,12 @@ public class PatternPatih : MonoBehaviour
         {
             enemyRenderer.material = normalMaterial;
         }
-        if (IsRage)
+        else
         {
             enemyRenderer.material = rageMaterial;
         }
 
         IsStunned = false;
         CanMove = true;
-        // _animator.SetBool("isMoving", true);
     }
 }
