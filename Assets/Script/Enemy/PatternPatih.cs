@@ -17,6 +17,7 @@ public class PatternPatih : MonoBehaviour
     public bool CanMove = true;
     public bool IsStunned = false;
     public bool IsRage = false;
+    public bool RageAnim = false;
 
     public GameObject VFXAtt;
     public GameObject hitboxPrefab;
@@ -65,6 +66,16 @@ public class PatternPatih : MonoBehaviour
 
     void Update()
     {
+        CekBool();
+    }
+
+    public void CekBool()
+    {
+        if(!RageAnim && IsRage)
+        {
+            RageAnim = true;
+            _animator.SetTrigger("Rage");
+        }
         if (CanMove && !IsStunned)
         {
             _animator.SetBool("isMoving", true);
@@ -96,7 +107,6 @@ public class PatternPatih : MonoBehaviour
     {
         if (HP <= 0.5 * MaxHP && !IsRage)
         {
-            _animator.SetTrigger("Rage");
             IsRage = true;
         }
 
@@ -112,6 +122,7 @@ public class PatternPatih : MonoBehaviour
                 _navAgent.isStopped = false;
             }
 
+            cekRange();
             Charge();
             _navAgent.SetDestination(player.position);
             _navAgent.stoppingDistance = triggerRange;
@@ -120,18 +131,29 @@ public class PatternPatih : MonoBehaviour
 
     public void Charge()
     {
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-        if (distanceToPlayer <= triggerRange && CanMove && !IsStunned)
+        if (Charging)
         {
-            Charging = true;
             _animator.SetBool("isMoving", false);
-            CastDuration -= Time.deltaTime;
 
+            if (CastDuration > 0 && Charging)
+            {
+                _animator.SetTrigger("Charge");
+                CastDuration -= Time.deltaTime;
+            }
             if (CastDuration <= 0f)
             {
                 Attack();
                 Charging = false;
             }
+        }
+    }
+
+    public void cekRange()
+    {
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        if (distanceToPlayer <= triggerRange && CanMove && !IsStunned)
+        {
+            Charging = true;
         }
     }
 
@@ -151,17 +173,25 @@ public class PatternPatih : MonoBehaviour
 
         float hitboxLength = Vector3.Distance(startPoint, endPoint);
 
-        Vector3 vfxPosition = startPoint + new Vector3(0, 1, 0); // Adjust the y-value as needed
-        Instantiate(VFXAtt, vfxPosition, hitboxRotation);
+        // Calculate VFX scale based on hitbox length
+        Vector3 vfxScale;
 
         if (!IsRage)
         {
+            vfxScale = new Vector3(1f, 1f, 1f);
             hitboxInstance.transform.localScale = new Vector3(1f, 1f, hitboxLength);
         }
         else
-        {
+        {   
+            vfxScale = new Vector3(3f, 1f, 1f);
             hitboxInstance.transform.localScale = new Vector3(3f, 1f, hitboxLength);
         }
+
+        Vector3 vfxPosition = startPoint + new Vector3(0, 1, 0); // Adjust the y-value as needed
+        GameObject vfxInstance = Instantiate(VFXAtt, vfxPosition, hitboxRotation);
+
+        // Set VFX scale
+        vfxInstance.transform.localScale = vfxScale;
 
         Renderer hitboxRenderer = hitboxInstance.GetComponent<Renderer>();
         if (hitboxRenderer != null)
@@ -174,6 +204,7 @@ public class PatternPatih : MonoBehaviour
         StartCoroutine(StunEnemy());
         StartCoroutine(EnableMovementAfterCast());
     }
+
 
     IEnumerator EnableMovementAfterCast()
     {
