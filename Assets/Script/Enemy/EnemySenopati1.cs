@@ -5,6 +5,7 @@ using UnityEngine.Animations;
 
 public class Senopati : MonoBehaviour
 {
+    // Public variables
     public Transform[] hitboxSpawnPoints;
     public GameObject hitboxPrefab;
     public GameObject areaAttackHitbox;
@@ -12,12 +13,14 @@ public class Senopati : MonoBehaviour
     public Transform attackSpawnPoint;
     public BossHealth bossHealth;
 
+    // Parameters
     public float attackRange = 6f;
     public float hitboxSpeed = 10f;
     public float hitboxDuration = 1f;
     public bool isGettingHitInThisHit = false;
     public float HP;
 
+    // Private variables
     private string playerTag = "Player";
     private Transform player;
     private bool isRageMode = false;
@@ -28,8 +31,10 @@ public class Senopati : MonoBehaviour
     private float stageDuration = 0f;
     private Animator animator;
 
+    // Called when the script instance is being loaded
     void Start()
     {
+        // Initialize components and variables
         animator = GetComponent<Animator>();
         currentHealth = bossHealth.BossMaxHealth;
         _navAgent = GetComponent<NavMeshAgent>();
@@ -37,11 +42,13 @@ public class Senopati : MonoBehaviour
         Debug.Log("Senopati HP: " + currentHealth);
     }
 
+    // Called once per frame
     void Update()
     {
         stageDuration += Time.deltaTime;
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         
+        // Handle attack and chase logic
         if (distanceToPlayer <= attackRange)
         {
             _navAgent.isStopped = true;
@@ -61,18 +68,21 @@ public class Senopati : MonoBehaviour
             ChasePlayer();
         }
 
+        // Enter rage mode after a certain duration
         if (stageDuration >= 20f && !isRageMode)
         {
             EnterRageMode();
         }
     }
 
+    // Chase the player
     private void ChasePlayer()
     {
         _navAgent.SetDestination(player.position);
         transform.LookAt(player);
     }
 
+    // Perform normal attack
     private void NormalAttack()
     {
         transform.LookAt(player);
@@ -82,27 +92,26 @@ public class Senopati : MonoBehaviour
         StartCoroutine(NormalAnimation());
     }
 
+    // Coroutine for normal attack animation and hitbox spawning
     private IEnumerator NormalAnimation()
     {
         isAttacking = true;
-        yield return new WaitForSeconds(3f);
-        
+        yield return new WaitForSeconds(2.7f);
+
         if (!hasSpawnedHitboxes)
         {
-            Vector3 directionToPlayer = (player.position - transform.position).normalized;
-            SpawnHitbox(directionToPlayer);
-
-            Vector3 spawnPosition = attackSpawnPoint.position;
-            GameObject areaHitbox = Instantiate(areaAttackHitbox, spawnPosition, Quaternion.identity);
-            Destroy(areaHitbox, hitboxDuration);
+            // Spawn hitboxes for normal attack
+            SpawnProjectil();
+            SpawnHitbox();
 
             hasSpawnedHitboxes = true;
         }
-        
+
         yield return new WaitForSeconds(2f);
         isAttacking = false;
     }
 
+    // Perform rage attack
     private void RageAttack()
     {
         transform.LookAt(player);
@@ -112,62 +121,66 @@ public class Senopati : MonoBehaviour
         StartCoroutine(RageAnimation());
     }
 
+    // Coroutine for rage attack animation and hitbox spawning
     private IEnumerator RageAnimation()
     {
         isAttacking = true;
-        yield return new WaitForSeconds(3f);
-        
+        yield return new WaitForSeconds(2.7f);
+
         if (!hasSpawnedHitboxes)
         {
-            Vector3 directionToPlayer = (player.position - transform.position).normalized;
-            SpawnRageHitbox(directionToPlayer);
-
-            Vector3 spawnPosition = attackSpawnPoint.position;
-            GameObject areaHitbox = Instantiate(areaAttackHitbox, spawnPosition, Quaternion.identity);
-            Destroy(areaHitbox, hitboxDuration);
+            // Spawn hitbox for rage attack
+            SpawnRageHitbox();
 
             hasSpawnedHitboxes = true;
         }
-        
+
         yield return new WaitForSeconds(2f);
         isAttacking = false;
     }
 
-    private void SpawnHitbox(Vector3 direction)
+    // Spawn projectile hitbox
+    private void SpawnProjectil()
     {
         foreach (Transform spawnPoint in hitboxSpawnPoints)
         {
-            if (spawnPoint != null)
-            {
-                GameObject hitbox = Instantiate(hitboxPrefab, spawnPoint.position, Quaternion.identity);
-                hitbox.GetComponent<Rigidbody>().velocity = spawnPoint.forward * hitboxSpeed;
-                Destroy(hitbox, hitboxDuration);
-            }
-            else
-            {
-                Debug.LogError("Spawn point is null.");
-            }
+            GameObject hitbox = Instantiate(hitboxPrefab, spawnPoint.position, Quaternion.LookRotation(spawnPoint.forward));
+            hitbox.GetComponent<Rigidbody>().velocity = spawnPoint.forward * hitboxSpeed;
+            Destroy(hitbox, hitboxDuration);
         }
     }
 
-    private void SpawnRageHitbox(Vector3 direction)
+    // Spawn area hitbox
+    private void SpawnHitbox()
+    {
+        Quaternion rotation = Quaternion.LookRotation(transform.forward, Vector3.up);
+        Vector3 spawnPosition = attackSpawnPoint.position;
+        GameObject areaHitbox = Instantiate(areaAttackHitbox, spawnPosition, rotation);
+        Destroy(areaHitbox, hitboxDuration);
+    }
+
+    // Spawn rage hitbox
+    private void SpawnRageHitbox()
     {
         Vector3 spawnPosition = attackSpawnPoint.position;
-        GameObject rageHitbox = Instantiate(rageHitboxPrefab, spawnPosition, Quaternion.identity);
-        rageHitbox.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        Quaternion rotation = Quaternion.LookRotation(transform.forward, Vector3.up);
+        GameObject rageHitbox = Instantiate(rageHitboxPrefab, spawnPosition, rotation);
         Destroy(rageHitbox, hitboxDuration);
     }
 
+    // Enter rage mode
     private void EnterRageMode()
     {
         isRageMode = true;
     }
 
+    // Get current health of the boss
     public float GetCurrentHealth()
     {
         return currentHealth;
     }
 
+    // Apply damage to the boss
     public void TakeDamage(float damage)
     {
         Debug.Log("Senopati Damaged");
@@ -179,16 +192,19 @@ public class Senopati : MonoBehaviour
         }
     }
 
+    // Enable event listener
     private void OnEnable()
     {
         PlayerAttack.OnAttackDone += AllowAttack;
     }
 
+    // Disable event listener
     private void OnDisable()
     {
         PlayerAttack.OnAttackDone -= AllowAttack;
     }
 
+    // Allow the boss to attack again
     private void AllowAttack()
     {
         isGettingHitInThisHit = false;

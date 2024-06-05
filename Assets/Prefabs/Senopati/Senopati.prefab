@@ -74,7 +74,7 @@ Transform:
   m_GameObject: {fileID: 2852088361775035093}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.2588191, z: -0, w: 0.9659258}
-  m_LocalPosition: {x: 0.6899996, y: 0.40000004, z: 3.08}
+  m_LocalPosition: {x: 6.661338e-16, y: 0.40000004, z: 4.0699997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -179,7 +179,7 @@ Transform:
   m_GameObject: {fileID: 4726797692053150890}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.21, y: 0.40000004, z: 3.07}
+  m_LocalPosition: {x: 6.661338e-16, y: 0.40000004, z: 4.0599995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -284,7 +284,7 @@ Transform:
   m_GameObject: {fileID: 5060468553055750180}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.6799991, y: 0.40000004, z: 3.07}
+  m_LocalPosition: {x: 6.661338e-16, y: 0.40000004, z: 4.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -389,7 +389,7 @@ Transform:
   m_GameObject: {fileID: 8689143712232248739}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.258819, z: -0, w: 0.9659259}
-  m_LocalPosition: {x: 0.2300005, y: 0.4, z: 3.08}
+  m_LocalPosition: {x: 6.661338e-16, y: 0.4, z: 4.0699997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1465,7 +1465,7 @@ MonoBehaviour:
   areaAttackHitbox: {fileID: 1352662252161028013, guid: 31907cdffa1a48945a8bd1e39e7da210, type: 3}
   rageHitboxPrefab: {fileID: 6036660082309536335, guid: 8e54251409870d549ab02beab58c9b24, type: 3}
   attackSpawnPoint: {fileID: 3945755407758095115}
-  bossHealth: {fileID: 0}
+  bossHealth: {fileID: 5127964214769911728}
   attackRange: 5
   hitboxSpeed: 10
   hitboxDuration: 1
