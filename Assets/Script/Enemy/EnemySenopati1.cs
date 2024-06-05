@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Animations;
 
 public class Senopati : MonoBehaviour
 {
@@ -14,14 +15,14 @@ public class Senopati : MonoBehaviour
     public float attackRange = 6f;
     public float hitboxSpeed = 10f;
     public float hitboxDuration = 1f;
-    public float attackCooldown = 4f;
     public bool isGettingHitInThisHit = false;
     public float HP;
 
     private string playerTag = "Player";
     private Transform player;
     private bool isRageMode = false;
-    private bool canAttack = true;
+    private bool isAttacking = false;
+    private bool hasSpawnedHitboxes = false;
     private NavMeshAgent _navAgent;
     private float currentHealth;
     private float stageDuration = 0f;
@@ -40,22 +41,23 @@ public class Senopati : MonoBehaviour
     {
         stageDuration += Time.deltaTime;
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        
         if (distanceToPlayer <= attackRange)
         {
             _navAgent.isStopped = true;
-            if (!isRageMode && canAttack)
-            {
-                Attack();
-            }
-            else if (isRageMode && canAttack)
+            if (isRageMode && !isAttacking)
             {
                 RageAttack();
             }
+            else if (!isRageMode && !isAttacking)
+            {
+                NormalAttack();
+            }
         }
-        else
+        else if (distanceToPlayer > attackRange && !isAttacking)
         {
+            animator.ResetTrigger("Attack");
             _navAgent.isStopped = false;
-            animator.SetBool("Attack Zone", false);
             ChasePlayer();
         }
 
@@ -63,39 +65,72 @@ public class Senopati : MonoBehaviour
         {
             EnterRageMode();
         }
-
-        if (isRageMode && !canAttack)
-        {
-            _navAgent.isStopped = true;
-        }
     }
 
     private void ChasePlayer()
     {
         _navAgent.SetDestination(player.position);
+        transform.LookAt(player);
     }
 
-    private void Attack()
+    private void NormalAttack()
     {
-        animator.SetBool("Attack Zone", true);
-        StartCoroutine(AnimationToAttack());
+        transform.LookAt(player);
+        _navAgent.isStopped = true;
+        hasSpawnedHitboxes = false;
+        animator.SetTrigger("Attack");
+        StartCoroutine(NormalAnimation());
     }
-    private IEnumerator AnimationToAttack()
+
+    private IEnumerator NormalAnimation()
     {
-        yield return new WaitForSeconds(1.5f);
-        Vector3 directionToPlayer = (player.position - transform.position).normalized;
-        SpawnHitbox(directionToPlayer);
-        Vector3 spawnPosition = attackSpawnPoint.position;
-        GameObject areaHitbox = Instantiate(areaAttackHitbox, spawnPosition, Quaternion.identity);
-        Destroy(areaHitbox, hitboxDuration);
-        StartCoroutine(AttackCooldown());
+        isAttacking = true;
+        yield return new WaitForSeconds(3f);
+        
+        if (!hasSpawnedHitboxes)
+        {
+            Vector3 directionToPlayer = (player.position - transform.position).normalized;
+            SpawnHitbox(directionToPlayer);
+
+            Vector3 spawnPosition = attackSpawnPoint.position;
+            GameObject areaHitbox = Instantiate(areaAttackHitbox, spawnPosition, Quaternion.identity);
+            Destroy(areaHitbox, hitboxDuration);
+
+            hasSpawnedHitboxes = true;
+        }
+        
+        yield return new WaitForSeconds(2f);
+        isAttacking = false;
     }
 
     private void RageAttack()
     {
-        Vector3 directionToPlayer = (player.position - transform.position).normalized;
-        SpawnRageHitbox(directionToPlayer);
-        StartCoroutine(AttackCooldown());
+        transform.LookAt(player);
+        _navAgent.isStopped = true;
+        hasSpawnedHitboxes = false;
+        animator.SetTrigger("Attack");
+        StartCoroutine(RageAnimation());
+    }
+
+    private IEnumerator RageAnimation()
+    {
+        isAttacking = true;
+        yield return new WaitForSeconds(3f);
+        
+        if (!hasSpawnedHitboxes)
+        {
+            Vector3 directionToPlayer = (player.position - transform.position).normalized;
+            SpawnRageHitbox(directionToPlayer);
+
+            Vector3 spawnPosition = attackSpawnPoint.position;
+            GameObject areaHitbox = Instantiate(areaAttackHitbox, spawnPosition, Quaternion.identity);
+            Destroy(areaHitbox, hitboxDuration);
+
+            hasSpawnedHitboxes = true;
+        }
+        
+        yield return new WaitForSeconds(2f);
+        isAttacking = false;
     }
 
     private void SpawnHitbox(Vector3 direction)
@@ -121,13 +156,6 @@ public class Senopati : MonoBehaviour
         GameObject rageHitbox = Instantiate(rageHitboxPrefab, spawnPosition, Quaternion.identity);
         rageHitbox.GetComponent<Rigidbody>().velocity = Vector3.zero;
         Destroy(rageHitbox, hitboxDuration);
-    }
-
-    private IEnumerator AttackCooldown()
-    {
-        canAttack = false;
-        yield return new WaitForSeconds(attackCooldown);
-        canAttack = true;
     }
 
     private void EnterRageMode()
