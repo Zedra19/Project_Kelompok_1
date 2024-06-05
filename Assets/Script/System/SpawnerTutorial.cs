@@ -14,6 +14,7 @@ public class SpawnerTutorial : MonoBehaviour
     [SerializeField] private PlayerAttack _playerAttack;
     [SerializeField] private PlayerAttack_Dukun _playerAttackDukun;
     [SerializeField] private PlayerAttack_Petani _playerAttackPetani;
+    [SerializeField] private PlayerAttack_Prajurit _playerAttackPrajurit;
     private bool DialogActivated = false;
     public GameObject Prolog;
     public GameObject Dialog3;
@@ -42,6 +43,8 @@ public class SpawnerTutorial : MonoBehaviour
         GameObject playerChildDukun = GameObject.Find("Player-Dukun");
         GameObject playerPetani = GameObject.Find("Player_Petani(Clone)");
         GameObject playerChildPetani = GameObject.Find("Player-Petani");
+        GameObject playerPrajurit = GameObject.Find("Player_Prajurit(Clone)");
+        GameObject playerChildPrajurit = GameObject.Find("Player-Prajurit");
 
         if (playerKsatria != null)
         {
@@ -63,6 +66,12 @@ public class SpawnerTutorial : MonoBehaviour
             _playerMovement = playerPetani.GetComponent<PlayerMovement>();
             _rigidbodyPlayer = playerPetani.GetComponent<Rigidbody>();
             _animatorPlayer = playerChildPetani.GetComponent<Animator>();
+        }else if (playerPrajurit != null)
+        {
+            _playerAttackPrajurit = playerPrajurit.GetComponent<PlayerAttack_Prajurit>();
+            _playerMovement = playerPrajurit.GetComponent<PlayerMovement>();
+            _rigidbodyPlayer = playerPrajurit.GetComponent<Rigidbody>();
+            _animatorPlayer = playerChildPrajurit.GetComponent<Animator>();
         }
     }
 
@@ -105,6 +114,8 @@ public class SpawnerTutorial : MonoBehaviour
         {
             if (_playerAttack != null) _playerAttack.enabled = false;
             if (_playerAttackDukun != null) _playerAttackDukun.enabled = false;
+            if (_playerAttackPetani != null) _playerAttackPetani.enabled = false;
+            if (_playerAttackPrajurit != null) _playerAttackPrajurit.enabled = false;
 
             _animatorPlayer.SetBool("Move", false);
             _playerMovement.enabled = false;
