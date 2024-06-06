@@ -2483,8 +2483,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  HP: 10
-  MaxHP: 10
+  HP: 0
+  MaxHP: 50
   moveSpeed: 2
   attackRange: 7
   triggerRange: 4
