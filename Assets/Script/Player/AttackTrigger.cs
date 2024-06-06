@@ -105,8 +105,8 @@ public class AttackTrigger : MonoBehaviour
                 Debug.Log("Boss Senopati HP: " + senopati.HP);
                 if (senopati.GetCurrentHealth() <= 0)
                 {
-                    // killCountScript.killCount++;
-                    // scoreScript.currentScore += scoreScript.EnemyL;
+                    killCountScript.killCount++;
+                    scoreScript.currentScore += scoreScript.Boss;
                     Destroy(other.gameObject);
                 }
             }

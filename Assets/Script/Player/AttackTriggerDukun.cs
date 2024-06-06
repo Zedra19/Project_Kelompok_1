@@ -9,6 +9,7 @@ public class AttackTriggerDukun : MonoBehaviour
     PlayerAttack_Dukun playerAttackScript;
     Score scoreScript;
     PatternPatih _patih;
+    Senopati senopati;
 
     // Dictionary untuk melacak objek yang telah menabrak EnemyL
     Dictionary<GameObject, bool> collidedObjects = new Dictionary<GameObject, bool>();
@@ -77,6 +78,32 @@ public class AttackTriggerDukun : MonoBehaviour
                 {
                     killCountScript.killCount++;
                     scoreScript.currentScore += scoreScript.EnemyL;
+                    Destroy(other.gameObject);
+                }
+            }
+        }
+        else if (other.gameObject.CompareTag("Senopati") && playerAttackScript.IsAttacking)
+        {
+            Debug.Log("---SENOPATI");
+            if (senopati != null)
+            {
+                Debug.Log($"senopati.isGettingHitInThisHit{senopati.isGettingHitInThisHit}");
+                if (senopati.isGettingHitInThisHit)
+                {
+                    Debug.Log("Senopati is getting hit in this hit");
+                    return;
+                }
+                senopati.isGettingHitInThisHit = true;
+
+                // comboScript.comboCount++;
+                AudioManager.Instance.PlaySFX("Hit");
+                Debug.Log("Player Damage: " + playerAttackScript.PlayerDamage);
+                senopati.TakeDamage(playerAttackScript.PlayerDamage);
+                Debug.Log("Boss Senopati HP: " + senopati.HP);
+                if (senopati.GetCurrentHealth() <= 0)
+                {
+                    killCountScript.killCount++;
+                    scoreScript.currentScore += scoreScript.Boss;
                     Destroy(other.gameObject);
                 }
             }

@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Animations;
 using System;
+using UnityEngine.UI;
 
 public class Senopati : MonoBehaviour
 {
@@ -10,12 +11,14 @@ public class Senopati : MonoBehaviour
     public static event Action OnSenopatiDestroyed;
 
     // Public variables
-    public Transform[] hitboxSpawnPoints;
+    public Transform[] normalProjectilSpawnPoints;
+    public Transform[] rageProjectilSpawnPoints;
     public GameObject hitboxPrefab;
     public GameObject areaAttackHitbox;
     public GameObject rageHitboxPrefab;
     public Transform attackSpawnPoint;
-    public BossHealth bossHealth;
+    public Slider BossHealthSlider;
+    // public BossHealth bossHealth;
 
     // Parameters
     public float attackRange = 6f;
@@ -40,7 +43,7 @@ public class Senopati : MonoBehaviour
     {
         // Initialize components and variables
         animator = GetComponent<Animator>();
-        currentHealth = bossHealth.BossMaxHealth;
+        currentHealth = HP;
         _navAgent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag(playerTag).transform;
         Debug.Log("Senopati HP: " + currentHealth);
@@ -49,6 +52,7 @@ public class Senopati : MonoBehaviour
     // Called once per frame
     void Update()
     {
+        SetHP();
         stageDuration += Time.deltaTime;
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
@@ -135,6 +139,7 @@ public class Senopati : MonoBehaviour
         {
             // Spawn hitbox for rage attack
             SpawnRageHitbox();
+            SpawnRageProjectil();
 
             hasSpawnedHitboxes = true;
         }
@@ -146,10 +151,20 @@ public class Senopati : MonoBehaviour
     // Spawn projectile hitbox
     private void SpawnProjectil()
     {
-        foreach (Transform spawnPoint in hitboxSpawnPoints)
+        foreach (Transform spawnPoint in normalProjectilSpawnPoints)
         {
             GameObject hitbox = Instantiate(hitboxPrefab, spawnPoint.position, Quaternion.LookRotation(spawnPoint.forward));
             hitbox.GetComponent<Rigidbody>().velocity = spawnPoint.forward * hitboxSpeed;
+            Destroy(hitbox, hitboxDuration);
+        }
+    }
+
+    private void SpawnRageProjectil()
+    {
+        foreach (Transform spawnPoint in rageProjectilSpawnPoints)
+        {
+            GameObject hitbox = Instantiate(hitboxPrefab, spawnPoint.position, Quaternion.LookRotation(spawnPoint.forward));
+            hitbox.GetComponent<Rigidbody>().velocity = spawnPoint.forward * 20f;
             Destroy(hitbox, hitboxDuration);
         }
     }
@@ -186,13 +201,19 @@ public class Senopati : MonoBehaviour
         return currentHealth;
     }
 
+    public void SetHP()
+    {
+        BossHealthSlider.maxValue = HP;
+        BossHealthSlider.value = currentHealth;
+    }
+
     // Apply damage to the boss
     public void TakeDamage(float damage)
     {
         Debug.Log("Senopati Damaged");
         currentHealth -= damage;
         Debug.Log("Senopati HP: " + currentHealth);
-        if (currentHealth <= bossHealth.BossMaxHealth * 0.5f && !isRageMode)
+        if (currentHealth <= HP * 0.5f && !isRageMode)
         {
             EnterRageMode();
         }
