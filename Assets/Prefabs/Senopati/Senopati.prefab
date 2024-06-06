@@ -2348,6 +2348,7 @@ MonoBehaviour:
   hitboxDuration: 1
   isGettingHitInThisHit: 0
   HP: 50
+  rageModeVFX: {fileID: 2271962896193047553, guid: 157767159a6ee5a469ce8679617972f4, type: 3}
 --- !u!195 &4389363764082494569
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -28,6 +28,8 @@ public class Senopati : MonoBehaviour
     public float HP;
 
     // Private variables
+    [SerializeField] private GameObject rageModeVFX;
+    private GameObject rageModeInstance;
     private string playerTag = "Player";
     private Transform player;
     private bool isRageMode = false;
@@ -193,6 +195,9 @@ public class Senopati : MonoBehaviour
     private void EnterRageMode()
     {
         isRageMode = true;
+        GameObject senopatiObject = GameObject.FindWithTag("Senopati");
+        GameObject rageModeInstance = Instantiate(rageModeVFX, senopatiObject.transform.position, Quaternion.identity);
+        rageModeInstance.transform.SetParent(transform);
     }
 
     // Get current health of the boss

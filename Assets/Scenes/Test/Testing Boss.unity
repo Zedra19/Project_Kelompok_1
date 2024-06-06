@@ -1985,11 +1985,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2408829644824877149, guid: 1173a36c163707044a668fa60160f762, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2408829644824877149, guid: 1173a36c163707044a668fa60160f762, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8580130583421052128, guid: 1173a36c163707044a668fa60160f762, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2037,7 +2037,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8960315953404886618, guid: 1173a36c163707044a668fa60160f762, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6122,6 +6122,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Senopati2
       objectReference: {fileID: 0}
+    - target: {fileID: 4013222591048061470, guid: 44bedf6d602156247b96b797e39d4967, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4393828794789415076, guid: 44bedf6d602156247b96b797e39d4967, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.637199
@@ -6164,11 +6168,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7675640648178807833, guid: 44bedf6d602156247b96b797e39d4967, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7675640648178807833, guid: 44bedf6d602156247b96b797e39d4967, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7108,6 +7112,75 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9675977528dee664ab8763f48c61e212, type: 3}
+--- !u!1001 &1396223165
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2408829644824877149, guid: 1173a36c163707044a668fa60160f762, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2408829644824877149, guid: 1173a36c163707044a668fa60160f762, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580130583421052128, guid: 1173a36c163707044a668fa60160f762, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.618643
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580130583421052128, guid: 1173a36c163707044a668fa60160f762, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.05000019
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580130583421052128, guid: 1173a36c163707044a668fa60160f762, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.0968018
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580130583421052128, guid: 1173a36c163707044a668fa60160f762, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580130583421052128, guid: 1173a36c163707044a668fa60160f762, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580130583421052128, guid: 1173a36c163707044a668fa60160f762, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580130583421052128, guid: 1173a36c163707044a668fa60160f762, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580130583421052128, guid: 1173a36c163707044a668fa60160f762, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580130583421052128, guid: 1173a36c163707044a668fa60160f762, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580130583421052128, guid: 1173a36c163707044a668fa60160f762, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8960315953404886618, guid: 1173a36c163707044a668fa60160f762, type: 3}
+      propertyPath: m_Name
+      value: Senopati (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8960315953404886618, guid: 1173a36c163707044a668fa60160f762, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1173a36c163707044a668fa60160f762, type: 3}
 --- !u!1 &1398262151
 GameObject:
   m_ObjectHideFlags: 0
@@ -11949,3 +12022,4 @@ SceneRoots:
   - {fileID: 916984926687344150}
   - {fileID: 485206553}
   - {fileID: 1276596022}
+  - {fileID: 1396223165}
