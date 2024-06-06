@@ -78,18 +78,7 @@ public class Health : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag("Enemy S"))
-        {
-            if (playerAttackScript != null && playerAttackScript.IsAttacking) // Cek null dan properti
-            {
-                TakeDamage(0);
-            }
-            else
-            {
-                TakeDamage(1);
-            }
-        }
-        else if (collision.gameObject.CompareTag("BossAttack"))
+        if (collision.gameObject.CompareTag("BossAttack"))
         {
             TakeDamage(1);
         }

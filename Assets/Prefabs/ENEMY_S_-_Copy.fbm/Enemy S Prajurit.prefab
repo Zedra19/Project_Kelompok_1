@@ -2764,8 +2764,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gravity: 9.81
-  AttackRange: 1
-  CooldownDuration: 2
+  AttackRange: 0.5
+  CooldownDuration: 3
   attackVFXPrefab: {fileID: 0}
 --- !u!195 &3875882788709946974
 NavMeshAgent:
