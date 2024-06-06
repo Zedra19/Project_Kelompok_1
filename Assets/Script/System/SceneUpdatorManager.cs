@@ -8,6 +8,7 @@ using UnityEditor;
 
 public class SceneUpdatorManager : MonoBehaviour
 {
+    Score scoreScript;
 
     private void OnEnable()
     {
@@ -71,6 +72,7 @@ public class SceneUpdatorManager : MonoBehaviour
 
     void Start()
     {
+        scoreScript = GameObject.FindAnyObjectByType<Score>();
         if (_currentScene == CurrentScene.shop)
         {
             if (PlayerPrefs.GetInt("isLevelSuccess") == 1)
@@ -114,6 +116,7 @@ public class SceneUpdatorManager : MonoBehaviour
     public void LevelSuccessNextScene()
     {
         // Time.timeScale = 1;
+        StaticScore.currentScore = scoreScript.currentScore;
         PlayerPrefs.SetInt("isLevelSuccess", 1);
         PlayerPrefs.SetString("nextScene", InGameNextSceneName);
         SceneManager.LoadScene(_shopSceneName);
