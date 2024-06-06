@@ -190,6 +190,8 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 446dbf95eda310e43b63948969bbbe2a, type: 3}
   - Name: BGM Endless
     Clip: {fileID: 8300000, guid: 43887e02d3bc8144e9b270d57bda56ac, type: 3}
+  - Name: BGM Prolog
+    Clip: {fileID: 8300000, guid: cb792481c49df93439bfbe665a9efaa0, type: 3}
   SFXSounds:
   - Name: UI
     Clip: {fileID: 8300000, guid: 9cd5ac966da4c334eb31cc6e0bb258d7, type: 3}
@@ -221,6 +223,8 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 06306bc620a53024bb81d44cc077a3ed, type: 3}
   - Name: Patih Att
     Clip: {fileID: 8300000, guid: be9788bc247e62e408a97977cd49b46b, type: 3}
+  - Name: Berdetak
+    Clip: {fileID: 8300000, guid: 16ec94602b70f4e4a8a478b50a044467, type: 3}
   MusicSource: {fileID: 5991534002033701049}
   SFXSource: {fileID: 8376783408269568113}
 --- !u!114 &8687734267322364639

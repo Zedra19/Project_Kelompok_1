@@ -5,8 +5,10 @@ using TMPro;
 
 public class CutSceneController : MonoBehaviour
 {
+    public GameObject Ending;
     public RawImage[] cutScenes; // Array yang berisi CutScene0 sampai CutScene9
     public GameObject[] stories; // Array yang berisi Story0 sampai Story13
+
     private int currentCutSceneIndex = 0;
     public float dissolveDuration = 1.5f;
     public float displayDuration = 2f;
@@ -27,10 +29,17 @@ public class CutSceneController : MonoBehaviour
             story.SetActive(false);
         }
         StartCoroutine(PlayCutScenes());
+        
+    }
+
+    void Update()
+    {
+        SFXTipis();
     }
 
         IEnumerator PlayCutScenes()
     {
+
         // Cutscene 0
         yield return StartCoroutine(PlayCutScene(0, 0, null));
 
@@ -69,6 +78,8 @@ public class CutSceneController : MonoBehaviour
 
         // Story 10 (Appears without cutscene, after Story 6)
         yield return StartCoroutine(PlayStory(13));
+        AudioManager.Instance.StopMusic("BGM Prolog");
+        Ending.SetActive(true);
     }
 
     IEnumerator PlayCutScene(int? index, int? storyIndexToShow, int? storyIndexToHide)
@@ -164,5 +175,17 @@ public class CutSceneController : MonoBehaviour
             yield return null;
         }
         canvasGroup.alpha = endAlpha; // Pastikan set ke endAlpha
+    }
+
+    public void SFXTipis()
+    {
+        if (currentCutSceneIndex == 5)
+        {
+            AudioManager.Instance.PlaySFX("Berdetak");
+        }
+        else
+        {
+            AudioManager.Instance.StopSFX("Berdetak");
+        }
     }
 }
