@@ -27,6 +27,9 @@ public class EnemyL : MonoBehaviour
         PlayerMovement.OnDodgeStart += HandlePlayerDodgeStart;
         PlayerMovement.OnDodgeEnd += HandlePlayerDodgeEnd;
         PlayerAttack.OnAttackDone += AllowAttack;
+        PlayerAttack_Dukun.OnAttackDone += AllowAttack;
+        PlayerAttack_Prajurit.OnAttackDone += AllowAttack;
+        PlayerAttack_Petani.OnAttackDone += AllowAttack;
     }
 
     private void OnDisable()
@@ -34,6 +37,9 @@ public class EnemyL : MonoBehaviour
         PlayerMovement.OnDodgeStart -= HandlePlayerDodgeStart;
         PlayerMovement.OnDodgeEnd -= HandlePlayerDodgeEnd;
         PlayerAttack.OnAttackDone -= AllowAttack;
+        PlayerAttack_Dukun.OnAttackDone -= AllowAttack;
+        PlayerAttack_Prajurit.OnAttackDone -= AllowAttack;
+        PlayerAttack_Petani.OnAttackDone -= AllowAttack;
     }
 
     private void HandlePlayerDodgeStart()

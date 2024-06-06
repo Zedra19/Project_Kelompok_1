@@ -229,12 +229,18 @@ public class Senopati : MonoBehaviour
     private void OnEnable()
     {
         PlayerAttack.OnAttackDone += AllowAttack;
+        PlayerAttack_Dukun.OnAttackDone += AllowAttack;
+        PlayerAttack_Prajurit.OnAttackDone += AllowAttack;
+        PlayerAttack_Petani.OnAttackDone += AllowAttack;
     }
 
     // Disable event listener
     private void OnDisable()
     {
         PlayerAttack.OnAttackDone -= AllowAttack;
+        PlayerAttack_Dukun.OnAttackDone -= AllowAttack;
+        PlayerAttack_Prajurit.OnAttackDone -= AllowAttack;
+        PlayerAttack_Petani.OnAttackDone -= AllowAttack;
     }
 
     // Allow the boss to attack again
