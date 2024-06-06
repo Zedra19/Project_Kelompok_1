@@ -45,6 +45,7 @@ public class EnemyS : MonoBehaviour
             ChasePlayer();
         }
         else if(distanceToPlayer <= AttackRange && enableToAttack == true){
+            AudioManager.Instance.PlaySFX("S Att");
             AttackPlayer();
         }
 
@@ -85,7 +86,6 @@ public class EnemyS : MonoBehaviour
         _navMeshAgent.isStopped = true;
         enableToAttack = false;
         isAttacking = true;
-        AudioManager.Instance.PlaySFX("S att");
         // GameObject attackVFX = Instantiate(attackVFXPrefab, transform.position, Quaternion.identity);
         // Destroy(attackVFX, 1f);
     }
