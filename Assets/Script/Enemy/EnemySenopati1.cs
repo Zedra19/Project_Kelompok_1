@@ -195,6 +195,7 @@ public class Senopati : MonoBehaviour
     private void EnterRageMode()
     {
         isRageMode = true;
+        AudioManager.Instance.PlaySFX("RageSound");
         GameObject senopatiObject = GameObject.FindWithTag("Senopati");
         GameObject rageModeInstance = Instantiate(rageModeVFX, senopatiObject.transform.position, Quaternion.identity);
         rageModeInstance.transform.SetParent(transform);

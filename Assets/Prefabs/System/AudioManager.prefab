@@ -211,12 +211,16 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 847316109b524dc4fa3f29a17414713d, type: 3}
   - Name: L Att
     Clip: {fileID: 8300000, guid: 92560609d076f2d4da719778e2a4c413, type: 3}
+  - Name: BosSpawn
+    Clip: {fileID: 8300000, guid: 9a0f69e15274c6c4cab560ac88793c1f, type: 3}
   - Name: Senopati Att
     Clip: {fileID: 8300000, guid: fda0fb2195166954a8d5446317983124, type: 3}
   - Name: SenopatiQuake
     Clip: {fileID: 8300000, guid: 571faaaff9ccae046a0a944491ef164f, type: 3}
-  - Name: BosSpawn
-    Clip: {fileID: 8300000, guid: 571faaaff9ccae046a0a944491ef164f, type: 3}
+  - Name: RageSound
+    Clip: {fileID: 8300000, guid: 06306bc620a53024bb81d44cc077a3ed, type: 3}
+  - Name: Patih Att
+    Clip: {fileID: 8300000, guid: be9788bc247e62e408a97977cd49b46b, type: 3}
   MusicSource: {fileID: 5991534002033701049}
   SFXSource: {fileID: 8376783408269568113}
 --- !u!114 &8687734267322364639
