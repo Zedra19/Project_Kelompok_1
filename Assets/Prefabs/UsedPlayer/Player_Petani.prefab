@@ -251,6 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackTrigger: {fileID: 861445262915144807}
   attackVFXPrefab: {fileID: 4722185280898181389, guid: d63f23a1ae9b1a74bb38d7efe68b7dbd, type: 3}
+  attackVFXRagePrefab: {fileID: 4722185280898181389, guid: d6f693d7cb04dfc438862c741f195201, type: 3}
   _animator: {fileID: 8938442427168144690}
   _attackDuration: 0.5
   _playerDamage: 1

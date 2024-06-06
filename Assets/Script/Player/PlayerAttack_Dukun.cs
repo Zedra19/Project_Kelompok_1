@@ -11,6 +11,7 @@ public class PlayerAttack_Dukun : MonoBehaviour, IPlayerAttack
     [SerializeField] private GameObject attackPointPrefab; // Objek attackPoint yang akan di-spawn
     [SerializeField] private GameObject attackAreaPrefab;  // Objek attackArea yang akan di-spawn
     [SerializeField] private GameObject attackVFXPrefab;  // Objek attackVFX yang akan di-spawn
+    [SerializeField] private GameObject attackVFXRagePrefab;  // Objek attackVFXRage yang akan di-spawn
     public Transform attackTarget; // Target posisi serangan
     public float CastDuration = 2f;
     public float SpellDuration = 1f;
@@ -19,6 +20,8 @@ public class PlayerAttack_Dukun : MonoBehaviour, IPlayerAttack
     [SerializeField] private int _playerDamage;
     private Coroutine _attackRoutine = null;
     private SFX _sfx;
+    private GameObject _currentAttackVFX;
+
 
     public int PlayerDamage
     {
@@ -50,16 +53,19 @@ public class PlayerAttack_Dukun : MonoBehaviour, IPlayerAttack
         _playerInput = new PlayerInput();
         _playerInput.CharacterControls.Attack.performed += OnAttack;
         _sfx = GetComponent<SFX>();
+        _currentAttackVFX = attackVFXPrefab;
     }
 
     private void OnEnable()
     {
         _playerInput.CharacterControls.Enable();
+        RageMode.OnRageMode += UpdateAttackVFX;
     }
 
     private void OnDisable()
     {
         _playerInput.CharacterControls.Disable();
+        RageMode.OnRageMode -= UpdateAttackVFX;
     }
 
     public void OnAttack(InputAction.CallbackContext context)
@@ -78,7 +84,7 @@ public class PlayerAttack_Dukun : MonoBehaviour, IPlayerAttack
 
     private IEnumerator AttackRoutine(GameObject attackPoint)
     {
-        GameObject attackVFX = Instantiate(attackVFXPrefab, attackPoint.transform.position, Quaternion.identity);
+        GameObject attackVFX = Instantiate(_currentAttackVFX, attackPoint.transform.position, Quaternion.identity);
         // Animasi serangan
         _animator.SetTrigger("Attack");
         IsAttacking = true;
@@ -112,5 +118,17 @@ public class PlayerAttack_Dukun : MonoBehaviour, IPlayerAttack
     public void SetAttackTarget(Transform target)
     {
         attackTarget = target;
+    }
+
+    private void UpdateAttackVFX(bool isRage)
+    {
+        if (isRage)
+        {
+            _currentAttackVFX = attackVFXRagePrefab;
+        }
+        else
+        {
+            _currentAttackVFX = attackVFXPrefab;
+        }
     }
 }

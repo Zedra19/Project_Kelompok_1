@@ -9,6 +9,8 @@ public class PlayerAttack_Prajurit : MonoBehaviour, IPlayerAttack
     [SerializeField] private Animator _animator;
     [SerializeField] private float _attackDuration;
     [SerializeField] private GameObject attackPrefab;  // Objek arrow yang akan di-spawn
+
+    [SerializeField] private GameObject attackRagePrefab;
     public Transform spawnPoint; // Posisi spawn arrow
     public Transform attackTarget; // Target posisi serangan
     public bool IsAttacking { get; private set; } = false;
@@ -17,7 +19,7 @@ public class PlayerAttack_Prajurit : MonoBehaviour, IPlayerAttack
     [SerializeField] private float arrowForce = 0f;
     private float originalArrowForce;
     private Coroutine _attackRoutine = null; //use to run attack with duration
-
+    private GameObject _currentAttack;
 
     public int PlayerDamage
     {
@@ -49,18 +51,21 @@ public class PlayerAttack_Prajurit : MonoBehaviour, IPlayerAttack
         _playerMovement = GetComponent<PlayerMovement>();
         _playerInput = new PlayerInput();
         _playerInput.CharacterControls.Attack.performed += OnAttack;
+        _currentAttack = attackPrefab;
     }
 
     private void OnEnable()
     {
         _playerInput.CharacterControls.Enable();
         RageMode.OnRageMode += RageModeRange;
+        RageMode.OnRageMode += UpdateAttack;
     }
 
     private void OnDisable()
     {
         _playerInput.CharacterControls.Disable();
         RageMode.OnRageMode -= RageModeRange;
+        RageMode.OnRageMode -= UpdateAttack;
     }
 
     public void OnAttack(InputAction.CallbackContext context)
@@ -113,5 +118,10 @@ public class PlayerAttack_Prajurit : MonoBehaviour, IPlayerAttack
         {
             arrowForce = originalArrowForce;
         }
+    }
+
+    private void UpdateAttack(bool isRage)
+    {
+        _currentAttack = isRage ? attackRagePrefab : attackPrefab;
     }
 }

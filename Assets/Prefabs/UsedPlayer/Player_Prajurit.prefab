@@ -2409,6 +2409,7 @@ MonoBehaviour:
   _animator: {fileID: 2262297848528857190}
   _attackDuration: 0.5
   attackPrefab: {fileID: 7854100900196059137, guid: 16da7ed51e91c1e4ea107d03dfab307f, type: 3}
+  attackRagePrefab: {fileID: 2127858327021783148, guid: e033c04dd3d986140b11772276c8c9f6, type: 3}
   spawnPoint: {fileID: 3948207810254540776}
   attackTarget: {fileID: 0}
   _playerDamage: 0

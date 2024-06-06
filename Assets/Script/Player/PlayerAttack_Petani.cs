@@ -10,12 +10,14 @@ public class PlayerAttack_Petani : MonoBehaviour, IPlayerAttack
     private PlayerMovement _playerMovement;
     public Transform attackTrigger;
     [SerializeField] private GameObject attackVFXPrefab;
+    [SerializeField] private GameObject attackVFXRagePrefab;
     [SerializeField] private Animator _animator;
     [SerializeField] float _attackDuration;
     [SerializeField] private int _playerDamage;
     private PlayerInput _playerInput;
     private Coroutine _attackRoutine = null; //use to run attack with duration
 
+    private GameObject _currentAttackVFX;
     public int PlayerDamage
     {
         get
@@ -37,16 +39,19 @@ public class PlayerAttack_Petani : MonoBehaviour, IPlayerAttack
         _playerMovement = GetComponent<PlayerMovement>();
         _playerInput = new PlayerInput();
         _playerInput.CharacterControls.Attack.performed += OnAttack;
+        _currentAttackVFX = attackVFXPrefab;
     }
 
     private void OnEnable()
     {
         _playerInput.CharacterControls.Enable();
+        RageMode.OnRageMode += UpdateAttackVFX;
     }
 
     private void OnDisable()
     {
         _playerInput.CharacterControls.Disable();
+        RageMode.OnRageMode -= UpdateAttackVFX;
     }
 
     private void OnAttack(InputAction.CallbackContext context)
@@ -68,7 +73,7 @@ public class PlayerAttack_Petani : MonoBehaviour, IPlayerAttack
 
         // Instantiate attackVFX with the adjusted position and rotation of attackTrigger
         Quaternion reversedRotation = attackTrigger.rotation * Quaternion.Euler(180, 45, 0); // Rotate by 180 degrees around the Y-axis
-        GameObject attackVFX = Instantiate(attackVFXPrefab, attackPosition, reversedRotation);
+        GameObject attackVFX = Instantiate(_currentAttackVFX, attackPosition, reversedRotation);
         IsAttacking = true;
         yield return new WaitForSeconds(_attackDuration);
         _attackRoutine = null;
@@ -76,4 +81,17 @@ public class PlayerAttack_Petani : MonoBehaviour, IPlayerAttack
         Destroy(attackVFX);
         OnAttackDone?.Invoke(); //invoke event to notify other script that attack is done, making enemy L hitable in another attack
     }
+
+    private void UpdateAttackVFX(bool isRage)
+    {
+        if (isRage)
+        {
+            _currentAttackVFX = attackVFXRagePrefab;
+        }
+        else
+        {
+            _currentAttackVFX = attackVFXPrefab;
+        }
+    }
+
 }
