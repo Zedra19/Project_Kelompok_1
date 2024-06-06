@@ -7,6 +7,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject _mSwarmerPrefab;
     [SerializeField] private GameObject _lSwarmerPrefab;
     [SerializeField] private GameObject _bossPrefab;
+    [SerializeField] private GameObject _bossPrefab2;
 
     public int totalEnemyCount;
     public int spawnThreshold;
@@ -45,6 +46,7 @@ public class EnemySpawner : MonoBehaviour
                 if (totalEnemyCount == 0)
                 {
                     Instantiate(_bossPrefab, GetRandomPosition(), Quaternion.identity);
+                    Instantiate(_bossPrefab2, GetRandomPosition(), Quaternion.identity);
                     totalEnemyCount = spawnThreshold;
                 }
             }
