@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.094285674, g: 0.11944742, b: 0.1552324, a: 1}
+  m_IndirectSpecularColor: {r: 0.094288744, g: 0.11945031, b: 0.15523598, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -83833,7 +83833,7 @@ MonoBehaviour:
   _sSwarmerPrefab: {fileID: 8401859502402427963, guid: bdd0a2a31bdb9fd4f8d123c213535860, type: 3}
   _mSwarmerPrefab: {fileID: 6604261734017257132, guid: 5cf41924b330f2c46a98d16ecc2fb7cd, type: 3}
   _lSwarmerPrefab: {fileID: 1212060903103841737, guid: 4e24185829d4ab04c9fabb68e26dbab1, type: 3}
-  _bossPrefab: {fileID: 8960315953404886618, guid: 1173a36c163707044a668fa60160f762, type: 3}
+  _bossPrefab: {fileID: 4013222591048061470, guid: 44bedf6d602156247b96b797e39d4967, type: 3}
   totalEnemyCount: 100
   spawnThreshold: 0
   spawnInterval: 2
