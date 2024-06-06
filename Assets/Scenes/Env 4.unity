@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.041250892, g: 0.07305416, b: 0.12561989, a: 1}
+  m_IndirectSpecularColor: {r: 0.0412504, g: 0.07305349, b: 0.12561938, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6188,6 +6188,7 @@ MonoBehaviour:
   PriceForRevive: {fileID: 56757274}
   GameOverScreen: {fileID: 904939271}
   ReviveButton: {fileID: 1302957256}
+  leaderboard: {fileID: 0}
   RevivePrice: 1000
 --- !u!114 &1306228015
 MonoBehaviour:
@@ -6204,6 +6205,7 @@ MonoBehaviour:
   leaderdBoard: {fileID: 5230225193110732349}
   Content: {fileID: 1338000818297147342}
   scoreScript: {fileID: 0}
+  isEndless: 0
   RowUIPrefab: {fileID: 1020248152919524932, guid: 0fb400074bb4b5b43b1e18c4e2b3c8cd, type: 3}
 --- !u!114 &1306228016
 MonoBehaviour:
@@ -8863,6 +8865,7 @@ MonoBehaviour:
   ignoreTriggers: 0
   drawGizmos: 1
   LogOutOfRange: 0
+  sightRange: 4
 --- !u!4 &1761576755
 Transform:
   m_ObjectHideFlags: 0
@@ -40669,6 +40672,10 @@ PrefabInstance:
     - target: {fileID: 3454844860915918082, guid: 659367a606cc52446bd3d1244e1db49a, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845908422544554732, guid: 659367a606cc52446bd3d1244e1db49a, type: 3}
+      propertyPath: isEndless
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5544780946440995899, guid: 659367a606cc52446bd3d1244e1db49a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode

@@ -12,7 +12,11 @@ public class LeaderBoard : MonoBehaviour
     public Score scoreScript;
 
     private ScoreData sd;
+    private ScoreDataEndless sde;
+    public bool isEndless = false;
     public GameObject RowUIPrefab;
+
+    
 
     public void loadScore()
     {
@@ -24,6 +28,15 @@ public class LeaderBoard : MonoBehaviour
         else
         {
             sd = new ScoreData();
+        }
+        string leaderboardEndlessJson = PlayerPrefs.GetString("LeaderboardEndless");
+        if (!string.IsNullOrEmpty(leaderboardJson))
+        {
+            sde = JsonUtility.FromJson<ScoreDataEndless>(leaderboardEndlessJson);
+        }
+        else
+        {
+            sde = new ScoreDataEndless();
         }
     }
     // Start is called before the first frame update
@@ -38,9 +51,19 @@ public class LeaderBoard : MonoBehaviour
         return sd.scoreList.OrderByDescending(x => x.Score);
     }
 
+    public IEnumerable<SaveScore> GetHighScoresEndless()
+    {
+        return sde.scoreList.OrderByDescending(x => x.Score);
+    }
+
     public void AddScore(SaveScore ss)
     {
-        sd.scoreList.Add(ss);
+        if(isEndless == false){
+            sd.scoreList.Add(ss);
+        }
+        else if(isEndless == true){
+            sde.scoreList.Add(ss);
+        }
     }
 
     public void saveScore()
@@ -55,23 +78,43 @@ public class LeaderBoard : MonoBehaviour
 
     public void SaveLeaderboard()
     {
-        string json = JsonUtility.ToJson(sd);
-        PlayerPrefs.SetString("Leaderboard", json);
+        if(isEndless == false){
+            string json = JsonUtility.ToJson(sd);
+            PlayerPrefs.SetString("Leaderboard", json);
+        }else if(isEndless == true){
+            string json = JsonUtility.ToJson(sde);
+            PlayerPrefs.SetString("LeaderboardEndless", json);
+        }
     }
 
     public void leaderBoardShow()
     {
-        foreach (Transform child in Content.transform)
-        {
-            Destroy(child.gameObject);
-        }
-        var scores = GetHighScores().Take(10).ToArray();
-        for (int i = 0; i < scores.Length; i++)
-        {
-            var row = Instantiate(RowUIPrefab, Content.transform).GetComponent<RowUI>();
-            row.Rank.text = (i + 1).ToString();
-            row.Name.text = scores[i].Name;
-            row.Score.text = scores[i].Score.ToString();
+        if(isEndless == false){
+            foreach (Transform child in Content.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            var scores = GetHighScores().Take(10).ToArray();
+            for (int i = 0; i < scores.Length; i++)
+            {
+                var row = Instantiate(RowUIPrefab, Content.transform).GetComponent<RowUI>();
+                row.Rank.text = (i + 1).ToString();
+                row.Name.text = scores[i].Name;
+                row.Score.text = scores[i].Score.ToString();
+            }
+        }else if(isEndless == true){
+            foreach (Transform child in Content.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            var scores = GetHighScoresEndless().Take(10).ToArray();
+            for (int i = 0; i < scores.Length; i++)
+            {
+                var row = Instantiate(RowUIPrefab, Content.transform).GetComponent<RowUI>();
+                row.Rank.text = (i + 1).ToString();
+                row.Name.text = scores[i].Name;
+                row.Score.text = scores[i].Score.ToString();
+            }
         }
     }
 
