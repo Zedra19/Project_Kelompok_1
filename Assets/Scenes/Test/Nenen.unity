@@ -398,13 +398,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dukun_Rage
       objectReference: {fileID: 0}
-    - target: {fileID: 2040460775051823323, guid: 89eea9188294d42408ed5e0f540cfb51, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4703214625692298967, guid: 89eea9188294d42408ed5e0f540cfb51, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.0091007
       objectReference: {fileID: 0}
     - target: {fileID: 4703214625692298967, guid: 89eea9188294d42408ed5e0f540cfb51, type: 3}
       propertyPath: m_LocalPosition.y
@@ -412,7 +408,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4703214625692298967, guid: 89eea9188294d42408ed5e0f540cfb51, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.01157
       objectReference: {fileID: 0}
     - target: {fileID: 4703214625692298967, guid: 89eea9188294d42408ed5e0f540cfb51, type: 3}
       propertyPath: m_LocalRotation.w
@@ -440,10 +436,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4703214625692298967, guid: 89eea9188294d42408ed5e0f540cfb51, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4954648134359500131, guid: 89eea9188294d42408ed5e0f540cfb51, type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -937,6 +929,14 @@ PrefabInstance:
     - target: {fileID: 4722185280898181389, guid: d6f693d7cb04dfc438862c741f195201, type: 3}
       propertyPath: m_Name
       value: Petani_Rage
+      objectReference: {fileID: 0}
+    - target: {fileID: 4722185280898181389, guid: d6f693d7cb04dfc438862c741f195201, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520212369984830872, guid: d6f693d7cb04dfc438862c741f195201, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
