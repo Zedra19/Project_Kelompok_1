@@ -88,20 +88,23 @@ public class AttackTriggerPetani : MonoBehaviour
             Debug.Log("---SENOPATI");
             if (senopati != null)
             {
-                Debug.Log("----Hit Senopati HP SENOPATI: " + senopati.HP + "----");
+                Debug.Log($"senopati.isGettingHitInThisHit{senopati.isGettingHitInThisHit}");
                 if (senopati.isGettingHitInThisHit)
                 {
+                    Debug.Log("Senopati is getting hit in this hit");
                     return;
                 }
                 senopati.isGettingHitInThisHit = true;
+
                 // comboScript.comboCount++;
                 AudioManager.Instance.PlaySFX("Hit");
+                Debug.Log("Player Damage: " + playerAttackScript.PlayerDamage);
                 senopati.TakeDamage(playerAttackScript.PlayerDamage);
-                Debug.Log("Boss HP: " + senopati.HP);
-                if (senopati.HP <= 0)
+                Debug.Log("Boss Senopati HP: " + senopati.HP);
+                if (senopati.GetCurrentHealth() <= 0)
                 {
-                    // killCountScript.killCount++;
-                    // scoreScript.currentScore += scoreScript.EnemyL;
+                    killCountScript.killCount++;
+                    scoreScript.currentScore += scoreScript.Boss;
                     Destroy(other.gameObject);
                 }
             }

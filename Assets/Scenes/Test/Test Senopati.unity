@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1981,7 +1981,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 286683207755884155, guid: fe52856606cf7624e982c9b379169bda, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 293952188960418763, guid: fe52856606cf7624e982c9b379169bda, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1997,11 +1997,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 510057280985650482, guid: fe52856606cf7624e982c9b379169bda, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 510057280985650482, guid: fe52856606cf7624e982c9b379169bda, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 916996765033651385, guid: fe52856606cf7624e982c9b379169bda, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2117,7 +2117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2354405808740040754, guid: fe52856606cf7624e982c9b379169bda, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2467121113005990101, guid: fe52856606cf7624e982c9b379169bda, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -22539,16 +22539,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7660b96fa35030b4cb2e8ba829136a88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitboxSpawnPoints:
-  - {fileID: 1946938410}
-  - {fileID: 1261987230}
-  - {fileID: 816066683}
-  - {fileID: 1581050652}
+  normalProjectilSpawnPoints: []
+  rageProjectilSpawnPoints: []
   hitboxPrefab: {fileID: 2871018853519431222, guid: 6ada6de87d2258c4da4668d1c3766c1a, type: 3}
   areaAttackHitbox: {fileID: 1352662252161028013, guid: 31907cdffa1a48945a8bd1e39e7da210, type: 3}
   rageHitboxPrefab: {fileID: 6036660082309536335, guid: 8e54251409870d549ab02beab58c9b24, type: 3}
   attackSpawnPoint: {fileID: 1946938410}
-  bossHealth: {fileID: 1747645664}
+  BossHealthSlider: {fileID: 0}
   attackRange: 3
   hitboxSpeed: 10
   hitboxDuration: 1
@@ -24143,6 +24140,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2408829644824877149, guid: 1173a36c163707044a668fa60160f762, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2408829644824877149, guid: 1173a36c163707044a668fa60160f762, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3556969149635241279, guid: 1173a36c163707044a668fa60160f762, type: 3}
       propertyPath: bossHealth
       value: 
