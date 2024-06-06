@@ -900,7 +900,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1264989731834483957, guid: d6f693d7cb04dfc438862c741f195201, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.74
       objectReference: {fileID: 0}
     - target: {fileID: 1264989731834483957, guid: d6f693d7cb04dfc438862c741f195201, type: 3}
       propertyPath: m_LocalPosition.z
@@ -937,14 +937,6 @@ PrefabInstance:
     - target: {fileID: 4722185280898181389, guid: d6f693d7cb04dfc438862c741f195201, type: 3}
       propertyPath: m_Name
       value: Petani_Rage
-      objectReference: {fileID: 0}
-    - target: {fileID: 4722185280898181389, guid: d6f693d7cb04dfc438862c741f195201, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6520212369984830872, guid: d6f693d7cb04dfc438862c741f195201, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -999,9 +991,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3987589969821428120, guid: 16da7ed51e91c1e4ea107d03dfab307f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7854100900196059137, guid: 16da7ed51e91c1e4ea107d03dfab307f, type: 3}
       propertyPath: m_Name
       value: Arrow_Att
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854100900196059137, guid: 16da7ed51e91c1e4ea107d03dfab307f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1378,7 +1378,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1264989731834483957, guid: d63f23a1ae9b1a74bb38d7efe68b7dbd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.69
       objectReference: {fileID: 0}
     - target: {fileID: 1264989731834483957, guid: d63f23a1ae9b1a74bb38d7efe68b7dbd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1415,14 +1415,6 @@ PrefabInstance:
     - target: {fileID: 4722185280898181389, guid: d63f23a1ae9b1a74bb38d7efe68b7dbd, type: 3}
       propertyPath: m_Name
       value: Petani_normalAtt
-      objectReference: {fileID: 0}
-    - target: {fileID: 4722185280898181389, guid: d63f23a1ae9b1a74bb38d7efe68b7dbd, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6520212369984830872, guid: d63f23a1ae9b1a74bb38d7efe68b7dbd, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
