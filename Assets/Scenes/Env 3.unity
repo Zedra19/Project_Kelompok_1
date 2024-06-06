@@ -39632,7 +39632,7 @@ MonoBehaviour:
   _sSwarmerPrefab: {fileID: 8401859502402427963, guid: bdd0a2a31bdb9fd4f8d123c213535860, type: 3}
   _mSwarmerPrefab: {fileID: 6604261734017257132, guid: 5cf41924b330f2c46a98d16ecc2fb7cd, type: 3}
   _lSwarmerPrefab: {fileID: 1212060903103841737, guid: 4e24185829d4ab04c9fabb68e26dbab1, type: 3}
-  _bossPrefab: {fileID: 0}
+  _bossPrefab: {fileID: 2354405808740040754, guid: fe52856606cf7624e982c9b379169bda, type: 3}
   totalEnemyCount: 100
   spawnThreshold: 0
   spawnInterval: 2

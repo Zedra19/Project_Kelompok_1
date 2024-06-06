@@ -65,8 +65,10 @@ public class PlayerAttack_Prajurit : MonoBehaviour, IPlayerAttack
 
     public void OnAttack(InputAction.CallbackContext context)
     {
+
         if (_attackRoutine == null && !_playerMovement.IsDodging && Time.timeScale == 1)
         {
+            Debug.Log("Attack");
             AudioManager.Instance.PlaySFX("Prajurit Att");
             _attackRoutine = StartCoroutine(AttackRoutine());
         }

@@ -11,16 +11,17 @@ public class SceneUpdatorManager : MonoBehaviour
 
     private void OnEnable()
     {
-        PatternPatih.OnPatihDestroyed += LevelSuccessNextScene;
-        Senopati.OnSenopatiDestroyed += LevelSuccessNextScene;
+        PatternPatih.OnPatihDestroyed += LevelSuccessWithDuration;
+        Senopati.OnSenopatiDestroyed += LevelSuccessWithDuration;
     }
 
     private void OnDisable()
     {
-        PatternPatih.OnPatihDestroyed -= LevelSuccessNextScene;
-        Senopati.OnSenopatiDestroyed -= LevelSuccessNextScene;
+        PatternPatih.OnPatihDestroyed -= LevelSuccessWithDuration;
+        Senopati.OnSenopatiDestroyed -= LevelSuccessWithDuration;
     }
 
+    [SerializeField] private float _waitAfterCharacterDestroyed = 5f;
     [SerializeField] private string _shopSceneName = "Shop";
     [SerializeField] private string _level1SceneName = "Env";
     [HideInInspector] public OnEnteringPortal OnEnteringPortal;
@@ -100,6 +101,11 @@ public class SceneUpdatorManager : MonoBehaviour
         {
             LevelSuccessNextScene();
         }
+    }
+
+    private void LevelSuccessWithDuration()
+    {
+        Invoke(nameof(LevelSuccessNextScene), _waitAfterCharacterDestroyed);
     }
 
     /// <summary>
