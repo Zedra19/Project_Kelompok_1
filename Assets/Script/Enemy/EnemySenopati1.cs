@@ -2,9 +2,13 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Animations;
+using System;
 
 public class Senopati : MonoBehaviour
 {
+
+    public static event Action OnSenopatiDestroyed;
+
     // Public variables
     public Transform[] hitboxSpawnPoints;
     public GameObject hitboxPrefab;
@@ -47,7 +51,7 @@ public class Senopati : MonoBehaviour
     {
         stageDuration += Time.deltaTime;
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-        
+
         // Handle attack and chase logic
         if (distanceToPlayer <= attackRange)
         {
@@ -210,5 +214,10 @@ public class Senopati : MonoBehaviour
     private void AllowAttack()
     {
         isGettingHitInThisHit = false;
+    }
+
+    private void OnDestroy()
+    {
+        OnSenopatiDestroyed?.Invoke();
     }
 }

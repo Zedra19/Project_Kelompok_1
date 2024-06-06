@@ -1452,7 +1452,7 @@ MonoBehaviour:
   hitboxSpeed: 10
   hitboxDuration: 1
   isGettingHitInThisHit: 0
-  HP: 10
+  HP: 1
 --- !u!195 &4389363764082494569
 NavMeshAgent:
   m_ObjectHideFlags: 0

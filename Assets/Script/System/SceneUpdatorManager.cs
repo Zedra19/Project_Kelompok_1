@@ -8,6 +8,19 @@ using UnityEditor;
 
 public class SceneUpdatorManager : MonoBehaviour
 {
+
+    private void OnEnable()
+    {
+        PatternPatih.OnPatihDestroyed += LevelSuccessNextScene;
+        Senopati.OnSenopatiDestroyed += LevelSuccessNextScene;
+    }
+
+    private void OnDisable()
+    {
+        PatternPatih.OnPatihDestroyed -= LevelSuccessNextScene;
+        Senopati.OnSenopatiDestroyed -= LevelSuccessNextScene;
+    }
+
     [SerializeField] private string _shopSceneName = "Shop";
     [SerializeField] private string _level1SceneName = "Env";
     [HideInInspector] public OnEnteringPortal OnEnteringPortal;

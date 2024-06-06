@@ -2,9 +2,12 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using System;
 
 public class PatternPatih : MonoBehaviour
 {
+
+    public static event Action OnPatihDestroyed;
     private Animator _animator;
 
     public int damage, HP, MaxHP;
@@ -33,7 +36,7 @@ public class PatternPatih : MonoBehaviour
     private NavMeshAgent _navAgent;
     private Health _playerHealth;
     private GameObject hitboxInstance;
-    
+
     public bool IsGettingHitInThisHit = false;
 
     private void OnEnable()
@@ -74,7 +77,7 @@ public class PatternPatih : MonoBehaviour
 
     public void CekBool()
     {
-        if(!RageAnim && IsRage)
+        if (!RageAnim && IsRage)
         {
             RageAnim = true;
             _animator.SetTrigger("Rage");
@@ -186,7 +189,7 @@ public class PatternPatih : MonoBehaviour
             hitboxInstance.transform.localScale = new Vector3(1f, 1f, hitboxLength);
         }
         else
-        {   
+        {
             vfxScale = new Vector3(3f, 1f, 1f);
             hitboxInstance.transform.localScale = new Vector3(3f, 1f, hitboxLength);
         }
@@ -264,5 +267,10 @@ public class PatternPatih : MonoBehaviour
     {
         BossHealthSlider.maxValue = MaxHP;
         BossHealthSlider.value = HP;
+    }
+
+    private void OnDestroy()
+    {
+        OnPatihDestroyed?.Invoke();
     }
 }
