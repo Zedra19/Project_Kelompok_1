@@ -10,6 +10,7 @@ public class GameOverMenu : MonoBehaviour
     public Text PriceForRevive;
     public GameObject GameOverScreen;
     public Button ReviveButton;
+    public GameObject leaderboard;
 
     public int RevivePrice = 1000;
     private bool gameOver = false;
@@ -80,6 +81,10 @@ public class GameOverMenu : MonoBehaviour
         Time.timeScale = 1;
         StaticScore.currentScore = 0;
         StaticScore.currentScore = ScoreScript.currentScore - RevivePrice;
+    }
+
+    public void UploadButton(){
+        GameOverScreen.SetActive(false);
     }
 
     private void UpdateReviveButtonInteractibility()

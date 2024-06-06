@@ -315,6 +315,7 @@ namespace FischlWorks_FogWar
         //             ForceUpdateFog();
         //         }
 
+        [SerializeField] private int sightRange = 4;
         private void Start()
         {
             CheckProperties();
@@ -363,28 +364,28 @@ namespace FischlWorks_FogWar
                     if (ksatriaObject != null)
                     {
                         fogRevealer.revealerTransform = ksatriaObject.transform;
-                        fogRevealer.sightRange = 11;
+                        fogRevealer.sightRange = sightRange;
                         fogRevealer.updateOnlyOnMove = false;
                         Debug.LogFormat("Found and assigned Transform for FogRevealer: {0}", ksatriaObject.name);
                     }
                     else if (dukunObject != null)
                     {
                         fogRevealer.revealerTransform = dukunObject.transform;
-                        fogRevealer.sightRange = 11;
+                        fogRevealer.sightRange = sightRange;
                         fogRevealer.updateOnlyOnMove = false;
                         Debug.LogFormat("Found and assigned Transform for FogRevealer: {0}", dukunObject.name);
                     }
                     else if (petaniObject != null)
                     {
                         fogRevealer.revealerTransform = petaniObject.transform;
-                        fogRevealer.sightRange = 11;
+                        fogRevealer.sightRange = sightRange;
                         fogRevealer.updateOnlyOnMove = false;
                         Debug.LogFormat("Found and assigned Transform for FogRevealer: {0}", petaniObject.name);
                     }
                     else if (prajuritObject != null)
                     {
                         fogRevealer.revealerTransform = prajuritObject.transform;
-                        fogRevealer.sightRange = 11;
+                        fogRevealer.sightRange = sightRange;
                         fogRevealer.updateOnlyOnMove = false;
                         Debug.LogFormat("Found and assigned Transform for FogRevealer: {0}", prajuritObject.name);
                     }
