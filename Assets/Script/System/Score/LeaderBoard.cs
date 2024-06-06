@@ -30,7 +30,7 @@ public class LeaderBoard : MonoBehaviour
             sd = new ScoreData();
         }
         string leaderboardEndlessJson = PlayerPrefs.GetString("LeaderboardEndless");
-        if (!string.IsNullOrEmpty(leaderboardJson))
+        if (!string.IsNullOrEmpty(leaderboardEndlessJson))
         {
             sde = JsonUtility.FromJson<ScoreDataEndless>(leaderboardEndlessJson);
         }

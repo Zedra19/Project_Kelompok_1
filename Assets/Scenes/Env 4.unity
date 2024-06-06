@@ -6205,7 +6205,7 @@ MonoBehaviour:
   leaderdBoard: {fileID: 5230225193110732349}
   Content: {fileID: 1338000818297147342}
   scoreScript: {fileID: 0}
-  isEndless: 0
+  isEndless: 1
   RowUIPrefab: {fileID: 1020248152919524932, guid: 0fb400074bb4b5b43b1e18c4e2b3c8cd, type: 3}
 --- !u!114 &1306228016
 MonoBehaviour:
@@ -7279,6 +7279,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1873834867}
         m_TargetAssemblyTypeName: SoundSetting, Assembly-CSharp
         m_MethodName: UISFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1306228014}
+        m_TargetAssemblyTypeName: GameOverMenu, Assembly-CSharp
+        m_MethodName: UploadButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
