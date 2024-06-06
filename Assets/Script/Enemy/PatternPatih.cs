@@ -58,6 +58,7 @@ public class PatternPatih : MonoBehaviour
 
     void Start()
     {
+        HP = MaxHP;
         CastDuration = MaxCastDuration;
         _animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag(playerTag).transform;
