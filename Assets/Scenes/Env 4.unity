@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0412504, g: 0.07305349, b: 0.12561938, a: 1}
+  m_IndirectSpecularColor: {r: 0.041250892, g: 0.07305416, b: 0.12561989, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3297,6 +3297,26 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.72156864
       objectReference: {fileID: 0}
+    - target: {fileID: 1457861703697839489, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.6999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457861703697839489, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457861703697839489, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457861703697839489, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 264.80014
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457861703697839489, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -66.49999
+      objectReference: {fileID: 0}
     - target: {fileID: 1607694543134637586, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_text
       value: 'Mpu Naraya : '
@@ -3332,6 +3352,26 @@ PrefabInstance:
     - target: {fileID: 1617360524519678894, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_Color.r
       value: 0.72156864
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758675017690260913, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.7000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758675017690260913, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758675017690260913, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.7000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758675017690260913, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -290
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758675017690260913, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -66.50002
       objectReference: {fileID: 0}
     - target: {fileID: 2057247473972983589, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_IsActive
@@ -3392,6 +3432,26 @@ PrefabInstance:
     - target: {fileID: 2707200517450070639, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2734394929189530647, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.6999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 2734394929189530647, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 2734394929189530647, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2734394929189530647, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 264.80014
+      objectReference: {fileID: 0}
+    - target: {fileID: 2734394929189530647, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -66.49999
       objectReference: {fileID: 0}
     - target: {fileID: 2824647753161581889, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_Color.b
@@ -3560,6 +3620,14 @@ PrefabInstance:
     - target: {fileID: 6089116867212995172, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229790169866707877, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 264.80014
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229790169866707877, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -66.49999
       objectReference: {fileID: 0}
     - target: {fileID: 6269227624932417494, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_IsActive
@@ -3820,6 +3888,26 @@ PrefabInstance:
     - target: {fileID: 8876229048952816036, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8984207808637853788, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.7000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 8984207808637853788, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 8984207808637853788, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.7000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 8984207808637853788, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -290
+      objectReference: {fileID: 0}
+    - target: {fileID: 8984207808637853788, guid: 80cbbfbe9064750489bb04fddab2f238, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -66.50002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
