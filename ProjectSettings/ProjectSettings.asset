@@ -16,7 +16,7 @@ PlayerSettings:
   productName: The Fallen Singosari
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
-  m_SplashScreenBackgroundColor: {r: 0.10588236, g: 0.10588236, b: 0.10588236, a: 1}
+  m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 1
@@ -40,7 +40,9 @@ PlayerSettings:
     width: 1
     height: 1
   m_SplashScreenLogos:
-  - logo: {fileID: 21300000, guid: 0c3a937a9a4dbae4993c46da8127198a, type: 3}
+  - logo: {fileID: 21300000, guid: 849b7081674e3b441af623b926241949, type: 3}
+    duration: 3
+  - logo: {fileID: 21300000, guid: 45ee16fdbc7e35745b5c63bf7d69f3a0, type: 3}
     duration: 3
   - logo: {fileID: 10404, guid: 0000000000000000f000000000000000, type: 0}
     duration: 2
@@ -107,7 +109,7 @@ PlayerSettings:
   xboxEnableFitness: 0
   visibleInBackground: 1
   allowFullscreenSwitch: 1
-  fullscreenMode: 1
+  fullscreenMode: 0
   xboxSpeechDB: 0
   xboxEnableHeadOrientation: 0
   xboxEnableGuest: 0
@@ -143,7 +145,7 @@ PlayerSettings:
   loadStoreDebugModeEnabled: 0
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
-  bundleVersion: Alpha 0.5
+  bundleVersion: Final Released Version
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -721,8 +723,8 @@ PlayerSettings:
   ps4IncludedModules: []
   ps4attribVROutputEnabled: 0
   monoEnv: 
-  splashScreenBackgroundSourceLandscape: {fileID: 0}
-  splashScreenBackgroundSourcePortrait: {fileID: 0}
+  splashScreenBackgroundSourceLandscape: {fileID: 21300000, guid: 55a051961bf20474c931c75a09ca42fc, type: 3}
+  splashScreenBackgroundSourcePortrait: {fileID: 21300000, guid: 32e3a0a6322bad54c8292c886c8a9020, type: 3}
   blurSplashScreenBackground: 1
   spritePackerPolicy: 
   webGLMemorySize: 16
