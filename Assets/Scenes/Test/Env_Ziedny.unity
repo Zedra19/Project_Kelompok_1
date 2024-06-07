@@ -1789,7 +1789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86601f104e881dd4db3b05464dc6acae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerIndex: 2
+  _playerIndex: 3
   _playerPrefab:
   - {fileID: 242259732691763411, guid: 41bedeecd6e931c4ebbf19580c6fba8e, type: 3}
   - {fileID: 8198426975804042383, guid: d9e085f83bd45f54ba69b3643e65437e, type: 3}
@@ -10020,6 +10020,7 @@ MonoBehaviour:
   PriceForRevive: {fileID: 56757274}
   GameOverScreen: {fileID: 904939271}
   ReviveButton: {fileID: 1302957256}
+  leaderboard: {fileID: 0}
   RevivePrice: 1000
 --- !u!114 &1306228015
 MonoBehaviour:
@@ -10036,6 +10037,7 @@ MonoBehaviour:
   leaderdBoard: {fileID: 5230225193110732349}
   Content: {fileID: 1338000818297147342}
   scoreScript: {fileID: 0}
+  isEndless: 0
   RowUIPrefab: {fileID: 1020248152919524932, guid: 0fb400074bb4b5b43b1e18c4e2b3c8cd, type: 3}
 --- !u!114 &1306228016
 MonoBehaviour:
@@ -13195,6 +13197,7 @@ MonoBehaviour:
   ignoreTriggers: 0
   drawGizmos: 0
   LogOutOfRange: 0
+  sightRange: 4
 --- !u!4 &1761576755
 Transform:
   m_ObjectHideFlags: 0
@@ -15116,7 +15119,7 @@ MonoBehaviour:
   _lSwarmerPrefab: {fileID: 1212060903103841737, guid: 4e24185829d4ab04c9fabb68e26dbab1, type: 3}
   _bossPrefab: {fileID: 8960315953404886618, guid: 1173a36c163707044a668fa60160f762, type: 3}
   _bossPrefab2: {fileID: 0}
-  totalEnemyCount: 100
+  totalEnemyCount: 1
   spawnThreshold: 0
   spawnInterval: 2
   isEndlessMode: 0
