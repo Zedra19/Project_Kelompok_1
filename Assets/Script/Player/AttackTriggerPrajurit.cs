@@ -10,6 +10,7 @@ public class AttackTriggerPrajurit : MonoBehaviour
     Score scoreScript;
     PatternPatih _patih;
     Senopati senopati;
+    [SerializeField] private GameObject hePrajuritVFXPrefab;
 
     // Dictionary untuk melacak objek yang telah menabrak EnemyL
     Dictionary<GameObject, bool> collidedObjects = new Dictionary<GameObject, bool>();
@@ -42,6 +43,13 @@ public class AttackTriggerPrajurit : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        if (other.gameObject.CompareTag("Enemy S") || other.gameObject.CompareTag("Enemy M"))
+        {
+            GameObject heKsatriaVFX = Instantiate(hePrajuritVFXPrefab, other.gameObject.transform.position + other.gameObject.transform.up * 2, Quaternion.identity);
+            heKsatriaVFX.transform.localScale *= 2;
+            Destroy(heKsatriaVFX, 2f);
+        }
+
         if (other.gameObject.CompareTag("Enemy S") && playerAttackScript.IsAttacking)
         {
             // Penanganan ketika EnemyS terkena serangan
