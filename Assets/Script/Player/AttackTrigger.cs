@@ -135,6 +135,9 @@ public class AttackTrigger : MonoBehaviour
                 comboScript.comboCount++;
                 AudioManager.Instance.PlaySFX("Hit");
                 Debug.Log("Player Damage: " + playerAttackScript.PlayerDamage);
+                GameObject heKsatriaVFX = Instantiate(heKsatriaVFXPrefab, transform.position + transform.up * 1, Quaternion.identity);
+                heKsatriaVFX.transform.localScale *= 4;
+                Destroy(heKsatriaVFX, 2f);
                 _patih.HP -= playerAttackScript.PlayerDamage;
                 Debug.Log("Patih HP: " + _patih.HP);
                 if (_patih.HP <= 0)

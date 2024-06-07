@@ -39,6 +39,11 @@ public class Senopati : MonoBehaviour
     private float currentHealth;
     private float stageDuration = 0f;
     private Animator animator;
+    [SerializeField] private GameObject heKsatriaVFXPrefab;
+    [SerializeField] private GameObject hePrajuritVFXPrefab;
+
+    private string PlayerTag = "Player";
+    private Transform _playerTransform;
 
     // Called when the script instance is being loaded
     void Start()
@@ -54,6 +59,22 @@ public class Senopati : MonoBehaviour
     // Called once per frame
     void Update()
     {
+        if (_playerTransform == null)
+        {
+            GameObject playerObject = GameObject.FindGameObjectWithTag(PlayerTag);
+
+            if (playerObject != null)
+            {
+                _playerTransform = playerObject.transform;
+            }
+            else
+            {
+                Debug.LogWarning("Player object not found!");
+                return;
+            }
+        }
+
+
         SetHP();
         stageDuration += Time.deltaTime;
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
@@ -216,6 +237,22 @@ public class Senopati : MonoBehaviour
     // Apply damage to the boss
     public void TakeDamage(float damage)
     {
+        if (_playerTransform != null)
+        {
+            if (_playerTransform.gameObject.name == "Player-Ksatria(Clone)" || _playerTransform.gameObject.name == "Player_Petani(Clone)")
+            {
+                GameObject heKsatriaVFX = Instantiate(heKsatriaVFXPrefab, transform.position + transform.up * 2, Quaternion.identity);
+                heKsatriaVFX.transform.localScale *= 3;
+                Destroy(heKsatriaVFX, 2f);
+            }
+            else if (_playerTransform.gameObject.name == "Player_Prajurit(Clone)" || _playerTransform.gameObject.name == "Player_Dukun(Clone)")
+            {
+                GameObject hePrajuritVFX = Instantiate(hePrajuritVFXPrefab, transform.position + transform.up * 2, Quaternion.identity);
+                hePrajuritVFX.transform.localScale *= 3;
+                Destroy(hePrajuritVFX, 2f);
+            }
+        }
+
         Debug.Log("Senopati Damaged");
         currentHealth -= damage;
         Debug.Log("Senopati HP: " + currentHealth);

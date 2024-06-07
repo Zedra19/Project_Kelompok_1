@@ -110,6 +110,9 @@ public class AttackTriggerPrajurit : MonoBehaviour
                 comboScript.comboCount++;
                 AudioManager.Instance.PlaySFX("Hit");
                 Debug.Log("Player Damage: " + playerAttackScript.PlayerDamage);
+                GameObject hePrajuritVFX = Instantiate(hePrajuritVFXPrefab, transform.position + transform.up * 1, Quaternion.identity);
+                hePrajuritVFX.transform.localScale *= 4;
+                Destroy(hePrajuritVFX, 2f);
                 _patih.HP -= playerAttackScript.PlayerDamage;
                 Debug.Log("Patih HP: " + _patih.HP);
                 if (_patih.HP <= 0)
