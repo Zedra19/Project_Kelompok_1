@@ -2331,6 +2331,7 @@ MonoBehaviour:
   - {fileID: 0}
   fullHealthSprite: {fileID: 21300000, guid: 24738fccbfb8ce84c9dcaa182e7a700a, type: 3}
   emptyHealthSprite: {fileID: 21300000, guid: 24fed816c2719ea4eb41fc2899e30813, type: 3}
+  _canTakeDamage: 1
 --- !u!114 &3574960357240128097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2440,7 +2441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RageTime: 15
-  ComboRageTrigger: 2
+  ComboRageTrigger: 16
   rageModeVFX: {fileID: 6593579210643490428, guid: 22c197b0339be68439817a4f3dd0d80d, type: 3}
 --- !u!1 &7675620686127348738
 GameObject:
