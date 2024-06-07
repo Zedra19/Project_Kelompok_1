@@ -387,13 +387,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4395659494858720712}
     m_Modifications:
+    - target: {fileID: 89207519236906508, guid: 135acb53133c7904193157e6a7935052, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 588580758808593158, guid: 135acb53133c7904193157e6a7935052, type: 3}
       propertyPath: m_Name
       value: Player-Dukun
       objectReference: {fileID: 0}
-    - target: {fileID: 588580758808593158, guid: 135acb53133c7904193157e6a7935052, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 1073679614886549404, guid: 135acb53133c7904193157e6a7935052, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1274855546421606814, guid: 135acb53133c7904193157e6a7935052, type: 3}
       propertyPath: m_LocalPosition.x
@@ -435,13 +439,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2334706467710062224, guid: 135acb53133c7904193157e6a7935052, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 2b9b59909cf3240449013b51f9b4c8d2, type: 2}
-    - target: {fileID: 2334706467710062224, guid: 135acb53133c7904193157e6a7935052, type: 3}
-      propertyPath: m_WarningMessage
-      value: 
+    - target: {fileID: 1716115340704334513, guid: 135acb53133c7904193157e6a7935052, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604854842855018206, guid: 135acb53133c7904193157e6a7935052, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874972976839017544, guid: 135acb53133c7904193157e6a7935052, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7017935430866263116, guid: 135acb53133c7904193157e6a7935052, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7350878035829753733, guid: 135acb53133c7904193157e6a7935052, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7745592340407912689, guid: 135acb53133c7904193157e6a7935052, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
