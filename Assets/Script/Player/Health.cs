@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public interface IPlayerAttack
 {
@@ -17,6 +18,8 @@ public class Health : MonoBehaviour
     public Sprite emptyHealthSprite;
     public IPlayerAttack playerAttackScript; // Menggunakan interface sebagai tipe data
     private bool hasTakenDamage = false;
+
+    public static event Action OnPlayerDeath;
 
     private void Start()
     {
@@ -36,6 +39,7 @@ public class Health : MonoBehaviour
             if (currentHealth <= 0)
             {
                 Debug.Log("Player is Dead!");
+                OnPlayerDeath?.Invoke();
             }
         }
 

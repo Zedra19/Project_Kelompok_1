@@ -14,12 +14,14 @@ public class SceneUpdatorManager : MonoBehaviour
     {
         PatternPatih.OnPatihDestroyed += LevelSuccessWithDuration;
         Senopati.OnSenopatiDestroyed += LevelSuccessWithDuration;
+        Health.OnPlayerDeath += LevelFailed;
     }
 
     private void OnDisable()
     {
         PatternPatih.OnPatihDestroyed -= LevelSuccessWithDuration;
         Senopati.OnSenopatiDestroyed -= LevelSuccessWithDuration;
+        Health.OnPlayerDeath -= LevelFailed;
     }
 
     [SerializeField] private float _waitAfterCharacterDestroyed = 5f;
@@ -35,6 +37,7 @@ public class SceneUpdatorManager : MonoBehaviour
     }
     [SerializeField] private CurrentScene _currentScene;
 
+    private string _currentSceneName;
 #if UNITY_EDITOR
 
     [CustomEditor(typeof(SceneUpdatorManager))]
@@ -78,13 +81,21 @@ public class SceneUpdatorManager : MonoBehaviour
             if (PlayerPrefs.GetInt("isLevelSuccess") == 1)
             {
                 // PlayerSpawnerManager.SpawnPlayer();
+                Debug.Log($"PlayerPrefs.GetString(nextScene){PlayerPrefs.GetString("nextScene")}");
                 OnEnteringPortal.SceneName = PlayerPrefs.GetString("nextScene");
                 PlayerPrefs.SetInt("isLevelSuccess", 0);
             }
+
+            if (PlayerPrefs.GetInt("isLevelSuccess") == 0)
+            {
+                OnEnteringPortal.SceneName = PlayerPrefs.GetString("nextScene");
+            }
+
             if (PlayerPrefs.GetString("nextScene") == _level1SceneName)
             {
                 OnEnteringPortal.SceneName = _level1SceneName;
             }
+
         }
         if (_currentScene == CurrentScene.game)
         {
@@ -93,6 +104,8 @@ public class SceneUpdatorManager : MonoBehaviour
             {
                 PlayerPrefs.SetString("nextScene", _level1SceneName);
             }
+
+            _currentSceneName = SceneManager.GetActiveScene().name;
         }
     }
 
@@ -119,6 +132,14 @@ public class SceneUpdatorManager : MonoBehaviour
         StaticScore.currentScore = scoreScript.currentScore;
         PlayerPrefs.SetInt("isLevelSuccess", 1);
         PlayerPrefs.SetString("nextScene", InGameNextSceneName);
+
         SceneManager.LoadScene(_shopSceneName);
+    }
+
+    private void LevelFailed()
+    {
+        // Time.timeScale = 1;
+        PlayerPrefs.SetInt("isLevelSuccess", 0);
+        PlayerPrefs.SetString("nextScene", _currentSceneName);
     }
 }
