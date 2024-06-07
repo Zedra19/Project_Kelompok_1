@@ -245,7 +245,7 @@ public class Senopati : MonoBehaviour
                 heKsatriaVFX.transform.localScale *= 3;
                 Destroy(heKsatriaVFX, 2f);
             }
-            else if (_playerTransform.gameObject.name == "Player_Prajurit(Clone)" || _playerTransform.gameObject.name == "Player_Dukun(Clone)")
+            else if (_playerTransform.gameObject.name == "Player_Prajurit(Clone)")
             {
                 GameObject hePrajuritVFX = Instantiate(hePrajuritVFXPrefab, transform.position + transform.up * 2, Quaternion.identity);
                 hePrajuritVFX.transform.localScale *= 3;
