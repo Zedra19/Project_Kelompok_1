@@ -93,7 +93,10 @@ public class AttackTriggerPetani : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Senopati") && playerAttackScript.IsAttacking)
         {
-            Debug.Log("---SENOPATI");
+            if (senopati == null)
+            {
+                senopati = other.GetComponent<Senopati>();
+            }
             if (senopati != null)
             {
                 Debug.Log($"senopati.isGettingHitInThisHit{senopati.isGettingHitInThisHit}");
@@ -119,6 +122,10 @@ public class AttackTriggerPetani : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Patih") && playerAttackScript.IsAttacking && _patih.IsStunned)
         {
+            if (_patih == null)
+            {
+                _patih = other.GetComponent<PatternPatih>();
+            }
             Debug.Log("---PATIH");
             if (_patih != null)
             {

@@ -18,6 +18,7 @@ public class Health : MonoBehaviour
     public Sprite emptyHealthSprite;
     public IPlayerAttack playerAttackScript; // Menggunakan interface sebagai tipe data
     private bool hasTakenDamage = false;
+    [SerializeField] private bool _canTakeDamage = true;
 
     public static event Action OnPlayerDeath;
 
@@ -28,8 +29,25 @@ public class Health : MonoBehaviour
         playerAttackScript = GetComponent<IPlayerAttack>(); // Mengambil komponen yang menggunakan interface
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            ToggleCanTakeDamage();
+        }
+    }
+
+    private void ToggleCanTakeDamage()
+    {
+        _canTakeDamage = !_canTakeDamage;
+    }
+
     public void TakeDamage(int damage)
     {
+        if (!_canTakeDamage)
+        {
+            return;
+        }
         if (!hasTakenDamage)
         {
             currentHealth -= damage;

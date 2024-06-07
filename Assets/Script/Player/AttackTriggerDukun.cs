@@ -84,7 +84,11 @@ public class AttackTriggerDukun : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Senopati") && playerAttackScript.IsAttacking)
         {
-            senopati = other.GetComponent<Senopati>();
+            if (senopati == null)
+            {
+
+                senopati = other.GetComponent<Senopati>();
+            }
             Debug.Log("---SENOPATI");
             if (senopati != null)
             {
@@ -111,7 +115,10 @@ public class AttackTriggerDukun : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Patih") && playerAttackScript.IsAttacking && _patih.IsStunned)
         {
-            _patih = other.GetComponent<PatternPatih>();
+            if (_patih == null)
+            {
+                _patih = other.GetComponent<PatternPatih>();
+            }
             Debug.Log("---PATIH");
             if (_patih != null)
             {

@@ -30,9 +30,9 @@ public class AttackTrigger : MonoBehaviour
         comboScript = FindObjectOfType<Combo>();
         killCountScript = FindAnyObjectByType<KillCount>();
         scoreScript = FindObjectOfType<Score>();
-        _patih = FindObjectOfType<PatternPatih>();
-        Debug.Log($"_patih == null{_patih == null}");
-        senopati = FindObjectOfType<Senopati>();
+        // _patih = FindObjectOfType<PatternPatih>();
+        // Debug.Log($"_patih == null{_patih == null}");
+        // senopati = FindObjectOfType<Senopati>();
     }
 
     // Update is called once per frame
@@ -97,6 +97,10 @@ public class AttackTrigger : MonoBehaviour
         else if (other.gameObject.CompareTag("Senopati") && playerAttackScript.IsAttacking)
         {
             Debug.Log("---SENOPATI");
+            if (senopati == null)
+            {
+                senopati = other.GetComponent<Senopati>();
+            }
             if (senopati != null)
             {
                 Debug.Log($"senopati.isGettingHitInThisHit{senopati.isGettingHitInThisHit}");
@@ -122,6 +126,10 @@ public class AttackTrigger : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Patih") && playerAttackScript.IsAttacking && _patih.IsStunned)
         {
+            if (_patih == null)
+            {
+                _patih = other.GetComponent<PatternPatih>();
+            }
             Debug.Log("---PATIH");
             if (_patih != null)
             {
