@@ -84,6 +84,7 @@ public class AttackTriggerDukun : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Senopati") && playerAttackScript.IsAttacking)
         {
+            senopati = other.GetComponent<Senopati>();
             Debug.Log("---SENOPATI");
             if (senopati != null)
             {
@@ -96,7 +97,7 @@ public class AttackTriggerDukun : MonoBehaviour
                 senopati.isGettingHitInThisHit = true;
 
                 // comboScript.comboCount++;
-                AudioManager.Instance.PlaySFX("Hit");
+                AudioManager.Instance.PlaySFX("Hit Boss");
                 Debug.Log("Player Damage: " + playerAttackScript.PlayerDamage);
                 senopati.TakeDamage(playerAttackScript.PlayerDamage);
                 Debug.Log("Boss Senopati HP: " + senopati.HP);
@@ -110,6 +111,7 @@ public class AttackTriggerDukun : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Patih") && playerAttackScript.IsAttacking && _patih.IsStunned)
         {
+            _patih = other.GetComponent<PatternPatih>();
             Debug.Log("---PATIH");
             if (_patih != null)
             {
