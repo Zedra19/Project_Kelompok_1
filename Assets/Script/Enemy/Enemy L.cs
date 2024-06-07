@@ -157,13 +157,13 @@ public class EnemyL : MonoBehaviour
     {
         if (_playerTransform != null)
         {
-            if (_playerTransform.gameObject.name == "Player-Ksatria(Clone)")
+            if (_playerTransform.gameObject.name == "Player-Ksatria(Clone)" || _playerTransform.gameObject.name == "Player_Petani(Clone)")
             {
                 GameObject heKsatriaVFX = Instantiate(heKsatriaVFXPrefab, transform.position + transform.up * 2, Quaternion.identity);
                 heKsatriaVFX.transform.localScale *= 3;
                 Destroy(heKsatriaVFX, 2f);
             }
-            else if (_playerTransform.gameObject.name == "Player_Prajurit(Clone)")
+            else if (_playerTransform.gameObject.name == "Player_Prajurit(Clone)" || _playerTransform.gameObject.name == "Player_Dukun(Clone)")
             {
                 GameObject hePrajuritVFX = Instantiate(hePrajuritVFXPrefab, transform.position + transform.up * 2, Quaternion.identity);
                 hePrajuritVFX.transform.localScale *= 3;
