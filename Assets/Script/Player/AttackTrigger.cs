@@ -11,6 +11,8 @@ public class AttackTrigger : MonoBehaviour
     Score scoreScript;
     PatternPatih _patih;
     Senopati senopati;
+    [SerializeField] private GameObject heKsatriaVFXPrefab;
+    [SerializeField] private GameObject hePrajuritVFXPrefab;
 
     private void OnEnable()
     {
@@ -41,6 +43,13 @@ public class AttackTrigger : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        if (other.gameObject.CompareTag("Enemy S") || other.gameObject.CompareTag("Enemy M"))
+        {
+            GameObject heKsatriaVFX = Instantiate(heKsatriaVFXPrefab, other.gameObject.transform.position + other.gameObject.transform.up * 2, Quaternion.identity);
+            heKsatriaVFX.transform.localScale *= 2;
+            Destroy(heKsatriaVFX, 2f);
+        }
+
         if (other.gameObject.CompareTag("Enemy S") && playerAttackScript.IsAttacking)
         {
             AudioManager.Instance.PlaySFX("Hit");

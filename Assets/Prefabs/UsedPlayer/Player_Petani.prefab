@@ -694,6 +694,10 @@ PrefabInstance:
       value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 8914153916774008191, guid: cc04a6ae8e6566a49b683ce159559376, type: 3}
+      propertyPath: heKsatriaVFXPrefab
+      value: 
+      objectReference: {fileID: 4794043405585894037, guid: 37138c0c33167b04fa1fb90b7f5a794f, type: 3}
+    - target: {fileID: 8914153916774008191, guid: cc04a6ae8e6566a49b683ce159559376, type: 3}
       propertyPath: playerAttackScript
       value: 
       objectReference: {fileID: 2707796061959420100}

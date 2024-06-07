@@ -148,3 +148,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 534649b0802f894468cb088945a04cd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hePrajuritVFXPrefab: {fileID: 3421640216827455911, guid: 7abde22d01f88d64d8f96b04289a8ef4, type: 3}
