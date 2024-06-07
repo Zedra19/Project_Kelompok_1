@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Monday B6
-  productName: The Fallen Singosari
+  productName: Singosari Fallen Dynasty
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -42,7 +42,7 @@ PlayerSettings:
   m_SplashScreenLogos:
   - logo: {fileID: 21300000, guid: 849b7081674e3b441af623b926241949, type: 3}
     duration: 3
-  - logo: {fileID: 21300000, guid: 45ee16fdbc7e35745b5c63bf7d69f3a0, type: 3}
+  - logo: {fileID: 21300000, guid: fcb3dad0ee3aa1c468c46f19e933a1fe, type: 3}
     duration: 3
   - logo: {fileID: 10404, guid: 0000000000000000f000000000000000, type: 0}
     duration: 2
@@ -292,7 +292,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 73fe027447d52274a90c4e4d4c7bc808, type: 3}
+      m_Icon: {fileID: 2800000, guid: c70995585c629864aaf7bfda59ef4af7, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0

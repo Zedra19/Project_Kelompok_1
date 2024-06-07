@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 1229554599780020022}
   - component: {fileID: 1437987943483552673}
   m_Layer: 5
-  m_Name: Image
+  m_Name: MDB6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -577,7 +577,7 @@ GameObject:
   - component: {fileID: 8384882544500666432}
   - component: {fileID: 5951412554376503269}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Game Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -630,7 +630,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 45ee16fdbc7e35745b5c63bf7d69f3a0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bd51ed00ae1f3fc43af3ffe12569f5ea, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
