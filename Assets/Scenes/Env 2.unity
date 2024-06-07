@@ -81786,10 +81786,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentScore: 0
-  EnemyS: 100
-  EnemyM: 250
-  EnemyL: 500
-  Boss: 1000
+  EnemyS: 50
+  EnemyM: 100
+  EnemyL: 250
+  Boss: 500
   scoreText: {fileID: 1162512442}
 --- !u!114 &1306228006
 MonoBehaviour:
@@ -83951,7 +83951,7 @@ MonoBehaviour:
   _lSwarmerPrefab: {fileID: 1212060903103841737, guid: 4e24185829d4ab04c9fabb68e26dbab1, type: 3}
   _bossPrefab: {fileID: 4013222591048061470, guid: 44bedf6d602156247b96b797e39d4967, type: 3}
   _bossPrefab2: {fileID: 0}
-  totalEnemyCount: 10
+  totalEnemyCount: 100
   spawnThreshold: 0
   spawnInterval: 2
   isEndlessMode: 0
